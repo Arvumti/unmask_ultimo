@@ -141,7 +141,7 @@
 									</div>
 								</div>
 								<div class="small-12 small columns">
-									<button type="button" class="button success btn-buscar-avanzado" style="border-radius:5px"><i class="icon-ojo"></i>{{Lang::get('messages.baseBsaBtnBuscar')}}</button>
+									<button type="button" class="button success btn-buscar-avanzado" style="background-color:#ae3e34;">{{Lang::get('messages.baseBsaBtnBuscar')}}</button>
 								</div>
 							</div>
 			            </form>
@@ -287,7 +287,7 @@
 		
 
 		<script>
-			var url = window.location.origin + '/unmask-eng/public/';
+			var url = window.location.origin + '/public/';
 			$(document).foundation();
 			$(document).foundation('tooltip', 'reflow');
 			$(document).ready(function(){ //creacion de perfiles

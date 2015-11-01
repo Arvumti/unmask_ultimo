@@ -118,7 +118,7 @@
 						</div>
 						<div class="large-2 columns formulario_alinear">
 							<label>
-								<button type="button" class="button align-top tiny btn-nombre-publica radius">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+								<button type="button" class="button align-top tiny btn-nombre-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
 							</label>
 						</div>
 					</div>
@@ -134,7 +134,7 @@
 						</div>
 						<div class="large-2 columns formulario_alinear">
 							<label>
-								<button type="button" class="button align-top tiny btn-apodo-publica radius">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+								<button type="button" class="button align-top tiny btn-apodo-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
 							</label>
 						</div>
 					</div>
@@ -149,7 +149,7 @@
 						</div>
 						<div class="large-2 columns formulario_alinear">
 							<label>
-								<button type="button" class="button align-top tiny btn-mascara-publica radius">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+								<button type="button" class="button align-top tiny btn-mascara-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
 							</label>
 						</div>
 					</div>
@@ -170,7 +170,7 @@
 								</div>
 								<div class="large-2 columns formulario_alinear">
 									<label>
-										<button type="submit" class="button align-top tiny btn- radius">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+										<button type="submit" class="button align-top tiny btn- "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
 									</label>
 								</div>
 							</form>
@@ -189,7 +189,7 @@
 							</div>
 							<div class="large-2 columns formulario_alinear">
 								<label>
-									<button type="button" class="button align-top tiny btn-red-publica radius">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+									<button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
 								</label>
 							</div>
 						</div>
@@ -206,7 +206,7 @@
 							</div>
 							<div class="large-2 columns formulario_alinear">
 								<label>
-									<button type="button" class="button align-top tiny btn-perfil-publico radius">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+									<button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
 								</label>
 							</div>
 						</div>

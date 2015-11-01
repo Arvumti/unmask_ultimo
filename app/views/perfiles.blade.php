@@ -65,7 +65,7 @@
 						</label>
 					</div>
 					<div class="small-12 small columns">
-						<button type="submit" class="button success"style="border-radius:5px"><i class="icon-disco"></i>{{Lang::get('messages.perfilesModBtnRe')}}</button>
+						<button type="submit" class="button "style="background-color:#ae3e34;">{{Lang::get('messages.perfilesModBtnRe')}}</button>
 					</div>
 				</div>
             </form>
@@ -85,7 +85,7 @@
 						</label>
 					</div>
 					<div class="small-12 small columns">
-						<button type="submit" class="button success"style="border-radius:5px"><i class="icon-disco"></i>{{Lang::get('messages.perfilesModBtnRe')}}</button>
+						<button type="submit" class="button "style="background-color:#ae3e34;">{{Lang::get('messages.perfilesModBtnRe')}}</button>
 					</div>
 				</div>
             </form>

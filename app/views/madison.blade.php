@@ -15,7 +15,7 @@
 			</div>
 	</section>			
 	<section id="h1-perfiles">
-		<div class="contenedor_perfiles perfiles">
+		<div class="contenedor_perfiles perfiles isHidden">
 			<table class="gv-perfiles">
 				<thead>
 					<tr>
@@ -110,7 +110,7 @@
 						<div class="large-4 columns ">
 							<label >
 								<b ><span></span></b>
-								<input  data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltTexto')}}" type="text" name="amaterno" value="{{Input::old('amaterno')}}" placeholder="{{Lang::get('messages.crePerFrmLblApellidoMat')}} - {{Lang::get('messages.crePerTltApellidoMaterno')}}" required />
+								<input  data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltTexto')}}" type="text" name="amaterno" value="&nbsp;" placeholder="{{Lang::get('messages.crePerFrmLblApellidoMat')}} - {{Lang::get('messages.crePerTltApellidoMaterno')}}" required />
 							</label>
 							<small class="error">{{Lang::get('messages.crePerFrmLblApellidoMatErr')}}</small>
 						</div>					
@@ -188,7 +188,9 @@
 						<br/>
 					</div>
 					<div class="small-12 " >
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltTexto')}}"><button type="submit" class="button  flota_der"style="background-color:#18232b;margin-left:200px;">{{Lang::get('messages.crePerFrmBtnGuardar')}}</button></span>
+						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltTexto')}}">
+							<button type="submit" class="button  flota_der button-save"style="background-color:#18232b;margin-left:200px;">{{Lang::get('messages.crePerFrmBtnGuardar')}}</button>
+						</span>
 						<a href="{{ URL::to('/perfiles') }}" class="button  flota_der"style="background-color:#ae3e34;">{{Lang::get('messages.crePerFrmBtnCancelar')}}</a>
 						
 					</div>
@@ -225,7 +227,8 @@
 					$('[name="ciudad"]').val(row['CITY']);
 					$('[name="colonia"]').val(row['STREET']);
 
-					$('.creacion_perfiles').removeClass('isHidden');
+					//$('.creacion_perfiles').removeClass('isHidden');
+					$('.button-save').click();
 				}
 			});
 
@@ -242,9 +245,16 @@
 				}
 
 				$.get('madison/data', {query:busqueda}).done(function(data) {
-					data_info = data || [];
-					var table = tmp_datos({data:data});
-					$('.contenedor_perfiles .gv-perfiles tbody').html(table);
+					debugger
+					if(data.length == 0)
+						alert('No se encontraron datos');
+					else {
+						data_info = data || [];
+						var table = tmp_datos({data:data});
+						$('.contenedor_perfiles .gv-perfiles tbody').html(table);
+						$('.contenedor_perfiles .gv-perfiles tbody tr').eq(0).click();
+						alert('Datos encontrados! Puedes crear el perfil');
+					}
 				});
 			});			
 		});

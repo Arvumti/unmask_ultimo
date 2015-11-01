@@ -1830,7 +1830,12 @@ Route::get('/madison/data', function() {
 								ON a.COUNTRY = b.COUNTRY_ID
 								INNER JOIN tgender c
 								ON a.GENDER = c.GENDER_ID
-								WHERE a.FIRST_NAME LIKE '%{$query}%'
+								WHERE 
+								( 	a.FIRST_NAME = '{$query}'
+									AND a.LAST_NAME = '{$query}'
+								)
+								OR ( a.EMAIL = '{$query}' )
+
 								"));
 	//WHERE a.FIRST_NAME LIKE '%{$query}%'
 	//var_dump($sql);
