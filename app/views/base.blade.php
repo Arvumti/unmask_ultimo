@@ -287,7 +287,7 @@
 		
 
 		<script>
-			var url = window.location.origin + '/public/';
+			var url = window.location.origin + '/unmask_ultimo/public/';
 			$(document).foundation();
 			$(document).foundation('tooltip', 'reflow');
 			$(document).ready(function(){ //creacion de perfiles
