@@ -25,7 +25,7 @@
 @import url(foundation/css/foundation.min.css);
 @import url(foundation/css/normalize.css);
 
-/* Fonts */
+/* Fonts 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800);
@@ -88,7 +88,7 @@
 
 
 		/*font-family: 'Roboto', sans-serif;*/
-		font-family: unmask;
+		font-family: unmask !important;
 		font-size:13px;
 		color:#6d6d6d;
 		background:#FFF;
@@ -143,6 +143,7 @@
 		margin: 0;
 	}
 	a { 
+		font-family: 'unmask';
 		padding: 0;
 		margin: 0;
 		color:#C3C3C3;
@@ -164,7 +165,7 @@
 		vertical-align: bottom;
 	}
 	h1, h2, h3, h4, h5, h6 {
-		font-family: unmask;
+		font-family: unmask !important;
 		font-weight: 900;
 		/*color:#3d3d3d;*/
 		margin-bottom: 5px;
@@ -955,6 +956,7 @@ footer a {
 	border-radius:3px;
 	position:relative;
 	font-size:14px;
+	padding: 5px;
 	transition:all .3s;
 	-moz-transition:all .3s;
 	-ms-transition:all .3s;
@@ -1681,6 +1683,7 @@ footer .wd_reciente_rank li a span {
 
 	#hero{
 		width:100%;
+		max-height: 400px;
 		position:relative;
 		background:white;
 	}
@@ -1769,6 +1772,7 @@ footer .wd_reciente_rank li a span {
 	background-color: white;
 	width: 100%;
 	min-height: 160px;
+
 }
 .seccion_blanca .titulo_sec_bca{
 	text-align: center;
@@ -1832,11 +1836,11 @@ footer .wd_reciente_rank li a span {
 	padding-top: 5px;
 }
  #cuadro_inicio{
- 	width: 50%;
+ 	width: 10%;
  	position:absolute;
- 	top:20%;
- 	left: 25%;
- 	min-height: 200px;
+ 	top:96%;
+ 	left: 0%;
+ 	min-height:50px;
  	z-index:2;
  }
 	.h1-main {
@@ -1849,7 +1853,8 @@ footer .wd_reciente_rank li a span {
 		-webkit-transform: translateY(-50%);
 		-moz-transform: translateY(-50%);
 		transform: translateY(-50%);
-		text-align:center;
+		text-align:left;
+		top: 80;
 	}
 
 	.h1-main img{
@@ -4647,7 +4652,6 @@ blockquote.style5 {
 					
 					
 	
-	/*Boxed style */
 	.hor-tab.boxed-style .nav-tabs {
 		border-bottom:none;
 		}
@@ -4691,16 +4695,20 @@ blockquote.style5 {
 
 .boton_find_area{
 	width: 100%;
-	text-align:center;
-	padding: 2em 6em 0 6em ;
+	text-align:center !important;
 	min-height: 70px;
-	margin-bottom: 2em;
+	margin-bottom: 0 auto;
+	position: relative;
+	display: block;
 
 }
-.find_btn{
+.boton_find_area .find_btn{
 	height: 46px;
 	padding: 10px;
 	width: 214px !important;
+	text-align:center !important;
+	display: inline-block;
+
 
 }
 .barrita_gris{
@@ -4724,7 +4732,7 @@ blockquote.style5 {
 	vertical-align: top; 
 }
 .barrita_gris .caja_circulos .circulo_ind img{
-	width: 80%;
+	width: 85%;
 	border-radius: 100%;
 	
 }
@@ -6485,7 +6493,6 @@ blockquote.style5 {
   margin: 1em 0 0 0;
 }
 
-/* ================ Timeline Media Queries ================ */
 
 @media screen and (max-width: 660px) {
 
@@ -6589,10 +6596,8 @@ blockquote.style5 {
 
 }	
 /*==========================================================
-	14. GALLERY STYLE
 ==========================================================*/	
 
-/* Galery Carousel  */
 
 	.g-carousel .item {
 		margin:0 2px;
@@ -6665,18 +6670,15 @@ blockquote.style5 {
 		opacity:1;
 	}
 
-/* Grid gallery */
 	.grid-gallery {
 	  width:100%;
 	}
-	/* clear fix */
 	.grid-gallery:after {
 	  content: '';
 	  display: block;
 	  clear: both;
 	}
 	
-	/* ---- .grid-gallery > li ---- */
 	
 	.grid-gallery li {
 	  float: left;
@@ -7018,4 +7020,9 @@ vertical-align: top;
 #contenedor_video video{
 	width: 100%;
 
+}
+.area_principal_web{
+	width: 100%;
+	background-color:white;
+	position: absolute;
 }

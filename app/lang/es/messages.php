@@ -16,15 +16,15 @@ return array(
 /* -- INDEX -- */
 
 	"indxTitUnmask" => "UNMASK",
-	"indxHerBtnInicioSecion" => "Inicia sesión o suscribete",
+	"indxHerBtnInicioSecion" => "LOGIN",
 	"indxModTitInicioSecion" => "Inicio de sesión",
 	"indxModLblUsuario" => "Nombre de usuario(Alias) :",
 	"indxModlblContrsenia" => "Contraseña :",
 	"indxModBtnCrearCuenta" => "Crear cuenta",
 	"indxModBtnSesion" => "Iniciar sesión",
 	"indxModLblCapcha" => "Teclear caracteres de la imagen",
-	"indxNavBtnInicio" => "Inicio",
-	"indxNavUnmask" => "UNMASK",
+	"indxNavBtnInicio" => "Acerca",
+	"indxNavUnmask" => "Cómo funciona",
 	"indxNavLblPoliticasAvisos" => "Politicas y Avisos",
 	"indxHelLblCaracteristicas" => "CARACTERISTICAS",
 	"indxHelLblCaracteristica1" => "REGÍSTRATE Y CREA TU CUENTA SIN NECESIDAD DE INFORMACIÓN PERSONAL",

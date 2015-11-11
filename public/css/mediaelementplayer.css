@@ -151,11 +151,12 @@
 	background: linear-gradient(rgba(50,50,50,0.7), rgba(0,0,0,0.7)); 	
 	height: 30px;
 	width: 100%;
+	display: none;
 }
 .mejs-container .mejs-controls  div {
 	list-style-type: none;
 	background-image: none;
-	display: block;
+	display: none;
 	float: left;
 	margin: 0;
 	padding: 0;

@@ -63,8 +63,8 @@
 			 
 				
 			   <ul class="main-menu">
-			   		<li style="top:0;padding-top:0;margin-top:0">
-						<img width="50px" src="img/logo_sl.png">
+			   		<li style="top:0;padding-top:8px;margin-top:0">
+						<img width="90px" src="img/unmk.png">
 				  
 					</li>
 
@@ -73,10 +73,10 @@
 				  
 					</li>
 
-				   <li class="multi-level-menu"><a href="{{ URL::to('unmask') }}"><h6  class="borde_derecho_menu">{{Lang::get('messages.indxNavUnmask')}}</h6></a></li>
+				   <li class="multi-level-menu"><a href="{{ URL::to('unmask') }}"><h6  class="">{{Lang::get('messages.indxNavUnmask')}}</h6></a></li>
 				   
 				   <li class="multi-level-menu">
-					<a ><h6>{{Lang::get('messages.indxNavLblPoliticasAvisos')}}</h6></a>
+					<a ><h6 class="borde_izquierdo_menu"style="padding-left:10px;">{{Lang::get('messages.indxNavLblPoliticasAvisos')}}</h6></a>
 				 
 				   </li>
 				  
@@ -138,12 +138,9 @@
 		</div>
 	  
 		<div id="slides"><a name="inicio"></a>
-		  <video class="video" muted  autoplay="autoplay"  width="100%" height="80%" preload='none' loop="loop" src="video/video.mp4" >
+		  <video class="video" muted  autoplay="autoplay"  width="100%" height="80%" preload='none' loop="loop" src="video/abc.mp4" >
 
-										<source type="video/webm" src="video/video.webm">
-										<source type="video/mp4" src="videovideo.mp4">
-										<source type="video/ogg" src="video/video.ogv">
-										<source type="video/mov" src="video/video.mov">
+								
 
 		  </video>
 
@@ -320,14 +317,15 @@
 			</div>
 						
 	
-	<section class="barrita_int">
-		<a ><img src="img/flechita.png"></a>
-	</section>
+<div class="area_principal_web">
 		<section class="seccion_blanca">
+		<article class="barrita_int">
+			<a href="#zona_umk"><img src="img/flechita.png"></a>
+		</article>
 		
 		<div class="banda_azul" data-scroll-reveal="enter bottom over 1.5s and move 30px" >		
 				<div class="titulo_sec_bca">
-					<h3 style="color:white;">YOU WILL KNOW THE TRUTH</h3>
+					<h3 style="color:white;margin-bottom:0">YOU WILL KNOW THE TRUTH</h3>
 					<h5 style="color:white;">about the people who surround you</h5>
 				</div>
 
@@ -335,7 +333,7 @@
 		<p data-scroll-reveal="enter bottom but wait 1s">On UNMASK life you can see the truth about people from all over the world. Whether it's your friend, teachers, staff, boss,
 		lovers or anyone else you've met. Also you can share info about anyone you know and unmask them!</p>
 		<div class="perfil_de_muestra">
-			<div class="instruccion">
+			<div id="zona_umk" class="instruccion">
 				<h4 data-scroll-reveal="enter left and move 50px over 2s">Click "UNMASK" to open the truth</h4>
 			</div>
 			<div class="perfil_ejemplo_index"data-scroll-reveal="move 16px scale up 20%, over 2s" >
@@ -368,7 +366,7 @@
 
 	</section>
 	<section class="barrita_int">
-		<img src="img/flechita.png">
+		<a href="#perfiluchos"><img src="img/flechita.png"></a>
 		<div class="boton_find_area">
 			<div class="find_btn rojo_fondo"><a  style="color:white;font-weight:500">FIND SOMEONE</a></div>
 		</div>
@@ -376,7 +374,7 @@
 	</section>
 	<section class="seccion_blanca">	
 		
-		<div class="contenedor_perfiles_ejemplo" >
+		<div id="perfiluchos"class="contenedor_perfiles_ejemplo" >
 			<div class="perfil_ejemplo_index"data-scroll-reveal="enter left and move 50px over 2.5s">
 				<div class="avatar_index">
 						
@@ -1022,7 +1020,7 @@
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<aside class="wd wd_galeria_mask clearfix">
 					<h4 class="wd_titulo">{{Lang::get('messages.indxGalLblEspecialUnmask')}}</h4>
-					<!--<ul class="galery_work">
+					<<ul class="galery_work">
 						<li><a href="img/gente/pena.jpg" class="prettyPhoto"><img src="img/gente/pena.jpg"></a></li>
 						<li><a href="img/gente/2.jpg" class="prettyPhoto"><img src="img/gente/2.jpg"></a></li>
 						<li><a href="img/gente/3.jpg" class="prettyPhoto"><img src="img/gente/3.jpg"></a></li>
@@ -1053,7 +1051,7 @@
 		</div>
 	</footer-->
 	
-	
+</div>	
 	<div id="verVideo1" class="reveal-modal" data-reveal>
 		<div class="titulo_barra">
 			<h3></h3>
@@ -1095,7 +1093,7 @@
 	</div>
 
 	<a class="exit-off-canvas"></a>
-	<div class="copyright">
+	<!--div class="copyright">
 		 <div class="container">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 col-sm-12">{{Lang::get('messages.indxPdpLblCopyright')}} {{Lang::get('messages.indxPdpLblUnmask')}}.   <a href="#" ></a></div>
@@ -1109,7 +1107,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div-->
 	<!-- regresar a arriba quitado -->
 	<!--<a href="#" class="back-to-top"> <i class="fa fa-angle-up"></i> </a>-->
 	
@@ -1148,6 +1146,8 @@
 	<script type="text/javascript" src="{{ URL::asset('js/lodash.underscore.min.js') }}"></script> 
 	<script type="text/javascript" src="{{ URL::asset('js/backbone-min.js') }}"></script> 
 	<script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script> 
+	<script type="text/javascript" src="{{ URL::asset('js/scroolto.js') }}"></script> 
+
 	<script type="text/javascript" src="{{ URL::asset('js/jssor.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jssor.slider.js') }}"></script>
 	<script>
@@ -1175,6 +1175,9 @@
                 }  
             });
 		});*/
+		$('#perfiluchos').scrollTo();
+		$('#zona_umk').scrollTo();
+
 	</script>
 	
 	<script>

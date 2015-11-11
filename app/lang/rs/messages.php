@@ -16,7 +16,7 @@ return array(
 /* -- index -- */
 
 	"indxTitUnmask" => "UNMASK",
-	"indxHerBtnInicioSecion" => "ВОЙТИ ИЛИ ЗАРЕГИСТРИРОВАТЬСЯ",
+	"indxHerBtnInicioSecion" => "ВОЙТИ",
 	"indxModTitInicioSecion" => "Войти",
 	"indxModLblUsuario" => "Имя пользователя:",
 	"indxModlblContrsenia" => "Пароль:",
@@ -24,8 +24,8 @@ return array(
 	"indxModBtnSesion" => "Войти",
 	"indxModLblCapcha" => "Введите символы, указанные ниже:",
 	"indxNavBtnInicio" => "ГЛАВНАЯ",
-	"indxNavUnmask" => "UNMASK",
-	"indxNavLblPoliticasAvisos" => "ПОЛИТИКА И УВЕДОМЛЕНИЕ ОБ ОГРАНИЧЕНИИ ОТВЕТСТВЕННОСТИ",
+	"indxNavUnmask" => "How it works",
+	"indxNavLblPoliticasAvisos" => "ПОЛИТИКА И УВЕДОМЛЕНИЕ",
 	"indxHelLblCaracteristicas" => "ОСОБЕННОСТИ",
 	"indxHelLblCaracteristica1" => "ЗАРЕГИСТРИРУЙТЕСЬ И СОЗДАЙТЕ СВОЙ ПРОФИЛЬ БЕЗ КАКОЙ-ЛИБО ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ",
 	"indxHelLblCaracteristica2" => "ВОЙДИТЕ И ОПУБЛИКУЙТЕ ИНФОРМАЦИЮ АНОНИМНО ",

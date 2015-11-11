@@ -97,7 +97,7 @@ $(function () {
 
 /* ==============================================
 HTML5 player
-=============================================== */
+===============================================
 $('audio,video').mediaelementplayer();
 $('video').mediaelementplayer({
 	success: function(media, node, player) {
