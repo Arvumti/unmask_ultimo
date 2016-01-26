@@ -1,5 +1,6 @@
 var ViLogin = Backbone.View.extend({
-	el:'.bb-link.bb-login',
+	//el:'.bb-link.bb-login',
+	el:'#sign_up_popup',
 	events: {
 		'click #btnLogin': 'click_btnLogin',
 	},
@@ -10,7 +11,9 @@ var ViLogin = Backbone.View.extend({
 
 		this.alError = this.$el.find('.error-message');
 	},
-	click_btnLogin: function() {
+	click_btnLogin: function(e) {
+		debugger
+		e.preventDefault();
 		var that = this;
 		/*$.post(window.location.href + 'login', {mail:this.txtUsuario.val(), password:this.txtPassword.val(), CaptchaCode:this.CaptchaCode.val()}).done(done);
 		function done(data) {
@@ -28,7 +31,7 @@ var ViLogin = Backbone.View.extend({
 
 		var xhr = null;
 		xhr = $.ajax({
-			url: window.location.href + 'login',
+			url: url + 'login',
 			type: 'POST',
 			data: jData,
 			success: function(data) {
@@ -41,7 +44,7 @@ var ViLogin = Backbone.View.extend({
 					$('#CaptchaCode').val('');
 				}
 				else
-					window.location = window.location.href + '/principal';
+					window.location = url + '/principal';
 			},
 			dataType: 'json',
 			cache: false,

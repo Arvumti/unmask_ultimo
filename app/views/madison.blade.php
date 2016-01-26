@@ -1,18 +1,22 @@
 @extends('base')
 
 @section('content')
-	<section class="area_buscador">	
-			<div class="busqueda">
+	<script type="text/javascript" src="{{ URL::asset('js/jquery-2.0.3.min.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/lodash.underscore.min.js') }}"></script> 
+	<script type="text/javascript" src="{{ URL::asset('js/backbone-min.js') }}"></script> 
+
+	<section id="madison_busqueda">	
+		<img src="{{ URL::asset('img/ashley_madison.jpg') }}">
+			<form>
 				<input style="padding-left:15px" type="text" class="txt-buscarMad" placeholder="{{Lang::get('messages.basePlhBusca')}}">
 				<div class="busqueda-resultado isHidden">		
 				</div>
-			</div>
-			<!--div class="filtro">
+					<!--div class="filtro">
 				<a class="" data-reveal-id="">	<i class="icon-filter"></i></a>
 			</div-->
-			<div class="buscar rojo_fondo">
-				<a id="btn-madison" class="base-button"><i class="icon-buscar"></i></a>
-			</div>
+			
+				<input type="submit" id="btn-madison" class="base-button" value="Search">
+			</form>
 	</section>			
 	<section id="h1-perfiles">
 		<div class="contenedor_perfiles perfiles isHidden">
@@ -232,7 +236,8 @@
 				}
 			});
 
-			$('#btn-madison').on('click', function() {
+			$('#btn-madison').on('click', function(e) {
+				e.preventDefault();
 				var busqueda = $('.txt-buscarMad').val();
 
 				if(busqueda.length == 0) {
@@ -244,16 +249,17 @@
 					buav_id: busqueda || ''
 				}
 
-				$.get('madison/data', {query:busqueda}).done(function(data) {
+				$.get('madison/data', {query:busqueda}).done(function(id) {
 					debugger
-					if(data.length == 0)
+					if(id == 0)
 						alert('No se encontraron datos');
 					else {
-						data_info = data || [];
-						var table = tmp_datos({data:data});
-						$('.contenedor_perfiles .gv-perfiles tbody').html(table);
-						$('.contenedor_perfiles .gv-perfiles tbody tr').eq(0).click();
+						//data_info = data || [];
+						// var table = tmp_datos({data:data});
+						// $('.contenedor_perfiles .gv-perfiles tbody').html(table);
+						// $('.contenedor_perfiles .gv-perfiles tbody tr').eq(0).click();
 						alert('Datos encontrados! Puedes crear el perfil');
+						window.location = url + 'update_perfil/' + id;
 					}
 				});
 			});			

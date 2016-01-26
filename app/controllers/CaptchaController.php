@@ -26,7 +26,7 @@ class CaptchaController extends BaseController {
 
 		// passsing Captcha Html to register view
 
-		return View::make('index', array('captchaHtml' => $captcha->Html()));									
+		return View::make('index', array('captchaHtml' => $captcha->Html()));
 	}
 
 	public function postLogin() {
@@ -35,14 +35,14 @@ class CaptchaController extends BaseController {
 
 		// validate the user-entered Captcha code when the form is submitted
 		$code = Input::get('CaptchaCode');
-		$isHuman = $captcha->Validate($code);
+		$isHuman = true;//$captcha->Validate($code); ::EOF
 		if ($isHuman) 
 		{
 			$mail = Input::get('username');
 			$pass = Input::get('password');
 
 			$usuarios = DB::select(DB::raw("
-											SELECT idAlias, password, nombre, correo, pais, estado
+											SELECT 1 id, idAlias, password, nombre, correo, pais, estado, foto
 											FROM alias
 											WHERE nombre = '{$mail}'
 											AND password = '{$pass}'
@@ -52,7 +52,7 @@ class CaptchaController extends BaseController {
 				$usuario = $usuarios[0];
 				$usuario->front = Array('nombre' => $usuario->nombre, 'correo' => $usuario->correo, 'estado' => $usuario->estado, 'pais' => $usuario->pais);
 				Session::put('usuario', $usuario);
-				return Response::json(Array('usuario' => $usuario->front));
+				return Response::json(Array('usuario' => $usuario->front, 'ses' => Session::get('usuario')));
 			}
 			else
 				return Response::json(Array('captchaHtml' => $captcha->Html(), 'errmsg' => "El usuario y/o contraseña no son correctos"));
@@ -107,7 +107,8 @@ class CaptchaController extends BaseController {
 				//$usuario->ubicacion
 				$usuario->front = Array('nombre' => $usuario->nombre, 'correo' => $usuario->correo, 'pais' => $usuario->pais, 'estado' => $usuario->estado);
 				Session::put('usuario', $usuario);
-				return Response::json(Array('ok' => 1));//;Redirect::to('/principal');
+				//return Response::json(Array('ok' => 1));//;
+				return Redirect::to('/principal');
 			}
 
 			return Redirect::back()->withInput(Input::except('password'))->withErrors($alia->getErrors());
@@ -228,7 +229,7 @@ class CaptchaController extends BaseController {
 
 		// validate the user-entered Captcha code when the form is submitted
 		$code = Input::get('CaptchaCode');
-		$isHuman = true;//$captcha->Validate($code);
+		$isHuman = $captcha->Validate($code);
 		if ($isHuman) 
 		{
 			$data = Input::all();

@@ -1,11 +1,17 @@
 @extends('base')
 
 @section('content')
+<script type="text/javascript" src="{{ URL::asset('js/jquery-2.0.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/typeahead.jquery.min.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('js/main_app.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('js/lodash.underscore.min.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('js/backbone-min.js') }}"></script> 
+
 <div class="titulo_barra">
 	<h2 style="margin-left:25px; margin-top:1.5em">{{Lang::get('messages.updtTitLblCrear')}}</h2>
 </div>
 
-<form action="/public/crear_perfil/{{$data['perfil']->idPerfil}}" method="post" enctype="multipart/form-data" data-abide>	
+<form action="{{ URL::to('crear_perfil/'.$data['perfil']->idPerfil) }}" method="post" enctype="multipart/form-data" data-abide>	
 	<div class="row columns">
 		<div class="small-4 columns">
 			<a class="th img-logo" href="#">
@@ -113,7 +119,7 @@
 					<div class="gv-apodos">
 						@foreach($data['perfil']->apods as $apodo)
 							<label>
-								<span class="texto">{{$apodo}}</span>
+								<span class="texto">{{$apodo->apodo}}</span>
 								<span class="cerrar">x</span>
 							</label>
 						@endforeach
@@ -133,7 +139,7 @@
 					<div class="gv-mascaras">
 						@foreach($data['perfil']->masks as $mascara)
 							<label>
-								<span class="texto">{{$mascara}}</span>
+								<span class="texto">{{$mascara->nombre}}</span>
 								<span class="cerrar">x</span>
 							</label>
 						@endforeach					
@@ -249,6 +255,7 @@
 		}
 
 		function render_masks() {
+			debugger
 			var spans = $('.gv-mascaras label span.texto');
 			var masks = Array();
 			for (var i = 0; i < spans.length; i++) {

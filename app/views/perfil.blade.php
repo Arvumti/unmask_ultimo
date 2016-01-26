@@ -1,1066 +1,1041 @@
 @extends('base')
 
 @section('content')
-	<section class="contenedor_perfiles ">	
-		<div class="area_add">
-			<!--a class="button" data-reveal-id="addPerfil"><i class="icon-agregar_us"></i>Perfil</a-->
-			<a href="{{ URL::to('/crear_perfil') }}"  data-tooltip aria-haspopup="true" class="btnPro has-tip" title="{{Lang::get('messages.perfilesBtncreaTlt')}}"><div class="etiqueta"><h3 style="color:#ae3e34;margin-left:20px;"> {{Lang::get('messages.perfilesBtncrea')}}</h3></div>  <div class="suma" style="border-left:solid 2px #ae3e34;"><h3 style="color:#ae3e34;margin-left:20px;">+</h3></div></a>
-		</div>
-	</section>
-	<section class="contenedor_perfiles">
-		
-									<!--div class="miniatura_img">
-										@foreach($data['fotos'] as $evidencia)
-											<a href="" data-reveal-id="sliderGaleria" class="open-modal">
-												<img src="{{ URL::asset('img\\db_imgs\\publicas\\'.$evidencia->foto) }}"/>
-											</a>
-										@endforeach
-									</div-->
-		<div class="portada">
-			<a data-reveal-id="sliderFotoPerfil"><img class="sombra_img" src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}"/></a>
-			<div class="cien"><!-- COLUMNA QUE TIENE LA CALIFICACION DEL PERFIL Y LOS PERFILES QUE SE HAYAN RELACIONADO-->
-				<div class="cal_perfil">
-					<p style="color:#18232b; font-family:sans-serif; font-weight:600;">{{ $data['perfil']->good }}</p><img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltReputacionBuena')}}" src="../img/mn.png"/>
-					<p style="color:#ae3e34; font-family:sans-serif; font-weight:600;">{{ $data['perfil']->bad }}</p><img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltReputacionMala')}} " src="../img/mr.png"/>
-					
-				</div>
-				
-					<!--{{Lang::get('messages.perfInfLblClasificar')}}-->
+    
+<script type="text/javascript" src="{{ URL::asset('js/jquery-2.0.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/typeahead.jquery.min.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('js/main_app.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('js/lodash.underscore.min.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('js/backbone-min.js') }}"></script> 
+        
+	   <!--div class="gallery_popup">
+            <span class="prev"><</span>
+            <img src=""/>
+            <span class="next">></span>
+            <div class="comenta_img">
 
-					<span data-tooltip aria-haspopup="true" class="has-tip hidden" title="{{Lang::get('messages.perfPostTltVotarConsejo')}}"><a data-reveal-id="votosPerfilBox" class="votos_mostrar"><i class="icon-thumbs-up" style="color:#ae3e34; font-size: 28px;"></i></a></span>														
-				
-				
-				<ul class="ul_relaciones"><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltComplices')}} "><h3>{{Lang::get('messages.perfInfLblPerfiles')}} </h3></span>
-					@foreach($data['relaciones'] as $relacion)
-						<li><a href="{{ URL::to('perfil').'/'.$relacion->idPerfil }}"><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltComplice')}}"><img src="{{ URL::asset('img\\db_imgs\\'.$relacion->foto) }}" style="border-radius:5px"/></span></a></li>
-					@endforeach
-				</ul> 
-			</div>					
-		</div>
-		<article class="info_perfil_area">
-			<h1 class="titulo_perfil">{{ $data['perfil']->perfil }}</h1>
-			@foreach($data['apodos'] as $apodo)
-				@if( strlen($apodo->apodo) > 0 )
-					<div class="cien">
-						<h4 style="text-transform: capitalize;"><!--{{Lang::get('messages.perfInfLblApodo')}}--> ( {{ $apodo->apodo }} )</h4>
-					</div>
-				@endif
-			@endforeach
-			<div class="cien">
-						<!--li><i class="icon-usuario"></i><h5 style="text-transform: capitalize;"> {{ $data['perfil']->perfil }}</h5></li-->
-				<h5>
-					{{Lang::get('messages.perfInfLblLugar')}}: {{ $data['perfil']->pais }},   {{ $data['perfil']->municipio }} 
-				</h5><br>
-				<h5><b>ID:</b> {{ $data['perfil']->idPerfil }}</h5><br>
-				@foreach($data['nombres'] as $nombre)
-					<h5 style="text-transform: capitalize;">Extras: {{ $nombre->nombre }}</h5><br>
-				@endforeach
-				@foreach($data['mascaras'] as $mascara)
-					@if( strlen($mascara->nombre) > 0 )
-						<h5 style="text-transform: capitalize;"><!--{{Lang::get('messages.perfInfLblMascara')}}--> {{ $mascara->nombre }}</h5><br>
-					@endif
-				@endforeach
-				@if(strlen($data['perfil']->facebook) > 0)
-					<a href="{{ $data['perfil']->facebook }}"target="_blank">{{ substr($data['perfil']->facebook, 0, 25) }}...</a><br>
-				@endif
-				@if(strlen($data['perfil']->twitter) > 0)
-					<a href="{{ $data['perfil']->twitter }}"target="_blank">{{ substr($data['perfil']->twitter, 0, 25) }}...</a><br>
-				@endif
-				@if(strlen($data['perfil']->instagram) > 0)
-					<a href="{{ $data['perfil']->instagram }}"target="_blank">{{ substr($data['perfil']->instagram, 0, 25) }}...</a><br>
-				@endif
-				@foreach($data['redes'] as $red)
-					<a href="{{ $red->nombre }}"target="_blank">{{ substr($red->nombre, 0, 25) }}...</a><br>
-				@endforeach
-				<div class="botones_odio">
-							<!--div class="cien"><h5>{{Lang::get('messages.perfInfLblTitulo')}}</h5></div-->
-					<div class="cien">
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltVotarOtraVez')}}">
-							<a href="#" class="button btn-voto-amor" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}" style="background-color:#ae3e34; margin-right:20px;">{{Lang::get('messages.perfInfLblOdio')}} 
-								<span class="amor-votes">({{ $data['perfil']->odio }})</span>
-							</a>
-						</span>
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltVotar')}}">
-							<a href="#" class="button btn-voto-amor" data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}" style="background-color:#18232b;">{{Lang::get('messages.perfInfLblAmor')}}
-								<span class="amor-votes">({{ $data['perfil']->amor }})</span>
-							</a>
-						</span>
-					</div>
-				</div>
-							<div class="cien"><a href="#" data-reveal-id="agregarPublico">Añadir Info</a></div>
+            </div>
+        </div-->
+        <a href="" class="arrow_back"><img src="{{ URL::asset('img/arrow_back.png') }}"> Back </a>
 
-			</div>
-			
-			
-										<!--div class="row columns " >
-											<div class="large-4" style="margin-left:10em;">
-												<h5>{{Lang::get('messages.perfInfLblAgregarInformacion')}}</h5>
-											</div>
-											<div class=" margin_boton">
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltLigar')}}"><a id="mostrarApodos" class="iconos_form "style="width:60px"><small style="color:#013B76">{{Lang::get('messages.perfInfLblApodosExtras')}}</small></a></span>
-												<a id="mostrarMasca"class="iconos_form " ><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltMascara')}}"><i class="icon-mask"></i></span><small style="color:#013B76">{{Lang::get('messages.perfInfLblMascara')}}</small></a>
-												<a id="mostrarSocial" class="iconos_form "><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltSocial')}}"><i class="icon-link"></i></span><small style="color:#013B76">{{Lang::get('messages.perfInfLblSocial')}}</small></a>
-												<a id="mostrarRela" class="iconos_form "><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltRelacionados')}}"><i class="icon-usuarios"></i></span><small style="color:#013B76">{{Lang::get('messages.perfInfLblRelacionar')}}</small></a>
-												<a id="mostrarFotos" class="iconos_form "><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltFotos')}}"><i class="icon-fotos"></i></span><small style="color:#013B76">{{Lang::get('messages.perfInfLblFotos')}}</small></a>
-											</div>
-										</div-->
-	
-				<div id="agregarPublico" class="reveal-modal" data-reveal>
-				
-				<div class="row">
-				@if(count($data['nombres']) < 3)
-					<div id="nombresAdd"class="large-4 columns pnl-nombres-publicos" data-id="{{ $data['perfil']->idPerfil }}">
-						<div class="large-10 columns">
-							<label>
-								<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltNombresExtras')}}">{{Lang::get('messages.perfInfLblNombresAdicionales')}}</span>
-								<input type="text" class="podos-publica" name="nombre" />
-							</label>
-						</div>
-						<div class="large-2 columns formulario_alinear">
-							<label>
-								<button type="button" class="button align-top tiny btn-nombre-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
-							</label>
-						</div>
-					</div>
-				@endif
+        <button id="create_profile" onclick="window.location.href='{{ URL::to('crear_perfil')}}'"> <span>create profile</span> <img src="{{ URL::asset('img/create_plus.png') }}" width="30"></button>
 
-				@if(count($data['apodos']) < 3)
-					<div id="apodosAdd"class="large-4 columns pnl-apodos-publicos  " data-id="{{ $data['perfil']->idPerfil }}">
-						<div class="large-10 columns">
-							<label>
-								<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltApodosExtras')}}">{{Lang::get('messages.perfInfLblApodo')}}</span>
-								<input type="text" class="podos-publica" name="apodo" />
-							</label>
-						</div>
-						<div class="large-2 columns formulario_alinear">
-							<label>
-								<button type="button" class="button align-top tiny btn-apodo-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
-							</label>
-						</div>
-					</div>
-				@endif
-				@if(count($data['mascaras']) < 10)
-					<div id="masca"class="large-4 columns pnl-mascaras-publicas  " data-id="{{ $data['perfil']->idPerfil }}">
-						<div class="large-10 columns">
-							<label>
-								<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltMascarasExtras')}}">{{Lang::get('messages.perfInfLblMascara')}}</span>
-								<input type="text" class="mascara-publica typeahead" name="mascara" />
-							</label>
-						</div>
-						<div class="large-2 columns formulario_alinear">
-							<label>
-								<button type="button" class="button align-top tiny btn-mascara-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
-							</label>
-						</div>
-					</div>
-				@endif
-				@if(count($data['fotos']) < 5)
-					<div class="large-12">
-						<div id="fotosAdd"class="large-4 columns  ">
-							<form action="{{ URL::to('fotos_publicas').'/'.$data['perfil']->idPerfil }}" method="post" id="frmEvidencia" enctype="multipart/form-data" class="multi-image" data-abide>
-								<div class="large-10 columns">
-									
-									<label>
-										<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltFotosExtras')}}">
-											{{Lang::get('messages.perfInfLblImagenExtra')}}
-										</span>
-										<input type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
-									</label>
-									<small class="error">{{Lang::get('messages.perfInfLblObligatorio')}}</small>
-								</div>
-								<div class="large-2 columns formulario_alinear">
-									<label>
-										<button type="submit" class="button align-top tiny btn- "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
-									</label>
-								</div>
-							</form>
-						</div>
-					</div>
-				@endif
-				
-				<div class="large-12">	
-					@if(count($data['redes']) < 10)
-						<div id="social"class="large-4 columns pnl-redes-publicas " data-id="{{ $data['perfil']->idPerfil }}">
-							<div class="large-10 columns">
-								<label>
-									<span data-tooltip  aria-haspopup="true" class="has-tip" title="">{{Lang::get('messages.perfInfLblSocialMedia')}}</span>
-									<input type="text" class="mascara-publica" />
-								</label>
-							</div>
-							<div class="large-2 columns formulario_alinear">
-								<label>
-									<button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
-								</label>
-							</div>
-						</div>
-					@endif
-				</div>
-				<div class="large-12">
-					@if(count($data['relaciones']) < 5)
-						<div id="rela"class="large-4 columns pnl-perfiles-publicos " data-id="{{ $data['perfil']->idPerfil }}">
-							<div class="large-10 columns">
-								<label>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">{{Lang::get('messages.perfInfLblIdPerfil')}}</span>
-									<input type="text" class="perfil-publica" name="mascara" />
-								</label>
-							</div>
-							<div class="large-2 columns formulario_alinear">
-								<label>
-									<button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
-								</label>
-							</div>
-						</div>
-					@endif
-				</div>
-			</div>
-					<!-- TERMINA SILDER DE IMAGENES MINIATURA -->
-					<a class="close-reveal-modal">&#215;</a>
-				</div>
-				<a class="exit-off-canvas"></a>
+        <div class="clear"></div>
+            <div class="other_users_container">
 
+                <div class="edit_profile_main_info">
+                    <div class="edit_profile_photo_block">
+                        <div class="teg_photo">
+                            <div class="mask">
+                                <img src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}">
+                            </div>
+                            @foreach($data['mascaras'] as $mascara)
 
-		</article> <!-- TERMINA SECCION INFO PERFIL AREA-->
-		<div class="borde_portada formulario_alinear"></div>
-		<div class="diez">
-				<span data-tooltip aria-haspopup="true" class="has-tip" title="Number of posts made on this profile:">
-					<h6 style="text-align:center">{{ count($data['posts']) }} Post</h6>
-				</span>
-		</div>
-					<!-- AQUI VAN LOS DATOS DEL PERFIL QUE AGREGÓ EL DUEÑO DEL PERFIL-->
-		<article class="perfil">
-			<div class="cien " style="margin-bottom:3em;">
-				<h5 class="letras_n_perfil">{{Lang::get('messages.perfInfLblAgregarInformacion')}}:</h5>
-				<form class=" postearEv Hidden" enctype="multipart/form-data" data-abide>
-					<div id="conCampo" class="Hidden">
-						<label>
-							<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesion1')}}">{{Lang::get('messages.perfPorLblConfesion')}}: </span> 
-								<textarea style="overflow:auto; min-height:90px"placeholder="" name="confesion" required></textarea>
-						</label>
-						<small class="error">{{Lang::get('messages.perfPorLblConfesionVal')}}</small><br>
-						<small>{{Lang::get('messages.perfPorLblRequerido')}}:</small>
-						<input type="text" placeholder="{{Lang::get('messages.perfPorLblSecretBox')}}" name="secret" required/>
-						<small class="error">{{Lang::get('messages.perfPorLblSecretBoxReq')}}</small>
-					</div>
-					<div id="linkCampo" style="margin-top:5px;">
-						<label>
-							<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionRelacionado')}}">
-							</span> 
-							<input type="text"placeholder="{{Lang::get('messages.perfPorLblEnlace1')}}" name="link_evi" class="expand" pattern="url"/>
-						</label>
-						<small class="error">{{Lang::get('messages.perfPorLblEnlace1Example')}}</small>
-					</div>
-					<div id="videoCampo" class="Hidden">
-						<label>
-							{{Lang::get('messages.perfPorLblEvidenciaVideo')}}:
-							<input  type="text" name="link" placeholder=""/>
-						</label>
-					</div>
-					<div id="eviCampo" class="Hidden">
-						<label>
-							{{Lang::get('messages.perfPorLblEvidenciaFoto')}}:
-							<input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
-						</label>
-					</div>
-					<div id="botCampo" class="Hidden">	
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionEvidencia')}}"><button type="button" class="button btn-postear" style=""> {{Lang::get('messages.perfPorLblPostear')}}</button></span>
-						<h6 style="color:#a7a9ab;">{{Lang::get('messages.perfPostLblTitulo')}}</h6>
-					</div>
-				</form>	<!--     TERMINA FORMULARIO POSTEO       -->
-			</div>
-		
-							
-					<!--span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesion')}}">
-									</span> 
-									<p style="margin-left: 3px;color:#013B76">{{Lang::get('messages.perfPorLblConfesion')}}</p>
-								
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionVideo')}}">
-										<i class="icon-fotos"></i>
-									</span>
-									<p style="color:#013B76">{{Lang::get('messages.perfPorLblAgregrEle')}}</p>
-								
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionSecretBox')}}">
-									
-									</span>
-									<p style="color:#013B76">{{Lang::get('messages.perfPorLblSecretBox')}}</p>
-								
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionEnlace')}}">
-									
-									</span>
-									<p style="color:#013B76">{{Lang::get('messages.perfPorLblEnlace')}}</p-->
-			
-				
-				<div class="noventa" >
-					<div class="area_evidencia">
-						<div class="cien" >
-							<div class="post_evidencia "><!-- AQUI SE POSTEA CADA SECRET BOX CADA COMENTARIO FOTOS Y VIDEO-->
-								@foreach($data['posts'] as $post)
-									<div class="fondo_post">
-										<h6 class="secret_box" style="margin-top: .5em;">{{$post->secret}}</h6>
-										
-										@if(strlen($post->link_evi) > 0)
-											<div class="large-12" style="text-align:center; margin-bottom:9px;">
-												<a style="font-size:25px; word-wrap: break-word;" href="{{$post->link_evi}}" target="_blank" >
-													{{substr($post->link_evi, 0, 80)}}...
-												</a>
-											</div>
-										@endif
-								
-																 <!-- CONTENEDOR DE EVIDENCIA PAL -->
-										@if(strlen($post->link) > 0)
-											<div class="large-12 columns" style="text-align:center;margin-bottom:9px;"> <!--VIDEO POST EVIDENCIA PAL-->
-												<h3 style="text-align:center;">{{Lang::get('messages.perfPostLblVideo')}}</h3>
-												<iframe width="50%" height="330" src="//www.youtube.com/embed/{{$post->link}}" frameborder="0" allowfullscreen></iframe>
-												<div class="confiable isHidden" data-tipo="video_post" data-id="{{ $post->idPost }}">
-													{{Lang::get('messages.perfPostLblConfiable')}}:
-													<a href="#" data-conf="1"><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMala')}}"><i class="icon-checkmark"></i></span> [{{ $post->vid_siconf }}]</a>
-													<a href="#" data-conf="0"><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMala')}}"><i class="icon-tacha"></i></span> [{{ $post->vid_noconf }}]</a>
-												</div>
-												<div class="com_likes isHidden">
-													<a href="" data-reveal-id="comentBox">
-														<i style="font-size: 25px;" class="icon-chat comm-post" data-tipo="2" data-id="{{$post->idPost}}"></i>
-													</a>
-													<a class="votos_mostrar"><i style=" font-size: 28px;"class="icon-thumbs-up"></i></a>											
-													<div class="votosPost formulario_alinear votos-container Hidden" data-tipo="2" data-idpost="{{$post->idPost}}">
-														<div class="goodPost formulario_alinear">
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="corazon">
-																<img src="../img/emoticon/5.gif">
-																<p class="num_rank">{{ $post->vid_corazon }}</p>
-															</a>
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="estrella">
-																<img src="../img/emoticon/4.gif">
-																<p class="num_rank">{{ $post->vid_estrella }}</p>
-															</a>
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="blike">
-																<img src="../img/emoticon/3.gif">
-																<p class="num_rank">{{ $post->vid_blike }}</p>
-															</a>
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="carita">
-																<img src="../img/emoticon/2.gif">
-																<p class="num_rank">{{ $post->vid_carita }}</p>
-															</a>
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="cake">
-																<img src="../img/emoticon/1.gif">
-																<p class="num_rank">{{ $post->vid_cake }}</p>
-															</a>
-														</div>
-														<div class="badPost formulario_alinear">
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">{{ $post->vid_caca }}</p></a>
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">{{ $post->vid_craneo }}</p></a>
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">{{ $post->vid_bug }}</p></a>
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">{{ $post->vid_gota }}</p></a>
-															<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">{{ $post->vid_enojo }}</p></a>
-														</div>
-													</div>
-												</div>
-											</div>	
-										@endif
-									
-										<div class="large-12 columns" style="margin-bottom:9px; "><!--VIDEO FOTO EVIDENCIA PAL-->
-											@foreach($post->fotos as $foto)
-												<div class="cuadro_foto">
-													<a href="" data-reveal-id="slider_post_{{$post->idPost}}" data-id="{{$foto->idFotoPost}}" data-idpost="{{$post->idPost}}" class="open-modal foto-post">
-														<img src="{{ URL::asset('img\\db_imgs\\posts\\'.$foto->foto) }}"/>
-													</a>
-												</div>
-											@endforeach<!--FOTOS POST EVIDENCIA-->
+                            @if( strlen($mascara->nombre) > 0 )
+                            <p>{{ $mascara->nombre }}</p>
+                            @endif
+                            @endforeach
+                        </div>
 
-											@if($data['perfil']->idAliasBase == $post->idAlias)
-												<a id="fotosAddPost"><i class="icon-fotos" style="font-size:18px;"></i></a>
-												<div id="campoFotosPost"class="large-12 Hidden">
-													<form class="postear-post-evi" data-idpost="{{$post->idPost}}" enctype="multipart/form-data" data-abide>
-														<div id="evi-post-campo">
-															<label>
-															{{Lang::get('messages.perfPostLblAgregarFoto')}}
-																<input type="file" class="file-post-evi" name="files[]" multiple="multiple" accept="image/*" required />
-															</label>
-															<small class="error">{{Lang::get('messages.perfPorLblRequerido')}}</small>
-														</div>
-														<div>
-															<button type="button" class="button btn-file-post-evi" style="background-color: #ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
-														</div>
-													</form>
-												</div>
-											@endif
-												
-											<div class="large-12" style="text-align:right">
-												<!--h5>{{Lang::get('messages.perfPostLblConfiabilidadPost')}}:</h5-->
-												<div class="confiable" data-tipo="post" data-id="{{ $post->idPost }}">
-													{{Lang::get('messages.perfPostLblConfiable')}}:
-													<a href="#" data-conf="1"><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMala')}}"><img src="{{ URL::asset('img\\red_1.png') }}"></span> [{{ $post->siconf }}]</a>
-													<a href="#" data-conf="0"><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMala')}}"><img src="{{ URL::asset('img\\verde_1.png') }}"></span> [{{ $post->noconf }}]</a>
-												</div>
-												<div class="com_likes isHidden">
-													<a class="votos_mostrar">
-														<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMalaDesc')}}">
-															<i style=" font-size: 28px;"class="icon-thumbs-up"></i>
-														</span>
-													</a>										
-													<div class="votosPost  formulario_alinear votos-container Hidden" data-tipo="1" data-idpost="{{$post->idPost}}">
-														<div class="goodPost formulario_alinear">
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="corazon">
-																	<img src="../img/emoticon/5.gif">
-																	<p class="num_rank">{{ $post->corazon }}</p>
-																</a>
-															</span>
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="estrella">
-																	<img src="../img/emoticon/4.gif">
-																	<p class="num_rank">{{ $post->estrella }}</p>
-																</a>
-															</span>
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="blike">
-																	<img src="../img/emoticon/3.gif">
-																	<p class="num_rank">{{ $post->blike }}</p>
-																</a>
-															</span>
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="carita">
-																	<img src="../img/emoticon/2.gif">
-																	<p class="num_rank">{{ $post->carita }}</p>
-																</a>
-															</span>
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="cake">
-																	<img src="../img/emoticon/1.gif">
-																	<p class="num_rank">{{ $post->cake }}</p>
-																</a>
-															</span>
-														</div>
-														<div class="badPost formulario_alinear">
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="caca">
-																	<img src="../img/emoticon/10.gif">
-																	<p class="num_rank">{{ $post->caca }}</p>
-																</a>
-															</span>
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="craneo">
-																	<img src="../img/emoticon/9.gif">
-																	<p class="num_rank">{{ $post->craneo }}</p>
-																</a>
-															</span>
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="bug">
-																	<img src="../img/emoticon/8.gif">
-																	<p class="num_rank">{{ $post->bug }}</p>
-																</a>
-															</span>
-																<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="gota">
-																	<img src="../img/emoticon/7.gif">
-																	<p class="num_rank">{{ $post->gota }}</p>
-																</a>
-															</span>
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}">
-																<a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="enojo">
-																	<img src="../img/emoticon/6.gif">
-																	<p class="num_rank">{{ $post->enojo }}</p>
-																</a>
-															</span>
-														</div>
-													</div>	
-												</div>
-												<p style="float:left;" class="texto_justifica fuente_bold">
-													{{Lang::get('messages.perfPostLblConfesion')}}<br>{{$post->confesion}}
-												</p><br>
-											</div>
+                        <div class="flex_box">
+                            <a href="#" class="vote-perfil" data-tipo="cake" data-id="{{ $data['perfil']->idPerfil }}">
+                                <div class="unmask_red">
+                                    [<span class="num_rank">{{ $data['perfil']->good }}</span>]
+                                    <img src="{{ URL::asset('img/anonymous.png') }}" width="11" height="15">
+                                </div>
+                            </a>
 
-										</div>
-										
-								
-											<!-- SLIDER MODAL DE EVIDENCIAS FOTOGRAFICAS GALERIA PAL-->	
-										<div id="slider_post_{{$post->idPost}}" class="reveal-modal fotos-modal" data-reveal>
-											<div class="titulo_barra">
-												<h2>{{Lang::get('messages.perfPostLblGaleria')}}</h2>
-											</div>
-											<div class="row">
-												<div class="small-8 columns slider_cuadro">
-													<div class="orbit-link isHidden">
-														@foreach($post->fotos as $foto)
-															<a data-orbit-link="foto-{{$post->idPost}}-{{$foto->idFotoPost}}" class="small button"></a>
-														@endforeach
-													</div>
-												    <ul class="orbit" data-tipo="post" data-orbit data-options="circular:true;">
-												        @foreach($post->fotos as $foto)
-												            <li data-orbit-slide="foto-{{$post->idPost}}-{{$foto->idFotoPost}}">
-												               <img data-id="{{$foto->idFotoPost}}" src="{{ URL::asset('img\\db_imgs\\posts\\'.$foto->foto) }} "/>
-												            </li>
-												            @endforeach        
-												    </ul>
-												</div>
-												<div class="small-4 columns">
-													<div class="row">
-														<div class="foto-comment">
-															<div class="confiable" data-tipo="imagen_post" data-id="">
-																{{Lang::get('messages.perfPostLblConfiable')}}:
-																<a href="#" data-conf="1">
-																	<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
-																		<img src="{{ URL::asset('img\\red_1.png') }}">
-																	</span> 
-																	[0]
-																</a>
-																<a href="#" data-conf="0">
-																	<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
-																		<img src="{{ URL::asset('img\\verde_1.png') }}">
-																	 </span>[0]
-																</a>
-															</div>
-														 	<div class="large-12 columns">
-														 		<div class="com_likes isHidden" style="margin-bottom:5px;">
-																	<a class="votos_mostrar"><i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i></a>														
-																	<div class="votosPost formulario_alinear votos-container Hidden">
-																		<div class="goodPost formulario_alinear">
-																			<a href="#" class="vote-foto-post" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">0</p></a>
-																			<a href="#" class="vote-foto-post" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">0</p></a>
-																			<a href="#" class="vote-foto-post" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">0</p></a>
-																			<a href="#" class="vote-foto-post" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">0</p></a>
-																			<a href="#" class="vote-foto-post" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">0</p></a>
-																		</div>
-																		<div class="badPost formulario_alinear">
-																			<a href="#" class="vote-foto-post" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">0</p></a>
-																			<a href="#" class="vote-foto-post" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">0</p></a>
-																			<a href="#" class="vote-foto-post" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">0</p></a>
-																			<a href="#" class="vote-foto-post" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">0</p></a>
-																			<a href="#" class="vote-foto-post" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">0</p></a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														   	<div class="small-12 columns">
-														   		<textarea placeholder=""></textarea>
-														   	</div>
-														   	<div class="small-12 columns">
-														   		<button type="button" class="btn-comentar button tiny expand" data-mod="post" data-idpost="{{$post->idPost}}">Comment</button>
-														   	</div>
-														</div>
-														<div class="large-12 columns gv-comentarios">
-														   
-														</div>
-													</div>
-												</div>			   	
-												<!-- TERMINA SILDER DE IMAGENES MINIATURA -->
-												<a class="close-reveal-modal">&#215;</a>
-											</div>
-										</div>
-										<!-- TERMINA SLIDER MODAL DE EVIDENCIAS FOTOGRAFICAS GALERIA PAL-->	
-										<div class="row  subpost_area" >
-											<div class="seccion_sub_com">
-												<div class="sub_coment_titulo">
-													<h4 >COMMENTS</h4>
-												</div>
+                            <div class="separation_edit"></div>
 
-											</div>
-											<ul class="gv-subcomentarios"  style="margin-top:2em;">
-												@foreach($post->subcomentarios as $subcomentario)
-													
-												
-												<li class="cien">
-													<div class="cien">
-														<h3 style="font-size:18px; color:red;"> <strong style="text-transform: capitalize;">{{$subcomentario->usuario}}</strong></h3>
-														<!--label>{{$subcomentario->created_at}}</label-->
-													</div>
-													@if(strlen($subcomentario->comentario) > 0)
-														<div class="cien" style="margin-bottom:9px">
-															<div class="cien">
-																<p class="texto_justifica" style="color:black">{{$subcomentario->comentario}}</p>
-															</div>
-															<div class="large-12 columns" style="text-align:right;">
-																<div class="confiable" data-tipo="com_subpost" data-id="{{ $subcomentario->idSubcomentario }}">
-																	{{Lang::get('messages.perfPostLblConfiable')}}:
-																	<a href="#" data-conf="1">
-																		<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
-																			<img src="{{ URL::asset('img\\red_1.png') }}">
-																		</span>
-																		[{{ $subcomentario->com_siconf }}]
-																	</a>
-																	<a href="#" data-conf="0">
-																		<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
-																			<img src="{{ URL::asset('img\\verde_1.png') }}">
-																		</span>
-																		[{{ $subcomentario->com_noconf }}]
-																	</a>
-																</div>
-																<div class="com_likes isHidden" style="margin-bottom:5px;;">
-																	<a class="votos_mostrar">
-																		<i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i>
-																	</a>
-																	<div class="votosPost formulario_alinear votos-container Hidden" data-tipo="1">											
-																		<div class="goodPost formulario_alinear">													
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">{{ $subcomentario->com_corazon }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">{{ $subcomentario->com_estrella }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">{{ $subcomentario->com_blike }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">{{ $subcomentario->com_carita }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">{{ $subcomentario->com_cake }}</p></a>
-																		</div>
-																		<div class="badPost formulario_alinear">
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">{{ $subcomentario->com_caca }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">{{ $subcomentario->com_craneo }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">{{ $subcomentario->com_bug }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">{{ $subcomentario->com_gota }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">{{ $subcomentario->com_enojo }}</p></a>
-																		</div>
-																	</div>
-																</div>
-															</div>	
-														</div>
-													@endif
-													@if(strlen($subcomentario->link_evi) > 0)
-													<div class="cien " style="text-align:center; margin-bottom:9px;">
-														<a style="font-size:25px; word-wrap: break-word; " href="{{$subcomentario->link_evi}}" target="_blank">
-															{{substr($subcomentario->link_evi, 0, 80)}}...
-														</a>
-													</div>
-													@endif
-													<div class="cien">
-														@if(strlen($subcomentario->video) > 0)
-															<div class="large-12 columns" style="text-align:center; margin-bottom:9px;">
-																<iframe width="50%" height="330" src="//www.youtube.com/embed/{{$subcomentario->video}}" frameborder="0" allowfullscreen></iframe>
-																<div class="confiable isHidden" data-tipo="vid_subpost" data-id="{{ $subcomentario->idSubcomentario }}">
-																	{{Lang::get('messages.perfPostLblConfiable')}}::
-																	<a href="#" data-conf="1"><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}"><img src="{{ URL::asset('img\\red_1.png') }}"></span> [{{ $subcomentario->com_siconf }}]</a>
-																	<a href="#" data-conf="0"><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}"><img src="{{ URL::asset('img\\verde_1.png') }}"></span> [{{ $subcomentario->com_noconf }}]</a>
-																</div>
-																<div class="com_likes isHidden" style="margin-bottom:5px;">
-																	<a class="votos_mostrar"><i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i></a>
-																	<div class="votosPost formulario_alinear votos-container Hidden" data-tipo="2">
-																		<div class="goodPost formulario_alinear">													
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">{{ $subcomentario->vid_corazon }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">{{ $subcomentario->vid_estrella }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">{{ $subcomentario->vid_blike }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">{{ $subcomentario->vid_carita }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">{{ $subcomentario->vid_cake }}</p></a>
-																		</div>
-																		<div class="badPost formulario_alinear">
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">{{ $subcomentario->vid_caca }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">{{ $subcomentario->vid_craneo }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">{{ $subcomentario->vid_bug }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">{{ $subcomentario->vid_gota }}</p></a>
-																			<a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">{{ $subcomentario->vid_enojo }}</p></a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														@endif
-														<div class="large-12 columns" style="margin-bottom:9px; margin-top:9px;">
-															@foreach($subcomentario->fotos as $fotos)
-																<div class="cuadro_foto">
-																	<a href="" data-reveal-id="slider_subcom_{{$subcomentario->idSubcomentario}}" data-id="{{$fotos->idSubcomentarioFoto}}" data-idpost="{{$post->idPost}}" class="open-modal foto-subcom">
-																		<img src="{{ URL::asset('img\\db_imgs\\posts\\'.$fotos->imagen) }}"/>
-																	</a>
-																</div>
-															@endforeach
-														</div>
-														<!--SLIDER-->
-														<div id="slider_subcom_{{$subcomentario->idSubcomentario}}" class="reveal-modal fotos-modal" data-reveal>
-															<div class="titulo_barra">
-																<h2>{{Lang::get('messages.perfPostLblGaleriaComentarios')}}</h2>
-															</div>
-															<div class="row">
-																<div class="small-8 columns slider_cuadro">
-																	<div class="orbit-link isHidden">
-																		@foreach($subcomentario->fotos as $fotos)
-																			<a data-orbit-link="fotoSubcom-{{$fotos->idSubcomentarioFoto}}" class="small button"></a>
-																		@endforeach
-																	</div>
-																	<ul data-orbit class="orbit" data-tipo="subcom" data-options="circular:true;">
-																	@foreach($subcomentario->fotos as $fotos)
-																		<li data-orbit-slide="fotoSubcom-{{$fotos->idSubcomentarioFoto}}">
-																			<img data-id="{{$fotos->idSubcomentarioFoto}}" src="{{ URL::asset('img\\db_imgs\\posts\\'.$fotos->imagen) }}"/>
-																		</li>
-																	@endforeach
-																	</ul>
-																</div>
-																<div class="small-4 columns foto-comment">
-																	<div class="confiable" data-tipo="img_subpost" data-id="">
-																		{{Lang::get('messages.perfPostLblConfiable')}}::
-																		<a href="#" data-conf="1">
-																			<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
-																				<img src="{{ URL::asset('img\\red_1.png') }}">
-																			</span> [0]
-																		</a>
-																		<a href="#" data-conf="0">
-																			<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
-																				<img src="{{ URL::asset('img\\verde_1.png') }}">
-																			</span> [0]
-																		</a>
-																	</div>
-																	<div class="row">
-																		<div class="large-12 columns">
-																 			<div class="com_likes isHidden" style="margin-bottom:5px;">
-																				<a class="votos_mostrar">
-																					<i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i>
-																				</a>														
-																				<div class="votosPost formulario_alinear votos-container Hidden">
-																					<div class="goodPost formulario_alinear">
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">0</p></a></span>
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">0</p></a></span>
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">0</p></a></span>
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">0</p></a></span>
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">0</p></a></span>
-																					</div>
+                            <a href="#" class="vote-perfil" data-tipo="enojo" data-id="{{ $data['perfil']->idPerfil }}">
+                                <div class="unmask_grey">
+                                    [<span class="num_rank">{{ $data['perfil']->bad }}</span>]
+                                    <img src="{{ URL::asset('img/anonymous_red.png') }}" width="11" height="15">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-																					<div class="badPost formulario_alinear">
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">0</p></a></span>
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">0</p></a></span>
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">0</p></a></span>
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">0</p></a></span>
-																						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">0</p></a></span>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="small-12 columns foto-comment">
-																	   		<div class="small-12 columns">
-																	   			<textarea placeholder=""></textarea>
-																	   		</div>
-																	   		<div class="small-12 columns">
-																	   			<button type="button" class="btn-comentar button tiny expand" data-mod="subcom">{{Lang::get('messages.perfPostLblComentarios')}}</button>
-																	   		</div>
-																		</div>
-																		<div class="small-12 columns gv-comentarios"></div>
-																	</div>
-																</div>
-															</div>
+                    <div class="info_block">
+                        <!--a href="#" class="float_right">Follow <img src="{{ URL::asset('img/plus_red.png') }}"></a-->
+                        <div class="clear"></div>
+                        <div class="float_left">
+                            <p class="long_name">{{ $data['perfil']->perfil }}</p>
+                            @foreach($data['apodos'] as $apodo)
+                             @if( strlen($apodo->apodo) > 0 )
+                                <p class="short_name">( {{ $apodo->apodo }} )</p>
+                             @endif
+                            @endforeach
+                            <div class="place">
+                                <p>{{Lang::get('messages.perfInfLblLugar')}}: <span>{{ $data['perfil']->pais }} {{ $data['perfil']->municipio }}</span></p>
+                                <p>ID: <span>{{ $data['perfil']->idPerfil }}</span></p>
+                            </div>
+                            @foreach($data['nombres'] as $nombre)
+                                <p class="short_name" style="text-transform: capitalize;">Extras: {{ $nombre->nombre }}</p>
+                            @endforeach
+                            @foreach($data['mascaras'] as $mascara)
+                                @if( strlen($mascara->nombre) > 0 )
+                                    <p class="short_name" style="text-transform: capitalize;"><!--{{Lang::get('messages.perfInfLblMascara')}}--> {{ $mascara->nombre }}</p>
+                                @endif
+                            @endforeach
+                            @if(strlen($data['perfil']->facebook) > 0)
+                                <a href="{{ $data['perfil']->facebook }}"target="_blank">{{ substr($data['perfil']->facebook, 0, 25) }}...</a><br>
+                            @endif
+                            @if(strlen($data['perfil']->twitter) > 0)
+                                <a href="{{ $data['perfil']->twitter }}"target="_blank">{{ substr($data['perfil']->twitter, 0, 25) }}...</a><br>
+                            @endif
+                            @if(strlen($data['perfil']->instagram) > 0)
+                                <a href="{{ $data['perfil']->instagram }}"target="_blank">{{ substr($data['perfil']->instagram, 0, 25) }}...</a><br>
+                            @endif
+                            @foreach($data['redes'] as $red)
+                                <a href="{{ $red->nombre }}"target="_blank">{{ substr($red->nombre, 0, 25) }}...</a><br>
+                            @endforeach
+                            <a href="#" class="haters btn-voto-amor" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
+                            <a href="#" class="lovers btn-voto-amor"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
+                        </div>
+                    </div>
 
-															<a class="close-reveal-modal">&#215;</a>
-														</div>
-														<!-- TERMINA SLIDER-->
-													</div>
-												</li>
-												@endforeach
-											</ul>
-										</div>
-																			<!-- FOOTER POST MAS EVIDENCIA COMENTS REDES SOCIALES ETC-->	
-										<div class="row" style="margin-top:1em">	
-											<div class="alto">
-												<div class=" subcomentarios-posts" data-id="{{$post->idPost}}">
-													<div class="large-4 columns" style="float:right;padding-left:3em;">
-														<div class="post_foot">
-															<a class="confSec">
-																<img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaTexto')}}" src="{{ URL::asset('img\\coment2.png') }}">
-															</a>
-														</div>
-														<div class="post_foot borde_img">
-															<a class="fotoSec">
-																<img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaImagen')}}" src="{{ URL::asset('img\\img1.png') }}">
-															</a>
-														</div>
-														<div class="post_foot borde_img">
-															<a class="vidSec">
-																<img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaYoutube')}}" src="{{ URL::asset('img\\video1.png') }}">
-															</a>
-														</div>
-														<div class="post_foot borde_img">
-															<a class="linkSec">
-																<img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaEnlaces')}}" src="{{ URL::asset('img\\link1.png') }}">
-															</a>
-														</div>
-																<!--div class="postear_box_2 ">
-																<a class="confSec">
-																	<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaTexto')}}">
-																		<i class="icon-chat"></i>
-																	</span>
-																</a>
-																<a class="fotoSec">
-																	<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaImagen')}}">
-																		<i class="icon-fotos"></i>
-																	</span>
-																</a>
-																<a class="vidSec">
-																	<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaYoutube')}}">
-																		<i class="icon-camara"></i>	
-																	</span>
-																</a>
-																<a class="linkSec">
-																	<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaEnlaces')}}">
-																		<i class="icon-link"></i>	
-																	</span>
-																</a>
-															</div-->
-													</div>
-															<!--div class="large-4 columns">
-																<div class="compartir_redes ">	
-																	<div class="fb-share-button" style="margin-right:20px; vertical-align:top;"  data-layout="button_count"></div>
-																		<a href="https://twitter.com/share" class="twitter-share-button">{{Lang::get('messages.perfPostLblTweet')}}</a>
-																</div> 
-															</div-->
-												
-																		<!--LIKE POST CONFIABLE GLOBAL-->
-													<div class="large-2 columns">
-														<a href="" data-reveal-id="comentBox">
-															<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaPrivado')}}"><i class="icon-chat comm-post" data-tipo="1" data-id="{{$post->idPost}}" style="font-size:25px"></i></span>											
-														</a>
-														
-													</div>
-													<form class="small-12 columns form-subcomentario" enctype="multipart/form-data" data-abide>
-														<div class="small-12 columns">
-															<div  class="small-12 columns conSec Hidden ">
-																<label>
-																	<small></small>
-																	<textarea style="overflow:auto; min-height:90px" name="comentario" placeholder="{{Lang::get('messages.perfPorLblConfesion')}} {{Lang::get('messages.perfPorLblRequerido')}}" required></textarea>
-																</label>
-																<small class="error">{{Lang::get('messages.perfPostLblConfesionVal')}}</small>
-															</div>
-														</div>
-														<div class="small-12 columns">
-															<div class="small-12 columns linkerSec Hidden">
-																<label>
-																	<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionRelacionado')}}"> </span> 
-																	<input type="text" placeholder="{{Lang::get('messages.perfPorLblEnlace1')}}" name="link_evi" pattern="url"/>
-																</label>
-																<small class="error">{{Lang::get('messages.perfPorLblEnlace1Example')}}</small>
-															</div>
-														</div>
-														<div class="small-12 columns">
-															<div  class="small-12 columns viSec Hidden">
-																<label>
-																	
-																	<input type="text" name="video" placeholder="{{Lang::get('messages.perfPorLblEvidenciaVideo')}} - {{Lang::get('messages.perfPostTltEvidenciaLinkYoutube')}}"/>
-																</label>
-															</div>
-														</div>
-														<div class="small-12 columns">
-															<div  class="small-12 columns fotSec Hidden">
-																<label>
-																	{{Lang::get('messages.perfPorLblEvidenciaFoto')}}
-																	<input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
-																</label>
-															</div>
-														</div>
-														<div class="small-12 columns">
-															<label>
-																<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltInformacionGuardar')}}"><button type="button" class="button tiny btn-subcomentar btnSec Hidden"style="background-color: #ae3e34 ;">{{Lang::get('messages.perfPostLblSubir')}}</button></span>
-															</label>
-														</div>
-													</form>
-												</div>
-											</div>
-										</div><!-- TERMINA FOOTER POST MAS EVIDENCIA COMENTS REDES SOCIALES ETC-->
-									</div>		
-								@endforeach
-							</div>				<!-- TEMINA POSt EVIDENCIA -->
-						</div> 				<!-- TERMINA CIEN -->
-					</div> 			<!-- TERMINA AREA DE EVIDENCIA -->
-				</div> 					<!-- TERMINA NOVENTA-->
-				<div class="posteo_nuevo">
-					<div class="post_imagen"><a id="lapiz"><img src="{{ URL::asset('img\\coment.png') }}"></a></div>
-					<div class="post_imagen "><a id="fotosP"><img src="{{ URL::asset('img\\img.png') }}"></a></div>
-					<div class="post_imagen "><a id="secre"><img src="{{ URL::asset('img\\video.png') }}"></a></div>
-					<div class="post_imagen "><a id="linkear"><img src="{{ URL::asset('img\\link.png') }}"></a></div>
-				</div>
-			
+                    <div class="clear"></div>
+                </div>
+<!-- MODAL DE INFORMACION EXTRA -->
+                <div class="add_info_extra"><a href=""data-reveal-id="agregarPublico">Add Extra Info</a></div>
+                <div id="agregarPublico" class="reveal-modal" data-reveal>
+                    <div class="cien">
+                        @if(count($data['nombres']) < 3)
+                            <div id="nombresAdd"class="columna_datos pnl-nombres-publicos" data-id="{{ $data['perfil']->idPerfil }}">
+                                <div class="entrada_datos">
+                                    <label>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltNombresExtras')}}">{{Lang::get('messages.perfInfLblNombresAdicionales')}}</span>
+                                        <input type="text" class="podos-publica" name="nombre" />
+                                    </label>
+                                </div>
+                                <div class="btn_entrada formulario_alinear">
+                                    <label>
+                                        <button type="button" class="button align-top tiny btn-nombre-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                    </label>
+                                </div>
+                            </div>
+                        @endif
+                        @if(count($data['apodos']) < 3)
+                            <div id="apodosAdd"class="columna_datos pnl-apodos-publicos  " data-id="{{ $data['perfil']->idPerfil }}">
+                                <div class="entrada_datos">
+                                    <label>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltApodosExtras')}}">{{Lang::get('messages.perfInfLblApodo')}}</span>
+                                        <input type="text" class="podos-publica" name="apodo" />
+                                    </label>
+                                </div>
+                                <div class="btn_entrada  formulario_alinear">
+                                    <label>
+                                        <button type="button" class="button align-top tiny btn-apodo-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                    </label>
+                                </div>
+                            </div>
+                        @endif
+                        @if(count($data['mascaras']) < 10)
+                            <div id="masca"class="columna_datos pnl-mascaras-publicas  " data-id="{{ $data['perfil']->idPerfil }}">
+                                <div class="entrada_datos">
+                                    <label>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltMascarasExtras')}}">{{Lang::get('messages.perfInfLblMascara')}}</span>
+                                        <input type="text" class="mascara-publica typeahead" name="mascara" />
+                                    </label>
+                                </div>
+                                <div class="btn_entrada formulario_alinear">
+                                    <label>
+                                        <button type="button" class="button align-top tiny btn-mascara-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                    </label>
+                                </div>
+                            </div>
+                        @endif
+                        @if(count($data['fotos']) < 5)
+                            <div class="cien">
+                                <div id="fotosAdd"class="columna_datos  ">
+                                    <form action="{{ URL::to('fotos_publicas').'/'.$data['perfil']->idPerfil }}" method="post" id="frmEvidencia" enctype="multipart/form-data" class="multi-image" data-abide>
+                                        <div class="entrada_datos">
+                                            <label>
+                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltFotosExtras')}}">
+                                                    {{Lang::get('messages.perfInfLblImagenExtra')}}
+                                                </span>
+                                                <input type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
+                                            </label>
+                                            <small class="error">{{Lang::get('messages.perfInfLblObligatorio')}}</small>
+                                        </div>
+                                        <div class="btn_entrada  formulario_alinear">
+                                            <label>
+                                                <button type="submit" class="button align-top tiny btn- "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                           
+                        @endif
+                            
+                                @if(count($data['redes']) < 10)
+                                    <div id="social"class="columna_datos  pnl-redes-publicas " data-id="{{ $data['perfil']->idPerfil }}">
+                                        <div class="entrada_datos">
+                                            <label>
+                                                <span data-tooltip  aria-haspopup="true" class="has-tip" title="">{{Lang::get('messages.perfInfLblSocialMedia')}}</span>
+                                                <input type="text" class="mascara-publica" />
+                                            </label>
+                                        </div>
+                                        <div class="btn_entrada  formulario_alinear">
+                                            <label>
+                                                <button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                            </label>
+                                        </div>
+                                    </div>
+                                @endif
+                           
+                                @if(count($data['relaciones']) < 5)
+                                    <div id="rela"class="columna_datos pnl-perfiles-publicos " data-id="{{ $data['perfil']->idPerfil }}">
+                                        <div class="entrada_datos">
+                                            <label>
+                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">{{Lang::get('messages.perfInfLblIdPerfil')}}</span>
+                                                <input type="text" class="perfil-publica" name="mascara" />
+                                            </label>
+                                        </div>
+                                        <div class="btn_entrada formulario_alinear">
+                                            <label>
+                                                <button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                            </label>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                    </div>
+                                
+                    <a class="close-reveal-modal">&#215;</a>
+                </div>
+                <a class="exit-off-canvas"></a>
+            </div>
+<!-- MODAL DE INFORMACION EXTRA TERMINA -->
 
-				<!-- SILDER DE IMAGENES MINIATURA -->
-				<div id="sliderGaleria" class="reveal-modal" data-reveal>
-					<div class="titulo_barra">
-						<h2>{{Lang::get('messages.perfPostModFotoExtra')}}</h2>
-					</div>
-					
-					<div class="slider_cuadro_fotos_perfil">				   
-						<ul data-orbit style="">
-						@foreach($data['fotos'] as $evidencia)
-							<li>
-								<img src="{{ URL::asset('img\\db_imgs\\publicas\\'.$evidencia->foto) }}"/>
-							</li>
-						@endforeach
-							<li>
-								<img  src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}"/>
-							</li>
-						</ul>				
-					</div>
-					
-								<!-- TERMINA SILDER DE IMAGENES MINIATURA -->
-					<a class="close-reveal-modal">&#215;</a>
-				</div>
-				<a class="exit-off-canvas"></a>
-								<!-- MODAL SLIDER EVIDENCIAS -->
-				<div id="sliderFotoPerfil" class="reveal-modal" data-reveal>
-					<div class="titulo_barra">
-						<h2>{{Lang::get('messages.perfPosModFotoPrincipal')}}</h2>
-					</div>
-					
-					<div class="slider_cuadro_fotos_perfil">				   
-						<ul data-orbit style="">
-							<li>
-								<img src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}"/>
-							</li>
-						</ul>				
-					</div>
-					
-					<!-- TERMINA SILDER DE IMAGENES MINIATURA -->
-					<a class="close-reveal-modal">&#215;</a>
-				</div>
-				<a class="exit-off-canvas"></a>
-						<!-- MODAL SLIDER EVIDENCIAS -->
+            <div id="openExtra" class="modalDialog">
+                <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                   
+                    @if(count($data['nombres']) < 3)
+                    <div class="pnl-nombres-publicos" data-id="{{ $data['perfil']->idPerfil }}">
+                        <div class="extra_inputs">
+                            <label>
+                                <span>{{Lang::get('messages.perfInfLblNombresAdicionales')}}</span>
+                                <input type="text" class="podos-publica" name="nombre" />
+                            </label>
+                        
+                            <label>
+                                <button type="button" class="btnExtraInfo btn-nombre-publica ">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                            </label>
+                        </div>
+                    </div>
+                    @endif
 
-				<div id="sliderEvidencia" class="reveal-modal fotos-modal" data-reveal>
-					<div class="titulo_barra">
-						<h2>{{Lang::get('messages.perfPostModGaleriaEvidencia')}}</h2>
-					</div>
-				
-					<div class="row">
-						<div class="small-8 columns slider_cuadro">
-							<div class="orbit-link isHidden">
-								@foreach($data['evidencias'] as $evidencia)
-								<a data-orbit-link="fotoEvi-{{$evidencia->idMedia}}" class="small button"></a>
-								@endforeach
-							</div>
-							<ul data-orbit class="orbit" data-tipo="media" data-options="circular:true;">
-							@foreach($data['evidencias'] as $evidencia)
-								@if ($evidencia->tipo == 2)
-								<li data-orbit-slide="fotoEvi-{{$evidencia->idMedia}}">
-									<img data-id="{{$evidencia->idMedia}}" src="{{ URL::asset('img\\db_imgs\\evidencias\\'.$evidencia->foto) }}"/>
-								</li>
-								@endif
-							@endforeach
-							</ul>
-						</div>
+                    @if(count($data['apodos']) < 3)
+                    <div class=" pnl-apodos-publicos  " data-id="{{ $data['perfil']->idPerfil }}">
+                        <div class="extra_inputs">
+                            <label>
+                                <span>{{Lang::get('messages.perfInfLblApodo')}}</span>
+                                <input type="text" class="podos-publica" name="apodo" />
+                            </label>
+                     
+                        
+                            <label>
+                                <button type="button" class="btnExtraInfo btn-apodo-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                            </label>
+                        </div>
+                    </div>
+                    @endif
+                    @if(count($data['mascaras']) < 10)
+                    <div class="pnl-mascaras-publicas  " data-id="{{ $data['perfil']->idPerfil }}">
+                        <div class="extra_inputs">
+                            <label>
+                                <p>{{Lang::get('messages.perfInfLblMascara')}}</p>
+                                <input type="text" class="mascara-publica typeahead" name="mascara" />
+                            </label>
+                        
+                        
+                            <label>
+                                <button type="button" class="btnExtraInfo btn-mascara-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                            </label>
+                        </div>
+                    </div>
+                    @endif
+                    @if(count($data['fotos']) < 5)
+                        <form action="{{ URL::to('fotos_publicas').'/'.$data['perfil']->idPerfil }}" method="post" id="frmEvidencia" enctype="multipart/form-data" class="multi-image" data-abide>
+                            <div class="extra_inputs">
+                                <label>
+                                    <span>
+                                        {{Lang::get('messages.perfInfLblImagenExtra')}}
+                                    </span>
+                                    <input type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
+                                </label>
+                                <small class="error">{{Lang::get('messages.perfInfLblObligatorio')}}</small>
+                                <p>
+                                    <button type="submit" class="btnExtraInfo btn- "style="width:100%;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                </p>
+                            </div>
+                        </form>
+                    @endif
+                    @if(count($data['redes']) < 10)
+                        <div class=" pnl-redes-publicas " data-id="{{ $data['perfil']->idPerfil }}">
+                            <div class="extra_inputs">
+                                <label>
+                                    <span data-tooltip  aria-haspopup="true" class="has-tip" title="">{{Lang::get('messages.perfInfLblSocialMedia')}}</span>
+                                    <input type="text" class="mascara-publica" />
+                                </label>
+                                <label>
+                                    <button type="button" class="btnExtraInfo  btn-red-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                </label>
+                            </div>
+                        </div>
+                    @endif
+                    @if(count($data['relaciones']) < 5)
+                        <div class="extra_inputs pnl-perfiles-publicos " data-id="{{ $data['perfil']->idPerfil }}">
+                            <label>
+                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">{{Lang::get('messages.perfInfLblIdPerfil')}}</span>
+                                <input type="text" class="perfil-publica" name="mascara" />
+                            </label>
+                            <label>
+                                <button type="button" class="btnExtraInfo btn-perfil-publico "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                            </label>
+                        </div>
+                    @endif
+                </div>                  
+            </div>
+            <div class="user_content">
+                <div style="text-align:center"><p>{{ count($data['posts']) }} Post</p></div>
 
-						<div class="small-4 columns">
-							<div class="confiable" data-tipo="imagen_evi" data-id="">
-							{{Lang::get('messages.perfPostLblConfiable')}}:
-								<a href="#" data-conf="1"><img src="{{ URL::asset('img\\red_1.png') }}"> [0]</a>
-								<a href="#" data-conf="0"><img src="{{ URL::asset('img\\verde_1.png') }}"> [0]</a>
-							</div>
-							<div class="row">
-								<div class="large-12 columns">
-						 			<div class="com_likes isHidden" style="margin-bottom:5px;">
-										<a class="votos_mostrar"><i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i></a>														
-										<div class="votosPost formulario_alinear votos-container Hidden">
-											<div class="goodPost formulario_alinear">
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">0</p></a></span>
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">0</p></a></span>
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">0</p></a></span>
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">0</p></a></span>
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">0</p></a></span>
-											</div>
+                <div class="content_navigation">
+                    <ul>
+                        <li id="lapiz"  class="comments"><p>comments</p></li>
+                        <li id="secre"  class="videos"><p>videos</p></li>
+                        <li id="fotosP" class="photos"><p>photos</p></li>
+                        <li id="linkear"class="other"><p>links</p></li>
+                    </ul>
+                </div>
+                <div class="user_main_content">
+                    <div id="comments" class="">
+                        <h1> comments</h1>
+                        <div class="user_main_content_wrap">
 
-											<div class="badPost formulario_alinear">
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">0</p></a></span>
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">0</p></a></span>
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">0</p></a></span>
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">0</p></a></span>
-												<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">0</p></a></span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="small-12 columns foto-comment">
-							   		<div class="small-12 columns">
-							   			<textarea placeholder=""></textarea>
-							   		</div>
-							   		<div class="small-12 columns">
-							   			<button type="button" class="btn-comentar button tiny expand" data-mod="media">Comment</button>
-							   		</div>
-								</div>
-								<div class="small-12 columns gv-comentarios">
-								</div>
-							</div>
-						</div>
-					</div>
-					<a class="close-reveal-modal">&#215;</a>
-				</div>	<!-- TERMINA MODAL SLIDER EVIDENCIAS -->
-				<a class="exit-off-canvas"></a>
-						<!-- MODAL DE LOS VOTOS DEL PERFIL -->
-				<div id="votosPerfilBox" class="reveal-modal" data-reveal>
-					<div class="titulo_barra">
-						<h2>{{Lang::get('messages.perfPostModClasificacion')}}</h2>
-						<small>{{Lang::get('messages.perfPostModClasificacionConsejo')}}</small>
-					</div>
-					<div class="row" >
-						<div class="com_likes isHidden" style="margin-bottom:0px; margin-left:10px;">
-							<div class="votosPost formulario_alinear votos-container  ">
-								{{Lang::get('messages.perfPostModClasificacionBuena')}}.-
-								<div class="goodPost formulario_alinear">
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">{{$data['perfil']->per_corazon}}</p></a></span>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">{{$data['perfil']->per_estrella}}</p></a></span>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">{{$data['perfil']->per_blike}}</p></a></span>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">{{$data['perfil']->per_carita}}</p></a></span>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">{{$data['perfil']->per_cake}}</p></a></span>
-								</div>
-								{{Lang::get('messages.perfPostModClasificacionMala')}}.-	
-								<div class="badPost formulario_alinear">
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">{{$data['perfil']->per_caca}}</p></a></span>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">{{$data['perfil']->per_craneo}}</p></a></span>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">{{$data['perfil']->per_bug}}</p></a></span>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">{{$data['perfil']->per_gota}}</p></a></span>
-									<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">{{$data['perfil']->per_enojo}}</p></a></span>
-								</div>
-							</div>
-						</div>
-						<div class="large-12 formulario_alinear cons">
-							<p style="margin-left:11.5em;margin-right:22px;">5pts</p>
-							<p class="margencito">4pts</p>
-							<p class="margencito">3pts</p>
-							<p class="margencito">2pts</p>
-							<p style="margin-right:9em;">1pts</p>
-						
-							<p style="margin-left:12.7em;margin-right:22px;">5pts</p>
-							<p class="margencito">4pts</p>
-							<p class="margencito">3pts</p>
-							<p class="margencito">2pts</p>
-							<p class="margencito">1pts</p>
-						</div>
-					</div>
+                           <!--a href="#anchor_add">Add comment</a-->
+                           <form class="postearEv " enctype="multipart/form-data" data-abide>
+                                <div class="add_comment post Hidden">
+                                    <div id="conCampo" data-tipo="1" class="Hidden">    
+                                        <input type="text" placeholder="{{Lang::get('messages.perfPorLblSecretBox')}}" name="secret"  maxlength="50"/>
+                                        <textarea name="comment" maxlength="400" onfocus="if (this.value == 'Comment') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Comment';}" >Comment</textarea>
+                                    </div>
+                                    <div id="linkCampo" data-tipo="4" style="margin-top:5px;">
+                                        <label>
+                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionRelacionado')}}">
+                                            </span> 
+                                            <input type="text"placeholder="{{Lang::get('messages.perfPorLblEnlace1')}}" name="link_evi" class="expand" pattern="url"/>
+                                        </label>
+                                        <small class="error">{{Lang::get('messages.perfPorLblEnlace1Example')}}</small>
+                                    </div>
+                                    <div id="videoCampo" data-tipo="2" class="Hidden">
+                                        <label>
+                                            {{Lang::get('messages.perfPorLblEvidenciaVideo')}}:
+                                            <input  type="text" name="link" placeholder="www.youtube.com/videoname"/>
+                                        </label>
+                                    </div>
+                                    <div id="eviCampo" data-tipo="3" class="Hidden">
+                                        <label>
+                                            {{Lang::get('messages.perfPorLblEvidenciaFoto')}}:
+                                            <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
+                                        </label>
+                                    </div>
+                                    <div id="botCampo" class="Hidden">  
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionEvidencia')}}"><input type="submit" class="button btn-postear"value="{{Lang::get('messages.perfPorLblPostear')}}"><!--button type="button"  style=""> </button--></span>
+                                        <h6 style="color:#a7a9ab;">{{Lang::get('messages.perfPostLblTitulo')}}</h6>
+                                    </div>
+                                </div>
+                           </form>
+                            @foreach($data['posts'] as $post)
+                            <div class="post">
+                                <h1>{{$post->secret}}</h1>
+                                @if(strlen($post->link_evi) > 0)
+                                    <a href="{{$post->link_evi}}" target="_blank">
+                                        <p>{{substr($post->link_evi, 0, 80)}}...</p>
+                                    </a>
+                                @endif
+                                <p>{{$post->confesion}} </p>
+                                @if(strlen($post->link) > 0)
+                                <div style="text-align:center;margin-bottom:9px;"> <!--VIDEO POST EVIDENCIA PAL-->
+                                    <h5 style="text-align:center;">{{Lang::get('messages.perfPostLblVideo')}}</h5>
+                                    <iframe width="50%" height="330" src="//www.youtube.com/embed/{{$post->link}}" frameborder="0" allowfullscreen></iframe>
+                                    <div class="confiable isHidden" data-tipo="video_post" data-id="{{ $post->idPost }}">
+                                        {{Lang::get('messages.perfPostLblConfiable')}}:
+                                        <a href="#" data-conf="1">
+                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMala')}}">
+                                                <i class="icon-checkmark"></i>
+                                            </span> 
+                                            [<span class="votos-totales">{{ $post->vid_siconf }}</span>]
+                                        </a>
+                                        <a href="#" data-conf="0">
+                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMala')}}">
+                                                <i class="icon-tacha"></i>
+                                            </span> 
+                                            [<span class="votos-totales">{{ $post->vid_noconf }}</span>]
+                                        </a>
+                                    </div>
+                                    <div class="com_likes isHidden">
+                                        <a href="" data-reveal-id="comentBox">
+                                            <i style="font-size: 25px;" class="icon-chat comm-post" data-tipo="2" data-id="{{$post->idPost}}"></i>
+                                        </a>
+                                        <a class="votos_mostrar"><i style=" font-size: 28px;"class="icon-thumbs-up"></i></a>                                            
+                                        <div class="votosPost formulario_alinear votos-container Hidden" data-tipo="2" data-idpost="{{$post->idPost}}">
+                                            <div class="goodPost formulario_alinear">
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="corazon">
+                                                    <img src="../img/emoticon/5.gif">
+                                                    <p class="num_rank">{{ $post->vid_corazon }}</p>
+                                                </a>
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="estrella">
+                                                    <img src="../img/emoticon/4.gif">
+                                                    <p class="num_rank">{{ $post->vid_estrella }}</p>
+                                                </a>
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="blike">
+                                                    <img src="../img/emoticon/3.gif">
+                                                    <p class="num_rank">{{ $post->vid_blike }}</p>
+                                                </a>
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="carita">
+                                                    <img src="../img/emoticon/2.gif">
+                                                    <p class="num_rank">{{ $post->vid_carita }}</p>
+                                                </a>
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="cake">
+                                                    <img src="../img/emoticon/1.gif">
+                                                    <p class="num_rank">{{ $post->vid_cake }}</p>
+                                                </a>
+                                            </div>
+                                            <div class="badPost formulario_alinear">
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">{{ $post->vid_caca }}</p></a>
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">{{ $post->vid_craneo }}</p></a>
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">{{ $post->vid_bug }}</p></a>
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">{{ $post->vid_gota }}</p></a>
+                                                <a href="#" data-id="{{ $post->idPost }}" class="vote-rank-post" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">{{ $post->vid_enojo }}</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                @endif
+                                <div class="gallery">
+                                    @foreach($post->fotos as $foto)
+                                       <!-- VERIFICAR LA CARGA EN EL MODAL EL CAMBIO DE IMAGEN Y PODER CERRAR MODAL ADEMAS DE RELACIONAR LOC COMENTARIOS CON LA IMAGEN -->
+                                    <div class="gallery_img">
+                                        <a href="" data-reveal-id="slider_post_{{$post->idPost}}" data-id="{{$foto->idFotoPost}}" data-idpost="{{$post->idPost}}" class="open-modal foto-post"-->
+                                           <img src="{{ URL::asset('img\\db_imgs\\posts\\'.$foto->foto) }}"/>
+                                        </a>
+                                    </div>
+                                      
+                                    @endforeach
+                                </div>
+                                <div class="row">
+                                    @if($data['perfil']->idAliasBase == $post->idAlias)
+                                    <a id="fotosAddPost">
+                                        <img width="20px;"src="{{ URL::asset('img/add_img.png') }}">
+                                    </a>
+                                    <div id="campoFotosPost"class="large-12 isHidden">
+                                        <form class="postear-post-evi" data-idpost="{{$post->idPost}}" enctype="multipart/form-data" data-abide>
+                                            <div id="evi-post-campo">
+                                                <label>
+                                                    {{Lang::get('messages.perfPostLblAgregarFoto')}}
+                                                    <input type="file" class="file-post-evi" name="files[]" multiple="multiple" accept="image/*" required />
+                                                </label>
+                                                <small class="error">{{Lang::get('messages.perfPorLblRequerido')}}</small>
+                                            </div>
+                                            <div>
+                                              <button type="button" class="button btn-file-post-evi" style="background-color: #ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    @endif
+                                </div>
+                                <div class="like">
+                                    {{Lang::get('messages.perfPostLblConfiable')}}:
+                                    <div data-tipo="post" class="confiable" data-id="{{ $post->idPost }}">
+                                        <a href="#" data-conf="1">
+                                            <div class="point_red"></div>
+                                            <span style="margin-right:5px">
+                                                [<span class="votos-totales">{{ $post->siconf }}</span>]
+                                            </span>
+                                        </a>
+                                        <a href="#" data-conf="0">
+                                            <div class="point_green"></div>
+                                            <span style="margin-right:5px;width:15px;">
+                                                [<span class="votos-totales">{{ $post->noconf }}</span>]
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div> <!-- MODALES-- >
+    <!-- SLIDER MODAL DE EVIDENCIAS FOTOGRAFICAS GALERIA PAL--> 
+                                <div id="slider_post_{{$post->idPost}}" class="reveal-modal fotos-modal" data-reveal>
+                                    <div class="titulo_barra">
+                                        <h2>{{Lang::get('messages.perfPostLblGaleria')}}</h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-8 columns slider_cuadro">
+                                            <div class="orbit-link isHidden">
+                                                @foreach($post->fotos as $foto)
+                                                <a data-orbit-link="foto-{{$post->idPost}}-{{$foto->idFotoPost}}" class="small button"></a>
+                                                @endforeach
+                                            </div>
+                                            <ul class="orbit" data-tipo="post" data-orbit data-options="circular:true;">
+                                                @foreach($post->fotos as $foto)
+                                                <li data-orbit-slide="foto-{{$post->idPost}}-{{$foto->idFotoPost}}">
+                                                    <img data-id="{{$foto->idFotoPost}}" src="{{ URL::asset('img\\db_imgs\\posts\\'.$foto->foto) }} "/>
+                                                </li>
+                                                @endforeach        
+                                            </ul>
+                                        </div>
+                                        <div class="small-4 columns">
+                                            <div class="row">
+                                                <div class="foto-comment">
+                                                    <div class="confiable" data-tipo="imagen_post" data-id="">
+                                                        {{Lang::get('messages.perfPostLblConfiable')}}:
+                                                        <a href="#" data-conf="1">
+                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
+                                                                <img src="{{ URL::asset('img\\red_1.png') }}">
+                                                            </span> 
+                                                            [<span class="votos-totales">0</span>]
+                                                        </a>
+                                                        <a href="#" data-conf="0">
+                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
+                                                                <img src="{{ URL::asset('img\\verde_1.png') }}">
+                                                            </span>
+                                                            [<span class="votos-totales">0</span>]
+                                                        </a>
+                                                    </div>
+                                                    <div class="large-12 columns">
+                                                        <div class="com_likes isHidden" style="margin-bottom:5px;">
+                                                            <a class="votos_mostrar"><i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i></a>                                                        
+                                                            <div class="votosPost formulario_alinear votos-container Hidden">
+                                                                <div class="goodPost formulario_alinear">
+                                                                    <a href="#" class="vote-foto-post" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">0</p></a>
+                                                                    <a href="#" class="vote-foto-post" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">0</p></a>
+                                                                    <a href="#" class="vote-foto-post" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">0</p></a>
+                                                                    <a href="#" class="vote-foto-post" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">0</p></a>
+                                                                    <a href="#" class="vote-foto-post" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">0</p></a>
+                                                                </div>
+                                                                <div class="badPost formulario_alinear">
+                                                                    <a href="#" class="vote-foto-post" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">0</p></a>
+                                                                    <a href="#" class="vote-foto-post" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">0</p></a>
+                                                                    <a href="#" class="vote-foto-post" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">0</p></a>
+                                                                    <a href="#" class="vote-foto-post" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">0</p></a>
+                                                                    <a href="#" class="vote-foto-post" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">0</p></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="small-12 columns">
+                                                        <textarea placeholder=""></textarea>
+                                                    </div>
+                                                    <div class="small-12 columns">
+                                                        <button type="button" class="btn-comentar button tiny expand" data-mod="post" data-idpost="{{$post->idPost}}">Comment</button>
+                                                    </div>
+                                                </div>
+                                                <div class="large-12 columns gv-comentarios">
+                                                </div>
+                                            </div>
+                                        </div>              
+                        <!-- TERMINA SILDER DE IMAGENES MINIATURA -->
+                                        <a class="close-reveal-modal">&#215;</a>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="subpost_area" >
+                                    <div class="seccion_sub_com">
+                                        <div class="sub_coment_titulo">
+                                            <h4 >COMMENTS</h4>
+                                        </div>
+                                    </div>
+                                    <ul class="gv-subcomentarios"  style="margin-top:2em;">
+                                        @foreach($post->subcomentarios as $subcomentario)
+                                        <li class="cien">
+                                            <div class="noventa">
+                                                <h3 style="font-size:18px; color:red;"> <strong style="text-transform: capitalize;">{{$subcomentario->usuario}}</strong></h3>
+                                                <!--label>{{$subcomentario->created_at}}</label-->
+                                            </div>
+                                            @if(strlen($subcomentario->comentario) > 0)
+                                            <div class="noventa" style="margin-bottom:9px">
+                                                <div class="noventa">
+                                                    <p class="texto_justifica" style="color:black">{{$subcomentario->comentario}}</p>
+                                                </div>
+                                            </div>
+                                            @endif
+                                            @if(strlen($subcomentario->link_evi) > 0)
+                                            <div class="noventa " style="text-align:center; margin-bottom:9px;">
+                                                <a style="font-size:15px; word-wrap: break-word; " href="{{$subcomentario->link_evi}}" target="_blank">
+                                                   {{substr($subcomentario->link_evi, 0, 80)}}...
+                                                </a>
+                                            </div>
+                                            @endif
+                                            <div class="noventa">
+                                                @if(strlen($subcomentario->video) > 0)
+                                                <div class="" style="text-align:center; margin-bottom:9px;">
+                                                    <iframe width="50%" height="330" src="//www.youtube.com/embed/{{$subcomentario->video}}" frameborder="0" allowfullscreen></iframe>
+                                                    <div class="confiable isHidden" data-tipo="vid_subpost" data-id="{{ $subcomentario->idSubcomentario }}">
+                                                        {{Lang::get('messages.perfPostLblConfiable')}}::
+                                                        <a href="#" data-conf="1">
+                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}"><img src="{{ URL::asset('img\\red_1.png') }}"></span>
+                                                            [<span class="votos-totales">{{ $subcomentario->com_siconf }}</span>]
+                                                        </a>
+                                                        <a href="#" data-conf="0">
+                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}"><img src="{{ URL::asset('img\\verde_1.png') }}"></span> 
+                                                            [<span class="votos-totales">{{ $subcomentario->com_noconf }}</span>]
+                                                        </a>
+                                                    </div>
+                                                    <div class="com_likes isHidden" style="margin-bottom:5px;">
+                                                        <a class="votos_mostrar"><i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i></a>
+                                                        <div class="votosPost formulario_alinear votos-container Hidden" data-tipo="2">
+                                                            <div class="goodPost formulario_alinear">                                                   
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">{{ $subcomentario->vid_corazon }}</p></a>
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">{{ $subcomentario->vid_estrella }}</p></a>
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">{{ $subcomentario->vid_blike }}</p></a>
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">{{ $subcomentario->vid_carita }}</p></a>
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">{{ $subcomentario->vid_cake }}</p></a>
+                                                            </div>
+                                                            <div class="badPost formulario_alinear">
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">{{ $subcomentario->vid_caca }}</p></a>
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">{{ $subcomentario->vid_craneo }}</p></a>
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">{{ $subcomentario->vid_bug }}</p></a>
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">{{ $subcomentario->vid_gota }}</p></a>
+                                                                <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">{{ $subcomentario->vid_enojo }}</p></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endif
+                                                @foreach($subcomentario->fotos as $fotos)
+                                                <div class="gallery_img">
+                                                    <a href="" data-reveal-id="slider_subcom_{{$subcomentario->idSubcomentario}}" data-id="{{$fotos->idSubcomentarioFoto}}" data-idpost="{{$post->idPost}}" class="open-modal foto-subcom">
+                                                       <img src="{{ URL::asset('img\\db_imgs\\posts\\'.$fotos->imagen) }}"/>
+                                                    </a>
+                                                </div>
+                                                @endforeach
+                                                <div class="confiable" data-tipo="com_subpost" data-id="{{ $subcomentario->idSubcomentario }}">
+                                                    {{Lang::get('messages.perfPostLblConfiable')}}:
+                                                    <a href="#" data-conf="1">
+                                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
+                                                            <img src="{{ URL::asset('img\\red_1.png') }}">
+                                                        </span>
+                                                        [<span class="votos-totales">{{ $subcomentario->com_siconf }}</span>]
+                                                    </a>
+                                                    <a href="#" data-conf="0">
+                                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
+                                                            <img src="{{ URL::asset('img\\verde_1.png') }}">
+                                                        </span>
+                                                        [<span class="votos-totales">{{ $subcomentario->com_noconf }}</span>]
+                                                    </a>
+                                                </div>
+                                                <div class="com_likes isHidden" style="margin-bottom:5px;;">
+                                                    <a class="votos_mostrar">
+                                                        <i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i>
+                                                    </a>
+                                                    <div class="votosPost formulario_alinear votos-container Hidden" data-tipo="1">                                         
+                                                        <div class="goodPost formulario_alinear">                                                   
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">{{ $subcomentario->com_corazon }}</p></a>
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">{{ $subcomentario->com_estrella }}</p></a>
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">{{ $subcomentario->com_blike }}</p></a>
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">{{ $subcomentario->com_carita }}</p></a>
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">{{ $subcomentario->com_cake }}</p></a>
+                                                        </div>
+                                                        <div class="badPost formulario_alinear">
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">{{ $subcomentario->com_caca }}</p></a>
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">{{ $subcomentario->com_craneo }}</p></a>
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">{{ $subcomentario->com_bug }}</p></a>
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">{{ $subcomentario->com_gota }}</p></a>
+                                                            <a href="#" data-id="{{ $subcomentario->idSubcomentario }}" class="vote-rank-subpost-video" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">{{ $subcomentario->com_enojo }}</p></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                            
+    <!--SLIDER MODAL SUB COMENTARIO -->
+                                                <div id="slider_subcom_{{$subcomentario->idSubcomentario}}" class="reveal-modal fotos-modal" data-reveal>
+                                                    <div class="titulo_barra">
+                                                        <h2>{{Lang::get('messages.perfPostLblGaleriaComentarios')}}</h2>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="small-8 columns slider_cuadro">
+                                                            <div class="orbit-link isHidden">
+                                                                @foreach($subcomentario->fotos as $fotos)
+                                                                <a data-orbit-link="fotoSubcom-{{$fotos->idSubcomentarioFoto}}" class="small button"></a>
+                                                                @endforeach
+                                                            </div>
+                                                            <ul data-orbit class="orbit" data-tipo="subcom" data-options="circular:true;">
+                                                                @foreach($subcomentario->fotos as $fotos)
+                                                                <li data-orbit-slide="fotoSubcom-{{$fotos->idSubcomentarioFoto}}">
+                                                                    <img data-id="{{$fotos->idSubcomentarioFoto}}" src="{{ URL::asset('img\\db_imgs\\posts\\'.$fotos->imagen) }}"/>
+                                                                </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                        <div class="small-4 columns foto-comment">
+                                                            <div class="confiable" data-tipo="img_subpost" data-id="">
+                                                                {{Lang::get('messages.perfPostLblConfiable')}}::
+                                                                <a href="#" data-conf="1">
+                                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
+                                                                        <img src="{{ URL::asset('img\\red_1.png') }}">
+                                                                    </span>
+                                                                    [<span class="votos-totales">0</span>]
+                                                                </a>
+                                                                <a href="#" data-conf="0">
+                                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}">
+                                                                        <img src="{{ URL::asset('img\\verde_1.png') }}">
+                                                                    </span>
+                                                                    [<span class="votos-totales">0</span>]
+                                                                </a>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="large-12 columns">
+                                                                    <div class="com_likes isHidden" style="margin-bottom:5px;">
+                                                                        <a class="votos_mostrar">
+                                                                            <i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i>
+                                                                        </a>                                                        
+                                                                        <div class="votosPost formulario_alinear votos-container Hidden">
+                                                                            <div class="goodPost formulario_alinear">
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">0</p></a></span>
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">0</p></a></span>
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">0</p></a></span>
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">0</p></a></span>
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">0</p></a></span>
+                                                                            </div>
+                                                                            <div class="badPost formulario_alinear">
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">0</p></a></span>
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">0</p></a></span>
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">0</p></a></span>
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">0</p></a></span>
+                                                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-subfoto" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">0</p></a></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="small-12 columns foto-comment">
+                                                                    <div class="small-12 columns">
+                                                                        <textarea placeholder=""></textarea>
+                                                                    </div>
+                                                                    <div class="small-12 columns">
+                                                                        <button type="button" class="btn-comentar button tiny expand" data-mod="subcom">{{Lang::get('messages.perfPostLblComentarios')}}</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="small-12 columns gv-comentarios">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a class="close-reveal-modal">&#215;</a>
+                                                </div>
+    <!-- TERMINA SLIDER -    -   -   -     -    -    -    -   -->
+                                            </div>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                    <div class="alto">
+                                        <div class="subcomentarios-posts" data-id="{{$post->idPost}}">
+                                            <div class="cuarenta" style="float:right;padding-left:3em;margin-bottom:1em;">
+                                                <div class="post_foot">
+                                                    <a class="confSec">
+                                                        <img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaTexto')}}" src="{{ URL::asset('img\\coment2.png') }}">
+                                                    </a>
+                                                </div>
+                                                <div class="post_foot borde_img">
+                                                    <a class="fotoSec">
+                                                        <img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaImagen')}}" src="{{ URL::asset('img\\img1.png') }}">
+                                                    </a>
+                                                </div>
+                                                <div class="post_foot borde_img">
+                                                    <a class="vidSec">
+                                                        <img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaYoutube')}}" src="{{ URL::asset('img\\video1.png') }}">
+                                                    </a>
+                                                </div>
+                                                <div class="post_foot borde_img">
+                                                    <a class="linkSec">
+                                                        <img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaEnlaces')}}" src="{{ URL::asset('img\\link1.png') }}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                                        <!--div class="postear_box_2 ">
+                                                                        <a class="confSec">
+                                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaTexto')}}">
+                                                                                <i class="icon-chat"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                        <a class="fotoSec">
+                                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaImagen')}}">
+                                                                                <i class="icon-fotos"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                        <a class="vidSec">
+                                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaYoutube')}}">
+                                                                                <i class="icon-camara"></i> 
+                                                                            </span>
+                                                                        </a>
+                                                                        <a class="linkSec">
+                                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaEnlaces')}}">
+                                                                                <i class="icon-link"></i>   
+                                                                            </span>
+                                                                        </a>
+                                                                    </div-->
+                                                            
+                                                                    <!--div class="large-4 columns">
+                                                                        <div class="compartir_redes ">  
+                                                                            <div class="fb-share-button" style="margin-right:20px; vertical-align:top;"  data-layout="button_count"></div>
+                                                                                <a href="https://twitter.com/share" class="twitter-share-button">{{Lang::get('messages.perfPostLblTweet')}}</a>
+                                                                        </div> 
+                                                                    </div-->
+                                                        
+    <!--    -   -  - LIKE POST CONFIABLE GLOBAL - -  - - - - - -->
+                                            <div class="large-2 columns">
+                                                <a href="" data-reveal-id="comentBox">
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaPrivado')}}"><i class="icon-chat comm-post" data-tipo="1" data-id="{{$post->idPost}}" style="font-size:25px"></i></span>                                           
+                                                </a>
+                                            </div>
+                                            <form class="sb_coment form-subcomentario" enctype="multipart/form-data" data-abide>
+                                                <div class="small-12 columns">
+                                                    <div  class="small-12 columns conSec Hidden ">
+                                                        <label>
+                                                            <small></small>
+                                                            <textarea style="overflow:auto;width:600px; min-height:90px" name="comentario" placeholder="{{Lang::get('messages.perfPorLblConfesion')}} {{Lang::get('messages.perfPorLblRequerido')}}"></textarea>
+                                                        </label>
+                                                        <small class="error">{{Lang::get('messages.perfPostLblConfesionVal')}}</small>
+                                                    </div>
+                                                </div>
+                                                <div class="small-12 columns">
+                                                    <div class="small-12 columns linkerSec Hidden">
+                                                        <label>
+                                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionRelacionado')}}"> </span> 
+                                                            <input type="text" placeholder="{{Lang::get('messages.perfPorLblEnlace1')}}" name="link_evi" pattern="url"/>
+                                                        </label>
+                                                        <small class="error">{{Lang::get('messages.perfPorLblEnlace1Example')}}</small>
+                                                    </div>
+                                                </div>
+                                                <div class="small-12 columns">
+                                                    <div  class="small-12 columns viSec Hidden">
+                                                        <label>
+                                                            <input type="text" name="video" placeholder="{{Lang::get('messages.perfPorLblEvidenciaVideo')}} - {{Lang::get('messages.perfPostTltEvidenciaLinkYoutube')}}"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="small-12 columns">
+                                                    <div  class="small-12 columns fotSec Hidden">
+                                                        <label>
+                                                            {{Lang::get('messages.perfPorLblEvidenciaFoto')}}
+                                                            <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="small-12 columns">
+                                                    <label>
+                                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltInformacionGuardar')}}"><button type="button" class="btn_upload btn-subcomentar btnSec Hidden"style="background-color: #ae3e34 ;">{{Lang::get('messages.perfPostLblSubir')}}</button></span>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach   
+                      </div>
+                  </div>
+                  <!-- Comments termina--> 
+                  
+                    <div class="loading isHidden">
+                        <span>Loading
+                            {{ HTML::image('img/load.gif', 'Loading') }}
+                        </span>
+                    </div>
+                            <!-- SILDER DE IMAGENES MINIATURA -->
+                    <div id="sliderGaleria" class="reveal-modal" data-reveal>
+                        <div class="titulo_barra">
+                            <h2>{{Lang::get('messages.perfPostModFotoExtra')}}</h2>
+                        </div>
+                        <div class="slider_cuadro_fotos_perfil">                   
+                            <ul data-orbit style="">
+                            @foreach($data['fotos'] as $evidencia)
+                                <li>
+                                    <img src="{{ URL::asset('img\\db_imgs\\publicas\\'.$evidencia->foto) }}"/>
+                                </li>
+                            @endforeach
+                                <li>
+                                    <img  src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}"/>
+                                </li>
+                            </ul>               
+                        </div>
+                        
+                                    <!-- TERMINA SILDER DE IMAGENES MINIATURA -->
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                    <a class="exit-off-canvas"></a>
+                                    <!-- MODAL SLIDER EVIDENCIAS -->
+                    <div id="sliderFotoPerfil" class="reveal-modal" data-reveal>
+                        <div class="titulo_barra">
+                            <h2>{{Lang::get('messages.perfPosModFotoPrincipal')}}</h2>
+                        </div>
+                        
+                        <div class="slider_cuadro_fotos_perfil">                   
+                            <ul data-orbit style="">
+                                <li>
+                                    <img src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}"/>
+                                </li>
+                            </ul>               
+                        </div>
+                        
+                        <!-- TERMINA SILDER DE IMAGENES MINIATURA -->
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                    <a class="exit-off-canvas"></a>
+                            <!-- MODAL SLIDER EVIDENCIAS -->
 
-					<a class="close-reveal-modal">&#215;</a>
-				</div><!-- TERMINA MODAL DE LOS VOTOD DE PERFIL -->
-						<!-- MODAL DE LOS COMENTARIOS DE CADA POST EN EL PERFIL -->
-				<div id="comentBox" class="reveal-modal" data-reveal>
-					<div class="titulo_barra">
-						<h2>{{Lang::get('messages.perfPostModComentarios')}}</h2>
-					</div>
-					<div class="row "><!-- cargar aqui los coments-->
-					</div>
-					<div class="row post-comment">
-						<div class="small-12 columns">
-							<textarea placeholder=""></textarea>
-						</div>
-						<div class="small-12 columns">
-							<button type="button" class="btn-comentar button tiny expand">{{Lang::get('messages.perfPostModComentario')}}</button>
-						</div>
-					</div>
-					
-					<div class="row gv-comentarios-post">
-					</div>
+                    <div id="sliderEvidencia" class="reveal-modal fotos-modal" data-reveal>
+                        <div class="titulo_barra">
+                            <h2>{{Lang::get('messages.perfPostModGaleriaEvidencia')}}</h2>
+                        </div>
+                    
+                        <div class="row">
+                            <div class="small-8 columns slider_cuadro">
+                                <div class="orbit-link isHidden">
+                                    @foreach($data['evidencias'] as $evidencia)
+                                    <a data-orbit-link="fotoEvi-{{$evidencia->idMedia}}" class="small button"></a>
+                                    @endforeach
+                                </div>
+                                <ul data-orbit class="orbit" data-tipo="media" data-options="circular:true;">
+                                @foreach($data['evidencias'] as $evidencia)
+                                    @if ($evidencia->tipo == 2)
+                                    <li data-orbit-slide="fotoEvi-{{$evidencia->idMedia}}">
+                                        <img data-id="{{$evidencia->idMedia}}" src="{{ URL::asset('img\\db_imgs\\evidencias\\'.$evidencia->foto) }}"/>
+                                    </li>
+                                    @endif
+                                @endforeach
+                                </ul>
+                            </div>
 
-					<a class="close-reveal-modal">&#215;</a>
-				</div><!-- TERMINA MODAL DE LOS COMENTARIOS -->
-				<a class="exit-off-canvas"></a>
+                            <div class="small-4 columns">
+                                <div class="confiable" data-tipo="imagen_evi" data-id="">
+                                {{Lang::get('messages.perfPostLblConfiable')}}:
+                                    <a href="#" data-conf="1">
+                                        <img src="{{ URL::asset('img\\red_1.png') }}">
+                                        [<span class="votos-totales">0</span>]
+                                    </a>
+                                    <a href="#" data-conf="0">
+                                        <img src="{{ URL::asset('img\\verde_1.png') }}">
+                                        [<span class="votos-totales">0</span>]
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <div class="com_likes isHidden" style="margin-bottom:5px;">
+                                            <a class="votos_mostrar"><i class="icon-thumbs-up" style="color:#ae3e34;  font-size: 28px;"></i></a>                                                        
+                                            <div class="votosPost formulario_alinear votos-container Hidden">
+                                                <div class="goodPost formulario_alinear">
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">0</p></a></span>
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">0</p></a></span>
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">0</p></a></span>
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">0</p></a></span>
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">0</p></a></span>
+                                                </div>
 
-				<div class="loading isHidden">
-					<span>Loading
-						{{ HTML::image('img/load.gif', 'Loading') }}
-					</span>
-				</div>
-		</article>
-	</section>
-	<style type="text/css">
-			.loading {
-				background-color: rgba(30, 30, 30, 0.5);
-				width: 100%;
-				position: fixed;
-				left: 0;
-				top: 0;
-				right: 0;
-				bottom: 0;
-			}
-			.loading img{
-				width: 50px;
-			}
-			.loading span {
-				display: inline-block;
-				width: 200px;
-				height: 200px;
-				font-weight: 900;
-				font-size: 20px;
-				background-color:#EEE;
-			}
-	</style>
+                                                <div class="badPost formulario_alinear">
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">0</p></a></span>
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">0</p></a></span>
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">0</p></a></span>
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">0</p></a></span>
+                                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-rank-media" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">0</p></a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="small-12 columns foto-comment">
+                                        <div class="small-12 columns">
+                                            <textarea placeholder=""></textarea>
+                                        </div>
+                                        <div class="small-12 columns">
+                                            <button type="button" class="btn-comentar button tiny expand" data-mod="media">Comment</button>
+                                        </div>
+                                    </div>
+                                    <div class="small-12 columns gv-comentarios">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>  <!-- TERMINA MODAL SLIDER EVIDENCIAS -->
+                    <a class="exit-off-canvas"></a>
+                            <!-- MODAL DE LOS VOTOS DEL PERFIL -->
+                    <div id="votosPerfilBox" class="reveal-modal" data-reveal>
+                        <div class="titulo_barra">
+                            <h2>{{Lang::get('messages.perfPostModClasificacion')}}</h2>
+                            <small>{{Lang::get('messages.perfPostModClasificacionConsejo')}}</small>
+                        </div>
+                        <div class="row" >
+                            <div class="com_likes isHidden" style="margin-bottom:0px; margin-left:10px;">
+                                <div class="votosPost formulario_alinear votos-container  ">
+                                    {{Lang::get('messages.perfPostModClasificacionBuena')}}.-
+                                    <div class="goodPost formulario_alinear">
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="corazon"><img src="../img/emoticon/5.gif"><p class="num_rank">{{$data['perfil']->per_corazon}}</p></a></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="estrella"><img src="../img/emoticon/4.gif"><p class="num_rank">{{$data['perfil']->per_estrella}}</p></a></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="blike"><img src="../img/emoticon/3.gif"><p class="num_rank">{{$data['perfil']->per_blike}}</p></a></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="carita"><img src="../img/emoticon/2.gif"><p class="num_rank">{{$data['perfil']->per_carita}}</p></a></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="cake"><img src="../img/emoticon/1.gif"><p class="num_rank">{{$data['perfil']->per_cake}}</p></a></span>
+                                    </div>
+                                    {{Lang::get('messages.perfPostModClasificacionMala')}}.-    
+                                    <div class="badPost formulario_alinear">
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="caca"><img src="../img/emoticon/10.gif"><p class="num_rank">{{$data['perfil']->per_caca}}</p></a></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="craneo"><img src="../img/emoticon/9.gif"><p class="num_rank">{{$data['perfil']->per_craneo}}</p></a></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="bug"><img src="../img/emoticon/8.gif"><p class="num_rank">{{$data['perfil']->per_bug}}</p></a></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="gota"><img src="../img/emoticon/7.gif"><p class="num_rank">{{$data['perfil']->per_gota}}</p></a></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionNeutra')}}"><a href="#" class="vote-perfil" data-id="{{$data['perfil']->idPerfil}}" data-tipo="enojo"><img src="../img/emoticon/6.gif"><p class="num_rank">{{$data['perfil']->per_enojo}}</p></a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-12 formulario_alinear cons">
+                                <p style="margin-left:11.5em;margin-right:22px;">5pts</p>
+                                <p class="margencito">4pts</p>
+                                <p class="margencito">3pts</p>
+                                <p class="margencito">2pts</p>
+                                <p style="margin-right:9em;">1pts</p>
+                            
+                                <p style="margin-left:12.7em;margin-right:22px;">5pts</p>
+                                <p class="margencito">4pts</p>
+                                <p class="margencito">3pts</p>
+                                <p class="margencito">2pts</p>
+                                <p class="margencito">1pts</p>
+                            </div>
+                        </div>
+
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div><!-- TERMINA MODAL DE LOS VOTOD DE PERFIL -->
+                            <!-- MODAL DE LOS COMENTARIOS DE CADA POST EN EL PERFIL -->
+                    <div id="comentBox" class="reveal-modal" data-reveal>
+                        <div class="titulo_barra">
+                            <h2>{{Lang::get('messages.perfPostModComentarios')}}</h2>
+                        </div>
+                        <div class="row "><!-- cargar aqui los coments-->
+                        </div>
+                        <div class="row post-comment">
+                            <div class="small-12 columns">
+                                <textarea placeholder=""></textarea>
+                            </div>
+                            <div class="small-12 columns">
+                                <button type="button" class="btn-comentar button tiny expand">{{Lang::get('messages.perfPostModComentario')}}</button>
+                            </div>
+                        </div>
+                        
+                        <div class="row gv-comentarios-post">
+                        </div>
+
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div><!-- TERMINA MODAL DE LOS COMENTARIOS -->
+                    <a class="exit-off-canvas"></a>
+
+            </div>
+        </div>
+
+    
+        
+        <div class="clear"></div>
+
+   
+
 		<div id="fb-root"></div>
 	<script>
+    
 		$(document).on('ready', inicio_per);
 
 		function inicio_per () {
@@ -1093,19 +1068,20 @@
 			});
 			$('.btn-voto-amor').on('click', function(e) {
 				e.preventDefault();
+                debugger
 				var tipo = $(e.currentTarget).data('tipo');
 				var id = $(e.currentTarget).data('id');
 
 				$.post(url + 'vote_amor', {id:id, tipo:tipo}).done(function(data) {
-					var elem = $(e.currentTarget).find('.amor-votes');
-					var prevotos = elem.text().replace('(', '').replace(')', '');
+					var elem = $(e.currentTarget).find('.total-lovehate');
+					var prevotos = elem.text();
 
 					var votos = parseInt(prevotos, 10);
 					if(votos === NaN)
 						votos = 0;
 
 					if(data == 1)
-						elem.text('(' + (votos + 1) + ')');
+						elem.text(votos + 1);
 				});
 			});
 
@@ -1264,17 +1240,21 @@
 
 				$.post(url + 'confiable', {id:id, tipo:tipo, conf:conf}).done(function(data) {
 					debugger
-					if(data == 1) {				
+					if(data == 1) {
 
-						var icon = '<i class="icon-tacha"></i> [';
-						if(conf == 1)
-							icon = '<i class="icon-checkmark"></i> [';
+						// var icon = '<i class="icon-tacha"></i> [';
+						// if(conf == 1)
+						// 	icon = '<i class="icon-checkmark"></i> [';
 
-						var texto = elem.text().substr(2);
-						texto = texto.substr(0, texto.length - 1);
-						texto = (parseInt(texto, 0) + 1) || 0;
+						// var texto = elem.text().substr(2);
+						// texto = texto.substr(0, texto.length - 1);
+						// texto = (parseInt(texto, 0) + 1) || 0;
 
-						elem.html(icon + texto + ']');
+						// elem.html(icon + texto + ']');
+
+                        var span = elem.find('.votos-totales');
+                        var suma = parseInt(span.text(), 10) + 1 || 0;
+                        span.text(suma);
 					}
 				});
 			});
@@ -1320,8 +1300,8 @@
 					if(confiable) {
 						var siconf = parseInt(confiable.siconf, 0) || 0;
 						var noconf = parseInt(confiable.noconf, 0) || 0;
-						gvConfiable.find('[data-conf="1"]').html('<i class="icon-checkmark"></i> [' + siconf + ']');
-						gvConfiable.find('[data-conf="0"]').html('<i class="icon-tacha"></i> [' + noconf + ']');
+						gvConfiable.find('[data-conf="1"] .votos-totales').html(siconf);
+						gvConfiable.find('[data-conf="0"] .votos-totales').html(noconf);
 					}
 				});
 			}
@@ -1476,14 +1456,7 @@
 				var id = elem.data('id');
 				$.post(url + 'comentariofoto/' + id + '/' + mod, {texto:texto}).done(function(data) {
 					debugger
-					var comm = ' \
-					<div class="small-12 columns"> \
-						<div class="comentario"> \
-			   				<label style="font-size:18px">' + data.usuario + '</label> \
-				   			<p>' + texto + '</p> \
-				   			<span>' + data.created_at.date + '</span> \
-			   			</div> \
-			   		</div>';
+					var comm = '<div class="small-12 columns"> <div class="comentario"> <label style="font-size:18px">' + data.usuario + '</label> <p>' + texto + '</p> <span>' + data.created_at.date + '</span> </div> </div>';
 
 		   			elem.parents('.reveal-modal').find('.gv-comentarios').prepend(comm);
 					txaComentario.val('');
@@ -1542,8 +1515,9 @@
 				});
 			});
 
-			$('.vote-perfil').on('click', function(e) {
+			$('.vote-perfil').on('click', function(e) {                
 				e.preventDefault();
+                debugger
 				var tipo = $(e.currentTarget).data('tipo');
 				
 				add(e, 'perfil', tipo);
@@ -1605,6 +1579,7 @@
 			});
 
 			$('.vote-post').on('click', function(e) {
+                debugger
 				e.preventDefault();
 				var tipo = $(e.currentTarget).data('tipo');	
 				var ptipo = $(e.currentTarget).parents('.votos-container').data('tipo');		
@@ -1621,7 +1596,8 @@
 					var votos = parseInt(rank.text(), 10);
 					var suma = parseInt(data, 10);
 
-					rank.text(votos + (suma == 0 ? 0 : 1));
+                    //rank.text(votos + (suma == 0 ? 0 : 1));
+					rank.text(votos + suma);
 				});
 			}
 
@@ -1633,14 +1609,16 @@
 			});
 
 			function SavePost() {
+                debugger
 				var idPerfil = window.location.href.split('/').pop();
 
 				var formData = new FormData($('.postearEv')[0]);
 		        //formData.append("fdata", JSON.stringify({opcion:opcion}));
+                var tipo = $('.postearEv > div > div:not(.Hidden):not(#botCampo)').data('tipo');
 	        
 		        $('.loading').removeClass('isHidden');
 				var xhr = $.ajax({
-		            url: url + 'post/' + idPerfil + '/' + opcion,  //Server script to process data
+		            url: url + 'post/' + idPerfil + '/' + tipo,  //Server script to process data
 		            type: 'POST',
 		            success: function (argument) {
 		            	window.location.reload();
@@ -1666,85 +1644,13 @@
 			
 
 			$('.btn-postear').on('click', function (e) {
+                e.preventDefault();
 				$('.postearEv').submit();			
 			})
 	            //MOSTRAR CAMPOS DE LLENADO DE SECRET BOX, CONFESION,LAS EVIDENCIAS Y CALIFICACION
-			$('#lapiz').on('click',function(e){
-				//e.preventDefault();
-				$('.postearEv').removeClass("Hidden");
-				$('#conCampo').removeClass("Hidden");
-				$('#botCampo').removeClass("Hidden");
-				$('#eviCampo').addClass("Hidden");
-				$('#videoCampo').addClass("Hidden");
-				$('#linkCampo').addClass("Hidden");
-
-				opcion = 1;
-			});
-			$('#fotosP').on('click',function(){
-				$('.postearEv').removeClass("Hidden");
-				$('#eviCampo').removeClass("Hidden");
-				$('#conCampo' ).addClass("Hidden");
-				$('#videoCampo').addClass("Hidden");
-				$('#botCampo').removeClass("Hidden");
-				$('#linkCampo').addClass("Hidden");
-				opcion = 2;
-			});
-			$('#secre').on('click',function(){
-				$('.postearEv').removeClass("Hidden");
-				$('#videoCampo').removeClass("Hidden");
-				$('#conCampo' ).addClass("Hidden");
-				$('#eviCampo').addClass("Hidden");
-				$('#botCampo').removeClass("Hidden");
-				$('#linkCampo').addClass("Hidden");
-				opcion = 3;
-			});
-			$('#linkear').on('click',function(){
-				$('.postearEv').removeClass("Hidden");
-				$('#videoCampo').addClass("Hidden");
-				$('#conCampo' ).addClass("Hidden");
-				$('#eviCampo').addClass("Hidden");
-				$('#linkCampo').removeClass("Hidden");
-				$('#botCampo').removeClass("Hidden");
-				opcion = 4;
-			});
-			// ABRIR FORMULARIO DE CONFESION FOTOS VIDEO SECUNDARIO
-			$('.confSec').on('click',function(e){
-				//e.preventDefault();
-				
-				$('.conSec').removeClass("Hidden");
-				$('.btnSec').removeClass("Hidden");
-				$('.viSec').addClass("Hidden");
-				$('.fotSec').addClass("Hidden");
-				$('.linkerSec').addClass("Hidden");
-				opcion = 1;
-			});
-			$('.fotoSec').on('click',function(){
 			
-				$('.fotSec').removeClass("Hidden");
-				$('.btnSec').removeClass("Hidden");
-				$('.conSec').addClass("Hidden");
-				$('.viSec').addClass("Hidden");
-				$('.linkerSec').addClass("Hidden");
-				opcion = 2;
-			});
-			$('.vidSec').on('click',function(){
-				
-				$('.viSec').removeClass("Hidden");
-				$('.conSec' ).addClass("Hidden");
-				$('.fotSec').addClass("Hidden");
-				$('.linkerSec').addClass("Hidden");
-				$('.btnSec').removeClass("Hidden");
-				opcion = 3;
-			});
-			$('.linkSec').on('click',function(){
-				
-				$('.linkerSec').removeClass("Hidden");
-				$('.conSec' ).addClass("Hidden");
-				$('.fotSec').addClass("Hidden");
-				$('.btnSec').removeClass("Hidden");
-				$('.viSec').addClass("Hidden");
-				opcion = 4;
-			});
+			// ABRIR FORMULARIO DE CONFESION FOTOS VIDEO SECUNDARIO
+			
 
 			$('#mostrarMasca').on('click',function(){
 				$("#masca").toggleClass('Hidden');
@@ -1797,26 +1703,26 @@
 			
 			});
 			$('#fotosAddPost').on('click',function(){
-				$("#campoFotosPost").toggleClass('Hidden');
+				$("#campoFotosPost").toggleClass('isHidden');
 				
 			});
 			$('.votos_mostrar').on('click', function(e) {
-				debugger
 				$(this).siblings('.votosPost').toggleClass("Hidden");
 			});
 
-			(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
+			// (function(d, s, id) {
+			//   var js, fjs = d.getElementsByTagName(s)[0];
+			//   if (d.getElementById(id)) return;
+			//   js = d.createElement(s); js.id = id;
+			//   js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3";
+			//   fjs.parentNode.insertBefore(js, fjs);
+			// }(document, 'script', 'facebook-jssdk'));
 		}
 
 	</script>
+    
 
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!--script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script-->
 
 
 @stop

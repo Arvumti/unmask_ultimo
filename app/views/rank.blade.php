@@ -1,165 +1,88 @@
 @extends('base')
 
-@section('content_rank')
+@section('content')
 
-	<div class="cargar_rank">
-			<div class="cat_mascaras" >
-					<div class="cien">	
-						<h2>{{Lang::get('messages.rankTOPRANK')}}</h2>
-					</div>
-				<div class="cien">
-					<div class="rank_cuadros">
-						<div class="cat_cuadro">
-							<a  id="ladron" href="{{ URL::to('/rank/ladron') }}">
-								<img src="{{ URL::asset('img/iconos/ladron.png') }}">
-								<h3>{{Lang::get('messages.rankTit1')}}</h3>
-							</a>
-						</div>
-						<div class="cat_cuadro">
-							<a  id="jefe" href="{{ URL::to('/rank/jefe') }}">
-								<img src="{{ URL::asset('img/iconos/jefe.png') }}">
-								<h3>{{Lang::get('messages.rankTit2')}}</h3>
-							</a>
-						</div>
-						<div class="cat_cuadro">
-							<a id="escolar" href="{{ URL::to('/rank/escolar') }}">
-								<img src="{{ URL::asset('img/iconos/escolar.png') }}">
-								<h3>{{Lang::get('messages.rankTit3')}}</h3>
-							</a>
-						</div>
-						<div class="cat_cuadro">
-							<a id="corrup" href="{{ URL::to('/rank/corrupto') }}">
-								<img src="{{ URL::asset('img/iconos/corrupcion.png') }}">
-								<h3>{{Lang::get('messages.rankTit4')}}</h3>
-							</a>
-						</div>
-						<div class="cat_cuadro">
-							<a  id="infiel" href="{{ URL::to('/rank/infiel') }}">
-								<img src="{{ URL::asset('img/iconos/corazon.png') }}">
-								<h3>{{Lang::get('messages.rankTit5')}}</h3>
-							</a>
-						</div>
-					</div>	
-				</div>		
-			</div>
-			<div class="cat_mascaras_2 " >
-					<div class="cien">	
-						<h2>{{Lang::get('messages.rankTOPRANK')}}</h2>
-					</div>
-				<div class="cien">
-					<div class="rank_cuadros">
-						<div class="cat_cuadro">
-							<a  id="altruista" href="{{ URL::to('/rank/altruista') }}">
-								<img src="{{ URL::asset('img/iconos/altruista.png') }}">
-								<h3>{{Lang::get('messages.rankTit6')}}</h3>
-							</a>
-						</div>
-						<div class="cat_cuadro">
-							<a  id="amigo" href="{{ URL::to('/rank/amigo') }}">
-								<img src="{{ URL::asset('img/iconos/amigo.png') }}">
-								<h3>{{Lang::get('messages.rankTit7')}}</h3>
-							</a>
-						</div>
-						<div class="cat_cuadro">
-							<a id="socio" href="{{ URL::to('/rank/socio') }}">
-								<img src="{{ URL::asset('img/iconos/socio.png') }}">
-								<h3>{{Lang::get('messages.rankTit8')}}</h3>
-							</a>
-						</div>
-						<div class="cat_cuadro">
-							<a id="celebridad" href="{{ URL::to('/rank/celebridad') }}">
-								<img src="{{ URL::asset('img/iconos/celebridad.png') }}">
-								<h3>{{Lang::get('messages.rankTit9')}}</h3>
-							</a>
-						</div>
-						<div class="cat_cuadro">
-							<a  id="viola" href="{{ URL::to('/rank/violador') }}">
-								<img src="{{ URL::asset('img/iconos/viola.png') }}">
-								<h3>{{Lang::get('messages.rankTit10')}}</h3>
-							</a>
-						</div>
-					</div>
-				</div>		
-			</div>
-			<div class="cat_mascaras_3 " >
-					<div class="cien">	
-						<h2>{{Lang::get('messages.rankTOPRANK')}}</h2>
-					</div>
-				<div class="cien">
-					<div class="rank_cuadros">
-						<div class="cat_cuadro">
-							<a  id="ninfo" href="{{ URL::to('/rank/ninfomania') }}">
-								<img src="{{ URL::asset('img/iconos/ninfomania.png') }}">
-								<h3>{{Lang::get('messages.rankTit11')}}</h3>
-							</a>
-						</div>
-					</div>
-				</div>		
-			</div>
+	<div class="other_users_container ranks"><h1 class="create_profile_form_marker">{{Lang::get('messages.rankTOPRANK')}}</h1>
+      
+        <div class="teg ladron">
+            <a href="#"> <p>{{Lang::get('messages.rankTit1')}}</p> </a>
+            <a href="{{ URL::to('/rank/ladron') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg jefe">
+            <a href="#"> <p class="sombreado">{{Lang::get('messages.rankTit2')}}</p> </a>
+            <a href="{{ URL::to('/rank/jefe') }}" class="add_rank"> <span>View</span><img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg infiel">
+            <a href="#"> <p class="sombreado">{{Lang::get('messages.rankTit3')}}</p> </a>
+            <a href="{{ URL::to('/rank/escolar') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg corrupto">
+            <a href="#"> <p class="sombreado">{{Lang::get('messages.rankTit4')}}</p> </a>
+            <a href="{{ URL::to('/rank/corrupto') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg escolar">
+            <a href="#"> <p>{{Lang::get('messages.rankTit5')}}</p> </a>
+            <a href="{{ URL::to('/rank/infiel') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg altruista">
+            <a href="#"> <p>{{Lang::get('messages.rankTit6')}}</p> </a>
+            <a href="{{ URL::to('/rank/altruista') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg amigo">
+            <a href="#"> <p>{{Lang::get('messages.rankTit7')}}</p> </a>
+            <a href="{{ URL::to('/rank/amigo') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg socio">
+            <a href="#"> <p>{{Lang::get('messages.rankTit8')}}</p> </a>
+            <a href="{{ URL::to('/rank/socio') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg celebridad">
+            <a href="#"> <p>{{Lang::get('messages.rankTit9')}}</p> </a>
+            <a href="{{ URL::to('/rank/celebridad') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+        <div class="teg viola">
+            <a href="#"> <p>{{Lang::get('messages.rankTit10')}}</p> </a>
+            <a href="{{ URL::to('/rank/violador') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+          <div class="teg ninfo">
+            <a href="#"> <p class="sombreado">{{Lang::get('messages.rankTit11')}}</p> </a>
+            <a href="{{ URL::to('/rank/ninfomania') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
+        </div>
+    </div>
 
-		<div class="contenedor_perfiles Hidden">
-			<div class="titulo_barra">
-				<h3>{{Lang::get('messages.rankTOPRANK')}}</h3>
-			</div>
-
-				@foreach($toprank as $perfil)
-					<div class="columna_perfiles">
-						<div class="perfil_ejemplo vertical" data-scroll-reveal="enter bottom over .3s and move 10px">
-							<a href="{{ URL::to('perfil').'/'.$perfil->idPerfil }}">
-								<div class="avatar">
-									<div class="mask">
-										 <div class="confesion_cuadro">
-									 		<h5> {{ $perfil->secret_pub }}</h5> 	
-								     	 </div>
-									<a >
-								<div class="footer_cuadro">
-									<h6>UNMASK</h6>	
-									<div class="comentario_cuadro">
-												<!--<a href="#" class="btnComentario" data-id="{{ $perfil->idPerfil }}">
-													<i class="icon-chat comentar">
-														<p class="com_rank">{{ $perfil->numcomm }}</p>
-													</i>
-												</a>-->
-									</div>
-								</div>	
-								</a>
-									</div>
-									<a href="{{ URL::to('perfil').'/'.$perfil->idPerfil }}">
-										<img src="{{ URL::asset('img\\db_imgs\\'.$perfil->foto) }}"/>
-									</a>
-								</div>
-							</a>
-							
-							<div class="info">
-								<ul>
-									<li><strong><h3>{{ $perfil->perfil }}</h3></strong></li>
-									<li><h5>{{ $perfil->estado }}</h5></li>
-									<li><h5>{{ $perfil->mascaras }}</h5></li>
-									<li><strong><h3>ID: {{ $perfil->idPerfil }}</h3></strong></li>										
-								</ul>
-							</div>
-						</div>		
-					</div>
-				@endforeach
-		</div>
-	</div>
-
-	<div id="verComentario" class="reveal-modal" data-reveal>
-		<div class="titulo_barra">
-			<h3>Comments</h3>
-		</div>
-		<div class="row gv-comentarios">
-		</div>
-		<div class="large-12 columns">
-					<textarea class="txaComentario" placeholder="Haz un comentario"></textarea>
-		</div>
-		<div class="small-2 columns">
-					<a href="#" class="button postfix btnComentar">Comment</a>
-		</div>
-		<a class="close-reveal-modal">&#215;</a>
-	</div>
-
-	<a class="exit-off-canvas"></a>
+    <div class="other_users_container isHidden"><h1>{{Lang::get('messages.rankTOPRANK')}}</h1>
+	  @foreach($toprank as $perfil)
+	 	<div class="other_user">
+            <div class="other_user_photo_area">
+                <img src="{{ URL::asset('img\\db_imgs\\'.$perfil->foto) }}" width="164" height="164" >
+                <div class="clear"></div>
+                <div class="other_user_info">
+                    <a href="profile_edit.html" class="unmask_link click_unmask_link">unmask</a>
+                    <div class="other_user_info_central">
+                        @if(strlen($perfil->mascaras) > 0)
+                        <span class="thief">{{ $perfil->mascaras }}</span>
+                        @endif
+                        <div class="unmask_red">
+                            <span>{{ $perfil->good }}</span>
+                            <img src="img/anonymous.png" width="11" height="15"/>
+                        </div>
+                        <div class="unmask_grey">
+                            <span>{{ $perfil->bad }}</span>
+                            <img src="img/anonymous_red.png" width="11" height="15"/>
+                        </div>
+                        <ul class="info_list">
+                            <li><span class="profile_info_left other_list_info">ID: </span> <span class="profile_info_right other_list_info">{{ $perfil->idPerfil }}</span></li>
+                            
+                        </ul>
+                    </div>
+                    <button onclick="window.location.href='{{ URL::to('perfil').'/'.$perfil->idPerfil }}'">View<img src="img/plus.png" /></button>
+                </div>
+            </div>
+            <!--p class="other_user_name">{{ $perfil->perfil }}</p>
+            <p class="other_user_location">{{ $perfil->pais }}</p-->
+        </div>
+      @endforeach
+    </div> 
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -213,91 +136,7 @@
 
 			
 			
-        $('#ladron').hover(function() {
-            $('.cat_mascaras').addClass('ladron');
-            $('.cat_mascaras').removeClass('jefe');
-            $('.cat_mascaras').removeClass('escolar');
-            $('.cat_mascaras').removeClass('corrupto');
-            $('.cat_mascaras').removeClass('infiel');
-
-
-
-       
-        });
-         $('#jefe').hover(function() {
-            $('.cat_mascaras').addClass('jefe');
-             $('.cat_mascaras').removeClass('ladron');
-            $('.cat_mascaras').removeClass('escolar');
-            $('.cat_mascaras').removeClass('corrupto');
-            $('.cat_mascaras').removeClass('infiel');
-
-       
-        });
-          $('#escolar').hover(function() {
-            $('.cat_mascaras').addClass('escolar');
-             $('.cat_mascaras').removeClass('ladron');
-            $('.cat_mascaras').removeClass('jefe');
-            $('.cat_mascaras').removeClass('corrupto');
-            $('.cat_mascaras').removeClass('infiel');
-      
-        });
-          $('#corrup').hover(function() {
-            $('.cat_mascaras').addClass('corrupto');
-             $('.cat_mascaras').removeClass('ladron');
-            $('.cat_mascaras').removeClass('escolar');
-            $('.cat_mascaras').removeClass('jefe');
-            $('.cat_mascaras').removeClass('infiel');
         
-        });
-          $('#infiel').hover(function() {
-            $('.cat_mascaras').addClass('infiel');
-             $('.cat_mascaras').removeClass('ladron');
-            $('.cat_mascaras').removeClass('escolar');
-            $('.cat_mascaras').removeClass('corrupto');
-            $('.cat_mascaras').removeClass('jefe');
-      
-        });
-  		 $('#altruista').hover(function() {
-            $('.cat_mascaras_2').addClass('altruista');
-           $('.cat_mascaras_2').removeClass('amigo');
-            $('.cat_mascaras_2').removeClass('socio');
-             $('.cat_mascaras_2').removeClass('celebridad');
-            $('.cat_mascaras_2').removeClass('viola');
-      
-        });
-  		  $('#amigo').hover(function() {
-            $('.cat_mascaras_2').addClass('amigo');
-            $('.cat_mascaras_2').removeClass('altruista');
-             $('.cat_mascaras_2').removeClass('socio');
-            $('.cat_mascaras_2').removeClass('celebridad');
-             $('.cat_mascaras_2').removeClass('infiel');
-
-        
-        });
-  		   $('#socio').hover(function() {
-            $('.cat_mascaras_2').addClass('socio');
-           $('.cat_mascaras_2').removeClass('amigo');
-           $('.cat_mascaras_2').removeClass('altruista');
-           $('.cat_mascaras_2').removeClass('celebridad');
-             $('.cat_mascaras_2').removeClass('viola');
-       
-        });
-  		    $('#celebridad').hover(function() {
-            $('.cat_mascaras_2').addClass('celebridad');
-          $('.cat_mascaras_2').removeClass('amigo');
-             $('.cat_mascaras_2').removeClass('socio');
-             $('.cat_mascaras_2').removeClass('altruista');
-             $('.cat_mascaras_2').removeClass('viola');
-        
-        });
-  		     $('#viola').hover(function() {
-            $('.cat_mascaras_2').addClass('viola');
-             $('.cat_mascaras_2').removeClass('amigo');
-             $('.cat_mascaras_2').removeClass('socio');
-             $('.cat_mascaras_2').removeClass('celebridad');
-             $('.cat_mascaras_2').removeClass('altruista');
-       
-        });
 		
 
 				function add(e, mod, tipo) {

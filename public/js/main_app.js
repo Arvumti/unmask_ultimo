@@ -18,6 +18,7 @@ function typeahead(options) {
 		name: 'states',
 		displayKey: _dKey,
 		source: function(busqueda, proccess) {
+			debugger
 			$.get(url + _modulo + '/' + busqueda).done(done);
 			function done (data) {
 				proccess(data);

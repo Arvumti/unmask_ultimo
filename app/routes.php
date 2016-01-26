@@ -99,7 +99,7 @@ Route::post('/crear_perfil/{id}', function($id) {
 
 		$mascaraPublica = new MascaraPublica;
 		$mascaraPublica->idPerfil = $id;
-		$mascaraPublica->idAlias = Session::get('usuario')->idAlias;
+		$mascaraPublica->idAlias = $idAlias;
 		$mascaraPublica->nombre = $mascaras[$i];
 		$mascaraPublica->save();
 	}
@@ -109,7 +109,7 @@ Route::post('/crear_perfil/{id}', function($id) {
 
 		$apodoPublica = new ApodoPublico;
 		$apodoPublica->idPerfil = $id;
-		$apodoPublica->idAlias = Session::get('usuario')->idAlias;
+		$apodoPublica->idAlias = $idAlias;
 		$apodoPublica->apodo = $apodos[$i];
 		$apodoPublica->save();
 	}
@@ -181,6 +181,27 @@ Route::post('/update_pass', function() {
 		return Redirect::back()->withInput()->withErrors(Array('error' => "{{Lang::get('messages.rouErrUpd_pass')}}"));
 });
 
+Route::post('/update_image', function() {
+	$data = Input::all();
+
+	$idAlias = Session::get('usuario')->idAlias;
+
+	$file = $data['photo'];
+	if($data['photo'] === null)
+		return Response::json(Array('ok' => -1));
+
+	$image = GetNameImage('e_');
+
+	DB::table('alias')
+        ->where('idAlias', $idAlias)
+        ->update(array('foto' => $image));
+
+    Session::get('usuario')->foto = $image;
+	$file->move(public_path().'/img/db_imgs/alias/', $image);
+
+    return Response::json(Array('ok' => 1));
+});
+
 /*
 	1.- Evidencia video 	:: video_evi	:: Medias
 	2.- Evidencia foto 		:: imagen_evi	:: Medias
@@ -217,6 +238,9 @@ Route::post('/confiable', function() {
 			break;
 		case 'img_subpost':
 			$tipo = 8;
+			break;
+		case 'perfil':
+			$tipo = 9;
 			break;
 		default:
 			$tipo = 0;
@@ -445,9 +469,10 @@ Route::post('/comentariofoto/{id}/{mod}', function($id, $mod) {
 
 	$comm->idAlias = Session::get('usuario')->idAlias;
 	$comm->comentario = Input::get('texto');
+	$nombre = Session::get('usuario')->nombre;
 
 	if($comm->save())
-		return Array('usuario' => Session::get('usuario')->nombre, 'created_at' => $comm->created_at);
+		return Array('usuario' => $nombre, 'created_at' => $comm->created_at);
 	return 0;
 });
 
@@ -929,6 +954,35 @@ Route::get('/eliminar_perfil/{id}', function() {
 	return Redirect::to('/logout');
 });
 
+Route::get('/update_perfil/{id}', function($id) {
+	$idAlias = Session::get('usuario')->idAlias;
+	$perfil = DB::table('perfiles')->where('idAlias', '=', $idAlias)->where('idPerfil', '=', $id)->first();
+	$apods = DB::table('apodos_publicos')->where('idPerfil', '=', $id)->get();
+	$masks = DB::table('mascaras_publicas')->where('idPerfil', '=', $id)->get();
+
+	$perfil->apods = $apods;
+
+	$apodos = '';
+	for ($i=0; $i < count($apods); $i++) { 
+		$apodos .= $apods[$i]->apodo.', ';
+	}
+
+	$perfil->apodos = $apodos;
+	$perfil->masks = $masks;
+
+	$mascaras = '';
+	for ($i=0; $i < count($masks); $i++) { 
+		$mascaras .= $masks[$i]->nombre.', ';
+	}
+
+	$perfil->mascaras = $mascaras;
+
+	$data['perfil'] = $perfil;
+
+	return View::make('update_perfil')->with('data', $data);
+	// return Response::json($perfil);
+});
+
 Route::post('/vote/{mod}/{tipo}/{id}/{ptipo}', function($mod, $tipo, $id, $ptipo) {
 	if(Session::has('usuario')) {
 		$idAlias = Session::get('usuario')->idAlias;
@@ -1132,59 +1186,62 @@ Route::post('/relaciones/{id}', function($id) {
 Route::post('/post/{id}/{opcion}', function($id, $opcion) {
 	$data = Input::all();
 
-	$video = '';
-	if(strlen(Input::get("link")) > 0)
-		$video = explode ('v=', $data['link'])[1];
+	// $video = '';
+	// if(strlen(Input::get("link")) > 0)
+	// 	$video = explode ('v=', $data['link'])[1];
 
 	$post = new Post;
 	$post->idAlias = Session::get('usuario')->idAlias;
 	$post->idPerfil = $id;
-	$post->tipo = 4;
-	$post->confesion = Input::get("confesion");
-	$post->link = $video;
-	$post->secret = $data['secret'];
-	$post->link_evi = $data['link_evi'];
+	// $post->tipo = 4;
+	// $post->confesion = Input::get("confesion");
+	// $post->link = $video;
+	// $post->secret = $data['secret'];
+	// $post->link_evi = $data['link_evi'];
 	
-	if(strlen($data['secret']) > 0)
-		DB::table('perfiles')
-	            ->where('idPerfil', $id)
-	            ->update(array('secret_pub' => $data['secret'], 'updated_at' => DB::raw('NOW()')));
+	// if(strlen($data['secret']) > 0)
+	// 	DB::table('perfiles')
+	// 		->where('idPerfil', $id)
+	// 		->update(array('secret_pub' => $data['secret'], 'updated_at' => DB::raw('NOW()')));
 
-	if($post->save()) {
-		for ($i=0; $i < count($data['files']); $i++) { 
-			$file = $data['files'][$i];
-			if($data['files'][$i] === null)
-				continue;
-			$image = GetNameImage('e_');
+	// if($post->save()) {
+	// 	for ($i=0; $i < count($data['files']); $i++) { 
+	// 		$file = $data['files'][$i];
+	// 		if($data['files'][$i] === null)
+	// 			continue;
+	// 		$image = GetNameImage('e_');
 
-			$foto_post = new FotoPost;
-			$foto_post->foto = $image;
-			$foto_post->idPost = $post->id;
+	// 		$foto_post = new FotoPost;
+	// 		$foto_post->foto = $image;
+	// 		$foto_post->idPost = $post->id;
 
-			if ($foto_post->save())
-				$file->move(public_path().'/img/db_imgs/posts/', $image);
-		}
-	}
+	// 		if ($foto_post->save())
+	// 			$file->move(public_path().'/img/db_imgs/posts/', $image);
+	// 	}
+	// }
 
-	/*if($opcion == 3) {
+	$doSave = true;
+
+	if($opcion == 1) {
 		$post->secret = $data['secret'];
-		$post->tipo = 3;
-		$post->save();
-
-		DB::table('perfiles')
-            ->where('idPerfil', $id)
-            ->update(array('secret_pub' => $data['secret']));
-	}
-	else if($opcion == 1) {
-		$post->confesion = Input::get("confesion");
+		$post->confesion = Input::get("comment");
 		$post->tipo = 1;
-		$post->save();
+
+		if(strlen($data['secret']) > 0)
+			DB::table('perfiles')
+				->where('idPerfil', $id)
+				->update(array('secret_pub' => $data['secret'], 'updated_at' => DB::raw('NOW()')));
 	}
 	else if($opcion == 2) {
-		$post->link = Input::get("link");
-		$post->tipo = 2;
+		$video = '';
+		if(strlen(Input::get("link")) > 0)
+			$video = explode ('v=', $data['link'])[1];
 
-		if($post->save()) {
+		$post->link = $video;
+		$post->tipo = 2;
+	}
+	else if($opcion == 3) {
+		if(count($data['files']) > 0 && $post->save()) {
 			for ($i=0; $i < count($data['files']); $i++) { 
 				$file = $data['files'][$i];
 				if($data['files'][$i] === null)
@@ -1199,7 +1256,16 @@ Route::post('/post/{id}/{opcion}', function($id, $opcion) {
 					$file->move(public_path().'/img/db_imgs/posts/', $image);
 			}
 		}
-	}*/
+
+		$doSave = false;
+	}
+	else {
+		$post->tipo = 4;
+		$post->link_evi = $data['link_evi'];
+	}
+	
+	if($doSave)
+		$post->save();
 
 	return Response::json(Array('ok' => 1));
 });
@@ -1830,15 +1896,42 @@ Route::get('/madison/data', function() {
 								ON a.COUNTRY = b.COUNTRY_ID
 								INNER JOIN tgender c
 								ON a.GENDER = c.GENDER_ID
-								WHERE 
-								( 	a.FIRST_NAME = '{$query}'
-									AND a.LAST_NAME = '{$query}'
-								)
-								OR ( a.EMAIL = '{$query}' )
+								WHERE CONCAT(a.FIRST_NAME, ' ', a.LAST_NAME) = '{$query}'
+								OR a.EMAIL = '{$query}'
 
 								"));
 	//WHERE a.FIRST_NAME LIKE '%{$query}%'
 	//var_dump($sql);
 	//return View::make('principal')->with('data', $data);
-	return Response::json($data);
+	if(count($data) > 0) {
+		$persona = $data[0];
+
+		$image = null;
+		
+		$perfil = new Perfil;
+		$perfil->nombre = $persona->FIRST_NAME;
+		$perfil->apaterno = $persona->LAST_NAME;
+		$perfil->amaterno = '';
+		$perfil->confesion = '';
+		$perfil->facebook = '';
+		$perfil->twitter = '';
+		$perfil->instagram = '';
+		$perfil->secret = '';
+		$perfil->secret_pub = '';
+		$perfil->pais = $persona->COUNTRY_NAME;
+		$perfil->estado = '';
+		$perfil->municipio = '';
+		$perfil->ciudad = $persona->CITY;
+		$perfil->colonia = $persona->STREET;
+		$perfil->mascaras = '';
+		$perfil->idAlias = Session::get('usuario')->idAlias;
+		$perfil->foto = $image;
+
+		if($perfil->save())
+			return Response::json($perfil->id);
+		else
+			return Response::json(0);
+	}
+
+	return Response::json(0);
 });

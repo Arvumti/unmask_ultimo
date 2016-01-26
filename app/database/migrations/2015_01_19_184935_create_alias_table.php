@@ -24,6 +24,7 @@ class CreateAliasTable extends Migration {
 			$table->string('correo')->unique();
 			$table->string('pais');
 			$table->string('estado');
+			$table->string('foto');
 			$table->timestamps();
 		});
 	}
