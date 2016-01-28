@@ -7,115 +7,25 @@
 <script type="text/javascript" src="{{ URL::asset('js/lodash.underscore.min.js') }}"></script> 
 <script type="text/javascript" src="{{ URL::asset('js/backbone-min.js') }}"></script> 
 
-<div class="titulo_barra">
-	<h2 style="margin-left:25px; margin-top:1.5em">{{Lang::get('messages.updtTitLblCrear')}}</h2>
-</div>
+<div class="create_profile_marker">
+	<div class="other_users_container">
+		<h1 class="create_profile_form_marker">{{Lang::get('messages.updtTitLblCrear')}} Madison</h1>
 
-<form action="{{ URL::to('crear_perfil/'.$data['perfil']->idPerfil) }}" method="post" enctype="multipart/form-data" data-abide>	
-	<div class="row columns">
-		<div class="small-4 columns">
-			<a class="th img-logo" href="#">
-				<img id="imgFoto" data-ref="cpFoto" class="click-image" src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}"/>    
-				<label>
-					<input type="file" id="file" name="foto" class="isHidden cpFoto"  accept="image/*" />
-				</label>
-			</a>
-			<h4>{{Lang::get('messages.updtFrmLblImagen')}}</h4>
-		</div>
-		<div class="small-8 columns">
-			<div class="row">
-				<div class="large-12 columns ">
-					<label >
-						<b ><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltNombre')}}">{{Lang::get('messages.updtFrmLblNombre')}}</span></b>
-						<input type="text" name="nombre" value="{{$data['perfil']->nombre}}" placeholder="{{Lang::get('messages.updtTltNombreVal')}}" required />
-					</label>
+		<div class="create_profile_form">
+			<form action="{{ URL::to('crear_perfil/'.$data['perfil']->idPerfil) }}" class="flex_box" method="post" enctype="multipart/form-data" data-abide>	
+				<!--a class="th img-logo" href="#"></a-->
+				<input type="file" id="file" name="foto" class="isHidden cpFoto"  accept="image/*" />
+				<label for="foto"><img id="imgFoto" data-ref="cpFoto" class="click-image" src="{{ URL::asset('img/add_photo.jpg') }}"width="195"/><p>Drag&Drop <br> your new photo</p>    </label>
+								
+				<div class="flex_column">
+					<input type="text" name="nombre" value="{{$data['perfil']->nombre}}" placeholder="{{Lang::get('messages.updtTltNombreVal')}}" required />
 					<small class="error">{{Lang::get('messages.updtFrmLblNombreVal')}}</small>
-				</div>
-				<div class="large-12 columns ">
-					<label >
-						<b ><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltApellidoPaterno')}}">{{Lang::get('messages.updtFrmLblApellidoPaterno')}}</span></b>
-						<input type="text" name="apaterno" value="{{$data['perfil']->apaterno}}" placeholder="{{Lang::get('messages.updtTltApellidoPaternoVal')}}" required />
-					</label>
+					<input type="text" name="apaterno" value="{{$data['perfil']->apaterno}}" placeholder="{{Lang::get('messages.updtTltApellidoPaternoVal')}}" required />
 					<small class="error">{{Lang::get('messages.updtFrmLblApellidoPaternoVal')}}</small>
-				</div>
-				<div class="large-12 columns ">
-					<label >
-						<b ><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltApellidoMaterno')}}">{{Lang::get('messages.updtFrmLblApellidoMaterno')}}</span></b>
-						<input type="text" name="amaterno" value="{{$data['perfil']->amaterno}}" placeholder="{{Lang::get('messages.updtTltApellidoMaternoVal')}}" required />
-					</label>
+					<input type="text" name="amaterno" value="{{$data['perfil']->amaterno}}" placeholder="{{Lang::get('messages.updtTltApellidoMaternoVal')}}" required />
 					<small class="error">{{Lang::get('messages.updtFrmLblApellidoMaternoVal')}}</small>
-				</div>
-
-				<div class="large-12 columns ">
-					<label>
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltAdvertenciaDatos')}}">	{{Lang::get('messages.updtFrmLblPais')}}</span>
-						<input type="text" name="pais" value="{{$data['perfil']->pais}}" class="typeahead"/>
-					</label>
-				</div>
-				<div class="large-12 columns ">
-					<label>
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltAdvertenciaDatos')}}">{{Lang::get('messages.updtFrmLblEstado')}}</span>
-						<input type="text" name="estado" value="{{$data['perfil']->estado}}" class="typeahead"/>
-					</label>
-				</div>
-				<div class="large-4 columns ">
-					<label>
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltAdvertenciaDatos')}}">{{Lang::get('messages.updtFrmLblMunicipio')}}</span>
-						<input type="text" name="municipio" value="{{$data['perfil']->municipio}}" class="typeahead"/>
-					</label>
-				</div>
-				<div class="large-4 columns ">
-					<label>
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltAdvertenciaDatos')}}">	{{Lang::get('messages.updtFrmLblCiudad')}}</span>
-						<input type="text" name="ciudad" value="{{$data['perfil']->ciudad}}" class="typeahead"/>
-					</label>
-				</div>
-				<div class="large-4 columns ">
-					<label>
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltAdvertenciaDatos')}}">{{Lang::get('messages.updtFrmLblColonia')}}</span>
-						<input type="text" name="colonia" value="{{$data['perfil']->colonia}}" class="typeahead" />
-					</label>
-				</div>
-				<!--div class="large-6 columns ">
-					<label>
-						Municipio:
-						<input type="text" name="" placeholder="Municipio" />
-					</label>
-				</div>
-				<div class="large-6 columns ">
-					<label>
-						Colonia:
-						<input type="text" name="" placeholder="Colonia" />
-					</label>
-				</div-->
-				<div class="red_titulo"><h4>{{Lang::get('messages.updtFrmTitRedesSociales')}}:</h4></div>
-				<div class="large-4 columns ">
-					
-					<label>
-						<span  data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltSocial')}}"> {{Lang::get('messages.updtFrmLblFacebook')}}</span>
-						<input type="text" name="facebook" value="{{$data['perfil']->facebook}}" placeholder="http://facebook.com/perfil" />
-					</label>
-				</div>
-				<div class="large-4 columns ">
-					<label>
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltSocialExtra')}}">{{Lang::get('messages.updtFrmLblTwitter')}}</span>
-						<input type="text" name="twitter" value="{{$data['perfil']->twitter}}" placeholder="http://twitter.com/perfil" />
-					</label>
-				</div>
-				<div class="large-4 columns ">
-					<label>
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltSocialExtra')}}">{{Lang::get('messages.updtFrmLblInstagram')}}</span>
-					
-						<input type="text" name="instagram" value="{{$data['perfil']->instagram}}" placeholder="http://instagram.com/perfil" />
-					</label>
-				</div>
-
-				<div class="red_titulo"><h4>{{Lang::get('messages.updtFrmLblApodo')}}:</h4></div>
-				<div class="small-12 columns ">
-					<label>
-						<b ><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltApodo')}}">{{Lang::get('messages.updtFrmLblApodo')}}</span></b>
-						<input type="text" name="apodo" placeholder="{{Lang::get('messages.updtTltApodoVal')}}" />
-					</label>
+					<!--<b ><span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltApodo')}}">{{Lang::get('messages.updtFrmLblApodo')}}</span></b-->
+					<input type="text" name="apodo" placeholder="{{Lang::get('messages.updtTltApodoVal')}}" />
 					<div class="gv-apodos">
 						@foreach($data['perfil']->apods as $apodo)
 							<label>
@@ -125,58 +35,62 @@
 						@endforeach
 					</div>
 					<input type="text" class="fake-apodos isHidden" value="{{$data['perfil']->apodos}}" name="apodos"/>
+					
 				</div>
-
-				<div class="red_titulo"><h4>{{Lang::get('messages.updtFrmTitMascaras')}}:</h4></div>
-				<div class="red_titulo"><p><strong>{{Lang::get('messages.updtFrmLblMascarasClasificacion')}}</strong> {{Lang::get('messages.updtFrmLblMascarasOpt')}}</p>
+				<div class="flex_column_full">
+					<input type="text" name="pais" value="{{$data['perfil']->pais}}" class="typeahead"/>
+					<input type="text" name="estado" value="{{$data['perfil']->estado}}" class="typeahead"/>
 				</div>
-
-				<div class="small-12 columns ">
-					<label>
-						<span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.updtTltConsejoMascaras')}}">{{Lang::get('messages.updtFrmLblMascaraSeleccionada')}} </span>
-						<input type="text" name="mascara" class="typeahead" placeholder="{{Lang::get('messages.updtTltConsejoMascaras1')}}" />
-					</label>
-					<div class="gv-mascaras">
-						@foreach($data['perfil']->masks as $mascara)
-							<label>
-								<span class="texto">{{$mascara->nombre}}</span>
-								<span class="cerrar">x</span>
-							</label>
-						@endforeach					
-					</div>
-					<input type="text" class="fake-mascaras isHidden" value="{{$data['perfil']->mascaras}}" name="mascaras"/>
+				<div class="flex_box flex_box_tree">
+					<input type="text" name="municipio" value="{{$data['perfil']->municipio}}" class="typeahead"/>
+					<input type="text" name="ciudad" value="{{$data['perfil']->ciudad}}" class="typeahead"/>
+					<input type="text" name="colonia" value="{{$data['perfil']->colonia}}" class="typeahead" />
 				</div>
-				<div class="small-12 columns"> 
-				
+				<p class="flex_box">{{Lang::get('messages.crePerFrmTitRedesSociales')}}</p>
+	            <div class="flex_box flex_box_tree">
+					<input type="text" name="facebook" value="{{$data['perfil']->facebook}}" placeholder="http://facebook.com/perfil" />
+					<input type="text" name="twitter" value="{{$data['perfil']->twitter}}" placeholder="http://twitter.com/perfil" />
+					<input type="text" name="instagram" value="{{$data['perfil']->instagram}}" placeholder="http://instagram.com/perfil" />
+	            	 
+	            </div>
+	            <p class="flex_box">{{Lang::get('messages.crePerFrmTitMascaras')}}</p>
+	            <input type="checkbox" class="hidden_class" name="theif" id="theif" value="1"><label for="theif" class="label_red"> <span>Theif</span> </label>
+	            <input type="checkbox" class="hidden_class" name="unfair_boss" id="unfair_boss" value="2"> <label for="unfair_boss" class="label_red"> <span>Unfair boss</span> </label>
+	            <input type="checkbox" class="hidden_class" name="sexual_harassment" id="sexual_harassment" value="3"> <label for="sexual_harassment" class="label_red"> <span>Sexual harassment</span> </label>
+	            <input type="checkbox" class="hidden_class" name="corruption" id="corruption" value="4"> <label for="corruption" class="label_red"> <span>Corruption</span> </label>
+	            <input type="checkbox" class="hidden_class" name="unfaithful" id="unfaithful" value="5"> <label for="unfaithful" class="label_red"> <span>Unfaithful</span> </label>
+	            <input type="checkbox" class="hidden_class" name="altruist" id="altruist" value="6"> <label for="altruist" class="label_red"> <span>Altruist</span> </label>
+	            <input type="checkbox" class="hidden_class" name="loyal_friend" id="loyal_friend" value="7"> <label for="loyal_friend" class="label_red"> <span>Loyal friend</span> </label>
+	            <input type="checkbox" class="hidden_class" name="loyal_partner" id="loyal_partner" value="8"> <label for="loyal_partner" class="label_red"> <span>Loyal partner</span> </label>
+	            <input type="checkbox" class="hidden_class" name="celebrite_abuse" id="celebrite_abuse" value="9"> <label for="celebrite_abuse" class="label_red"> <span>Celebrite abuse</span> </label>
+	            <input type="checkbox" class="hidden_class" name="rapist" id="rapist" value="10"><label for="rapist" class="label_red"> <span>Rapist</span> </label>
+	            <input type="checkbox" class="hidden_class" name="nymphomania" id="nymphomania" value="11"> <label for="nymphomania" class="label_red"> <span>Nymphomania</span> </label>
+				<input type="text" name="mascara" class="flex_column_full typeahead" placeholder="{{Lang::get('messages.updtTltConsejoMascaras1')}}" />
+				<div class="gv-mascaras">
+					@foreach($data['perfil']->masks as $mascara)
+						<label>
+							<span class="texto">{{$mascara->nombre}}</span>
+							<span class="cerrar">x</span>
+						</label>
+					@endforeach					
 				</div>
-
-				<div class="small-12 columns">
-					<br/>
+				<input type="text" class="fake-mascaras isHidden" value="{{$data['perfil']->mascaras}}" name="mascaras"/>
+				<div class="flex_box flex_form_control">
+					<input type="reset" value="{{Lang::get('messages.crePerFrmBtnCancelar')}}">
+					<button type="submit" class="button">{{Lang::get('messages.updtFrmBtnGuardar')}}</button>
 				</div>
-				<div class="small-6 columns">
-					<button type="submit" class="button success"style="border-radius:5px"><i class="icon-disco"></i>{{Lang::get('messages.updtFrmBtnGuardar')}}</button>
-				</div>
-				<div class="small-6 columns">
-					<a href="{{ URL::to('/perfiles') }}" class="button alert"style="border-radius:5px"><i class="icon-tacha"></i>{{Lang::get('messages.updtFrmBtnCancelar')}}</a>
-				</div>
-			</div>
-			@if($errors->any())
-				<br/><br/>
-				@foreach ($errors->all() as $error)
-				<div class="small-12 columns">
-					<div class="label alert" role="alert">** {{ $error }}</div>
-				</div>
-				@endforeach
-			@endif
+				@if($errors->any())
+				   <br/><br/>
+					@foreach ($errors->all() as $error)
+						<div class="flex_box">
+							<div class="label alert" role="alert">** {{ $error }}</div>
+						</div>
+					@endforeach
+				@endif
+			</form>
 		</div>
-		
 	</div>
-	<div class="info_importante formulario_alinear" style="color:red;font-family:bold; text-align:justify">{{Lang::get('messages.updtFrmLblAdvertencia')}}</div>
-	
-	
-	<br/><br/>
-	
-</form>
+</div>
 
 <script type="text/javascript">
 	$(document).on('ready', inicio_cp);

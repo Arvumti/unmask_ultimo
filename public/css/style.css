@@ -624,7 +624,7 @@ video{
 }
 
 .content{
-    width: 960px;
+    width: 980px;
     margin: 0 auto;
     max-height: 40px;
 }
@@ -640,7 +640,7 @@ video{
 }
 
 #line_header .content ul{
-    width: 322px;
+    width: 362px;
     margin-left: 60px;
 }
 
@@ -824,7 +824,7 @@ video{
 }
 
 #profile_config{
-    /*position: absolute;*/
+    position: absolute;
     top: 18px;
     right: 13px;
     z-index: 11;
@@ -863,7 +863,7 @@ video{
 }
 
 #user_info button{
-    width: 180px;
+    width: 100% !important;
     height: 28px;
     border: none;
     background-color: #282c30;

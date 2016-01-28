@@ -98,7 +98,7 @@
 
         <div class="content content_margin">
             <div id="user_info">
-                <!--img id="profile_config" src="{{ URL::asset('img/profile_config.png') }}" width="9" height="10"-->
+                <img id="profile_config" src="{{ URL::asset('img/profile_config.png') }}" width="9" height="10">
                 <div class="user_info">
                     <div id="photo_block">
                         <img id="profile_photo" src="{{ URL::asset('img/db_imgs/alias/'.Session::get('usuario')->foto) }}" width="50" height="50">
@@ -115,14 +115,14 @@
                         <li><span class="profile_info_left">Ashley Madison Search</span> <span class="profile_info_right">128</span></li>
                         <li><span class="profile_info_left">{{Lang::get('messages.baseLogLblPoliticasPrivacidad')}}</span> </li-->
                         <li><a href="{{ URL::to('perfiles') }}"><span class="profile_info_left"style="font-size:18px">{{Lang::get('messages.baseLogLblPerfilesCreados')}}</span></a> <!--span class="profile_info_right">6</span--></li>
-                        <li><a href=""id="profile_config"><span class="profile_info_left"style="font-size:18px">Change Password & Photo</span></a> <!--span class="profile_info_right">6</span--></li>
+                        <li><a href=""id=""><span class="profile_info_left"style="font-size:18px">Change Password & Photo</span></a> <!--span class="profile_info_right">6</span--></li>
                       
                         
                     </ul>
 
                     <button onclick="window.location.href='{{ URL::to('/logout')}}'"value="Sign_Out"><img src="{{ URL::asset('img/sign_out.png') }}" /><span>{{Lang::get('messages.baseLogLblCerrarSesion')}}</span></button>
                 </div>
-                <div class="change_info">
+                <div class="change_info isHidden">
                     <form action="{{ URL::to('update_pass') }}" method="post" enctype="multipart/form-data" data-abide>    
                         <p>{{Lang::get('messages.cuenHedLblUsuario')}}</p>
                         <input type="file" class="hidden_class img-user-photo" name="photo" id="photo" accept="image/jpeg,image/png">
@@ -132,7 +132,7 @@
                         </label>
                         <p>User: MIke Johan</p>
                         <p>{{Lang::get('messages.cuenHedLblCambiarContra')}}</p>
-                        <input type="text" name="contrasenia_act"  placeholder="{{Lang::get('messages.cuenHedLblContrasenia')}}" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}"required/>
+                        <input type="text" name="contrasenia_act"  placeholder="{{Lang::get('messages.cuenHedLblContrasenia')}}"required/>
                         <input type="text" id="contrasenia" name="contrasenia" required/>
                         <!--small class="error">{{Lang::get('messages.cuenHedLblNuevaContraseniaVal')}}</small-->
                         <input type="text" name="contrasenia_sec" data-equalto="contrasenia" required/>
@@ -140,7 +140,7 @@
                         <div class="change_button">
                             <div>
                                 <button type="submit"value="change">{{Lang::get('messages.cuenHedBtnCambiarcontrasenia')}}</button>
-                                <button value="delete">{{Lang::get('messages.cuenHedLblBorrarCuenta')}}</button>
+                                <!--button value="delete">{{Lang::get('messages.cuenHedLblBorrarCuenta')}}</button-->
                             </div>
                         </div>
                     </form>

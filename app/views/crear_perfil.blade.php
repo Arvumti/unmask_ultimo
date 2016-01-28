@@ -33,12 +33,12 @@
                         <input type="text" name="estado" value="{{Input::old('estado')}}" placeholder="{{Lang::get('messages.crePerFrmLblEstado')}}"class="typeahead">
 
                     </div>
-                        <div class="flex_box flex_box_tree">
-                            <input type="text" name="municipo" value="{{Input::old('municipio')}}"placeholder="{{Lang::get('messages.crePerFrmLblMunicipio')}}">
-                            <input type="text" name="ciudad" value="{{Input::old('ciudad')}}" placeholder="{{Lang::get('messages.crePerFrmLblCiudad')}}">
-                            <input type="text" name="colonia" value="{{Input::old('colonia')}}" placeholder="{{Lang::get('messages.crePerFrmLblColonia')}}">
-                        </div>
-                        <p class="flex_box">{{Lang::get('messages.crePerFrmTitRedesSociales')}}</p>
+                    <div class="flex_box flex_box_tree">
+                        <input type="text" name="municipo" value="{{Input::old('municipio')}}"placeholder="{{Lang::get('messages.crePerFrmLblMunicipio')}}">
+                        <input type="text" name="ciudad" value="{{Input::old('ciudad')}}" placeholder="{{Lang::get('messages.crePerFrmLblCiudad')}}">
+                        <input type="text" name="colonia" value="{{Input::old('colonia')}}" placeholder="{{Lang::get('messages.crePerFrmLblColonia')}}">
+                    </div>
+                    <p class="flex_box">{{Lang::get('messages.crePerFrmTitRedesSociales')}}</p>
                     <div class="flex_box flex_box_tree">
                         <input type="text" name="facebook" value="{{Input::old('facebook')}}" placeholder="{{Lang::get('messages.crePerFrmLblFacebook')}} - http://facebook.com/profile">
                         <input type="text" name="twitter" value="{{Input::old('twitter')}}"  placeholder="{{Lang::get('messages.crePerFrmLblTwitter')}} - http://twitter.com/profile">
@@ -88,10 +88,10 @@
                         {{ $data['captchaHtml'] }}
                     </div>
                     <input type="text" id="CaptchaCode"name="CaptchaCode" class="flex_column_full form-control" size="10" placeholder="{{Lang::get('messages.crePerFrmLblCaptcha')}}"style="text-transform: uppercase;text-align:center">
-                        <div class="flex_box flex_form_control">
-                            <input type="reset" value="{{Lang::get('messages.crePerFrmBtnCancelar')}}">
-                            <input type="submit" class="button" value="{{Lang::get('messages.crePerFrmBtnGuardar')}}">
-                        </div>
+                    <div class="flex_box flex_form_control">
+                        <input type="reset" value="{{Lang::get('messages.crePerFrmBtnCancelar')}}">
+                        <input type="submit" class="button" value="{{Lang::get('messages.crePerFrmBtnGuardar')}}">
+                    </div>
                 </form>
             	@if($errors->any())
 						<br/><br/>

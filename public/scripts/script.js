@@ -63,18 +63,18 @@ $(document).ready(function(){
         $('.filter').toggleClass('isHidden');
     });
 
-    var config = 0;
-    $('.change_info').hide();
+    //var config = 0;
+    //$('.change_info').hide();
     $('#profile_config').click(function(){
-        if(config == 0){
-            $('.user_info').hide();
-            $('.change_info').show();
+        //if(config == 0){
+            $('.user_info').toggleClass('isHidden');
+            $('.change_info').toggleClass('isHidden');
             config = 1;
-        }else if( config == 1 ){
-            $('.user_info').show();
-            $('.change_info').hide();
-            config = 0;
-        }
+        //}else if( config == 1 ){
+           // $('.user_info').show();
+            //$('.change_info').hide();
+            //config = 0;
+       // }
     });
 
     // INICIO

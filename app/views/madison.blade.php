@@ -39,7 +39,7 @@
 		</div>
 	</section>
 
-	<section class="creacion_perfiles isHidden">
+	<section class="create_profile_marker creacion_perfiles isHidden">
 		<form action="crear_perfil_madison" method="post" enctype="multipart/form-data" data-abide>
 			<div class="row columns">
 				<div class="small-4 columns" style="margin-bottom:1em;">
