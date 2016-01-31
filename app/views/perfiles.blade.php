@@ -3,7 +3,12 @@
 @section('content')
 	<div class="create_profile_marker">
 
-	    <button id="create_profile"> <span>{{Lang::get('messages.perfilesBtncrea')}}</span> <img src="img/create_plus.png" width="30"></button>
+	    <button id="create_profile"> 
+	    	<a href="{{ URL::asset('crear_perfil') }}">
+		    	<span>{{Lang::get('messages.perfilesBtncrea')}}</span>
+		    	<img src="img/create_plus.png" width="30">
+	    	</a>
+	    </button>
 
 	    <div class="clear"></div>
 

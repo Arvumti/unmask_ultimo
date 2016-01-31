@@ -34,7 +34,7 @@
 
                     </div>
                     <div class="flex_box flex_box_tree">
-                        <input type="text" name="municipo" value="{{Input::old('municipio')}}"placeholder="{{Lang::get('messages.crePerFrmLblMunicipio')}}">
+                        <input type="text" name="municipio" value="{{Input::old('municipio')}}"placeholder="{{Lang::get('messages.crePerFrmLblMunicipio')}}">
                         <input type="text" name="ciudad" value="{{Input::old('ciudad')}}" placeholder="{{Lang::get('messages.crePerFrmLblCiudad')}}">
                         <input type="text" name="colonia" value="{{Input::old('colonia')}}" placeholder="{{Lang::get('messages.crePerFrmLblColonia')}}">
                     </div>
@@ -58,15 +58,16 @@
                     <input type="checkbox" class="hidden_class" name="nymphomania" id="nymphomania" value="11"> <label for="nymphomania" class="label_red"> <span>Nymphomania</span> </label>
                     <input style="text-align:center; width:100%;"type="text" name="mascara" class="flex_column_full typeahead" placeholder="{{Lang::get('messages.crePerFrmLblMascaraSeleccionada')}} - {{Lang::get('messages.crePerTltConsejoMascaras1')}}">
                     <div class="gv-mascaras">
-						@if(strlen(Input::old('mascaras')) > 0)
+						<!-- @if(strlen(Input::old('mascaras')) > 0)
 							@foreach(explode(",", Input::old('mascaras')) as $mascara)
 								<label class="letras_rojo">
 									<span class="texto">{{$mascara}}</span>
 									<span class="cerrar">x</span>
 								</label>
 							@endforeach
-						@endif
+						@endif -->
 					</div>
+					<input type="text" class="fake-mascaras isHidden" name="mascaras"/>
                     <!--p class="flex_box">Add</p>
                     <div class="flex_box flex_files">
                         <div class="flex_box">
