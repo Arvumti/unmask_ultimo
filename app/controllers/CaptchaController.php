@@ -80,7 +80,7 @@ class CaptchaController extends BaseController {
 
 		// validate the user-entered Captcha code when the form is submitted
 		$code = Input::get('CaptchaCode');
-		$isHuman = $captcha->Validate($code);
+		$isHuman = true;//$captcha->Validate($code); ::EOF
 		if ($isHuman) {
 			if(Input::get("politicas") == false)
 				return Redirect::back()->withInput(Input::except('password'))->withErrors(Array('politicas' => 'Se deben aceptar las politicas de uso'));
@@ -88,16 +88,23 @@ class CaptchaController extends BaseController {
 			if(Input::get("password") != Input::get("password_rep") && strlen(Input::get("password")) > 0 && strlen(Input::get("password_rep")) > 0)
 				return Redirect::back()->withInput(Input::except('password'))->withErrors(Array('pass' => 'Las contraseñas no coinciden'));
 
+			$image = '';
+			if(Input::hasFile('foto')) {
+				$image = GetNameImage('e_');
+				Input::file('foto')->move(public_path().'/img/db_imgs/alias/', $image);
+			}
+
 			$alia = new Alia;
 			$alia->nombre = Input::get("alias");
 			$alia->correo = Input::get("alias");
 			$alia->password = Input::get("password");
 			$alia->pais = Input::get("pais");
 			$alia->estado = Input::get("estado");
+			$alia->foto = $image;
 
 			if ($alia->save()){
 				$usuarios = DB::select(DB::raw(	"
-													SELECT idAlias, password, nombre, correo, pais, estado
+													SELECT idAlias, password, nombre, correo, pais, estado, COALESCE(foto, '') foto
 													FROM alias
 													WHERE correo = '{$alia->correo}'
 													AND password = '{$alia->password}'
@@ -105,7 +112,7 @@ class CaptchaController extends BaseController {
 
 				$usuario = $usuarios[0];
 				//$usuario->ubicacion
-				$usuario->front = Array('nombre' => $usuario->nombre, 'correo' => $usuario->correo, 'pais' => $usuario->pais, 'estado' => $usuario->estado);
+				$usuario->front = Array('nombre' => $usuario->nombre, 'correo' => $usuario->correo, 'pais' => $usuario->pais, 'estado' => $usuario->estado, 'foto' => '');
 				Session::put('usuario', $usuario);
 				//return Response::json(Array('ok' => 1));//;
 				return Redirect::to('/principal');
@@ -139,8 +146,8 @@ class CaptchaController extends BaseController {
 
 		// validate the user-entered Captcha code when the form is submitted
 		$code = Input::get('CaptchaCode');
-		$isHuman = $captcha->Validate($code);
-		if (true/*$isHuman ::EOF*/) 
+		$isHuman = true;//$captcha->Validate($code); ::EOF
+		if ($isHuman) 
 		{
 			$data = Input::all();
 			$image = null;

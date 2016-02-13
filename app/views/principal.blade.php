@@ -2,6 +2,7 @@
 
 @section('content')
   
+  	<div class="busqueda-resultado"></div>
 	<div class="other_users_container"><h1> wall Latest updates</h1>
 	  @foreach($perfiles as $perfil)
 	 	<div class="other_user">

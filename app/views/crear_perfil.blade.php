@@ -7,7 +7,10 @@
         <div class="other_users_container"><h1 class="create_profile_form_marker">{{Lang::get('messages.crePerDivTitTitulo')}} </h1>
             <div class="create_profile_form">
                 <form method="post" action="crear_perfil" class="flex_box" enctype="multipart/form-data" data-abide>
-                    <input type="file" class="hidden_class cpFoto" name="foto" id="photo" accept="image/*"> <label for="photo"><img id="imgFoto"  data-ref="cpFoto" src="img/add_photo.jpg" width="195" /><p>Drag&Drop <br> your new photo</p></label>
+                    <input type="file" class="hidden_class cpFoto" name="foto" id="photo" accept="image/*">
+                    <label for="photo">
+                    <img id="imgFoto"  data-ref="cpFoto" src="img/add_photo.jpg" class="tmp_img" width="195" />
+                    <p>Drag&Drop <br> your new photo</p></label>
                     <div class="flex_column">
                         <input type="text" name="nombre" value="{{Input::old('nombre')}}" placeholder="{{Lang::get('messages.crePerFrmLblNombre')}} - {{Lang::get('messages.crePerTltNombre')}}" required />
                         <!--small class="error">{{Lang::get('messages.crePerFrmLblNombreErr')}}</small-->
@@ -113,6 +116,12 @@
 
 	function inicio_cp () {
 		$(document).foundation();
+		
+		$('#photo').on('change', function(e) {
+            var tmppath = URL.createObjectURL(this.files[0]);
+            $('.tmp_img').attr('src', tmppath);
+        });
+
 
 		$('.gv-mascaras').on('click', 'label', function(e) {
 			$(e.currentTarget).remove();

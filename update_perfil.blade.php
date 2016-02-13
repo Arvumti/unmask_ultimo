@@ -15,7 +15,7 @@
 	<div class="row columns">
 		<div class="small-4 columns">
 			<a class="th img-logo" href="#">
-				<img id="imgFoto" data-ref="cpFoto" class="click-image" src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}"/>    
+				<img id="imgFoto" data-ref="cpFoto" class="click-image" class="tmp_img" src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}"/>    
 				<label>
 					<input type="file" id="file" name="foto" class="isHidden cpFoto"  accept="image/*" />
 				</label>
@@ -183,6 +183,11 @@
 
 	function inicio_cp () {
 		$(document).foundation();
+
+		$('#file').on('change', function(e) {
+            var tmppath = URL.createObjectURL(this.files[0]);
+            $('.tmp_img').attr('src', tmppath);
+        });
 
 		$('.gv-mascaras').on('click', 'label', function(e) {
 			$(e.currentTarget).remove();

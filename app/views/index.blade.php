@@ -68,11 +68,14 @@
 
                 <div id="create_account" class="create_account flex_box hidden_class">
                     <div class="flex_box">
-                        {{ Form::open(array('url' => '/crear_cuenta', 'data-abide', 'class' => 'flex_popup')) }}
+                        {{ Form::open(array('url' => '/crear_cuenta', 'enctype' => 'multipart/form-data', 'data-abide', 'class' => 'flex_popup')) }}
 
                             <div class="flex_popup flex_column_popup">
 
-                                <input type="file" class="hidden_class" name="photo" id="photo" accept="image/jpeg,image/png"> <label for="photo"><img src="img/add_photo.jpg" width="195" /><p>Drag&Drop <br> your new photo</p></label>
+                                <input type="file" class="hidden_class" name="foto" id="photo" accept="image/jpeg,image/png"> 
+                                <label for="photo">
+                                <img src="img/add_photo.jpg" class="tmp_img" width="195" height="195" />
+                                <p>Drag&Drop <br> your new photo</p></label>
                                 <div class="flex_popup flex_captcha_popup"style="margin-left:50px">
                                      {{ $captchaHtml }}
                                     <div class="flex_button">
@@ -882,7 +885,8 @@
     
     <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script> 
     <script type="text/javascript">
-		var url = window.location.origin + '/public/';//lara/
+        var url = window.location.origin + '/public/';//lara/
+		//var url = window.location.origin + '/';//lara/::EOF
 	
 	  //document.write('<script src=foundation/js/vendor/' + ('__proto__' in {} ? 'zepto' : 'jquery')  + '.js><\/script>');
 		$(document).on('ready', inicio_nl);
@@ -902,6 +906,11 @@
 				modulo: 'estadoz',
 			};
 			typeahead(jsonEs);
+
+            $('#photo').on('change', function(e) {
+                var tmppath = URL.createObjectURL(this.files[0]);
+                $('.tmp_img').attr('src', tmppath);
+            });
 		}
 	</script>
 

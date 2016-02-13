@@ -127,7 +127,7 @@
                         <p>{{Lang::get('messages.cuenHedLblUsuario')}}</p>
                         <input type="file" class="hidden_class img-user-photo" name="photo" id="photo" accept="image/jpeg,image/png">
                         <label for="photo">
-                            <img src="{{ URL::asset('img/add_photo.jpg') }}" width="188" />
+                            <img src="{{ URL::asset('img/add_photo.jpg') }}" class="tmp_img" width="155" height="140" />
                             <p>Drag&Drop <br> your new photo</p>
                         </label>
                         <p>User: MIke Johan</p>
@@ -206,16 +206,21 @@
         </script>
         <script>
             var url = window.location.origin + '/public/';
+            //var url = window.location.origin + '/';//::EOF
          
             
             $(document).foundation();
             $(document).foundation('tooltip', 'reflow');
             $(document).ready(function(){ //creacion de perfiles
+
                 $('#addPerfil').click('reveal', 'open');
                 $('#addPerfil').click('reveal','close');
 
                 $('.img-user-photo').change(function (e) {
                     debugger
+                    var tmppath = URL.createObjectURL(this.files[0]);
+                    $('.tmp_img').attr('src', tmppath);
+
                     var file = $(e.currentTarget);
                     var form = file.parents('form');
 
@@ -245,6 +250,7 @@
                 })
 
                 $('.click-image').on('click', function(e) { //url de la imagen
+                    debugger
                     var img = $(e.currentTarget);
                     var form = img.parents('form');
                     var file = form.find('.' + img.data('ref'));
@@ -262,6 +268,7 @@
                 });
 
                 $('.btn-buscar-avanzado').on('click', function() {
+                    debugger
                     var data = {
                         buav_id: $('#buav_id').val() || '',
                         buav_nom: $('#buav_nom').val() || '',
