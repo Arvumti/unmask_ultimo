@@ -13,7 +13,7 @@
                     <a href="{{ URL::to('perfil').'/'.$perfil->idPerfil }}" class="unmask_link click_unmask_link">unmask</a>
                     <div class="other_user_info_central">
                         @if(strlen($perfil->mascaras) > 0)<!--Dejar la máscara principal o actual-->
-                        <span class="thief">{{ $perfil->mascaras }}</span>
+                        <span class="thief">{{substr( $perfil->mascaras, 0, 20)}}...</span>
                         @endif
                     <div class="puntuacion">
                         <div class="unmask_red">

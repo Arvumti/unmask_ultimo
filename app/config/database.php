@@ -49,9 +49,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
-			'database'  => 'db_unmask',
-			'username'  => 'root',
-			'password'  => '',
+			'database'  => 'admin_default',
+			'username'  => 'admin_default',
+			'password'  => 'MiCH1TxoX5',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

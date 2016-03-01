@@ -40,7 +40,7 @@
                         <div class="flex_box">
                             <a href="#" class="vote-perfil" data-tipo="cake" data-id="{{ $data['perfil']->idPerfil }}">
                                 <div class="unmask_red">
-                                    [<span class="num_rank">{{ $data['perfil']->good }}</span>]
+                                    <span class="num_rank"><!--{{ $data['perfil']->good }}-->{{ $data['perfil']->amor }}</span>
                                     <img src="{{ URL::asset('img/anonymous.png') }}" width="11" height="15">
                                 </div>
                             </a>
@@ -49,7 +49,7 @@
 
                             <a href="#" class="vote-perfil" data-tipo="enojo" data-id="{{ $data['perfil']->idPerfil }}">
                                 <div class="unmask_grey">
-                                    [<span class="num_rank">{{ $data['perfil']->bad }}</span>]
+                                    <span class="num_rank"><!--{{ $data['perfil']->bad }}-->{{ $data['perfil']->odio }}</span>
                                     <img src="{{ URL::asset('img/anonymous_red.png') }}" width="11" height="15">
                                 </div>
                             </a>
@@ -368,13 +368,13 @@
                                             <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMala')}}">
                                                 <i class="icon-checkmark"></i>
                                             </span> 
-                                            [<span class="votos-totales">{{ $post->vid_siconf }}</span>]
+                                            <span class="votos-totales">{{ $post->vid_siconf }}</span>
                                         </a>
                                         <a href="#" data-conf="0">
                                             <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionMala')}}">
                                                 <i class="icon-tacha"></i>
                                             </span> 
-                                            [<span class="votos-totales">{{ $post->vid_noconf }}</span>]
+                                            <span class="votos-totales">{{ $post->vid_noconf }}</span>
                                         </a>
                                     </div>
                                     <div class="com_likes isHidden">
@@ -604,7 +604,7 @@
                                                 </div>
                                                 @endif
                                                 @foreach($subcomentario->fotos as $fotos)
-                                                <div class="gallery_img">
+                                                <div class="gallery_img"style="text-align:center;">
                                                     <a href="" data-reveal-id="slider_subcom_{{$subcomentario->idSubcomentario}}" data-id="{{$fotos->idSubcomentarioFoto}}" data-idpost="{{$post->idPost}}" class="open-modal foto-subcom">
                                                        <img src="{{ URL::asset('img\\db_imgs\\posts\\'.$fotos->imagen) }}"/>
                                                     </a>
@@ -957,7 +957,7 @@
                         <a class="close-reveal-modal">&#215;</a>
                     </div>  <!-- TERMINA MODAL SLIDER EVIDENCIAS -->
                     <a class="exit-off-canvas"></a>
-                            <!-- MODAL DE LOS VOTOS DEL PERFIL -->
+            <!-- MODAL DE LOS VOTOS DEL PERFIL INCLUIRLOS EMOTICONES           -->
                     <div id="votosPerfilBox" class="reveal-modal" data-reveal>
                         <div class="titulo_barra">
                             <h2>{{Lang::get('messages.perfPostModClasificacion')}}</h2>

@@ -7,6 +7,7 @@
     <link href="css/slider.css" rel="stylesheet" media="screen">
     <link href="css/style.css" rel="stylesheet" media="screen">
     <link href="css/fonts.css" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" href="img/ico.png" />
 <!--SCRIPTS-->
     <title>UNMASK</title>
 </head>
@@ -24,9 +25,9 @@
                     <li><a href="#">Find Someone</a></li>
                     <li style="text-align:center;position:absolute">
 
-                        <a href="{{ URL::to('/idioma/en') }}"><img width="30px"src="img/brit.png"></a>
-                        <a href="{{ URL::to('/idioma/rs') }}"><img width="30px"src="img/rusia.png"></a>
-                        <a href="{{ URL::to('/idioma/es') }}"><img width="34px"src="img/espa.png"></a>
+                        <a id="btnEng"href="{{ URL::to('/idioma/en') }}"><img width="30px"src="img/brit.png"></a>
+                        <a id="btnRus"href="{{ URL::to('/idioma/rs') }}"><img width="30px"src="img/rusia.png"></a>
+                        <a id="btnEsp"href="{{ URL::to('/idioma/es') }}"><img width="34px"src="img/espa.png"></a>
                     </li>
                 </ul>
 
@@ -133,9 +134,30 @@
 
     <div id="start_page_video">
 
-        <img src="img/big_logo_video.png" width="350" height="123">
+        <!--img src="img/marca.png" width="350"-->
 
-        <video  poster="img/bigvideo.jpg" loop="loop" autoplay="autoplay"src="video/video.mp4"></video>
+        <video id="videoEng"  loop="loop" autoplay="autoplay"src="video/video.mp4"></video>
+
+    </div>
+        <div id="slider_bolas"style="margin-left:10%">
+        
+
+        <div class="cycle-slideshow"id="bolas"style="text-align:center">
+
+
+            <img src="img/otro/1.jpg">
+            <img src="img/otro/2.jpg">
+            <img src="img/otro/3.jpg">
+            <img src="img/otro/4.jpg">
+            <!--div class="cycle-pager"style="width:70%;"></div-->
+
+        </div>
+        <div id="slider_text" style="top:8%">
+            <h2 style="color:#B23B2E;font-size:25px">Rapist, Pedophile, Teachers, Churchman, Sexist,  Stepfather, Sexual Harasser, Boss, Child Traffic.</h2>
+            <p style="font-size:18px;margin-top:20px;">Did you know that in 9 out of 10 cases in which a person is sexually abused, the perpetrator is someone the victim or family knows?<br>
+                Did you know that 95 % of sexual crimes happen because the perpetrator believes that everything will be <span style="color:#B23B2E">UNKNOWN!</span> Break the silence! That terrible situation is not your fault and you are not alone anymore! Nobody and no institution can offer you a real solution to avoid or prevent such experience or at least help you with the pain you feel, because there is no solution at all! Until today! By unmasking or exposing such criminals to the world you will stop sexual abuses!
+              </p>
+        </div>
     </div>
 
     <p id="find">FIND & <span>UNMASK</span> SOMEONE FROM</p>
@@ -262,6 +284,7 @@
                 </div>
             </div>
         </div>
+     
 
         <!--<div class="click_other_user">-->
             <!--<div class="other_user_photo_area start_other_user_photo_area">-->
@@ -334,7 +357,7 @@
         <!--</div>-->
     <!--</div>-->
 
-        <div class="other_user">
+        <!--div class="other_user">
             <div class="other_user_photo_area">
                 <img src="img/other_user.jpg" width="164" height="164" >
 
@@ -854,10 +877,21 @@
                     <button>Follow <img src="img/plus.png" /></button>
                 </div>
             </div>
-        </div>
+        </div-->
 
 
     </div>
+       <section>
+            <div class="logotipos">
+                <div class="logo_contenedor"><a href="http://itsonus.org"target="_blank"><img src="img/otro/itus.png"></a></div>
+                <div class="logo_contenedor"><a href="https://ohl.rainn.org/online/"target="_blank"><img src="img/otro/rainn.jpg"></a></div>
+                <div class="logo_contenedor"><a href="http://www.evawintl.org/"target="_blank"><img src="img/otro/ev.jpg"></a></div>
+                <div class="logo_contenedor"><a href="https://cdt.org/"target="_blank"><img src="img/otro/cdt_logo.jpg"></a></div>
+                <div class="logo_contenedor"><a href="https://www.eff.org/"target="_blank"><img src="img/otro/descarga.png"></a></div>
+
+
+            </div>
+        </section>
 
     <div id="footer">
 
@@ -913,6 +947,14 @@
             });
 		}
 	</script>
+    <script>
+    $( "btnEsp" ).click(function() {
+  $( '#videoEng','#videoEng' ).replaceWith( '#videoEng' );
+});
+</script>
+<script>
+
+</script>
 
 </body>
 </html>

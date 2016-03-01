@@ -9,6 +9,8 @@
         <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" media="screen">
         <link href="{{ URL::asset('css/fonts.css') }}" rel="stylesheet" media="screen">
         <link href="{{ URL::asset('css/typeahead.css') }}" rel="stylesheet">
+        <link rel="shortcut icon" href="{{ URL::asset('img/ico.png') }}" />
+
     
         <script type="text/javascript" src="{{ URL::asset('js/jquery-2.0.3.min.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('js/typeahead.jquery.min.js') }}"></script> 

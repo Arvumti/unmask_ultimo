@@ -186,14 +186,14 @@ body{
 }
 
 #start_page_video{
-    height: 500px;
+    height: 600px;
     overflow: hidden;
     position: relative;
 }
 
 #start_page_video img{
     position: absolute;
-    top: 37%;
+    top: 3%;
     left: 40%;
 }
 
@@ -529,6 +529,13 @@ video{
 .cycle-slideshow > img{
   width: 670px;
     height: 370px;
+}
+
+ #bolas img{
+    width: 380px;
+    border-radius: 100%;
+   
+    position: left !important;
 }
 
 #slider_text{
@@ -1869,7 +1876,7 @@ a[href="#add"]{
     background-image: url("../img/next_hover.png");
 }
 
-.user_main_content_wrap a:first-child{
+.user_main_content_wrap a:/*first-child*/{
     position: relative;
     font-size: 14pt;
     margin-bottom: 15px;
@@ -2338,4 +2345,21 @@ a[href="#add"]{
     background-color: #935249;
     color: #ffffff;
     cursor: pointer;
+}
+#slider_bolas{
+    width: 100%;
+    background-color: white;
+    position: relative;
+    height:450px;
+}
+.logotipos{
+ padding: 5%;
+ text-align: center;
+}
+.logotipos .logo_contenedor{
+    display: inline-block;
+    padding: 10px;
+}
+.logotipos .logo_contenedor img{
+    width: 150px;
 }

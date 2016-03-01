@@ -25,7 +25,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'admin_default',
 			'username'  => 'admin_default',
-			'password'  => 'xvbVG6Ip0M',
+			'password'  => 'MiCH1TxoX5',
 			// 'database'  => 'admin_default',
 			// 'username'  => 'admin_default',
 			// 'password'  => 'xvbVG6Ip0M',
