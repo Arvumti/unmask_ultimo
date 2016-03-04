@@ -19,10 +19,10 @@
 
                 <a href="index.html" class="start_page_big_logo" ><img src="img/logo_new.png" width="152"></a>
                 <ul class="start_page_navigation">
-                    <li style="margin-right:0"><a href="{{ URL::to('about.html') }}"target="_blank">About</a></li>
+                    <li style="margin-right:0"><a href="#">About</a></li>
                   <!--a href="#" style="top:1%;position:absolute"><img width="50px"src="img/logo_sl.png"></a-->
 
-                    <li style="margin-left:0;border:none"><a href="#">How It Works</a></li>
+                    <li style="margin-left:0;border:none"><a href="{{ URL::to('how') }}">How It Works</a></li>
 
                     <!--li><a href="#">Open Mask</a></li>
                     <li><a href="#">Find Someone</a></li-->
