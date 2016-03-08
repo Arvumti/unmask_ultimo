@@ -19,14 +19,19 @@
 
                 <a href="index.html" class="start_page_big_logo" ><img src="img/logo_new.png" width="152"></a>
                 <ul class="start_page_navigation">
-                    <li style="margin-right:0"><a href="{{ URL::to('about.html') }}"target="_blank">About</a></li>
+                    <li style="margin-right:0"><a href="http://www.unmask.wiki/about.html"target="_blank">About</a></li>
                   <!--a href="#" style="top:1%;position:absolute"><img width="50px"src="img/logo_sl.png"></a-->
 
-                    <li style="margin-left:0;border:none"><a href="#">How It Works</a></li>
+                    <li ><a href="http://www.unmask.wiki/why.html"target="_blank">Why Unmask</a></li>
+                    <li><a href="http://www.unmask.wiki/how.html"target="_blank">How It Works</a></li>
+                    <li ><a href="http://www.unmask.wiki/virtual.html"target="_blank">Virtual Life</a></li>
+
+                    <li style="margin-left:0;border:none"><a href="http://www.unmask.wiki/dis.html"target="_blank">Disclaimer</a></li>
+
 
                     <!--li><a href="#">Open Mask</a></li>
                     <li><a href="#">Find Someone</a></li-->
-                    <li style="text-align:center;position:absolute;margin-left:5%">
+                    <li style="text-align:center;position:absolute;margin-left:1%">
 
                         <a id="btnEng"href="{{ URL::to('/idioma/en') }}"><img width="30px"src="img/brit.png"></a>
                         <a id="btnRus"href="{{ URL::to('/idioma/rs') }}"><img width="30px"src="img/rusia.png"></a>
@@ -41,7 +46,7 @@
                 <img src="img/close.png">
                 <div class="flex_box sign_choice">
                     <div class="sign_choice_active login"><p>{{Lang::get('messages.indxModTitInicioSecion')}}</p></div>
-                    <div class="create_account"><p>Create account</p></div>
+                    <div class="create_account"><p>{{Lang::get('messages.indxModBtnCrearCuenta')}}</p></div>
                 </div>
 
                 <div id="login" class=" flex_box">
@@ -156,42 +161,44 @@
             <h2 style="color:#B23B2E;font-size:25px">Rapist, Pedophile, Teachers, Churchman, Sexist,  Stepfather, Sexual Harasser, Boss, Child Traffic.</h2>
             <p style="font-size:18px;margin-top:20px;text-align:justify;">Did you know that in 9 out of 10 cases in which a person is sexually abused, the perpetrator is someone the victim or family knows?<br>
                 Did you know that 95 % of sexual crimes happen because the perpetrator believes that everything will be <span style="color:#B23B2E;font-family: Raleway_SemiBold;">UNKNOWN!</span> 
-                Break the silence! That terrible situation is not your fault and you are not alone anymore! Nobody and no institution can offer you a real solution to avoid or prevent such experience or at least help you with the pain you feel, because there is no <span style="color:#B23B2E;font-family: Raleway_SemiBold;">SOLUTION</span> at all! Until today! By <span style="color:#B23B2E;font-family: Raleway_SemiBold;">ANONYMOUSLY</span> unmasking or exposing such criminals to the world you will stop sexual abuses!
+                Break the silence! THIS TERRIBLE SITUATION is not your fault and you are not alone anymore! Nobody and no institution can offer you a real solution to avoid or prevent such experience or at least help you with the pain you feel, because there is no <span style="color:#B23B2E;font-family: Raleway_SemiBold;">SOLUTION</span> at all! Until today! By <span style="color:#B23B2E;font-family: Raleway_SemiBold;">ANONYMOUSLY UNMASKING AND EXPOSING </span>  such criminals to the world you will STOP SEXUAL CRIMES!
               </p>
         </div>
     </div>
     <div id="slider_bolas"style="margin-left:15%">
         <div class="cycle-slideshow"id="bolas"style="text-align:center;left:0%;">
-            <img src="img/otro/1.jpg">
-            <img src="img/otro/2.jpg">
-            <img src="img/otro/3.jpg">
-            <img src="img/otro/4.jpg">
+            <img src="img/otro/7.png">
+            <img src="img/otro/8.jpg">
+            <img src="img/otro/9.jpg">
+            <img src="img/otro/10.jpg">
+            <img src="img/otro/11.png">
+            <img src="img/otro/12.jpg">
+            <img src="img/otro/13.jpg">
+
             
 
             <!--div class="cycle-pager"style="width:70%;"></div-->
        </div>
         <div id="slider_text" style="top:10%;left:37%;">
-            <h2 style="color:#B23B2E;font-size:25px">Rapist, Pedophile, Teachers, Churchman, Sexist,  Stepfather, Sexual Harasser, Boss, Child Traffic.</h2>
-            <p style="font-size:18px;margin-top:20px;text-align:justify;">Did you know that in 9 out of 10 cases in which a person is sexually abused, the perpetrator is someone the victim or family knows?<br>
-                Did you know that 95 % of sexual crimes happen because the perpetrator believes that everything will be <span style="color:#B23B2E;font-family: Raleway_SemiBold;">UNKNOWN!</span> 
-                Break the silence! That terrible situation is not your fault and you are not alone anymore! Nobody and no institution can offer you a real solution to avoid or prevent such experience or at least help you with the pain you feel, because there is no <span style="color:#B23B2E;font-family: Raleway_SemiBold;">SOLUTION</span> at all! Until today! By <span style="color:#B23B2E;font-family: Raleway_SemiBold;">ANONYMOUSLY</span> unmasking or exposing such criminals to the world you will stop sexual abuses!
-              </p>
+            <h2 style="color:#B23B2E;font-size:25px">Drug Dealer, Killer, Stealer, Thief, Cheater, Kidnapper, Prostitute, Fraudulent.</h2>
+            <p style="font-size:18px;margin-top:20px;text-align:justify;">“Time” does not mean a thing in regards of knowledge about other person. You could spend months and years meeting a person and still do not know anything about him. Also your new neighbor could be a criminal, you could hire a criminal for your company, or he could be your colleague at work or your school friend! Even worse, you could even marry such men and bring him to your home, to your family without knowing anything. Now you can share your terrible past experiences to warn others and prevent yourself to start a relationship with a criminal.
+            </p>
         </div>
     </div>
      <div id="slider_bolas"style="margin-left:10%">
         <div class="cycle-slideshow"id="bolas"style="text-align:center">
-            <img src="img/otro/1.jpg">
-            <img src="img/otro/2.jpg">
-            <img src="img/otro/3.jpg">
-            <img src="img/otro/4.jpg">
+            <img src="img/otro/14.jpg">
+            <img src="img/otro/15.jpg">
+            <img src="img/otro/16.jpg">
+            <img src="img/otro/17.jpg">
+            <img src="img/otro/18.jpg">
+
+          
             <!--div class="cycle-pager"style="width:70%;"></div-->
        </div>
         <div id="slider_text" style="top:8%">
-            <h2 style="color:#B23B2E;font-size:25px">Rapist, Pedophile, Teachers, Churchman, Sexist,  Stepfather, Sexual Harasser, Boss, Child Traffic.</h2>
-            <p style="font-size:18px;margin-top:20px;text-align:justify;">Did you know that in 9 out of 10 cases in which a person is sexually abused, the perpetrator is someone the victim or family knows?<br>
-                Did you know that 95 % of sexual crimes happen because the perpetrator believes that everything will be <span style="color:#B23B2E;font-family: Raleway_SemiBold;">UNKNOWN!</span> 
-                Break the silence! That terrible situation is not your fault and you are not alone anymore! Nobody and no institution can offer you a real solution to avoid or prevent such experience or at least help you with the pain you feel, because there is no <span style="color:#B23B2E;font-family: Raleway_SemiBold;">SOLUTION</span> at all! Until today! By <span style="color:#B23B2E;font-family: Raleway_SemiBold;">ANONYMOUSLY</span> unmasking or exposing such criminals to the world you will stop sexual abuses!
-              </p>
+            <h2 style="color:#B23B2E;font-size:25px">Husband, Wife, Boyfriend, Girlfriend, Lover, Fiancé, Friends, Partners, Colleagues, Family, Relatives.</h2>
+            <p style="font-size:18px;margin-top:20px;text-align:justify;">Sexual Desire, love or passion has faded, loneliness, money, material or very personal interests, whatever the reason is, “relationship” and “loyalty” concepts are practically forgotten on this age. Brothers damage brothers, husbands cheat on their wifes, business partners betray each other, as time goes, intention to be loyal is disappearing. Warn others and protect yourself before start a relationship by exposing the behavior of people who surround you.</p>
         </div>
     </div>
 
@@ -213,7 +220,7 @@
 
         <img src="img/face.jpg" >
 
-        <p><span class="title">EVERYBODY USE MASKS</span><span class="subtitle"> IN REAL & VIRTUAL LIFE</span> In social media people don’t show who they are. Unmask is the first and only space where you can unmask anyone and show their real face to the world! Use our innovative and effective technology in an effort for social justice. <span class="quote">“Give him a mask, and he will tell you the truth”</span> <span class="actor">Oscar Wilde</span></p>
+        <p><span class="title">EVERYBODY USE MASKS</span><span class="subtitle"> IN REAL & VIRTUAL LIFE</span> In Social Networks as Facebook, Twitter, Vkontakte, Instagram, Whats app, Ask fm, Blogger, Reddit, Google+ and in normal Life people don’t show who they really are. Unmask.wiki is the first and only website where you can pull the Mask from anyone who has something to hide and expose their real face to the world without any fear to be punished. Use our innovative and effective technology in an effort for<br> SOCIAL JUSTICE. <span class="quote">“Give him a mask, and he will tell you the truth”</span> <span class="actor">Oscar Wilde</span></p>
 
         <img src="img/man.png" >
 
@@ -243,7 +250,7 @@
             <div class="copy"style="text-align:center">
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/pLpl9qGAX-0" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="cf footer_modal"> <a href="#">Cerrar</a></div>
+            <div class="cf footer_modal"> <a href="#">Close</a></div>
         </div>
             <div class="overlay"></div>
     </div>
@@ -256,7 +263,7 @@
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/LxtE6-3-UFk" frameborder="0" allowfullscreen></iframe>
                 
             </div>
-            <div class="cf footer_modal"> <a href="#">Cerrar</a></div>
+            <div class="cf footer_modal"> <a href="#">Close</a></div>
         </div>
             <div class="overlay"></div>
     </div>
@@ -268,13 +275,13 @@
             <div class="copy">
                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Utdd9jodoHg" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="cf footer_modal"> <a href="#">Cerrar</a></div>
+            <div class="cf footer_modal"> <a href="#">Close</a></div>
         </div>
             <div class="overlay"></div>
     </div>
 
     <div id="all">
-        <p >all that you can find only on the</p>
+        <p >liars, cheaters and criminals should be forced to show their true faces to the world</p>
 
         <a href="#"><img src="img/big_logo.png" width="102"/></a>
     </div>
@@ -283,7 +290,7 @@
         <div class="mask"style="border-bottom:solid 2px black;"></div>
         <div id="slider_text">
             <h1>REVEALS THE truth ANONYMOUSLY</h1>
-            <p>Create a profile of the person about whom you want to tell the truth. add photo, video and audio evidence. Tell the truth to world and stay anonymous.</p>
+            <p>Create a profile or post about other person you wish to unmask. Upload photo, video and audio evidence - Brake the silence - Share the truth to world and stay anonymous.</p>
         </div>
 
         <div class="cycle-slideshow">
@@ -317,12 +324,11 @@
     </div>
 
     <div id="knowledge">
-        <p><span>you will know the truth</span> <br> ABOUT THE PEOPLE WHO SURROUND YOU</p>
+        <p><span>SOME PERSONS MAY ARGUE A RIGHT OF PRIVACY</span> <br>WE ARGUE A RIGTH OF PREVENTION AND PROTECTION</p>
     </div>
 
     <div id="click_unmask">
-        <p>On <a href="#">UNMASK.life</a> you can see the truth about people from all over the world. Whether it's your friend, teachers, staff, boss,
-            lovers or anyone else you've met. Also you can share info about anyone you know and unmask them!</p>
+        <p>On <a href="#">UNMASK.wiki</a> you can share and find the truth about people from all over the world. Whether it's your friend, teacher, staff, boss, lover, fiancé, husband, wife, family, acquaintances, colleagues, partners or anyone else you've met and expose their behavior to help others protect themselves from harm before starting any kind of relationship with another person.</p>
         <h1>CLICK “<span>unmask</span>”  TO OPEN THE TRUTH</h1>
 
         <img src="img/border.png" class="border_click">
@@ -392,7 +398,7 @@
 
         <a href="#" id="find_some">find someone</a>
 
-        <p class="click_p" style="margin-top: 66px">and unmask them</p>
+        <p class="click_p" style="margin-top: 66px">BY FULL NAME, COUNTRY AND CITY</p>
 
     </div>
 
@@ -511,11 +517,13 @@
     <div id="footer">
 
             <a href="#" class="start_page_big_logo" ><img src="img/logo_footer.png" width="102"></a>
-            <ul class="start_page_navigation">
-                <li><a href="#">About</a></li>
-                <li><a href="#">How It Works</a></li>
-                <li><a href="#">Open Mask</a></li>
-                <li><a href="#">Find Someone</a></li>
+            <ul class="start_page_navigation"style="margin-right:200px">
+                <li><a href="http://www.unmask.wiki/about.html"target="_blank">About</a></li>
+                <li><a href="http://www.unmask.wiki/why.html"target="_blank">Why Unmask</a></li>
+
+                <li><a href="http://www.unmask.wiki/how.html"target="_blank">How It Works</a></li>
+                <li><a href="http://www.unmask.wiki/virtual.html"target="_blank">Virtual Life</a></li>
+                <li><a href="http://www.unmask.wiki/dis.html"target="_blank">Disclaimer</a></li>
             </ul>
 
                 <a href="#start_page_header" id="arrow_up"><img src="img/arrow_up.png" width="64"/><p>up</p></a>
@@ -562,13 +570,10 @@
             });
 		}
 	</script>
-    <script>
-
-
-</script>
-<script>
-
-</script>
+ <!--a title="Web Statistics" href="http://clicky.com/100930117"><img alt="Web Statistics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a-->
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100930117); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100930117ns.gif" /></p></noscript>
 
 </body>
 </html>

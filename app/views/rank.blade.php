@@ -13,7 +13,7 @@
             <a href="{{ URL::to('/rank/jefe') }}" class="add_rank"> <span>View</span><img src="img/add_rank.png" width="15px"></a>
         </div>
         <div class="teg infiel">
-            <a href="#"> <p class="sombreado">{{Lang::get('messages.rankTit3')}}</p> </a>
+            <a href="#"> <p class="sombreado">{{Lang::get('messages.rankTit5')}}</p> </a>
             <a href="{{ URL::to('/rank/escolar') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
         </div>
         <div class="teg corrupto">
@@ -21,7 +21,7 @@
             <a href="{{ URL::to('/rank/corrupto') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
         </div>
         <div class="teg escolar">
-            <a href="#"> <p>{{Lang::get('messages.rankTit5')}}</p> </a>
+            <a href="#"> <p>{{Lang::get('messages.rankTit3')}}</p> </a>
             <a href="{{ URL::to('/rank/infiel') }}" class="add_rank"> <span>View</span> <img src="img/add_rank.png" width="15px"></a>
         </div>
         <div class="teg altruista">

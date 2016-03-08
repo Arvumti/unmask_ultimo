@@ -8,7 +8,7 @@
 	<section id="madison_busqueda">	
 		<img src="{{ URL::asset('img/ashley_madison.jpg') }}">
 			<form>
-				<input style="padding-left:15px" type="text" class="txt-buscarMad" placeholder="{{Lang::get('messages.basePlhBusca')}}">
+				<input style="padding-left:15px" type="text" class="txt-buscarMad" placeholder="{{Lang::get('messages.madisonBusca')}}">
 				<div class="busqueda-resultado isHidden">		
 				</div>
 					<!--div class="filtro">

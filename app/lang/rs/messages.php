@@ -251,7 +251,7 @@ return array(
 	"rankTit2" => "НЕДОБРОСОВЕСТНЫЙ НАЧАЛЬНИК",
 	"rankTit3" => "Сексуальное домогательство",
 	"rankTit4" => "КОРРУПЦИЯ",
-	"rankTit5" => "ПРЕДАТЕЛЬСТВО/НЕВЕРНОСТЬ",
+	"rankTit5" => "ПРЕДАТЕЛЬСТВО",
 	"rankTit6" => "АЛЬТРУИСТ",
 	"rankTit7" => "ВЕРНЫЙ ДРУГ",
 	"rankTit8" => "ВЕРНЫЙ ПАРТНЕР",
@@ -421,4 +421,6 @@ return array(
 
 	/* -- Relacion -- */
 	"relPerfilUnico" => "This profile is already related.",
+
+	"madisonBusca"=> "Name or Mail.",
 );

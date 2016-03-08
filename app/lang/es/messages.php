@@ -104,6 +104,13 @@ return array(
 	"baseBsaLblPais" => "País:",
 	"baseBsaLblCiudad" => "Ciudad:",
 	"baseBsaBtnBuscar" => "Buscar",
+	"basePlhBusca" => "Busca nombre, lugar o mascara.",
+	"basePlhBaId" => "ID del perfil, ejemplo: 1",
+	"basePlhBaNo" => "Ejemplo: Jose",
+	"basePlhBaApe" => "Ejemplo: Juarez",
+	"basePlhBaApo" => "Ejemplo: El cholo",
+	"basePlhBaPa" => "España",
+	"basePlhBaCiu" => "Madrid",
 
 	/* -- crear_perfil -- */
 	"crePerDivTitTitulo" => "AQUI PODRAS CREAR UN PERFIL NUEVO DE LA PERSONA A LA CUAL QUIERES DENUNCIAR",
@@ -367,5 +374,6 @@ return array(
 
 	/* -- Relacion -- */
 	"relPerfilUnico" => "Perfil ya relacionado.",
+	"madisonBusca"=> "Nombre o Mail.",
 );
 

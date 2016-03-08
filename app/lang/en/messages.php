@@ -425,4 +425,5 @@ In social media people don’t show who they are. Unmask is the first and only s
 
 	/* -- Relacion -- */
 	"relPerfilUnico" => "This profile is already related.",
+	"madisonBusca"=> "Name or Mail.",
 );
