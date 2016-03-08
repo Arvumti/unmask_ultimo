@@ -269,6 +269,8 @@ return array(
 	"perfPostModClasificacionMala" => "Calificación negativa",
 	"perfPostModComentarios" => "Comentarios",
 	"perfPostModComentario" => "Comentar",
+	"perfTitlEvidencia"=>"EVIDENCE",
+
 
 	
 	"perfPostTltVotarOtraVez" => "Vota si odias a esta persona, solo se puede emitir un voto por usuario.",

@@ -161,9 +161,9 @@
         <script src="{{ URL::asset('foundation/js/foundation/foundation.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('foundation/js/vendor/modernizr.js') }}"></script>
         <script src="{{ URL::asset('foundation/js/foundation.min.js') }}"></script>
-        <script src="{{ URL::asset('foundation/js/foundation.reveal.js') }}"></script>
-        <script src="{{ URL::asset('foundation/js/foundation.orbit.js') }}"></script>
-        <script src="{{ URL::asset('foundation/js/foundation.tooltip.js') }}"></script>
+        <script src="{{ URL::asset('foundation/js/foundation/foundation.reveal.js') }}"></script>
+        <script src="{{ URL::asset('foundation/js/foundation/foundation.orbit.js') }}"></script>
+        <script src="{{ URL::asset('foundation/js/foundation/foundation.tooltip.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('foundation/js/foundation/foundation.abide.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('foundation/js/foundation/foundation.offcanvas.js') }}"></script>
         <script src="{{ URL::asset('scripts/script.js') }}"></script>

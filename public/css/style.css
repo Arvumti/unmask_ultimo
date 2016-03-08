@@ -651,6 +651,7 @@ video{
 #line_header .content ul{
     width: 362px;
     margin-left: 60px;
+    padding-top: 10px;
 }
 
 #line_header .content ul li{
@@ -1427,12 +1428,10 @@ input[name="captcha_characters"]{
     vertical-align: middle;
 }
 
-/*.edit_profile_main_info{
-    position: relative;
-    padding: 37px 0;
-    border-bottom: 2px solid #e3e3e3;
+.edit_profile_main_info{
+    margin-bottom: 2em;
 }
-*/
+
 .edit_profile_photo_block{
     float: left;
     width: 250px;
@@ -1636,7 +1635,7 @@ input[name="captcha_characters"]{
 
 .post h1{
     font-size: 15px;
-    text-align: left;
+    text-align: center;
     margin: 0;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -1662,7 +1661,7 @@ input[name="captcha_characters"]{
 }
 
 .like > div:first-child{
-    margin-right: 5px;
+    /*margin-right: 5px;*/
 }
 
 .like div > *{
@@ -2280,9 +2279,9 @@ a[href="#add"]{
  border-left: solid 1px #a7a9ab;
 }
 .alto{
-    min-height: 70px;
+    min-height: 80px;
     width: 90%;
-
+    margin-top: 2em;
     padding: 15px;
 }
 .cuarenta{
@@ -2496,7 +2495,17 @@ height:150px;
 .actor {
     left: 0;
 }
-
+.btn_odio{
+    max-width: 100%;
+}
+.btn_odio, a{
+    display: inline-block !important;
+    vertical-align: top !important;
+    text-align: center !important;
+}
+.btn_odio a p{
+    
+}
 
 
 

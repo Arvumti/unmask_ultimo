@@ -119,7 +119,7 @@
                             </div>
 
                             <div id="terms_box">
-                                <input type="checkbox" name="politicas" value="acepto" />{{Lang::get('messages.nologManLblTerminos')}} <a href="{{URL::to('unmask')}}" target="_blank">{{Lang::get('messages.nologManLnkTerminos')}}</a>
+                                <input type="checkbox" name="politicas" value="acepto" />{{Lang::get('messages.nologManLblTerminos')}} <a href="http://www.unmask.wiki/dis.html" target="_blank">{{Lang::get('messages.nologManLnkTerminos')}}</a>
                             </div>
 
                             <div class="flex_box flex_form_control">

@@ -16,7 +16,7 @@
 
             </div>
         </div-->
-        <a href="" class="arrow_back"><img src="{{ URL::asset('img/arrow_back.png') }}"> Back </a>
+        <a href="{{ URL::previous() }}" class="arrow_back"><img src="{{ URL::asset('img/arrow_back.png') }}"> Back </a>
 
         <button id="create_profile" onclick="window.location.href='{{ URL::to('crear_perfil')}}'"> <span>create profile</span> <img src="{{ URL::asset('img/create_plus.png') }}" width="30"></button>
 
@@ -75,30 +75,32 @@
                             @endforeach
                             @foreach($data['mascaras'] as $mascara)
                                 @if( strlen($mascara->nombre) > 0 )
-                                    <p class="short_name" style="text-transform: capitalize;"><!--{{Lang::get('messages.perfInfLblMascara')}}--> {{ $mascara->nombre }}</p>
+                                    <p class="short_name" style="text-transform: capitalize;">{{Lang::get('messages.perfInfLblMascara')}} {{ $mascara->nombre }}</p>
                                 @endif
                             @endforeach
                             @if(strlen($data['perfil']->facebook) > 0)
-                                <a href="{{ $data['perfil']->facebook }}"target="_blank">{{ substr($data['perfil']->facebook, 0, 25) }}...</a><br>
+                                <a style="color:black;width:387px;font-size:12pt;9"href="{{ $data['perfil']->facebook }}"target="_blank">{{ substr($data['perfil']->facebook, 0, 25) }}...</a><br>
                             @endif
                             @if(strlen($data['perfil']->twitter) > 0)
-                                <a href="{{ $data['perfil']->twitter }}"target="_blank">{{ substr($data['perfil']->twitter, 0, 25) }}...</a><br>
+                                <a style="color:black;width:387px;font-size:12pt;"href="{{ $data['perfil']->twitter }}"target="_blank">{{ substr($data['perfil']->twitter, 0, 25) }}...</a><br>
                             @endif
                             @if(strlen($data['perfil']->instagram) > 0)
-                                <a href="{{ $data['perfil']->instagram }}"target="_blank">{{ substr($data['perfil']->instagram, 0, 25) }}...</a><br>
+                                <a style="color:black;width:387px;font-size:12pt;"href="{{ $data['perfil']->instagram }}"target="_blank">{{ substr($data['perfil']->instagram, 0, 25) }}...</a><br>
                             @endif
                             @foreach($data['redes'] as $red)
-                                <a href="{{ $red->nombre }}"target="_blank">{{ substr($red->nombre, 0, 25) }}...</a><br>
+                                <a style="color:black;width:387px;font-size:12pt;"href="{{ $red->nombre }}"target="_blank">{{ substr($red->nombre, 0, 25) }}...</a><br>
                             @endforeach
-                            <a href="#" class="haters btn-voto-amor" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
-                            <a href="#" class="lovers btn-voto-amor"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
+                            <div class=="btn_odio">
+                                <a href="#" class="haters btn-voto-amor" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
+                                <a href="#" class="lovers btn-voto-amor"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="clear"></div>
                 </div>
 <!-- MODAL DE INFORMACION EXTRA -->
-                <div class="add_info_extra"><a href=""data-reveal-id="agregarPublico">Add Extra Info</a></div>
+                <div class="add_info_extra"><a href=""data-reveal-id="agregarPublico">ADD EXTRA INFORMATION</a></div>
                 <div id="agregarPublico" class="reveal-modal" data-reveal>
                     <div class="cien">
                         @if(count($data['nombres']) < 3)
@@ -313,7 +315,7 @@
                 </div>
                 <div class="user_main_content">
                     <div id="comments" class="">
-                        <h1> comments</h1>
+                        <h1> {{Lang::get('messages.perfTitlEvidencia')}}</h1>
                         <div class="user_main_content_wrap">
 
                            <!--a href="#anchor_add">Add comment</a-->
@@ -321,7 +323,7 @@
                                 <div class="add_comment post Hidden">
                                     <div id="conCampo" data-tipo="1" class="Hidden">    
                                         <input type="text" placeholder="{{Lang::get('messages.perfPorLblSecretBox')}}" name="secret"  maxlength="50"/>
-                                        <textarea name="comment" maxlength="400" onfocus="if (this.value == 'Comment') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Comment';}" >Comment</textarea>
+                                        <textarea style="min-height:150px;"name="comment" maxlength="2550" onfocus="if (this.value == 'Comment') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Comment';}" >{{Lang::get('messages.perfPostLblConfesion')}}</textarea>
                                     </div>
                                     <div id="linkCampo" data-tipo="4" style="margin-top:5px;">
                                         <label>
@@ -430,7 +432,7 @@
                                 <div class="row">
                                     @if($data['perfil']->idAliasBase == $post->idAlias)
                                     <a id="fotosAddPost">
-                                        <img width="20px;"src="{{ URL::asset('img/add_img.png') }}">
+                                        <!--img width="20px;"src="{{ URL::asset('img/add_img.png') }}"-->
                                     </a>
                                     <div id="campoFotosPost"class="large-12 isHidden">
                                         <form class="postear-post-evi" data-idpost="{{$post->idPost}}" enctype="multipart/form-data" data-abide>
@@ -543,10 +545,10 @@
                                 <div class="subpost_area" >
                                     <div class="seccion_sub_com">
                                         <div class="sub_coment_titulo">
-                                            <h4 >COMMENTS</h4>
+                                            <h4 >{{Lang::get('messages.perfPorLblConfesion')}}</h4>
                                         </div>
                                     </div>
-                                    <ul class="gv-subcomentarios"  style="margin-top:2em;">
+                                    <ul class="gv-subcomentarios"  style="margin-top:2em;padding:2em;">
                                         @foreach($post->subcomentarios as $subcomentario)
                                         <li class="cien">
                                             <div class="noventa">
@@ -554,14 +556,14 @@
                                                 <!--label>{{$subcomentario->created_at}}</label-->
                                             </div>
                                             @if(strlen($subcomentario->comentario) > 0)
-                                            <div class="noventa" style="margin-bottom:9px">
+                                            <div class="noventa" style="margin-bottom:15px">
                                                 <div class="noventa">
                                                     <p class="texto_justifica" style="color:black">{{$subcomentario->comentario}}</p>
                                                 </div>
                                             </div>
                                             @endif
                                             @if(strlen($subcomentario->link_evi) > 0)
-                                            <div class="noventa " style="text-align:center; margin-bottom:9px;">
+                                            <div class="noventa " style="text-align:center; margin-bottom:2em;margin-top:1em;">
                                                 <a style="font-size:15px; word-wrap: break-word; " href="{{$subcomentario->link_evi}}" target="_blank">
                                                    {{substr($subcomentario->link_evi, 0, 80)}}...
                                                 </a>
@@ -569,7 +571,7 @@
                                             @endif
                                             <div class="noventa">
                                                 @if(strlen($subcomentario->video) > 0)
-                                                <div class="" style="text-align:center; margin-bottom:9px;">
+                                                <div class="" style="text-align:center; margin-bottom:1.5em;">
                                                     <iframe width="50%" height="330" src="//www.youtube.com/embed/{{$subcomentario->video}}" frameborder="0" allowfullscreen></iframe>
                                                     <div class="confiable isHidden" data-tipo="vid_subpost" data-id="{{ $subcomentario->idSubcomentario }}">
                                                         {{Lang::get('messages.perfPostLblConfiable')}}::
@@ -817,7 +819,7 @@
                                                     <div  class="small-12 columns fotSec Hidden">
                                                         <label>
                                                             {{Lang::get('messages.perfPorLblEvidenciaFoto')}}
-                                                            <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
+                                                            <input style="height:40px"type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
                                                         </label>
                                                     </div>
                                                 </div>

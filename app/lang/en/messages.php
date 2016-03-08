@@ -321,6 +321,8 @@ In social media people don’t show who they are. Unmask is the first and only s
 	"perfPostModComentarios" => "Comments",
 	"perfPostModComentario" => "Comment",
 	"perfPosModFotoPrincipal"=>"PROFILE PICTURE",
+	"perfTitlEvidencia"=>"EVIDENCE",
+
 
 	
 	"perfPostTltVotarOtraVez" => "Click here if you hate this person",

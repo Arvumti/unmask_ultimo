@@ -317,6 +317,7 @@ return array(
 	"perfPostModClasificacionMala" => "Bad rating",
 	"perfPostModComentarios" => "Комментарии ",
 	"perfPostModComentario" => "Комментарии",
+	"perfTitlEvidencia"=>"доказательства",
 
 	
 	"perfPostTltVotarOtraVez" => "Нажмите здесь если вы ненавидите этого человека",
