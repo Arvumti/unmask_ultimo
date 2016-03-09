@@ -117,7 +117,7 @@
                         <li><span class="profile_info_left">Ashley Madison Search</span> <span class="profile_info_right">128</span></li>
                         <li><span class="profile_info_left">{{Lang::get('messages.baseLogLblPoliticasPrivacidad')}}</span> </li-->
                         <li><a href="{{ URL::to('perfiles') }}"><span class="profile_info_left"style="font-size:18px">{{Lang::get('messages.baseLogLblPerfilesCreados')}}</span></a> <!--span class="profile_info_right">6</span--></li>
-                        <li><a href=""id=""><span class="profile_info_left"style="font-size:18px">Change Password & Photo</span></a> <!--span class="profile_info_right">6</span--></li>
+                        <!--li><a href=""id=""><span class="profile_info_left"style="font-size:18px">Change Password & Photo</span></a> </li-->
                       
                         
                     </ul>
