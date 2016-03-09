@@ -570,6 +570,53 @@
             });
 		}
 	</script>
+       <script>
+$(function(){
+ 
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+ };
+ 
+ if (isMobile.Android())
+ {
+ alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер");
+ }
+ else if (isMobile.BlackBerry())
+ {
+ alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер");
+ }
+ else if (isMobile.iOS())
+ {
+ alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер");
+
+ }
+ else if (isMobile.Opera())
+ {
+ alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер");
+ }
+ else if (isMobile.Windows())
+ {
+ alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер ");
+  }
+
+
+});
+
+</script>
  <!--a title="Web Statistics" href="http://clicky.com/100930117"><img alt="Web Statistics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a-->
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(100930117); }catch(e){}</script>

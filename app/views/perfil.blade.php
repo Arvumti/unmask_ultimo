@@ -38,16 +38,16 @@
                         </div>
 
                         <div class="flex_box">
-                            <a href="#" class="vote-perfil" data-tipo="cake" data-id="{{ $data['perfil']->idPerfil }}">
+                            <a href="#" class="vote-perfil has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltReputacionMala')}}" data-tipo="cake" data-id="{{ $data['perfil']->idPerfil }}">
                                 <div class="unmask_red">
                                     <span class="num_rank"><!--{{ $data['perfil']->good }}-->{{ $data['perfil']->amor }}</span>
                                     <img src="{{ URL::asset('img/anonymous.png') }}" width="11" height="15">
                                 </div>
-                            </a>
+                            </a> <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
 
                             <div class="separation_edit"></div>
 
-                            <a href="#" class="vote-perfil" data-tipo="enojo" data-id="{{ $data['perfil']->idPerfil }}">
+                            <a href="#" class="vote-perfil has-tip" data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltReputacionMala')}}"data-tipo="enojo" data-id="{{ $data['perfil']->idPerfil }}">
                                 <div class="unmask_grey">
                                     <span class="num_rank"><!--{{ $data['perfil']->bad }}-->{{ $data['perfil']->odio }}</span>
                                     <img src="{{ URL::asset('img/anonymous_red.png') }}" width="11" height="15">
@@ -90,9 +90,9 @@
                             @foreach($data['redes'] as $red)
                                 <a style="color:black;width:387px;font-size:12pt;"href="{{ $red->nombre }}"target="_blank">{{ substr($red->nombre, 0, 25) }}...</a><br>
                             @endforeach
-                            <div class=="btn_odio">
-                                <a href="#" class="haters btn-voto-amor" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
-                                <a href="#" class="lovers btn-voto-amor"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
+                            <div class=="btn_odio">                         <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
+                                <a href="#" class="haters btn-voto-amor has-tip" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}" data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotarOtraVez')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
+                                <a href="#" class="lovers btn-voto-amor has-tip"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotar')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                     <div class="clear"></div>
                 </div>
 <!-- MODAL DE INFORMACION EXTRA -->
-                <div class="add_info_extra"><a href=""data-reveal-id="agregarPublico">ADD EXTRA INFORMATION</a></div>
+                <div class="add_info_extra"><a href=""data-reveal-id="agregarPublico">{{Lang::get('messages.perfInfLblAgregarInformacion')}}</a></div>
                 <div id="agregarPublico" class="reveal-modal" data-reveal>
                     <div class="cien">
                         @if(count($data['nombres']) < 3)
@@ -307,10 +307,10 @@
 
                 <div class="content_navigation">
                     <ul>
-                        <li id="lapiz"  class="comments"><p>comments</p></li>
-                        <li id="secre"  class="videos"><p>videos</p></li>
-                        <li id="fotosP" class="photos"><p>photos</p></li>
-                        <li id="linkear"class="other"><p>links</p></li>
+                        <li id="lapiz"  class="comments has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.')}}"><p>{{Lang::get('messages.perfPostLblConfesion')}}</p></li>
+                        <li id="secre"  class="videos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.')}}"><p>{{Lang::get('messages.perfPostLblVideo')}}</p></li>
+                        <li id="fotosP" class="photos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.')}}"><p>photos</p></li>
+                        <li id="linkear"class="other has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.')}}"><p>{{Lang::get('messages.perfPorLblEnlace')}}</p></li>
                     </ul>
                 </div>
                 <div class="user_main_content">
@@ -321,33 +321,34 @@
                            <!--a href="#anchor_add">Add comment</a-->
                            <form class="postearEv " enctype="multipart/form-data" data-abide>
                                 <div class="add_comment post Hidden">
-                                    <div id="conCampo" data-tipo="1" class="Hidden">    
-                                        <input type="text" placeholder="{{Lang::get('messages.perfPorLblSecretBox')}}" name="secret"  maxlength="50"/>
-                                        <textarea style="min-height:150px;"name="comment" maxlength="2550" onfocus="if (this.value == 'Comment') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Comment';}" >{{Lang::get('messages.perfPostLblConfesion')}}</textarea>
+                                   
+                                    <div id="conCampo" data-tipo="1" class="Hidden">
+                                        <h6 style="color:#a7a9ab;text-align:center">{{Lang::get('messages.perfPostLblTitulo')}}</h6>
+                                        <input type="text" placeholder="{{Lang::get('messages.perfPorLblSecretBox')}}" name="secret"  maxlength="50" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionSecretBox')}}"required>
+                                        <textarea style="min-height:150px;resize: none;"name="comment" maxlength="2550" placeholder="{{Lang::get('messages.perfPostLblConfesion')}}"data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesion1')}}" required></textarea>
                                     </div>
                                     <div id="linkCampo" data-tipo="4" style="margin-top:5px;">
                                         <label>
                                             <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionRelacionado')}}">
                                             </span> 
-                                            <input type="text"placeholder="{{Lang::get('messages.perfPorLblEnlace1')}}" name="link_evi" class="expand" pattern="url"/>
+                                            <input type="text"placeholder="{{Lang::get('messages.perfPorLblEnlace1')}}" name="link_evi" class="expand has-tip"data-tooltip aria-haspopup="true" title="{{Lang::get('messages.perfPostTltConfesionEnlace')}}" pattern="url"/>
                                         </label>
                                         <small class="error">{{Lang::get('messages.perfPorLblEnlace1Example')}}</small>
                                     </div>
                                     <div id="videoCampo" data-tipo="2" class="Hidden">
                                         <label>
                                             {{Lang::get('messages.perfPorLblEvidenciaVideo')}}:
-                                            <input  type="text" name="link" placeholder="www.youtube.com/videoname"/>
+                                            <input  type="text" name="link" placeholder="www.youtube.com/videoname"data-tooltip aria-haspopup="true" class="has-tip"title="{{Lang::get('messages.perfPostTltEvidenciaYoutube')}}"/>
                                         </label>
                                     </div>
                                     <div id="eviCampo" data-tipo="3" class="Hidden">
                                         <label>
                                             {{Lang::get('messages.perfPorLblEvidenciaFoto')}}:
-                                            <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
+                                            <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaImagen')}}"/>
                                         </label>
                                     </div>
                                     <div id="botCampo" class="Hidden">  
                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionEvidencia')}}"><input type="submit" class="button btn-postear"value="{{Lang::get('messages.perfPorLblPostear')}}"><!--button type="button"  style=""> </button--></span>
-                                        <h6 style="color:#a7a9ab;">{{Lang::get('messages.perfPostLblTitulo')}}</h6>
                                     </div>
                                 </div>
                            </form>
@@ -452,13 +453,13 @@
                                 </div>
                                 <div class="like">
                                     {{Lang::get('messages.perfPostLblConfiable')}}:
-                                    <div data-tipo="post" class="confiable" data-id="{{ $post->idPost }}">
+                                    <div data-tipo="post" class="confiable has-tip"data-tooltip aria-haspopup="true" title="{{Lang::get('messages.perfPostTltConfesionBuena')}}" data-id="{{ $post->idPost }}">
                                         <a href="#" data-conf="1">
                                             <div class="point_red"></div>
                                             <span style="margin-right:5px">
                                                 [<span class="votos-totales">{{ $post->siconf }}</span>]
                                             </span>
-                                        </a>
+                                        </a>        
                                         <a href="#" data-conf="0">
                                             <div class="point_green"></div>
                                             <span style="margin-right:5px;width:15px;">
@@ -548,7 +549,7 @@
                                             <h4 >{{Lang::get('messages.perfPorLblConfesion')}}</h4>
                                         </div>
                                     </div>
-                                    <ul class="gv-subcomentarios"  style="margin-top:2em;padding:2em;">
+                                    <ul class="gv-subcomentarios"  style="margin-top:2em;padding:2em 2em 0.5em 2em;">
                                         @foreach($post->subcomentarios as $subcomentario)
                                         <li class="cien">
                                             <div class="noventa">
@@ -558,7 +559,7 @@
                                             @if(strlen($subcomentario->comentario) > 0)
                                             <div class="noventa" style="margin-bottom:15px">
                                                 <div class="noventa">
-                                                    <p class="texto_justifica" style="color:black">{{$subcomentario->comentario}}</p>
+                                                    <p  style="color:black;margin-left0;">{{$subcomentario->comentario}}</p>
                                                 </div>
                                             </div>
                                             @endif
@@ -1711,6 +1712,9 @@
 			$('.votos_mostrar').on('click', function(e) {
 				$(this).siblings('.votosPost').toggleClass("Hidden");
 			});
+            $('img').error(function(){
+                $(this).attr('src', "'{{ URL::asset('img/mascarita.png') }}'");
+            });
 
 			// (function(d, s, id) {
 			//   var js, fjs = d.getElementsByTagName(s)[0];

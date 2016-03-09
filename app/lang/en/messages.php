@@ -14,15 +14,16 @@ return array(
 	*/
 
 /* -- index -- */
-
+	
+	"fotosLblSubir" => "Click to put photo",
 	"indxTitUnmask" => "UNMASK",
 	"indxHerBtnInicioSecion" => "SIGN UP",
 	"indxModTitInicioSecion" => "Log in",
-	"indxModLblUsuario" => "Username :",
-	"indxModlblContrsenia" => "Password :",
+	"indxModLblUsuario" => "Username ",
+	"indxModlblContrsenia" => "Password ",
 	"indxModBtnCrearCuenta" => "Create account",
 	"indxModBtnSesion" => "Login",
-	"indxModLblCapcha" => "Type the characters below:",
+	"indxModLblCapcha" => "Type the characters below",
 	"indxNavBtnInicio" => "About",
 	"indxNavUnmask" => "How it works",
 	"indxNavLblPoliticasAvisos" => "Policies and disclaimer",
@@ -128,7 +129,7 @@ In social media people don’t show who they are. Unmask is the first and only s
 
 
 	/* -- crear_perfil -- */
-	"crePerDivTitTitulo" => "HERE YOU CAN CREATE A NEW PROFILE OF THE PERSON YOU’D LIKE TO REPORT",
+	"crePerDivTitTitulo" => "HERE YOU CAN CREATE A NEW PROFILE OF THE PERSON YOU’D LIKE TO UNMASK",
 	"crePerFrmLblImagen" => "Click in this image to select",
 	"crePerFrmLblNombre" => "First Name",
 	"crePerFrmLblNombreErr" => "Name is required",
@@ -198,11 +199,11 @@ In social media people don’t show who they are. Unmask is the first and only s
 	"cuenHedLblUsuario" => "User:",
 	"cuenHedLblBorrarCuenta" => "Delete Account",
 	"cuenHedLblCambiarContra" => "Change Password",
-	"cuenHedLblContrasenia" => "Password:",
+	"cuenHedLblContrasenia" => "Password",
 	"cuenHedLblContraseniaVal" => "Required:",
-	"cuenHedLblNuevaContrasenia" => "New Password:",
+	"cuenHedLblNuevaContrasenia" => "New Password",
 	"cuenHedLblNuevaContraseniaVal" => "Required",
-	"cuenHedLblNuevaContraseniaConf" => "Confirm new password:",
+	"cuenHedLblNuevaContraseniaConf" => "Confirm new password",
 	"cuenHedLblNuevaContraseniaConfVal" => "Password does not match",
 	"cuenHedBtnCambiarcontrasenia" => "Change Password",
 
@@ -232,9 +233,9 @@ In social media people don’t show who they are. Unmask is the first and only s
 	"nologManLblCorreo" => "Email:",
 	"nologManLblAlias" => "Alias:",
 	"nologManLblCorreoErr" => "This field is mandatory",
-	"nologManLblContrasenia" => "Password:",
+	"nologManLblContrasenia" => "Password",
 	"nologManLblContraseniaErr" => "This field is mandatory",
-	"nologManLblConfirmContrasenia" => "Confirm password:",
+	"nologManLblConfirmContrasenia" => "Confirm password",
 	"nologManLblComfirmContraseniaErr" => "The password must be the same",
 	"nologManLblPais" => "Country:",
 	"nologManLblCiudad" => "City:",
@@ -271,7 +272,7 @@ In social media people don’t show who they are. Unmask is the first and only s
 	"perfInfLblAmor" => "LOVERS",
 	"perfInfLblClasificar" => "RANK THIS PROFILE",
 	"perfInfLblPerfiles" => "Related Profiles:",
-	"perfInfLblAgregarInformacion" => "Add information",
+	"perfInfLblAgregarInformacion" => "Add extra information",
 	"perfInfLblApodosExtras" => "Additional names and nicknames",
 	"perfInfLblMascara" => "Mask",
 	"perfInfLblLugar" => "Place",
@@ -282,7 +283,7 @@ In social media people don’t show who they are. Unmask is the first and only s
 	"perfInfLblAgregar" => "Add",
 	"perfInfLblApodo" => "Nickname:",
 	"perfInfLblMascara" => "Mask:",
-	"perfInfLblImagenExtra" => "Extra profile image",
+	"perfInfLblImagenExtra" => "Additional profile photo",
 	"perfInfLblObligatorio" => "This field is mandatory",
 	"perfInfLblSocialMedia" => "Social Media:",
 	"perfInfLblIdPerfil" => "Profile ID:",
@@ -352,7 +353,7 @@ In social media people don’t show who they are. Unmask is the first and only s
 	"perfPostTltConfesionMala" => "CLICK ON THE TICK IF YOU THINK THIS CONFESSION OR EVIDENCE IS REAL. CLICK ON THE X IF YOU THINK IS FALSE. CONFESSIONS WITH A LOT OF “FALSE” RATINGS WILL BE DELETED.",
 	"perfPostTltConfesionMalaDesc" => "You can vote how evil or good is the action detailed in this post. You have 1 to 5 points.",
 	"perfPostTltConfesionNeutra" => "EVERY SMILEY HAS A DIFFERENT POINT VALUE THAT WILL HELP WITH RANKING EVALUATION. YOU HAVE THE CHANCE TO SELECT THE VALUE YOU DESIRE, DEPENDING ON THE GOODNESS OR WICKEDNESS OF THE DEED.",
-	"perfPostTltConfesionBuena" => "CLICK ON THE TICK IF YOU THINK THIS CONFESSION OR EVIDENCE IS REAL. CLICK ON THE X IF YOU THINK IS FALSE. CONFESSIONS WITH A LOT OF “FALSE” RATINGS WILL BE DELETED.",
+	"perfPostTltConfesionBuena" => "CLICK ON THE GREEN IF YOU THINK THIS CONFESSION OR EVIDENCE IS REAL. CLICK ON THE RED IF YOU THINK IS FALSE. CONFESSIONS WITH A LOT OF “FALSE” RATINGS WILL BE DELETED.",
 	"perfPostTltEvidenciaTexto" => "Add text evidence in this post. Other users will rate if the evidence is real or not.",
 	"perfPostTltEvidenciaImagen" => "Add image evidence in this post.  Other users will rate if the evidence is real or not.",
 	"perfPostTltEvidenciaYoutube" => "Add a YouTube video link in this post. Other users will rate if the evidence is real or not.",

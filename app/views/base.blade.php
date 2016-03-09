@@ -21,7 +21,7 @@
 
 </head>
 <body>
-
+                        <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
     <div id="wrap">
         <div id="line_header" >
             <div class="content">
@@ -104,7 +104,7 @@
                 <div class="user_info">
                     <div id="photo_block">
                         <img id="profile_photo" src="{{ URL::asset('img/db_imgs/alias/'.Session::get('usuario')->foto) }}" width="50" height="50">
-                        <span id="user_name">UserName</span>
+                        <span id="user_name"></span>
                         <!--span id="id">ID: 35</span-->
 
                     </div>
@@ -135,9 +135,9 @@
                         <p>User: MIke Johan</p>
                         <p>{{Lang::get('messages.cuenHedLblCambiarContra')}}</p>
                         <input type="text" name="contrasenia_act"  placeholder="{{Lang::get('messages.cuenHedLblContrasenia')}}"required/>
-                        <input type="text" id="contrasenia" name="contrasenia" required/>
+                        <input type="text" id="contrasenia" name="contrasenia" required placeholder="{{Lang::get('messages.cuenHedLblNuevaContrasenia')}}"/>
                         <!--small class="error">{{Lang::get('messages.cuenHedLblNuevaContraseniaVal')}}</small-->
-                        <input type="text" name="contrasenia_sec" data-equalto="contrasenia" required/>
+                        <input type="text" name="contrasenia_sec" data-equalto="contrasenia"placeholder="{{Lang::get('messages.cuenHedLblNuevaContraseniaConf')}}" required/>
                         <!--small class="error">{{Lang::get('messages.cuenHedLblNuevaContraseniaConfVal')}}</small-->
                         <div class="change_button">
                             <div>
@@ -341,6 +341,9 @@
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+            $('img').error(function(){
+                $(this).attr('src', "'{{ URL::asset('img/mascarita.png') }}'");
+            });
             
             /*$('.').on('click',function(e){
                 //e.preventDefault();

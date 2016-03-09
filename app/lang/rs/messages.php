@@ -13,16 +13,20 @@ return array(
 	|
 	*/
 
-/* -- index -- */
 
+/* -- FOTOS -- *//* -- index -- */
+
+
+
+	"fotosLblSubir" => "нажмите чтобы поместить фото",
 	"indxTitUnmask" => "UNMASK",
 	"indxHerBtnInicioSecion" => "ВОЙТИ",
 	"indxModTitInicioSecion" => "Войти",
-	"indxModLblUsuario" => "Имя пользователя:",
-	"indxModlblContrsenia" => "Пароль:",
+	"indxModLblUsuario" => "Имя пользователя",
+	"indxModlblContrsenia" => "Пароль",
 	"indxModBtnCrearCuenta" => "СОЗДАТЬ УЧЕТНУЮ ЗАПИСЬ",
 	"indxModBtnSesion" => "Войти",
-	"indxModLblCapcha" => "Введите символы, указанные ниже:",
+	"indxModLblCapcha" => "Введите символы, указанные ниже",
 	"indxNavBtnInicio" => "ГЛАВНАЯ",
 	"indxNavUnmask" => "How it works",
 	"indxNavLblPoliticasAvisos" => "ПОЛИТИКА И УВЕДОМЛЕНИЕ",
@@ -195,11 +199,11 @@ return array(
 	"cuenHedLblUsuario" => "Пользователь:",
 	"cuenHedLblBorrarCuenta" => "Удалить аккаунт",
 	"cuenHedLblCambiarContra" => "Изменить пароль",
-	"cuenHedLblContrasenia" => "Пароль:",
-	"cuenHedLblContraseniaVal" => "обязательно:",
-	"cuenHedLblNuevaContrasenia" => "Новый пароль:",
+	"cuenHedLblContrasenia" => "Пароль",
+	"cuenHedLblContraseniaVal" => "обязательно",
+	"cuenHedLblNuevaContrasenia" => "Новый пароль",
 	"cuenHedLblNuevaContraseniaVal" => "обязательно",
-	"cuenHedLblNuevaContraseniaConf" => "Подтвердить пароль:",
+	"cuenHedLblNuevaContraseniaConf" => "Подтвердить пароль",
 	"cuenHedLblNuevaContraseniaConfVal" => "Password does not match",
 	"cuenHedBtnCambiarcontrasenia" => "Изменить пароль",
 
@@ -229,9 +233,9 @@ return array(
 	"nologManLblCorreo" => "Email:",
 	"nologManLblAlias" => "Псевдоним:",
 	"nologManLblCorreoErr" => "обязательно",
-	"nologManLblContrasenia" => "Пароль:",
+	"nologManLblContrasenia" => "Пароль",
 	"nologManLblContraseniaErr" => "обязательно",
-	"nologManLblConfirmContrasenia" => "Confirm password:",
+	"nologManLblConfirmContrasenia" => "Confirm password",
 	"nologManLblComfirmContraseniaErr" => "The password must be the same",
 	"nologManLblPais" => "Страна :",
 	"nologManLblCiudad" => "Город:",
@@ -347,7 +351,7 @@ return array(
 	"perfPostTltConfesionMala" => "Нажмите на ”V”, если вы думаете, что признание или доказательства реальны. Нажмите на ”X” если вы думаете, что это ложь. Признания с большим количеством оценки «ложь» будут удалены..",
 	"perfPostTltConfesionMalaDesc" => "Вы можете проголосовать как за хорошие, так и за плохие действия, подробно описанные здесь. Поставьте от 1 до 5 баллов.",
 	"perfPostTltConfesionNeutra" => "EVERY SMILEY HAS A DIFFERENT POINT VALUE THAT WILL HELP WITH RANKING EVALUATION. YOU HAVE THE CHANCE TO SELECT THE VALUE YOU DESIRE, DEPENDING ON THE GOODNESS OR WICKEDNESS OF THE DEED.",
-	"perfPostTltConfesionBuena" => "Нажмите на ”V”, если вы думаете, что признание или доказательства реальны. Нажмите на ”X” если вы думаете, что это ложь. Признания с большим количеством оценки «ложь» будут удалены.",
+	"perfPostTltConfesionBuena" => "Нажмите на ”зеленый”, если вы думаете, что признание или доказательства реальны. Нажмите на ”красный” если вы думаете, что это ложь. Признания с большим количеством оценки «ложь» будут удалены.",
 	"perfPostTltEvidenciaTexto" => "Добавьте текст, подтверждающий публикацию. Другие пользователи будут оценивать представленные доказательства как достоверные или фальшивые.",
 	"perfPostTltEvidenciaImagen" => "Добавьте картинку, подтверждающую ваш пост. Другие пользователи будут оценивать представленные доказательства как достоверные или фальшивые.",
 	"perfPostTltEvidenciaYoutube" => "Добавьте ссылку на видео на YouTube. Другие пользователи будут оценивать представленные доказательства как достоверные или фальшивые.",

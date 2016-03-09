@@ -32,6 +32,7 @@ Route::post('/crear_cuenta', 'CaptchaController@postCrearCuenta');
 Route::get('/crear_perfil', 'CaptchaController@getCrearPerfil');
 Route::post('/crear_perfil', 'CaptchaController@postCrearPerfil');
 
+
 Route::get('/crear_perfil/{id}', function($id) {
 	$idAlias = Session::get('usuario')->idAlias;
 
@@ -140,13 +141,14 @@ Route::get('/prueba', function() {
 
 	return $route;
 });
-
-Route::get('/cuenta', function() {
+/* OBTENER ALIAS EN LA BASE */
+/*Route::get('/base', function($idAlias) {
 	$idAlias = Session::get('usuario')->idAlias;
-	$alias = Alia::where('idAlias', '=', $idAlias)->select('nombre', 'correo', 'idAlias')->first();
-
-	return View::make('cuenta')->with('alias', $alias);
-});
+	$alias = DB::table('alias')
+                    ->where('alias', '=', $idAlias)
+                    ->get();
+	return View::make('base')->with('alias', $alias);
+});*/
 
 Route::get('/comentario/{id}', function($id) {
 	$comentarios = DB::select(DB::raw("
@@ -1449,6 +1451,11 @@ Route::post('/principal/avanzada', function() {
 	return Response::json($data);
 });
 
+/*Route::get('/base_nu', function(){
+	$user_nm = Session::get('usuario')->nombre;
+	$data = DB::select(DB::raw("SELECT FROM alias nombre"));
+	return View::make('base_nu')->with('alias', $data);
+});*/
 Route::get('/principal', function() {
 	$pais = Session::get('usuario')->pais;
 	$estado = Session::get('usuario')->estado;

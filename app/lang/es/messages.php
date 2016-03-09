@@ -14,12 +14,12 @@ return array(
 	*/
 
 /* -- INDEX -- */
-
+	"fotosLblSubir" => "Click para añadir foto",
 	"indxTitUnmask" => "UNMASK",
 	"indxHerBtnInicioSecion" => "LOGIN",
 	"indxModTitInicioSecion" => "Inicio de sesión",
-	"indxModLblUsuario" => "Nombre de usuario(Alias) :",
-	"indxModlblContrsenia" => "Contraseña :",
+	"indxModLblUsuario" => "Nombre de usuario(Alias) ",
+	"indxModlblContrsenia" => "Contraseña ",
 	"indxModBtnCrearCuenta" => "Crear cuenta",
 	"indxModBtnSesion" => "Iniciar sesión",
 	"indxModLblCapcha" => "Teclear caracteres de la imagen",
@@ -113,7 +113,7 @@ return array(
 	"basePlhBaCiu" => "Madrid",
 
 	/* -- crear_perfil -- */
-	"crePerDivTitTitulo" => "AQUI PODRAS CREAR UN PERFIL NUEVO DE LA PERSONA A LA CUAL QUIERES DENUNCIAR",
+	"crePerDivTitTitulo" => "AQUI PODRAS CREAR UN PERFIL NUEVO DE LA PERSONA A LA CUAL QUIERES DESENMASCARAR",
 	"crePerFrmLblImagen" => "Click en la imagen para seleccionar",
 	"crePerFrmLblNombre" => "Nombres",
 	"crePerFrmLblNombreErr" => "El nombre es requerido",
@@ -150,17 +150,17 @@ return array(
 	"crePerTltSocial" => "Pega aquí el facebook de la persona a la que pertenece el perfil.",
 	"crePerTltSocialExtra" => "Pega aquí otra red social del la persona a la que pertenece el perfil",
 	"crePerTltConsejoMascaras" => "No uses palabras similares o sinónimos para las máscaras. Usa la palabra exacta y correcta o mejor aún: usa las categorías que existen para que este perfil aparezca en el ranking.",
-	"crePerTltConsejoMascaras1" => "¡Escribe una máscara, Selecciónala y presiona entre para agregarla!",
+	"crePerTltConsejoMascaras1" => "¡Escribe una máscara, Selecciónala y presiona enter para agregarla!",
 
 	/* -- cuenta -- */
 	"cuenHedLblUsuario" => "Usuario:",
 	"cuenHedLblBorrarCuenta" => "Borrar Cuenta",
 	"cuenHedLblCambiarContra" => "Cambiar Contraseña",
-	"cuenHedLblContrasenia" => "Contraseña actual:",
-	"cuenHedLblContraseniaVal" => "Requerido:",
-	"cuenHedLblNuevaContrasenia" => "Contraseña:",
+	"cuenHedLblContrasenia" => "Contraseña actual",
+	"cuenHedLblContraseniaVal" => "Requerido",
+	"cuenHedLblNuevaContrasenia" => "Contraseña",
 	"cuenHedLblNuevaContraseniaVal" => "Requerido",
-	"cuenHedLblNuevaContraseniaConf" => "Repetir contraseña:",
+	"cuenHedLblNuevaContraseniaConf" => "Repetir contraseña",
 	"cuenHedLblNuevaContraseniaConfVal" => "Las contraseñas no coinciden",
 	"cuenHedBtnCambiarcontrasenia" => "Cambiar contraseña",
 
@@ -220,7 +220,7 @@ return array(
 	"perfInfLblAmor" => "AMAN",
 	"perfInfLblClasificar" => "CALIFICA ESTE PERFIL",
 	"perfInfLblPerfiles" => "Perfiles relacionados:",
-	"perfInfLblAgregarInformacion" => "Añade información",
+	"perfInfLblAgregarInformacion" => "Añade información extra",
 	"perfInfLblApodosExtras" => "Nombres y apodos adicionales",
 	"perfInfLblMascara" => "Máscara",
 	"perfInfLblLugar" => "Lugar",
@@ -300,7 +300,7 @@ return array(
 	"perfPostTltConfesionMala" => "HAZ CLICK EN LA PALOMA SI PIENSAS QUE ESTA ES UNA CONFESION O PRUEBA REAL, Y CLICK EN EL TACHE SI PIENSAS QUE ES FALSA. LAS CONFESIONES CON MAYOR NUMERO DE CALIFICACIONES FALSAS SERAN ELIMINADAS",
 	"perfPostTltConfesionMalaDesc" => "Puedes votar que tan malo o bueno piensas que es la acción detallada en este post. Tienes de 1 a 5 puntos.",
 	"perfPostTltConfesionNeutra" => "CADA EMOTICÓN TIENE UN VALOR DIFERENTE EN PUNTOS, LOS CUALES SERVIRÁN PARA LAS EVALUACIONES EN LOS RANKS.. TIENES LA OPORTUNIDAD DE SELECCIONAR EL VALOR QUE DESEAS DARLE, DEPENDIENDO LA MAGNITUD DEL ACTO BUENO O MALO QUE HAYA REALIZADO ESTA PERSONA",
-	"perfPostTltConfesionBuena" => "HAZ CLICK EN LA PALOMA SI PIENSAS QUE ESTA ES UNA CONFESION O PRUEBA REAL, Y CLICK EN EL TACHE SI PIENSAS QUE ES FALSA. LAS CONFESIONES CON MAYOR NUMERO DE CALIFICACIONES FALSAS SERAN ELIMINADAS",
+	"perfPostTltConfesionBuena" => "HAZ CLICK EN EL PUNTO VERDE SI PIENSAS QUE ESTA ES UNA CONFESION O PRUEBA REAL, Y CLICK EN EL ROJO SI PIENSAS QUE ES FALSA. ",
 	"perfPostTltEvidenciaTexto" => "Añade Pruebas textuales a este post, estas serán evaluadas por los demás usuarios por pruebas falsas o reales.",
 	"perfPostTltEvidenciaImagen" => "Añade imágenes que sean pruebas para este post, estas serán evaluadas por los demás usuarios como pruebas falsas o reales.",
 	"perfPostTltEvidenciaYoutube" => "Añade un link de un video de youtube que sea prueba para este post, este será evaluado por los demás usuarios como prueba falsa o real.",

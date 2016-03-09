@@ -1,8 +1,13 @@
+
 body{
     background-color: #ffffff;
     font-family: Helvetica;
     width: 100%;
 }
+@media screen and (min-width: 1025px) {
+    .indx_display {
+        display: none;
+    }
 
 .clear{
     clear: both;
@@ -42,6 +47,7 @@ body{
     width: 50%;
     /*padding-left: 50px;*/
     text-align: center;
+        padding-top: 11px;
 }
 
 .start_page_navigation li{
@@ -70,6 +76,7 @@ body{
     margin-left: 13%;
     cursor: pointer;
     padding: 8px 36px;
+    margin-top: 11px;
     border: 2px solid #B23B2E;
     border-radius: 20px;
 }
@@ -1019,6 +1026,7 @@ video{
     top: 26px;
     height: 28px;
     color: #ffffff;
+    text-align: justify;
 }
 
 .other_user_photo_area_red button{
@@ -1120,6 +1128,21 @@ label[for="photo"] p{
     position: absolute;
     top: 40%;
     left: 14%;
+}
+label[for="foto"]{
+    font-size: 14pt;
+    position: relative;
+    text-align: center;
+    margin: 0 30px 20px 0;
+}
+
+label[for="foto"] p{
+    font-family: Raleway_Regular;
+    font-size: 14pt;
+    color: #ffffff;
+    position: absolute;
+    top: 40%;
+    left: 25%;
 }
 .flex_box{
     width: 100%;
@@ -1631,6 +1654,7 @@ input[name="captcha_characters"]{
 .post p{
     margin: 15px 10px 0 10px;
     font-family: Raleway_Light;
+    text-align: justify;
 }
 
 .post h1{
@@ -2281,7 +2305,7 @@ a[href="#add"]{
 .alto{
     min-height: 80px;
     width: 90%;
-    margin-top: 2em;
+    margin-top: 1em;
     padding: 15px;
 }
 .cuarenta{
@@ -2503,10 +2527,24 @@ height:150px;
     vertical-align: top !important;
     text-align: center !important;
 }
-.btn_odio a p{
-    
-}
+.texto{
+    padding: 3px;
+    margin-right:5px;
+    color: #B23B2E;
 
+}
+.area_mascaras {
+    max-width: 100%;
+    min-width: 97.6%;
+    min-height: 100px;
+}
+.letras_rojo{
+    margin-right: 8px;
+}
+.gv_apodos{
+
+margin-bottom: 20px
+}
 
 
 
