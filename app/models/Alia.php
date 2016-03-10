@@ -12,7 +12,7 @@ class Alia extends Model {
     //Use this for custom messages
     protected static $messages = [
         'nombre.required' => "{{Lang::get('messages.aliaNombreRequerido')}}",
-        'nombre.unique' 	=> "{{Lang::get('messages.aliaNombreUnico')}}",
+        'nombre.unique' 	=> "messages.aliaNombreUnico",
         //'correo.required' => 'Se debe especificar el correo.',
         //'correo.unique'   => 'El correo que se especifico ya esta siendo utilizado.',
         'password.required' => "{{Lang::get('messages.aliaContraseniaRequerido')}}",

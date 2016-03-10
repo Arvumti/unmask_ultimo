@@ -858,7 +858,7 @@
     
     <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script> 
     <script type="text/javascript">
-		var url = window.location.origin + '/public/';//lara/
+        var url = window.location.origin + '/public/';//lara/
 	
 	  //document.write('<script src=foundation/js/vendor/' + ('__proto__' in {} ? 'zepto' : 'jquery')  + '.js><\/script>');
 		$(document).on('ready', inicio_nl);

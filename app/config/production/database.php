@@ -23,9 +23,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'admin_default',
-			'username'  => 'admin_default',
-			'password'  => 'MiCH1TxoX5',
+			'database'  => 'db_unmask',
+			'username'  => 'root',
+			'password'  => '',
 			// 'database'  => 'admin_default',
 			// 'username'  => 'admin_default',
 			// 'password'  => 'xvbVG6Ip0M',

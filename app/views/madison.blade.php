@@ -237,6 +237,7 @@
 			});
 
 			$('#btn-madison').on('click', function(e) {
+				debugger
 				e.preventDefault();
 				var busqueda = $('.txt-buscarMad').val();
 

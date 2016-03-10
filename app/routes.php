@@ -166,7 +166,7 @@ Route::get('/comentario/{id}', function($id) {
 Route::post('/update_pass', function() {
 	$data = Input::all();
 
-	$idAlias = Session::get('usuario')->idAlias;
+	$idAlias = 8;//Session::get('usuario')->idAlias; ::EOF
 	$count = DB::table('alias')
 		->where('idAlias', $idAlias)
         ->where('password', $data['contrasenia_act'])
@@ -174,13 +174,13 @@ Route::post('/update_pass', function() {
 
     if($count == 1) {
 		DB::table('alias')
-	        ->where('idAlias', $idAlias)
-	        ->update(array('password' => $data['contrasenia']));
+			->where('idAlias', $idAlias)
+			->update(array('password' => $data['contrasenia']));
 
-	    return Redirect::back()->withInput()->withErrors(Array('error' => "{{Lang::get('messages.rouSccUpd_pass')}} "));
+	    return Redirect::back()->withInput()->withErrors(Array('error' => "messages.rouSccUpd_pass"));
     }
 	else
-		return Redirect::back()->withInput()->withErrors(Array('error' => "{{Lang::get('messages.rouErrUpd_pass')}}"));
+		return Redirect::back()->withInput()->withErrors(Array('error' => "messages.rouErrUpd_pass"));
 });
 
 Route::post('/update_image', function() {
@@ -1457,6 +1457,20 @@ Route::post('/principal/avanzada', function() {
 	return View::make('base_nu')->with('alias', $data);
 });*/
 Route::get('/principal', function() {
+	$mail = 'chano';
+	$pass = 'chano';
+
+	$usuarios = DB::select(DB::raw("
+								SELECT 1 id, idAlias, password, nombre, correo, pais, estado, foto
+								FROM alias
+								WHERE nombre = '{$mail}'
+								AND password = '{$pass}'
+							"));
+
+	$usuario = $usuarios[0];
+	$usuario->front = Array('nombre' => $usuario->nombre, 'correo' => $usuario->correo, 'estado' => $usuario->estado, 'pais' => $usuario->pais);
+	Session::put('usuario', $usuario);
+
 	$pais = Session::get('usuario')->pais;
 	$estado = Session::get('usuario')->estado;
 	$data = DB::select(DB::raw("
@@ -1683,7 +1697,7 @@ Route::get('/rank/{tipo}', function($tipo) {
 									SELECT	GROUP_CONCAT(e.nombre SEPARATOR ', ') mascara, GROUP_CONCAT(f.nombre SEPARATOR ', ') mascaras, a.pais, a.estado, 
 											a.idPerfil, a.nombre perfil, a.confesion, a.facebook, a.foto,  
 											CONCAT(SUBSTR(a.confesion, 1, 100), '...') confesion_corta, a.secret_pub,
-											d.bad, d.good,
+											COALESCE(d.bad, 0) bad, COALESCE(d.good, 0) good,
 											COALESCE(e.numcomm, 0) numcomm
 									FROM perfiles a
 									LEFT JOIN mascaras_perfiles c
@@ -1903,7 +1917,7 @@ Route::get('/madison/data', function() {
 								ON a.COUNTRY = b.COUNTRY_ID
 								INNER JOIN tgender c
 								ON a.GENDER = c.GENDER_ID
-								WHERE CONCAT(a.FIRST_NAME, ' ', a.LAST_NAME) = '{$query}'
+								WHERE CONCAT(a.FIRST_NAME, ' ', a.LAST_NAME) = '{$query}' OR a.EMAIL = '{$query}'
 								OR a.EMAIL = '{$query}'
 
 								"));

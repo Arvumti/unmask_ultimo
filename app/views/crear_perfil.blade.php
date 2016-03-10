@@ -36,10 +36,10 @@
                         <input type="text" name="estado" value="{{Input::old('estado')}}" placeholder="{{Lang::get('messages.crePerFrmLblEstado')}}"class="typeahead has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.crePerTltAdvertenciaDatos')}}">
 
                     </div>
-                    <div class="flex_box flex_box_tree">
-                        <input type="text" name="municipio" value="{{Input::old('municipio')}}"placeholder="{{Lang::get('messages.crePerFrmLblMunicipio')}}">
-                        <input type="text" name="ciudad" value="{{Input::old('ciudad')}}" placeholder="{{Lang::get('messages.crePerFrmLblCiudad')}}">
-                        <input type="text" name="colonia" value="{{Input::old('colonia')}}" placeholder="{{Lang::get('messages.crePerFrmLblColonia')}}">
+                    <div class="flex_column_full">
+                        <input type="text" name="municipio" class="typeahead" value="{{Input::old('municipio')}}"placeholder="{{Lang::get('messages.crePerFrmLblMunicipio')}}">
+                        <input type="text" name="ciudad" class="typeahead" value="{{Input::old('ciudad')}}" placeholder="{{Lang::get('messages.crePerFrmLblCiudad')}}">
+                        <input type="text" name="colonia" class="typeahead" value="{{Input::old('colonia')}}" placeholder="{{Lang::get('messages.crePerFrmLblColonia')}}">
                     </div>
                     <p class="flex_box">{{Lang::get('messages.crePerFrmTitRedesSociales')}}</p>
                     <div class="flex_box flex_box_tree">
@@ -100,13 +100,13 @@
                     </div>
                 </form>
             	@if($errors->any())
-						<br/><br/>
-						@foreach ($errors->all() as $error)
-						<div class="flex_box flex_box_tree">
-							<!--div class="label alert" role="alert">** {{ $error }}</div-->
-						</div>
-						@endforeach
-					@endif
+					<br/><br/>
+					@foreach ($errors->all() as $error)
+					<div class="flex_box flex_box_tree">
+						<!--div class="label alert" role="alert">** {{ $error }}</div-->
+					</div>
+					@endforeach
+				@endif
             </div>
 
         </div>

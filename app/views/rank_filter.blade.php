@@ -15,7 +15,7 @@
                         @endif
                     <div class="puntuacion">
                         <div class="unmask_red">
-                            <span>{{ $perfil->good }}</span>
+                            <span>{{ $perfil->good }} </span>
                             <img src="{{ URL::asset('img/anonymous.png')}}" width="11" height="15"/>
                         </div>
                         <div class="unmask_grey">

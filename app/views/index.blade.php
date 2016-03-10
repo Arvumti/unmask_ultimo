@@ -98,11 +98,11 @@
                             </div>
 
                             <div class="flex_popup flex_column_popup">
-                                <input type="text" name="alias" value="{{Input::old('alias')}}"placeholder="{{Lang::get('messages.nologManLblAlias')}}" required/>
+                                <input type="text" name="alias" value="{{Input::old('alias')}}" placeholder="{{Lang::get('messages.nologManLblAlias')}}" required/>
                                 	<!--small class="error">{{Lang::get('messages.nologManLblCorreoErr')}}</small-->
 										@if($errors->any())
 											@foreach ($errors->get('nombre') as $error)
-												<div class="label alert" role="alert">** {{ $error }}</div>
+												<div class="label alert" role="alert">** {{ Lang::get($error) }}</div>
 											@endforeach
 										@endif
                                 <input type="password" id="password" name="password" placeholder="{{Lang::get('messages.nologManLblContrasenia')}}" required/>
@@ -543,7 +543,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script> 
     <script type="text/javascript">
         var url = window.location.origin + '/public/';//lara/
-		//var url = window.location.origin + '/';//lara/::EOF
+		var url = window.location.origin + '/';//lara/::EOF-URL
 	
 	  //document.write('<script src=foundation/js/vendor/' + ('__proto__' in {} ? 'zepto' : 'jquery')  + '.js><\/script>');
 		$(document).on('ready', inicio_nl);

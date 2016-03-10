@@ -18,7 +18,36 @@
         <script type="text/javascript" src="{{ URL::asset('js/lodash.underscore.min.js') }}"></script> 
         <script type="text/javascript" src="{{ URL::asset('js/backbone-min.js') }}"></script> 
  
-
+        <style type="text/css">
+            .busqueda-resultado {
+                background-color: #282C30;
+                border: 1px solid blue;
+                position: absolute;
+                top: 30px;
+                right: 220px;
+                z-index: 2000;
+            }
+            .busqueda-resultado a {
+                text-align: left;
+                border-bottom: 1px solid #AAA;
+                display: block;
+                width: 100%;
+                padding: 0.5em;
+                text-align: left;
+            }
+            .busqueda-resultado img {
+                float: left;
+                border: 1px solid #AAA;
+                margin: 0;
+                height: 50px;
+                width: 50px;
+            }
+            .busqueda-resultado span {
+                float: left;
+                color: #EEE;
+                text-align: left;
+            }
+        </style>
 </head>
 <body>
                         <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
@@ -34,7 +63,7 @@
                 </ul>
                 <form method="post" action="">
                     <input type="text" class="base-busqueda txt-buscar buscador"name="search" placeholder="{{Lang::get('messages.basePlhBusca')}}" />
-                    <button type="submit" class="btn_buscar" title="Search!"></button>
+                    <button type="submit" class="base-button btn_buscar" title="Search!"></button>
                     <img id="filter" src="{{ URL::asset('img/filter.png') }}" width="13" height="14" title="Filter"/>
                 </form>
                    
@@ -115,10 +144,9 @@
                 <img id="profile_config" src="{{ URL::asset('img/profile_config.png') }}" width="9" height="10">
                 <div class="user_info">
                     <div id="photo_block">
-                        <img id="profile_photo" src="{{ URL::asset('img/db_imgs/alias/'.Session::get('usuario')->foto) }}" width="50" height="50">
-                        <span id="user_name"></span>
-                        <!--span id="id">ID: 35</span-->
-
+                        <img id="profile_photo" src="{{ URL::asset('img/db_imgs/alias/'.'::EOF'/*Session::get('usuario')->foto*/) }}" width="50" height="50">
+                        <span id="user_name">{{Session::get('usuario')->nombre}}</span>
+                        <!-- <span id="id" class="nombre-perfil" style="border:5px solid blue;">{{Session::get('usuario')->nombre}}</span> -->
                     </div>
 
                     <div class="clear"></div>
@@ -137,7 +165,7 @@
                     <button onclick="window.location.href='{{ URL::to('/logout')}}'"value="Sign_Out"><img src="{{ URL::asset('img/sign_out.png') }}" /><span>{{Lang::get('messages.baseLogLblCerrarSesion')}}</span></button>
                 </div>
                 <div class="change_info isHidden">
-                    <form action="{{ URL::to('update_pass') }}" method="post" enctype="multipart/form-data" data-abide>    
+                    <form action="{{ URL::to('update_pass') }}" class="form-change-pass" method="post" enctype="multipart/form-data" data-abide>    
                         <p>{{Lang::get('messages.cuenHedLblUsuario')}}</p>
                         <input type="file" class="hidden_class img-user-photo" name="photo" id="photo" accept="image/jpeg,image/png">
                         <label for="photo">
@@ -149,11 +177,17 @@
                         <input type="text" name="contrasenia_act"  placeholder="{{Lang::get('messages.cuenHedLblContrasenia')}}"required/>
                         <input type="text" id="contrasenia" name="contrasenia" required placeholder="{{Lang::get('messages.cuenHedLblNuevaContrasenia')}}"/>
                         <!--small class="error">{{Lang::get('messages.cuenHedLblNuevaContraseniaVal')}}</small-->
-                        <input type="text" name="contrasenia_sec" data-equalto="contrasenia"placeholder="{{Lang::get('messages.cuenHedLblNuevaContraseniaConf')}}" required/>
+                        <input type="text" id="contrasenia_rep" name="contrasenia_sec" data-equalto="contrasenia"placeholder="{{Lang::get('messages.cuenHedLblNuevaContraseniaConf')}}" required/>
                         <!--small class="error">{{Lang::get('messages.cuenHedLblNuevaContraseniaConfVal')}}</small-->
+                        @if($errors->any())
+                            <br/><br/>
+                            @foreach ($errors->all() as $error)
+                            <span>** {{ Lang::get($error) }}</span>
+                            @endforeach
+                        @endif
                         <div class="change_button">
                             <div>
-                                <button type="submit"value="change">{{Lang::get('messages.cuenHedBtnCambiarcontrasenia')}}</button>
+                                <button type="submit" class="btn-change-pass" value="change">{{Lang::get('messages.cuenHedBtnCambiarcontrasenia')}}</button>
                                 <!--button value="delete">{{Lang::get('messages.cuenHedLblBorrarCuenta')}}</button-->
                             </div>
                         </div>
@@ -222,7 +256,7 @@
         </script>
         <script>
             var url = window.location.origin + '/public/';
-            //var url = window.location.origin + '/';//::EOF
+            var url = window.location.origin + '/';//::EOF-URL
          
             
             $(document).foundation();
@@ -231,6 +265,21 @@
 
                 $('#addPerfil').click('reveal', 'open');
                 $('#addPerfil').click('reveal','close');
+
+                debugger
+                // $('form.form-change-pass').on('submit', function() {
+                //     debugger
+                // })
+
+                $('.btn-change-pass').on('click', function(e) {
+                    var pass_a = $("#contrasenia").val();
+                    var pass_b = $("#contrasenia_rep").val();
+
+                    if(pass_a != pass_b) {
+                        e.preventDefault();
+                        alert('Las contraseñas no coinciden.');
+                    }
+                });
 
                 $('.img-user-photo').change(function (e) {
                     debugger
@@ -283,6 +332,13 @@
                         $('.busqueda-resultado').addClass('isHidden')
                 });
 
+                $('.base-busqueda.txt-buscar').on('keypress', function (e) { //busquedas
+                    if(e.which == 32) {
+                        e.preventDefault();
+                        $('.btn-buscar-avanzado').click();
+                    }
+                });
+
                 $('.btn-buscar-avanzado').on('click', function() {
                     debugger //ABRIR MODALBA
                     
@@ -321,8 +377,9 @@
                 });
                 
 
-                $('.base-button.btn_buscar').on('click', function() { //evento click en busqueda
+                $('.base-button.btn_buscar').on('click', function(e) { //evento click en busqueda
                     debugger
+                    e.preventDefault();
                     var busqueda = $('.base-busqueda.txt-buscar').val();
                     if(busqueda.length > 0) {
                         $.get(url + 'principal/custom/' + busqueda).done(done);

@@ -40,7 +40,7 @@
                         <div class="flex_box">
                             <a href="#" class="vote-perfil has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltReputacionMala')}}" data-tipo="cake" data-id="{{ $data['perfil']->idPerfil }}">
                                 <div class="unmask_red">
-                                    <span class="num_rank"><!--{{ $data['perfil']->good }}-->{{ $data['perfil']->amor }}</span>
+                                    <span class="num_rank"><!--{{ $data['perfil']->good }}-->{{ $data['perfil']->per_cake }}</span>
                                     <img src="{{ URL::asset('img/anonymous.png') }}" width="11" height="15">
                                 </div>
                             </a> <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
@@ -49,7 +49,7 @@
 
                             <a href="#" class="vote-perfil has-tip" data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltReputacionMala')}}"data-tipo="enojo" data-id="{{ $data['perfil']->idPerfil }}">
                                 <div class="unmask_grey">
-                                    <span class="num_rank"><!--{{ $data['perfil']->bad }}-->{{ $data['perfil']->odio }}</span>
+                                    <span class="num_rank"><!--{{ $data['perfil']->bad }}-->{{ $data['perfil']->per_enojo }}</span>
                                     <img src="{{ URL::asset('img/anonymous_red.png') }}" width="11" height="15">
                                 </div>
                             </a>

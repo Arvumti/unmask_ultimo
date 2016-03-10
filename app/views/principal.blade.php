@@ -2,7 +2,7 @@
 
 @section('content')
   
-    <div class="busqueda-resultado"></div>
+    <!-- <div class="busqueda-resultado"></div> -->
   	
 	<div class="other_users_container"><h1> wall Latest updates</h1>
 	  @foreach($perfiles as $perfil)
@@ -22,7 +22,7 @@
                             <img src="img/anonymous.png" width="11" height="15"/>
                         </div>
                         <div class="unmask_grey">
-                            <span>{{ $perfil->bad }}</span>
+                            <span>{{ $perfil->bad }} bad</span>
                             <img src="img/anonymous_red.png" width="11" height="15"/>
                         </div>
                     </div>
