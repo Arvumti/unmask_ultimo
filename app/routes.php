@@ -166,7 +166,7 @@ Route::get('/comentario/{id}', function($id) {
 Route::post('/update_pass', function() {
 	$data = Input::all();
 
-	$idAlias = 8;//Session::get('usuario')->idAlias; ::EOF
+	$idAlias = Session::get('usuario')->idAlias;
 	$count = DB::table('alias')
 		->where('idAlias', $idAlias)
         ->where('password', $data['contrasenia_act'])

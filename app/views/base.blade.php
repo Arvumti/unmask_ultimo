@@ -144,7 +144,7 @@
                 <img id="profile_config" src="{{ URL::asset('img/profile_config.png') }}" width="9" height="10">
                 <div class="user_info">
                     <div id="photo_block">
-                        <img id="profile_photo" src="{{ URL::asset('img/db_imgs/alias/'.'::EOF'/*Session::get('usuario')->foto*/) }}" width="50" height="50">
+                        <img id="profile_photo" src="{{ URL::asset('img/db_imgs/alias/'.Session::get('usuario')->foto) }}" width="50" height="50">
                         <span id="user_name">{{Session::get('usuario')->nombre}}</span>
                         <!-- <span id="id" class="nombre-perfil" style="border:5px solid blue;">{{Session::get('usuario')->nombre}}</span> -->
                     </div>
@@ -256,7 +256,7 @@
         </script>
         <script>
             var url = window.location.origin + '/public/';
-            var url = window.location.origin + '/';//::EOF-URL
+            //var url = window.location.origin + '/';//::EOF-URL
          
             
             $(document).foundation();

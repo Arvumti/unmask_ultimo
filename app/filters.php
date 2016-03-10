@@ -11,37 +11,37 @@
 |
 */
 
-App::before(function($request) {//::EOF
-	// if(!Session::has('locale'))
-	// 	Session::put('locale', 'en');
+App::before(function($request) {
+	if(!Session::has('locale'))
+		Session::put('locale', 'en');
 
-	// //var_dump(Session::get('locale'));
-	// App::setLocale(Session::get('locale'));
+	//var_dump(Session::get('locale'));
+	App::setLocale(Session::get('locale'));
 
-	// /*$url = explode('.', $request->server('HTTP_HOST'));
- //    $langcode = $url[0];
+	/*$url = explode('.', $request->server('HTTP_HOST'));
+    $langcode = $url[0];
  
-	// $languages = ['en','es'];
+	$languages = ['en','es'];
  
- //    if ( in_array($langcode, $languages) ){
- //        App::setLocale($langcode);
- //    }*/
+    if ( in_array($langcode, $languages) ){
+        App::setLocale($langcode);
+    }*/
 
- //    if( (Request::is('login') && Request::isMethod('post')) || 
-	// 	(strrpos(Request::path(), 'unmask') !== false && Request::isMethod('get')) ||
-	// 	(strrpos(Request::path(), 'idioma/') !== false && Request::isMethod('get')) ||
-	// 	(strrpos(Request::path(), 'captcha_resource/get/') !== false && Request::isMethod('get')) ||
-	// 	(strrpos(Request::path(), 'captcha_handler/') !== false && Request::isMethod('get')) ||
-	// 	(strrpos(Request::path(), 'paises/') !== false && Request::isMethod('get')) ||
-	// 	(strrpos(Request::path(), 'mascaras/') !== false && Request::isMethod('get')) ||
-	// 	(strrpos(Request::path(), 'estados/') !== false && Request::isMethod('get')) ||
-	// 	(strrpos(Request::path(), 'estadoz/') !== false && Request::isMethod('get')) ||
-	// 	(Request::is('crear_cuenta') && Request::isMethod('get')) ||
-	// 	(Request::is('crear_cuenta') && Request::isMethod('post')) ) {}
-	// else
-	// 	if(Request::path() != '/')
-	// 		if(Session::has('usuario') == false)
-	// 			return Redirect::to('/');
+    if( (Request::is('login') && Request::isMethod('post')) || 
+		(strrpos(Request::path(), 'unmask') !== false && Request::isMethod('get')) ||
+		(strrpos(Request::path(), 'idioma/') !== false && Request::isMethod('get')) ||
+		(strrpos(Request::path(), 'captcha_resource/get/') !== false && Request::isMethod('get')) ||
+		(strrpos(Request::path(), 'captcha_handler/') !== false && Request::isMethod('get')) ||
+		(strrpos(Request::path(), 'paises/') !== false && Request::isMethod('get')) ||
+		(strrpos(Request::path(), 'mascaras/') !== false && Request::isMethod('get')) ||
+		(strrpos(Request::path(), 'estados/') !== false && Request::isMethod('get')) ||
+		(strrpos(Request::path(), 'estadoz/') !== false && Request::isMethod('get')) ||
+		(Request::is('crear_cuenta') && Request::isMethod('get')) ||
+		(Request::is('crear_cuenta') && Request::isMethod('post')) ) {}
+	else
+		if(Request::path() != '/')
+			if(Session::has('usuario') == false)
+				return Redirect::to('/');
 });
 
 
