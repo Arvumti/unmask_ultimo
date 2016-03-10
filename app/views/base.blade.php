@@ -99,6 +99,18 @@
         </div>
 
         <div class="content content_margin">
+                <!--div id="modalBa" class="oculto">
+                    <div class="modal-content">
+                        <div class="header">
+                            <h2>Results</h2>
+                        </div>
+                        <div class="copy"style="text-align:center">
+                          
+                        </div>
+                        <div class="cf footer_modal"> <a href="#">Close</a></div>
+                    </div>
+                        <div class="overlay"></div>
+                </div-->
             <div id="user_info">
                 <img id="profile_config" src="{{ URL::asset('img/profile_config.png') }}" width="9" height="10">
                 <div class="user_info">
@@ -148,13 +160,15 @@
                     </form>
                 </div>
             </div>
+            <div class="busqueda-resultado"></div>
             <div id="users">
                 @yield('content')
             </div>
             <div class="clear"></div>
         </div>
-
+        
     </div>
+
 <!--SCRIPTS-->
         <!--script src="{{ URL::asset('scripts/jquery-2.1.4.min.js') }}"></script-->
         <script src="{{ URL::asset('foundation/js/vendor/jquery.js') }}"></script>
@@ -270,7 +284,8 @@
                 });
 
                 $('.btn-buscar-avanzado').on('click', function() {
-                    debugger
+                    debugger //ABRIR MODALBA
+                    
                     var data = {
                         buav_id: $('#buav_id').val() || '',
                         buav_nom: $('#buav_nom').val() || '',
@@ -293,7 +308,7 @@
                                             </a> \
                                         </div>';
                         }
-                        $('.busqueda-resultado').removeClass('isHidden').html(perfiles); //mostrar los resultados quitar la clase ocultar
+                        $('.busqueda-resultado').removeClass('isHidden').html(perfiles);
                         $('#busquedaAva').foundation('reveal', 'close');
 
                         $('#buav_id').val('');
