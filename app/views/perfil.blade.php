@@ -32,7 +32,7 @@
                             @foreach($data['mascaras'] as $mascara)
 
                             @if( strlen($mascara->nombre) > 0 )
-                            <p>{{ $mascara->nombre }}</p>
+                            <p>{{substr( $mascara->nombre, 0, 15) }}  </p>
                             @endif
                             @endforeach
                         </div>
@@ -54,6 +54,14 @@
                                 </div>
                             </a>
                         </div>
+                         <div class="box_miniatura">
+                        
+                        @foreach($data['fotos'] as $evidencia)
+                            <a href="" data-reveal-id="sliderGaleria" class="open-modal">
+                                <img src="{{ URL::asset('img\\db_imgs\\publicas\\'.$evidencia->foto) }}"/>
+                            </a>
+                        @endforeach
+                    </div>
                     </div>
 
                     <div class="info_block">
@@ -95,9 +103,21 @@
                                 <a href="#" class="lovers btn-voto-amor has-tip"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotar')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
                             </div>
                         </div>
+                          <div class="box_relaciones">
+                        <span data-tooltip aria-haspopup="true" class="has-tip titulo_relaciones" title="{{Lang::get('messages.perfPostTltComplices')}} "><h5>{{Lang::get('messages.perfInfLblPerfiles')}} </h5></span>
+                        @foreach($data['relaciones'] as $relacion)
+                            <a href="{{ URL::to('perfil').'/'.$relacion->idPerfil }}">
+                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltComplice')}}">
+                                    <img src="{{ URL::asset('img\\db_imgs\\'.$relacion->foto) }}" style="border-radius:5px"/>
+                                </span>
+                            </a>
+                        @endforeach
+                    </div>
                     </div>
 
                     <div class="clear"></div>
+                    
+                  
                 </div>
 <!-- MODAL DE INFORMACION EXTRA -->
                 <div class="add_info_extra"><a href=""data-reveal-id="agregarPublico">{{Lang::get('messages.perfInfLblAgregarInformacion')}}</a></div>
@@ -109,11 +129,12 @@
                                     <label>
                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltNombresExtras')}}">{{Lang::get('messages.perfInfLblNombresAdicionales')}}</span>
                                         <input type="text" class="podos-publica" name="nombre" />
+                                        <button type="button" class="button align-top tiny btn-nombre-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+
                                     </label>
                                 </div>
                                 <div class="btn_entrada formulario_alinear">
                                     <label>
-                                        <button type="button" class="button align-top tiny btn-nombre-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
                                     </label>
                                 </div>
                             </div>
@@ -124,11 +145,12 @@
                                     <label>
                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltApodosExtras')}}">{{Lang::get('messages.perfInfLblApodo')}}</span>
                                         <input type="text" class="podos-publica" name="apodo" />
+                                        <button type="button" class="button align-top tiny btn-apodo-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                        
                                     </label>
                                 </div>
                                 <div class="btn_entrada  formulario_alinear">
                                     <label>
-                                        <button type="button" class="button align-top tiny btn-apodo-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
                                     </label>
                                 </div>
                             </div>
@@ -138,14 +160,12 @@
                                 <div class="entrada_datos">
                                     <label>
                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltMascarasExtras')}}">{{Lang::get('messages.perfInfLblMascara')}}</span>
-                                        <input type="text" class="mascara-publica typeahead" name="mascara" />
-                                    </label>
-                                </div>
-                                <div class="btn_entrada formulario_alinear">
-                                    <label>
+                                        <input type="text" class="mascara-publica typeahead" name="mascara" style="width:214px;"/>
                                         <button type="button" class="button align-top tiny btn-mascara-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                        
                                     </label>
                                 </div>
+                               
                             </div>
                         @endif
                         @if(count($data['fotos']) < 5)
@@ -157,15 +177,14 @@
                                                 <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltFotosExtras')}}">
                                                     {{Lang::get('messages.perfInfLblImagenExtra')}}
                                                 </span>
-                                                <input type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
-                                            </label>
-                                            <small class="error">{{Lang::get('messages.perfInfLblObligatorio')}}</small>
-                                        </div>
-                                        <div class="btn_entrada  formulario_alinear">
-                                            <label>
+                                                
+                                                <input style="padding-top:2px;padding-bottom:2px;height:35px;"type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
                                                 <button type="submit" class="button align-top tiny btn- "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                                
                                             </label>
+                                            <small class="error">{{Lang::get('messages.indxModlblContrsenia')}} - {{Lang::get('messages.indxModlblContrsenia')}}</small>
                                         </div>
+                                        
                                     </form>
                                 </div>
                            
@@ -177,11 +196,12 @@
                                             <label>
                                                 <span data-tooltip  aria-haspopup="true" class="has-tip" title="">{{Lang::get('messages.perfInfLblSocialMedia')}}</span>
                                                 <input type="text" class="mascara-publica" />
+                                                <button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                                
                                             </label>
                                         </div>
                                         <div class="btn_entrada  formulario_alinear">
                                             <label>
-                                                <button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
                                             </label>
                                         </div>
                                     </div>
@@ -193,11 +213,12 @@
                                             <label>
                                                 <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">{{Lang::get('messages.perfInfLblIdPerfil')}}</span>
                                                 <input type="text" class="perfil-publica" name="mascara" />
+                                                <button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                                  
                                             </label>
                                         </div>
                                         <div class="btn_entrada formulario_alinear">
                                             <label>
-                                                <button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
                                             </label>
                                         </div>
                                     </div>
@@ -795,7 +816,7 @@
                                                     <div  class="small-12 columns conSec Hidden ">
                                                         <label>
                                                             <small></small>
-                                                            <textarea style="overflow:auto;width:600px; min-height:90px" name="comentario" placeholder="{{Lang::get('messages.perfPorLblConfesion')}} {{Lang::get('messages.perfPorLblRequerido')}}"></textarea>
+                                                            <textarea style="overflow:auto;width:600px; min-height:90px" name="comentario" placeholder="{{Lang::get('messages.perfPorLblConfesion')}} {{Lang::get('messages.perfPorLblRequerido')}}"required></textarea>
                                                         </label>
                                                         <small class="error">{{Lang::get('messages.perfPostLblConfesionVal')}}</small>
                                                     </div>

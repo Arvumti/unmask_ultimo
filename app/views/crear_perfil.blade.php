@@ -85,7 +85,7 @@
                             <input type="file" class="hidden_class" name="other" id="other" accept="*"> <label for="other"> <img src="img/add_other.png" > </label>
                         </div>
                     </div-->
-                    <div class="flex_box flex_captcha"style="text-align:center;width:65%;height:90px;">
+                    <div class="flex_box flex_captcha"style="text-align:center;width:65%;height:90px;margin-left:35%;">
                         <!--img src="img/captcha.jpg" alt="captcha" class="captcha">
                         <div class="flex_column flex_button">
                             <button name="reload"><img src="img/reload.png"></button>

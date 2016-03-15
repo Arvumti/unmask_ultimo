@@ -141,7 +141,7 @@
                         <div class="overlay"></div>
                 </div-->
             <div id="user_info">
-                <img id="profile_config" src="{{ URL::asset('img/profile_config.png') }}" width="9" height="10">
+                <img id="profile_config" src="{{ URL::asset('img/profile_config.png') }}" width="15" height="16">
                 <div class="user_info">
                     <div id="photo_block">
                         <img id="profile_photo" src="{{ URL::asset('img/db_imgs/alias/'.Session::get('usuario')->foto) }}" width="50" height="50">
@@ -170,9 +170,9 @@
                         <input type="file" class="hidden_class img-user-photo" name="photo" id="photo" accept="image/jpeg,image/png">
                         <label for="photo">
                             <img src="{{ URL::asset('img/add_photo.jpg') }}" class="tmp_img" width="155" height="140" />
-                            <p>Drag&Drop <br> your new photo</p>
+                            <p>Upload here<br> your new photo</p>
                         </label>
-                        <p>User: MIke Johan</p>
+                        <p>User: {{Session::get('usuario')->nombre}}</p>
                         <p>{{Lang::get('messages.cuenHedLblCambiarContra')}}</p>
                         <input type="text" name="contrasenia_act"  placeholder="{{Lang::get('messages.cuenHedLblContrasenia')}}"required/>
                         <input type="text" id="contrasenia" name="contrasenia" required placeholder="{{Lang::get('messages.cuenHedLblNuevaContrasenia')}}"/>

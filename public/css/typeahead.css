@@ -81,7 +81,13 @@ p {
           border-radius: 8px;
   outline: none;
 }
-
+.entrada_datos .twitter-typeahead{
+  width: 253px;
+}
+.entrada_datos .twitter-typeahead,button{
+  display: inline-block !important;
+  vertical-align: top;
+}
 .twitter-typeahead {
   display: block !important;
 }

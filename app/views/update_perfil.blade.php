@@ -15,7 +15,7 @@
 			<form action="{{ URL::to('crear_perfil/'.$data['perfil']->idPerfil) }}" class="flex_box" method="post" enctype="multipart/form-data" data-abide>	
 				<!--a class="th img-logo" href="#"></a-->
 				<input type="file" id="file" name="foto" class="isHidden cpFoto"  accept="image/*" />
-				<label for="photo"><img id="imgFoto" data-ref="cpFoto" class="click-image" src="{{ URL::asset('img/add_photo.jpg') }}"width="195"/><p>Drag&Drop <br> your new photo</p>    </label>
+				<label for="photo"><img id="imgFoto" data-ref="cpFoto" class="click-image" src="{{ URL::asset('img/add_photo.jpg') }}"width="195"/><p>Upload here <br> your new photo</p>    </label>
 								
 				<div class="flex_column">
 					<input type="text" name="nombre" value="{{$data['perfil']->nombre}}" placeholder="{{Lang::get('messages.updtTltNombreVal')}}" required />
@@ -38,13 +38,13 @@
 					
 				</div>
 				<div class="flex_column_full">
-					<input type="text" name="pais" value="{{$data['perfil']->pais}}" class="typeahead"/>
-					<input type="text" name="estado" value="{{$data['perfil']->estado}}" class="typeahead"/>
+					<input type="text" name="pais" value="{{$data['perfil']->pais}}" placeholder="{{Lang::get('messages.crePerFrmLblPais')}}"class="typeahead"/>
+					<input type="text" name="estado" value="{{$data['perfil']->estado}}" placeholder="{{Lang::get('messages.crePerFrmLblEstado')}}"class="typeahead"/>
 				</div>
-				<div class="flex_box flex_box_tree">
-					<input type="text" style="border: 1px solid #999897;padding: 6px 10px; color: #999897;font-family: Raleway_Regular;font-size: 12px;display: block; margin-bottom: 25px; width:250.344px;name="municipio" value="{{$data['perfil']->municipio}}" class="typeahead"/>
-					<input type="text" style="border: 1px solid #999897;padding: 6px 10px; color: #999897;font-family: Raleway_Regular;font-size: 12px;display: block; margin-bottom: 25px;width:250.344px"name="ciudad" value="{{$data['perfil']->ciudad}}" class="typeahead"/>
-					<input type="text" style="border: 1px solid #999897;padding: 6px 10px; color: #999897;font-family: Raleway_Regular;font-size: 12px;display: block; margin-bottom: 25px;width:250.344px"name="colonia" value="{{$data['perfil']->colonia}}" class="typeahead" />
+				<div class="flex_column_full">
+					<input type="text" style="border: 1px solid #999897;padding: 6px 10px; color: #999897;font-family: Raleway_Regular;font-size: 12px;display: block; margin-bottom: 25px; width:96.5%;"name="municipio" value="{{$data['perfil']->municipio}}" class="typeahead"placeholder="{{Lang::get('messages.crePerFrmLblMunicipio')}}"/>
+					<input type="text" style="border: 1px solid #999897;padding: 6px 10px; color: #999897;font-family: Raleway_Regular;font-size: 12px;display: block; margin-bottom: 25px;width:96.5%;"name="ciudad" value="{{$data['perfil']->ciudad}}" class="typeahead"/placeholder="{{Lang::get('messages.crePerFrmLblCiudad')}}">
+					<input type="text" style="border: 1px solid #999897;padding: 6px 10px; color: #999897;font-family: Raleway_Regular;font-size: 12px;display: block; margin-bottom: 25px;width:96.5%;"name="colonia" value="{{$data['perfil']->colonia}}" class="typeahead" placeholder="{{Lang::get('messages.crePerFrmLblColonia')}}"/>
 				</div>
 				<p class="flex_box">{{Lang::get('messages.crePerFrmTitRedesSociales')}}</p>
 	            <div class="flex_box flex_box_tree">
@@ -65,14 +65,16 @@
 	            <input type="checkbox" class="hidden_class" name="celebrite_abuse" id="celebrite_abuse" value="9"> <label for="celebrite_abuse" class="label_red"> <span>Celebrite abuse</span> </label>
 	            <input type="checkbox" class="hidden_class" name="rapist" id="rapist" value="10"><label for="rapist" class="label_red"> <span>Rapist</span> </label>
 	            <input type="checkbox" class="hidden_class" name="nymphomania" id="nymphomania" value="11"> <label for="nymphomania" class="label_red"> <span>Nymphomania</span> </label>
-				<input type="text" name="mascara" class="flex_column_full typeahead" placeholder="{{Lang::get('messages.updtTltConsejoMascaras1')}}" />
-				<div class="gv-mascaras">
-					@foreach($data['perfil']->masks as $mascara)
-						<label>
-							<span class="texto">{{$mascara->nombre}}</span>
-							<span class="cerrar">x</span>
-						</label>
-					@endforeach					
+				<div class="flex_column_full">
+					<input type="text" name="mascara" class="flex_column_full typeahead" placeholder="{{Lang::get('messages.updtTltConsejoMascaras1')}}" />
+					<div class="gv-mascaras">
+						@foreach($data['perfil']->masks as $mascara)
+							<label class="letras_rojo">
+								<span class="texto">{{$mascara->nombre}}</span>
+								<span class="cerrar">x</span>
+							</label>
+						@endforeach					
+					</div>
 				</div>
 				<input type="text" class="fake-mascaras isHidden" value="{{$data['perfil']->mascaras}}" name="mascaras"/>
 				<div class="flex_box flex_form_control">

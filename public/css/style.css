@@ -4,10 +4,7 @@ body{
     font-family: Helvetica;
     width: 100%;
 }
-@media screen and (min-width: 1025px) {
-    .indx_display {
-        display: none;
-    }
+
 
 .clear{
     clear: both;
@@ -179,6 +176,10 @@ body{
     width: 80%;
     flex-direction: column;
 }
+.flex_column_popup > input[type="password"]{
+    width: 80%;
+    flex-direction: column;
+}
 
 .flex_popup_login input[type="text"]{
     width: 40%;
@@ -303,7 +304,7 @@ video{
     font-size: 12pt;
 }
 
-.title{
+.title_umk{
     font-family: Raleway_SemiBold;
     font-size: 25pt;
     text-transform: uppercase;
@@ -312,7 +313,7 @@ video{
     margin-bottom: 10px;
 }
 
-.subtitle{
+.subtitle_umk{
     font-family: Raleway_SemiBold;
     font-size: 18pt;
     text-transform: uppercase;
@@ -1412,6 +1413,7 @@ input[name="captcha_characters"]{
     font-family: Raleway_Regular;
     font-weight: bold;
     color: #ffffff;
+    margin-top: 12px;
 }
 
 .add_rank{
@@ -1507,7 +1509,7 @@ input[name="captcha_characters"]{
     display: none;
     text-transform: uppercase;
     top: 45%;
-    font-size: 30pt;
+    font-size: 16pt;
     font-family: Raleway_Regular;
     font-weight: bold;
     color: #ffffff;
@@ -2183,7 +2185,7 @@ a[href="#add"]{
 }
 .sombreado{
     /*background-color:  rgba(0,0,0,0.8);*/
-    color: black;
+    color: black !important;
 }
 .Hidden{
     display: none;
@@ -2262,6 +2264,10 @@ a[href="#add"]{
 .entrada_datos{
     width: 80%;
 }
+.entrada_datos input, button,.typeahead{
+    display: inline-block !important;
+    vertical-align: top;
+}
 .btn_entrada{
     width: 150%;
 }
@@ -2270,8 +2276,8 @@ a[href="#add"]{
     border: none;
     background-color: #282c30;
     position: absolute;
-    width: 250px;
-    height: 30px;
+    width: 35px;
+    height: 34px;
     cursor: pointer;
     color: white;
     border-radius: 0px 3px 3px 0px;
@@ -2576,7 +2582,51 @@ height:150px;
 margin-bottom: 20px
 }
 .oculto{
-    visibility: hidden;
+    display: none !important;
 }
 
+.idiomas_otros{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.box_miniatura{
+    width: 100%;
+    margin-top: 10px;
 
+}
+}
+.box_miniatura a {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+  
+
+}
+.box_miniatura a img {
+    width: 90%;
+    margin: 10px 5px 5px 5px;
+    border-radius: 3px;
+
+}
+/*.box_relaciones, .box_miniatura{
+    display: inline-block;
+    vertical-align: top;
+}*/
+.box_relaciones{
+    width: 90%;
+}
+.box_relaciones .titulo_relaciones{
+text-align: left;
+}
+.box_relaciones a {
+   width:  20%;
+   display: inline-block;
+   vertical-align: top;
+}
+.box_relaciones a span img{
+   width:  90%;
+   border-radius: 5px;
+   margin: 5px;
+   display: inline-block;
+   vertical-align: top;
+}

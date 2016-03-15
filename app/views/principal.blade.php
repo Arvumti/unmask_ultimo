@@ -11,7 +11,7 @@
                 <img src="{{ URL::asset('img\\db_imgs\\'.$perfil->foto) }}" width="164" height="164" >
                 <div class="clear"></div>
                 <div class="other_user_info">
-                    <a href="{{ URL::to('perfil').'/'.$perfil->idPerfil }}" class="unmask_link click_unmask_link">unmask</a>
+                    <a href="{{ URL::to('perfil').'/'.$perfil->idPerfil }}" style="vertical-align: middle !important;display: table-cell !important;"class="unmask_link click_unmask_link">unmask</a>
                     <div class="other_user_info_central">
                         @if(strlen($perfil->mascaras) > 0)<!--Dejar la máscara principal o actual-->
                         <span class="thief">{{substr( $perfil->mascaras, 0, 20)}}...</span>
@@ -22,7 +22,7 @@
                             <img src="img/anonymous.png" width="11" height="15"/>
                         </div>
                         <div class="unmask_grey">
-                            <span>{{ $perfil->bad }} bad</span>
+                            <span>{{ $perfil->bad }}</span>
                             <img src="img/anonymous_red.png" width="11" height="15"/>
                         </div>
                     </div>

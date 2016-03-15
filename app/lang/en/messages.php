@@ -26,7 +26,7 @@ return array(
 	"indxModLblCapcha" => "Type the characters below",
 	"indxNavBtnInicio" => "About",
 	"indxNavUnmask" => "How it works",
-	"indxNavLblPoliticasAvisos" => "Policies and disclaimer",
+	"indxNavLblPoliticasAvisos" => "Disclaimer",
 	"indxHelLblCaracteristicas" => "FEATURES",
 	"indxHelLblCaracteristica1" => "SIGN UP AND CREATE YOUR ACCOUNT WITHOUT ANY PERSONAL DATA",
 	"indxHelLblCaracteristica2" => "LOGIN AND POSTING ALWAYS ANONYMOUSLY",
@@ -45,8 +45,8 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	"indxHelLblSubDescripcion2" => "Do you want to date someone you don’t know? Work with a new boss? Have a new associate in the business? Bring to your home an unknown beloved partner? Click and search to save yourself from the potential brutality of such people. Do a quick search and find people by their name, place of residence and mask! Get to know their most intimate secrets with just the click of a button! Publish other secrets that only you know! Add hard evidence (like pictures, videos, audios and documents to prove your posts)! Rank them by their deeds according to the good or bad that they have done, so those profiles can compete in Best and Worst Rankings! You will be surprised when you find out who that person close to you really is… bosses, co-workers, friends, relatives, neighbors and couples.",
 	"indxMovLblEncabezadoUnmask" => "UNMASK",
 	"indxMovLblDescripcion1" => "Everybody use masks",
-	"indxMovLblDescripcion" => " ―in real and virtual life. 
-In social media people don’t show who they are. Unmask is the first and only space where you can unmask anyone and show their real face to the world! Use our innovative and effective technology in an effort for social justice.",
+	"indxMovLblDescripcionLife" => "In real and virtual life.",
+	"indxMovLblDescripcion" => "In social media people don’t show who they are. Unmask is the first and only space where you can unmask anyone and show their real face to the world! Use our innovative and effective technology in an effort for social justice.",
 	"indxMovLblFrase" => "“Give him a mask, and he will tell you the truth”",
 	"indxMovLblAutor" => "-Oscar Wilde.",
 	"indxMov2LblEncabezadoUnmask" => "UNMASK",
@@ -429,4 +429,5 @@ In social media people don’t show who they are. Unmask is the first and only s
 	/* -- Relacion -- */
 	"relPerfilUnico" => "This profile is already related.",
 	"madisonBusca"=> "Name or Mail.",
+	"indxerror"=> "неправильный.",
 );

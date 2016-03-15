@@ -25,7 +25,7 @@ return array(
 	"indxModLblCapcha" => "Teclear caracteres de la imagen",
 	"indxNavBtnInicio" => "Acerca",
 	"indxNavUnmask" => "Cómo funciona",
-	"indxNavLblPoliticasAvisos" => "Politicas y Avisos",
+	"indxNavLblPoliticasAvisos" => "Politicas",
 	"indxHelLblCaracteristicas" => "CARACTERISTICAS",
 	"indxHelLblCaracteristica1" => "REGÍSTRATE Y CREA TU CUENTA SIN NECESIDAD DE INFORMACIÓN PERSONAL",
 	"indxHelLblCaracteristica2" => "INGRESA Y PUBLICA ANONIMAMENTE",
@@ -42,7 +42,9 @@ return array(
 	"indxHelLblSubDescripcion2" => "Busca y encuentra personas por su nombre, lugar de residencia, y mascara de forma rápida! Y conoce sus más intimos secretos en 2 clicks! Publica otros secretos que solo tú conozcas de ellos! Añade pruebas y evidencia multimedia! Calificalos por sus actos según el nivel de maldad o bondad que consideres, para que posteriormente estos perfiles concursen en los Ranks de los actos mas positivos o negativos! Te llevaras una gran sorpresa al descubrir quien es realmente esa persona cercana a ti.. jefes, compañeros, amigos, familiares, vecinos, parejas etc.",
 	"indxMovLblEncabezadoUnmask" => "UNMASK",
 	"indxMovLblDescripcion1" => "Todos usan mascaras",
-	"indxMovLblDescripcion" => "en la vida real y virtual. En las redes sociales, las personas muestran lo que no son. Unmask; es el primer y único espacio donde podras desenmascarar a cualquier persona y mostrar la verdad al mundo! Utiliza nuestra tecnología como una nueva y efectiva forma de justicia social.",
+	"indxMovLblDescripcionLife" => "En la vida real y virtual",
+
+	"indxMovLblDescripcion" => " En las redes sociales, las personas muestran lo que no son. Unmask; es el primer y único espacio donde podras desenmascarar a cualquier persona y mostrar la verdad al mundo! Utiliza nuestra tecnología como una nueva y efectiva forma de justicia social.",
 	"indxMovLblFrase" => "“Dale al hombre una mascara y te dira la verdad”",
 	"indxMovLblAutor" => "-Oscar Wilde.",
 	"indxMov2LblEncabezadoUnmask" => "UNMASK",
@@ -377,5 +379,6 @@ return array(
 	/* -- Relacion -- */
 	"relPerfilUnico" => "Perfil ya relacionado.",
 	"madisonBusca"=> "Nombre o Mail.",
+	"indxerror"=> "incorrectos.",
 );
 

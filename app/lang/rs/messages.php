@@ -29,7 +29,7 @@ return array(
 	"indxModLblCapcha" => "Введите символы, указанные ниже",
 	"indxNavBtnInicio" => "ГЛАВНАЯ",
 	"indxNavUnmask" => "How it works",
-	"indxNavLblPoliticasAvisos" => "ПОЛИТИКА И УВЕДОМЛЕНИЕ",
+	"indxNavLblPoliticasAvisos" => "УВЕДОМЛЕНИЕ",
 	"indxHelLblCaracteristicas" => "ОСОБЕННОСТИ",
 	"indxHelLblCaracteristica1" => "ЗАРЕГИСТРИРУЙТЕСЬ И СОЗДАЙТЕ СВОЙ ПРОФИЛЬ БЕЗ КАКОЙ-ЛИБО ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ",
 	"indxHelLblCaracteristica2" => "ВОЙДИТЕ И ОПУБЛИКУЙТЕ ИНФОРМАЦИЮ АНОНИМНО ",
@@ -46,7 +46,8 @@ return array(
 	"indxHelLblSubDescripcion2" => "Вы хотите начать встречаться с мало знакомым человеком? Работа с новым начальником? Новый деловой партнер? Привести домой любимого человека после непродолжительного знакомства? Нажми и проверь, чтобы избежать потенциальной жестокости некоторых людей. Быстрый поиск по имени, месту жительства и маске! Узнайте их самые сокровенные тайны в одно нажатие! Опубликуйте секреты, известные только вам! Добавьте неопровержимые доказательства (такие как фотографии, видео, аудио и документы, чтобы по подтвердить предоставленную вами информацию). Подразделяйте их на категории, в зависимости от совершенных ими плохих или хороших поступков, так что эти профили могут участвовать в Лучших или Худших Рейтингах! Вы будете удивлены, узнав, что за человек рядом с вами на самом деле… начальники, коллеги, родственники, соседи и семейные/влюбленные пары.",
 	"indxMovLblEncabezadoUnmask" => "UNMASK",
 	"indxMovLblDescripcion1" => "Все используют маски",
-	"indxMovLblDescripcion" => " в реальной и виртуальной жизни. В социальных сетях люди скрывают кем они являются. Unmask это первое и единственное место, где вы можете разоблачить кого-либо и показать их истинное лицо миру! Используйте нашу инновационную и эффективную технологию в достижении социальной справедливости.",
+	"indxMovLblDescripcionLife" => "B реальной и виртуальной жизни.",
+	"indxMovLblDescripcion" => "  В социальных сетях люди скрывают кем они являются. Unmask это первое и единственное место, где вы можете разоблачить кого-либо и показать их истинное лицо миру! Используйте нашу инновационную и эффективную технологию в достижении социальной справедливости.",
 	"indxMovLblFrase" => "«Дайте человеку маску, и он скажет вам всю правду»",
 	"indxMovLblAutor" => "-Оскар Уайльд.",
 	"indxMov2LblEncabezadoUnmask" => "UNMASK",
@@ -275,7 +276,7 @@ return array(
 	"perfInfLblAgregarInformacion" => "Добавить информацию",
 	"perfInfLblApodosExtras" => "Дополнительные имена и прозвища",
 	"perfInfLblMascara" => "Маска ",
-	"perfInfLblLugar" => "Place",
+	"perfInfLblLugar" => "Место",
 	"perfInfLblSocial" => "Социальные сети",
 	"perfInfLblRelacionar" => "Взаимосвязь ",
 	"perfInfLblFotos" => "Фотографии ",
@@ -303,15 +304,15 @@ return array(
 	"perfPostLblConfesion" => "Признание",
 	"perfPostLblVideo" => "Video",
 	"perfPostLblConfiable" => "Надежный",
-	"perfPostLblAgregarFoto" => "Add evidence photos:",
+	"perfPostLblAgregarFoto" => "Добавить фактических данных фотографий",
 	"perfPostLblConfiabilidadPost" => "Опубликуйте доказательства и оценку",
 	"perfPostLblGaleria" => "ГАЛЕРЕЯ ",
-	"perfPostLblGaleriaComentarios" => "GALLERY COMMENT",
+	"perfPostLblGaleriaComentarios" => "ГАЛЕРЕЯ К.П",
 	"perfPostLblComentarios" => "Комментарии",
 	"perfPostLblTweet" => "Tweet",
 	"perfPostLblConfesionVal" => "Признание обязательно",
 	"perfPostLblSubir" => "Загрузить ",
-	"perfPostModFotoExtra" => "EXTRA PROFILE PHOTOS",
+	"perfPostModFotoExtra" => "EXTRA ПРОФИЛЬ ФОТО",
 	"perfPostModFotoPrincipal" => "MAIN PROFILE PHOTO",
 	"perfPostModGaleriaEvidencia" => "EVIDENCE GALLERY",
 	"perfPostModFotoPrincipal" => "EVIDENCE GALLERY",
@@ -338,7 +339,7 @@ return array(
 	"perfPostTltFotos" => "Добавьте дополнительные фотографии к профилю этого человека",
 	"perfPostTltNombresExtras" => "Если вы узнали человека и имя профиля не является настоящим, тогда добавьте дополнительное имя здесь",
 	"perfPostTltApodosExtras" => "Добавьте здесь дополнительное прозвище, которое было пропущено в профиле.",
-	"perfPostTltMascarasExtras" => "A mask is an easy way of identify and classify a person according to his deeds. Here you can add masks for this person.",
+	"perfPostTltMascarasExtras" => "Маска представляет собой простой способ идентифицировать и классифицировать человека по делам его . Здесь вы можете добавить маски для этого человека.",
 	"perfPostTltFotosExtras" => "Select an extra profile image. This is a way for you to recognize this person’s profile and to add a real photo in case you know this individual. Try to use a visually acceptable image without sunglasses, make up and as clear as possible.",
 	"perfPostTltCompliceExtra" => "Connect this person as an accomplice of this profile typing the ID.",
 	"perfPostTltConfesion" => "В признании опишите события. Напишите, как можно больше деталей и добавьте доказательства, для подтверждения вашей претензии.",
@@ -358,7 +359,7 @@ return array(
 	"perfPostTltEvidenciaEnlaces" => "Добавьте ссылку на любые доказательства, новости или веб-страницу, подтверждающая вашу претензию. Другие пользователи будут оценивать представленные доказательства как достоверные или фальшивые.",
 	"perfPostTltEvidenciaPrivado" => "Нажмите здесь, чтобы разместить комментарий или мнение, это не будет оцениваться пользователями.",
 	"perfPostTltEvidenciaLinkYoutube" => "Вставьте ссылку с YouTube",
-	"perfPostTltInformacionGuardar" => "To publish an evidence in this post you need to add a text confession.",
+	"perfPostTltInformacionGuardar" => "Для публикации доказательства в этом посте вам нужно добавить текстовое признание.",
 
 	/* -- Unmask --*/
 	"unmaskLblQuePregunta" => "Что такое Unmask?",
@@ -413,19 +414,19 @@ return array(
 	"updtTltConsejoMascaras1" => "Напишите маску, выделите и нажмите ввод, чтобы добавить!",
 
 	/* -- Routes -- */
-	"rouSccUpd_pass" => "Change succes",
-	"rouErrUpd_pass" => "Password is incorrect",
+	"rouSccUpd_pass" => "Изменить Сукчес",
+	"rouErrUpd_pass" => "Неверный пароль",
 
 	/* -- Alia -- */
-	"aliaNombreRequerido" => "Must write the alias.",
+	"aliaNombreRequerido" => "Должен быть записан псевдоним.",
 	"aliaNombreUnico" => "Этот псевдоним уже используется",
-	"aliaContraseniaRequerido" => "Write a Password.",
+	"aliaContraseniaRequerido" => "Написать пароль.",
 
 	/* -- Perfiles -- */
-	"perfNombreRequerido" => "You must type the name of this profile.",
+	"perfNombreRequerido" => "Вы должны ввести имя этого профиля.",
 
 	/* -- Relacion -- */
-	"relPerfilUnico" => "This profile is already related.",
+	"relPerfilUnico" => "Этот профиль уже связаны.",
 
-	"madisonBusca"=> "Name or Mail.",
+	"madisonBusca"=> "Имя или почта.",
 );

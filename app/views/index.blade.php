@@ -3,10 +3,13 @@
 <head lang="en">
     <meta charset="UTF-8">
 <!--STYLES-->
+    <link href="foundation/css/foundation.css" rel="stylesheet" media="screen">
     <link href="css/reset.css" rel="stylesheet" media="screen">
     <link href="css/slider.css" rel="stylesheet" media="screen">
     <link href="css/style.css" rel="stylesheet" media="screen">
     <link href="css/fonts.css" rel="stylesheet" media="screen">
+    <link href="css/typeahead.css" rel="stylesheet" media="screen">
+
     <link rel="shortcut icon" href="img/ico.png" />
 <!--SCRIPTS-->
     <title>UNMASK</title>
@@ -23,10 +26,10 @@
                   <!--a href="#" style="top:1%;position:absolute"><img width="50px"src="img/logo_sl.png"></a-->
 
                     <li ><a href="http://www.unmask.wiki/why.html"target="_blank">Why Unmask</a></li>
-                    <li><a href="http://www.unmask.wiki/how.html"target="_blank">How It Works</a></li>
+                    <li><a href="http://www.unmask.wiki/how.html"target="_blank">{{Lang::get('messages.indxNavUnmask')}}</a></li>
                     <li ><a href="http://www.unmask.wiki/virtual.html"target="_blank">Virtual Life</a></li>
 
-                    <li style="margin-left:0;border:none"><a href="http://www.unmask.wiki/dis.html"target="_blank">Disclaimer</a></li>
+                    <li style="margin-left:0;border:none"><a href="http://www.unmask.wiki/dis.html"target="_blank">{{Lang::get('messages.indxNavLblPoliticasAvisos')}}</a></li>
 
 
                     <!--li><a href="#">Open Mask</a></li>
@@ -56,7 +59,8 @@
                             <div class="flex_popup flex_column_popup flex_popup_login">
 
                                 <input type="text" id="username"name="username" placeholder="{{Lang::get('messages.indxModLblUsuario')}}">
-                                <input type="password" style="width:40%;"id="password"name="password" placeholder="{{Lang::get('messages.indxModlblContrsenia')}}">
+                                <input type="password" style="width:40%;margin-bottom:10px;"id="password"name="password" placeholder="{{Lang::get('messages.indxModlblContrsenia')}}">
+                                <!--small class="error"style="color:#B23B2E;font-size:25px;">{{Lang::get('messages.indxModLblUsuario')}} - {{Lang::get('messages.indxModlblContrsenia')}} {{Lang::get('messages.indxerror')}}</small-->
 
                                 <div class="flex_popup flex_captcha_popup"style="text-align:center">
                                     {{ $captchaHtml }}
@@ -84,7 +88,7 @@
                                 <input type="file" class="hidden_class" name="foto" id="photo" accept="image/jpeg,image/png"> 
                                 <label for="photo">
                                 <img src="img/add_photo.jpg" class="tmp_img" width="195" height="195" />
-                                <p>Drag&Drop <br> your new photo</p></label>
+                                <p>Put here <br> your new photo</p></label>
                                 <div class="flex_popup flex_captcha_popup"style="margin-left:50px">
                                      {{ $captchaHtml }}
                                     <div class="flex_button">
@@ -114,8 +118,8 @@
 												<div class="label alert" role="alert">** {{ $error }}</div>
 											@endforeach
 										@endif
-                                <input type="text" name="pais" class="typeahead" placeholder="{{Lang::get('messages.nologManLblPais')}}"value="{{Input::old('pais')}}"/>
-                                <input type="text" name="estado" class="typeahead" placeholder="{{Lang::get('messages.nologManLblCiudad')}}" value="{{Input::old('estado')}}"/>
+                                <input type="text" style="width:298px;"name="pais" class="typeahead" placeholder="{{Lang::get('messages.nologManLblPais')}}"value="{{Input::old('pais')}}"/>
+                                <input type="text" style="width:298px;"name="estado" class="typeahead" placeholder="{{Lang::get('messages.nologManLblCiudad')}}" value="{{Input::old('estado')}}"/>
                             </div>
 
                             <div id="terms_box">
@@ -220,7 +224,7 @@
 
         <img src="img/face.jpg" >
 
-        <p><span class="title">EVERYBODY USE MASKS</span><span class="subtitle"> IN REAL & VIRTUAL LIFE</span> In Social Networks as Facebook, Twitter, Vkontakte, Instagram, Whats app, Ask fm, Blogger, Reddit, Google+ and in normal Life people don’t show who they really are. Unmask.wiki is the first and only website where you can pull the Mask from anyone who has something to hide and expose their real face to the world without any fear to be punished. Use our innovative and effective technology in an effort for<br> SOCIAL JUSTICE. <span class="quote">“Give him a mask, and he will tell you the truth”</span> <span class="actor">Oscar Wilde</span></p>
+        <p><span class="title_umk">EVERYBODY USE MASKS</span><span class="subtitle_umk"> IN REAL & VIRTUAL LIFE</span> In Social Networks as Facebook, Twitter, Vkontakte, Instagram, Whats app, Ask fm, Blogger, Reddit, Google+ and in normal Life people don’t show who they really are. Unmask.wiki is the first and only website where you can pull the Mask from anyone who has something to hide and expose their real face to the world without any fear to be punished. Use our innovative and effective technology in an effort for<br> SOCIAL JUSTICE. <span class="quote">“Give him a mask, and he will tell you the truth”</span> <span class="actor">Oscar Wilde</span></p>
 
         <img src="img/man.png" >
 

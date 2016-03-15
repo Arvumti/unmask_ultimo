@@ -6,16 +6,27 @@
     <link href="public/css/reset.css" rel="stylesheet" media="screen">
     <link href="public/css/style.css" rel="stylesheet" media="screen">
     <link href="public/css/fonts.css" rel="stylesheet" media="screen">
-    <link rel="shortcut icon" href="img/ico.png" />
+    <link rel="shortcut icon" href="public/img/ico.png" />
 <!--SCRIPTS-->
     <title>UNMASK</title>
 </head>
 <body>
+     <header> 
+        <div class="idiomas_otros">
+            <a id="btnEng"href="#"><img width="30px"src="public/img/brit.png"></a>
+            <a id="btnRus"href="#"><img width="30px"src="public/img/rusia.png"></a>
+            <a id="espanol"href="#"><img width="34px"src="public/img/espa.png"></a>
+        </div>
+    
+    </header>
 
     <div class="logo_extra">
         <img src="public/img/logo1.png">
        
     </div>
+
+
+ <div id="english" class="">
 
     <div class="titulo_extra">
 
@@ -31,6 +42,42 @@
         </p>
         
     </div>
+ </div>
+
+ <div id="russian" class="oculto">
+
+    <div class="titulo_extra">
+
+       <h1>Почему Unmask?</h1>
+
+    </div>
+    <div class="texto_extra">
+        <p>Сексуальные преступления представляют собой наглядный пример, какой сервис предоставляет Unmask. Согласно Национальной Сети об изнасилованиях, надругательстве и кровосмешение, почти 300 000 сексуальных посягательств происходят в США каждый год, и это только в США, почти половина этих жертв моложе 18 лет. Исследования подтверждают, что жертвы почти всегда знают своих злоумышленников. Кроме того, остается стигматизация быть жертвой сексуального насилия. Создатели  Unmask считают, что жертвы никогда не виноваты, и они хотели бы видеть, что стигма стерта. Жертвы больше не одиноки.</p>
+         <p>Большинство преступников сексуальных преступлений никогда не будут тратить время в тюрьме. Они прячутся в тени, уверенные в том, что никто никогда не узнает об их страшных поступках; На самом деле, именно поэтому происходит  почти каждый вид преступления - потому что преступник считает, что он никогда не будут привлечен к ответственности. В этом и заключается значение и цель UNMASK - платформа обеспечивает способ привлечь этих преступников к ответственности, что позволит невинным людям  держаться подальше от них.
+             
+        </p>
+        <p>В то время как защита от сексуальных преступников является одним из основных преимуществ UNMASK, это не единственный вид преступников, которые могут рассчитывать на "разоблачение". Мошенники, воры, ”скрытые” расисты, сексисты, коррумпированные чиновники, торговцы наркотиками, убийцы, поддельные друзей, нечестные деловые партнеры или коллеги, и неверные мужья или жены, любой проступок человека может быть разоблачен пользователем на платформе анонимно. Однако во всех этих случаях, главная  миссия состоит в том, чтобы огородить невинных людей от вреда. Например, женщина может обнаружить, что завидный жених является мошенником и мудро сможет избежать этих отношений.  
+        </p>
+        
+    </div>
+ </div>
+
+ <div id="espanol" class="oculto">
+    <div class="titulo_extra">
+
+       <h1>POR QUÉ UNMASK?</h1>
+       <div class="texto_extra">
+        <p>Los crímenes sexuales ofrecen un poderoso ejemplo del tipo de servicio que ofrece UNMASK. De acuerdo a la institución  Rape, Abuse and Incest National Network, cerca de 300,000 ataques sexuales se llevan a cabo cada año, y eso solamente en los Estados Unidos. Casi la mitad de las victimas son menores de 18 años. La estadística confirma que casi siempre las victimas conocen a sus atacantes. Por otra parte, sigue existiendo un estigma ser víctima de un asalto sexual. Los creadores de Unmask creen que las víctimas no tienen la culpa, y les gustaría ver dicho estigma borrado. Las victimas no estarán solas nunca más. </p>
+         <p>La mayoría de los criminales sexuales jamás pasan tiempo en prisión.Se ocultan en las sombras, seguros de que nadie sabrá de sus terribles acciones; en efecto, esta es la razón lo la que casi todos estos tipos de crimenes ocurren – por que el perpetrador piensa que jamás rendirá cuentas. Este es el poder e importancia de UNMASK – la plataforma provee una manera de traer a esos criminales a la luz, permitiendo a las personas inocentes de mantenerse al margen de ellos.
+             
+        </p>
+        <p>Si bien la protección de los delincuentes sexuales es una ventaja importante de UNMASK, estos no son los únicos tipos de transgresores que se puede esperar que se "desenmascaren." Infieles, ladrones, "closet" racistas, sexistas, oficiales corruptos, vendedores de drogas, asesinos, falsos amigos, socios de negocios deshonestos o colegas, and esposas y maridos infieles, cualquier persona que obra mal puede ser expuesta de forma anónima por los usuarios de la platadorma UNMASK. En todos estos casos, sin embargo, la misión es mantener a las personas inocentes a salvo. Por ejemplo, una mujer puede descubrir que un soltero que parece buen prospecto en realidad es un canalla y sabiamente puede evitar una relación.  
+        </p>
+        
+    
+    </div>
+  </div>
+  </div>
    
 
     
@@ -50,7 +97,32 @@
     </div>
 
    
-    
+      <script src="public/foundation/js/vendor/jquery.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+ $(document).ready(function(){
+     
+    $("#btnRus").click(function(){
+        $("#russian").removeClass('oculto');
+        $("#english").addClass('oculto');
+        $("#espanol").addClass('oculto');
+    });
+     $("#btnEng").click(function(){
+        $("#russian").addClass('oculto');
+        $("#espanol").addClass('oculto');
+
+        $("#english").removeClass('oculto');
+    });
+     $("#btnEsp").click(function(){
+        $("#russian").addClass('oculto');
+        $("#english").addClass('oculto');
+
+        $("#espanol").removeClass('oculto');
+    });
+   
+ });
+    </script>
    
 
 </body>
