@@ -14,11 +14,11 @@
                     <div class="flex_column">
                         <input type="text" name="nombre" value="{{Input::old('nombre')}}" placeholder="{{Lang::get('messages.crePerFrmLblNombre')}} - {{Lang::get('messages.crePerTltNombre')}}" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltTexto')}}"required />
                         <!--small class="error">{{Lang::get('messages.crePerFrmLblNombreErr')}}</small-->
-                        <input type="text" name="apaterno" value="{{Input::old('apaterno')}}"placeholder="{{Lang::get('messages.crePerFrmLblApellidoPat')}} - {{Lang::get('messages.crePerTltApellidoPaterno')}} "> 
+                        <input type="text" name="apaterno" value="{{Input::old('apaterno')}}"placeholder="{{Lang::get('messages.crePerFrmLblApellidoPat')}}  "> 
                         <!--small class="error">{{Lang::get('messages.crePerFrmLblApellidoPatErr')}}</small-->
-                        <input type="text" name="amaterno" value="{{Input::old('amaterno')}}"placeholder="{{Lang::get('messages.crePerFrmLblApellidoMat')}} - {{Lang::get('messages.crePerTltApellidoMaterno')}}"data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltApellidoMaterno')}}"> 
+                        <input type="text" name="amaterno" value="{{Input::old('amaterno')}}"placeholder="{{Lang::get('messages.crePerFrmLblApellidoMat')}} "data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltApellidoMaterno')}}"> 
                       
-                        <input type="text" name="apodo" value="Nicknames (of the person of this profile)" onfocus="if (this.value == 'Nicknames (of the person of this profile)') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Nicknames (of the person of this profile)';}"data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltApodo')}}">
+                        <input type="text" name="apodo" value="{{Lang::get('messages.crePerTltApodo')}}" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltApodo')}}">
                     	<div class="gv-apodos">
 							@if(strlen(Input::old('apodos')) > 0)
 								@foreach(explode(",", Input::old('apodos')) as $apodo)
@@ -112,7 +112,21 @@
         </div>
 
     </div>
-	
+	    <style type="text/css">
+    .LBD_CaptchaImageDiv, .LBD_CaptchaIconsDiv
+
+{
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+#LoginCaptcha_CaptchaIconsDiv,
+#LoginCaptcha_CaptchaImageDiv
+
+{
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+    </style>
 <script type="text/javascript">
 	$(document).on('ready', inicio_cp);
 

@@ -2,7 +2,7 @@
 body{
     background-color: #ffffff;
     font-family: Helvetica;
-    width: 100%;
+    min-width: 1024px;/* width:100%; */
 }
 
 
@@ -41,7 +41,7 @@ body{
 
 
 .start_page_navigation{
-    width: 50%;
+    width: 53%;
     /*padding-left: 50px;*/
     text-align: center;
         padding-top: 11px;
@@ -707,7 +707,7 @@ video{
     height: 13px;
     font-size: 15px;
     width: 345px!important;
-    top: -2px;
+    top: 3px;
     padding: 4px 15px;
 }
 
@@ -717,6 +717,7 @@ video{
     border-left: 1px solid #c5c4c4;
     padding: 0 7px;
     cursor: pointer;
+    top: 3px;
 }
 
 .filter{
@@ -1189,7 +1190,7 @@ label[for="foto"] p{
 }
 
 .label_red{
-    margin-bottom: 15px;
+    margin: 15px;
     font-family: Raleway_Light;
     font-size: 13pt;
     padding: 8px 11px;
@@ -2629,4 +2630,11 @@ text-align: left;
    margin: 5px;
    display: inline-block;
    vertical-align: top;
+}
+@media only screen and (max-width: 1160px) {
+    .movil_oculto {
+        display: none;
+        
+    }
+}
 }

@@ -40,7 +40,7 @@
                         <div class="flex_box">
                             <a href="#" class="vote-perfil has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltReputacionMala')}}" data-tipo="cake" data-id="{{ $data['perfil']->idPerfil }}">
                                 <div class="unmask_red">
-                                    <span class="num_rank"><!--{{ $data['perfil']->good }}-->{{ $data['perfil']->per_cake }}</span>
+                                    <span class="num_rank"><!--{{ $data['perfil']->good }}-->{{ $data['perfil']->amor }}</span>
                                     <img src="{{ URL::asset('img/anonymous.png') }}" width="11" height="15">
                                 </div>
                             </a> <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
@@ -49,7 +49,7 @@
 
                             <a href="#" class="vote-perfil has-tip" data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltReputacionMala')}}"data-tipo="enojo" data-id="{{ $data['perfil']->idPerfil }}">
                                 <div class="unmask_grey">
-                                    <span class="num_rank"><!--{{ $data['perfil']->bad }}-->{{ $data['perfil']->per_enojo }}</span>
+                                    <span class="num_rank"><!--{{ $data['perfil']->bad }}-->{{ $data['perfil']->odio }}</span>
                                     <img src="{{ URL::asset('img/anonymous_red.png') }}" width="11" height="15">
                                 </div>
                             </a>
@@ -129,7 +129,7 @@
                                     <label>
                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltNombresExtras')}}">{{Lang::get('messages.perfInfLblNombresAdicionales')}}</span>
                                         <input type="text" class="podos-publica" name="nombre" />
-                                        <button type="button" class="button align-top tiny btn-nombre-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                        <button type="button" class="button align-top tiny btn-nombre-publica "style="background-color:#ae3e34;"><!--{{Lang::get('messages.perfInfLblAgregar')}}-->Add</button>
 
                                     </label>
                                 </div>
@@ -145,7 +145,7 @@
                                     <label>
                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltApodosExtras')}}">{{Lang::get('messages.perfInfLblApodo')}}</span>
                                         <input type="text" class="podos-publica" name="apodo" />
-                                        <button type="button" class="button align-top tiny btn-apodo-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                        <button type="button" class="button align-top tiny btn-apodo-publica "style="background-color:#ae3e34;">Add</button>
                                         
                                     </label>
                                 </div>
@@ -161,7 +161,7 @@
                                     <label>
                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltMascarasExtras')}}">{{Lang::get('messages.perfInfLblMascara')}}</span>
                                         <input type="text" class="mascara-publica typeahead" name="mascara" style="width:214px;"/>
-                                        <button type="button" class="button align-top tiny btn-mascara-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                        <button type="button" class="button align-top tiny btn-mascara-publica "style="background-color:#ae3e34;">Add</button>
                                         
                                     </label>
                                 </div>
@@ -179,7 +179,7 @@
                                                 </span>
                                                 
                                                 <input style="padding-top:2px;padding-bottom:2px;height:35px;"type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
-                                                <button type="submit" class="button align-top tiny btn- "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                                <button type="submit" class="button align-top tiny btn- "style="background-color:#ae3e34;">Add</button>
                                                 
                                             </label>
                                             <small class="error">{{Lang::get('messages.indxModlblContrsenia')}} - {{Lang::get('messages.indxModlblContrsenia')}}</small>
@@ -196,7 +196,7 @@
                                             <label>
                                                 <span data-tooltip  aria-haspopup="true" class="has-tip" title="">{{Lang::get('messages.perfInfLblSocialMedia')}}</span>
                                                 <input type="text" class="mascara-publica" />
-                                                <button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                                <button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">Add</button>
                                                 
                                             </label>
                                         </div>
@@ -213,7 +213,7 @@
                                             <label>
                                                 <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">{{Lang::get('messages.perfInfLblIdPerfil')}}</span>
                                                 <input type="text" class="perfil-publica" name="mascara" />
-                                                <button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                                <button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">Add</button>
                                                   
                                             </label>
                                         </div>
@@ -245,7 +245,7 @@
                             </label>
                         
                             <label>
-                                <button type="button" class="btnExtraInfo btn-nombre-publica ">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                <button type="button" class="btnExtraInfo btn-nombre-publica ">Add</button>
                             </label>
                         </div>
                     </div>
@@ -261,7 +261,7 @@
                      
                         
                             <label>
-                                <button type="button" class="btnExtraInfo btn-apodo-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                <button type="button" class="btnExtraInfo btn-apodo-publica "style="background-color:#ae3e34;">Add</button>
                             </label>
                         </div>
                     </div>
@@ -276,7 +276,7 @@
                         
                         
                             <label>
-                                <button type="button" class="btnExtraInfo btn-mascara-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                <button type="button" class="btnExtraInfo btn-mascara-publica "style="background-color:#ae3e34;">Add</button>
                             </label>
                         </div>
                     </div>
@@ -292,7 +292,7 @@
                                 </label>
                                 <small class="error">{{Lang::get('messages.perfInfLblObligatorio')}}</small>
                                 <p>
-                                    <button type="submit" class="btnExtraInfo btn- "style="width:100%;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                    <button type="submit" class="btnExtraInfo btn- "style="width:100%;">Add</button>
                                 </p>
                             </div>
                         </form>
@@ -305,7 +305,7 @@
                                     <input type="text" class="mascara-publica" />
                                 </label>
                                 <label>
-                                    <button type="button" class="btnExtraInfo  btn-red-publica "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                    <button type="button" class="btnExtraInfo  btn-red-publica "style="background-color:#ae3e34;">Add</button>
                                 </label>
                             </div>
                         </div>
@@ -313,11 +313,11 @@
                     @if(count($data['relaciones']) < 5)
                         <div class="extra_inputs pnl-perfiles-publicos " data-id="{{ $data['perfil']->idPerfil }}">
                             <label>
-                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">{{Lang::get('messages.perfInfLblIdPerfil')}}</span>
+                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">Add</span>
                                 <input type="text" class="perfil-publica" name="mascara" />
                             </label>
                             <label>
-                                <button type="button" class="btnExtraInfo btn-perfil-publico "style="background-color:#ae3e34;">{{Lang::get('messages.perfInfLblAgregar')}}</button>
+                                <button type="button" class="btnExtraInfo btn-perfil-publico "style="background-color:#ae3e34;">Add</button>
                             </label>
                         </div>
                     @endif
@@ -811,7 +811,7 @@
                                                     <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaPrivado')}}"><i class="icon-chat comm-post" data-tipo="1" data-id="{{$post->idPost}}" style="font-size:25px"></i></span>                                           
                                                 </a>
                                             </div>
-                                            <form class="sb_coment form-subcomentario" enctype="multipart/form-data" data-abide>
+                                            <form class="sb_coment form-subcomentario " enctype="multipart/form-data" data-abide>
                                                 <div class="small-12 columns">
                                                     <div  class="small-12 columns conSec Hidden ">
                                                         <label>
@@ -845,9 +845,11 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="small-12 columns">
+                                                <div class="small-12 columns Hidden" id="btn_sub_ev">
                                                     <label>
-                                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltInformacionGuardar')}}"><button type="button" class="btn_upload btn-subcomentar btnSec Hidden"style="background-color: #ae3e34 ;">{{Lang::get('messages.perfPostLblSubir')}}</button></span>
+                                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltInformacionGuardar')}}">
+                                                            <button type="button" class="btn_upload btn-subcomentar btnSec Hidden"style="background-color: #ae3e34 ;">{{Lang::get('messages.perfPostLblSubir')}}</button>
+                                                        </span>
                                                     </label>
                                                 </div>
                                             </form>

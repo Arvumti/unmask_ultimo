@@ -1457,7 +1457,7 @@ Route::post('/principal/avanzada', function() {
 	return View::make('base_nu')->with('alias', $data);
 });*/
 Route::get('/principal', function() {
-	$mail = 'chano';
+	/*$mail = 'chano';
 	$pass = 'chano';
 
 	$usuarios = DB::select(DB::raw("
@@ -1465,11 +1465,11 @@ Route::get('/principal', function() {
 								FROM alias
 								WHERE nombre = '{$mail}'
 								AND password = '{$pass}'
-							"));
+							"))
 
 	$usuario = $usuarios[0];
 	$usuario->front = Array('nombre' => $usuario->nombre, 'correo' => $usuario->correo, 'estado' => $usuario->estado, 'pais' => $usuario->pais);
-	Session::put('usuario', $usuario);
+	Session::put('usuario', $usuario);*/
 
 	$pais = Session::get('usuario')->pais;
 	$estado = Session::get('usuario')->estado;

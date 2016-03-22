@@ -21,7 +21,7 @@
 	                <div class="clear"></div>
 
 	                <div class="other_user_info other_user_photo_area_red">
-	                    <a href="{{ URL::to('update_perfil/'.$perfil->idPerfil) }}" class="unmask_link click_unmask_link">information</a>
+	                    <a href="@" class="unmask_link click_unmask_link">UNMASK</a><!-- {{ URL::to('update_perfil/'.$perfil->idPerfil) }}-->
 	                    <div class="other_user_info_central">
 	                        <span class="thief">{{ $perfil->mascaras }}</span>
 	                        <!--div class="unmask_red">

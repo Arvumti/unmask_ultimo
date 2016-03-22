@@ -93,7 +93,21 @@
 		</div>
 	</div>
 </div>
+    <style type="text/css">
+    .LBD_CaptchaImageDiv, .LBD_CaptchaIconsDiv
 
+{
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+#LoginCaptcha_CaptchaIconsDiv,
+#LoginCaptcha_CaptchaImageDiv
+
+{
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+    </style>
 <script type="text/javascript">
 	$(document).on('ready', inicio_cp);
 

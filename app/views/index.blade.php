@@ -11,10 +11,26 @@
     <link href="css/typeahead.css" rel="stylesheet" media="screen">
 
     <link rel="shortcut icon" href="img/ico.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--SCRIPTS-->
     <title>UNMASK</title>
+    <style type="text/css">
+    .LBD_CaptchaImageDiv, .LBD_CaptchaIconsDiv
+
+{
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+#LoginCaptcha_CaptchaIconsDiv,
+#LoginCaptcha_CaptchaImageDiv
+
+{
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+    </style>
 </head>
-<body>
+<body class="">
 
     <div class="start_page_wrap">
 
@@ -22,10 +38,10 @@
 
                 <a href="index.html" class="start_page_big_logo" ><img src="img/logo_new.png" width="152"></a>
                 <ul class="start_page_navigation">
-                    <li style="margin-right:0"><a href="http://www.unmask.wiki/about.html"target="_blank">About</a></li>
+                    <li style="margin-right:0"><a href="http://www.unmask.wiki/about.html"target="_blank">{{Lang::get('messages.indxNavBtnInicio')}}</a></li>
                   <!--a href="#" style="top:1%;position:absolute"><img width="50px"src="img/logo_sl.png"></a-->
 
-                    <li ><a href="http://www.unmask.wiki/why.html"target="_blank">Why Unmask</a></li>
+                    <li ><a href="http://www.unmask.wiki/why.html"target="_blank">{{Lang::get('messages.indxNavPor')}}</a></li>
                     <li><a href="http://www.unmask.wiki/how.html"target="_blank">{{Lang::get('messages.indxNavUnmask')}}</a></li>
                     <li ><a href="http://www.unmask.wiki/virtual.html"target="_blank">Virtual Life</a></li>
 
@@ -42,7 +58,7 @@
                     </li>
                 </ul>
 
-                <div id="start_page_sign_up"><a href="#">sign in/up</a></div>
+                <div id="start_page_sign_up"><a href="#">{{Lang::get('messages.indxHerBtnInicioSecion')}}</a></div>
 
             <div id="sign_up_popup" class="flex_box">
 
@@ -162,10 +178,10 @@
             <!--div class="cycle-pager"style="width:70%;"></div-->
        </div>
         <div id="slider_text" style="top:8%">
-            <h2 style="color:#B23B2E;font-size:25px">Rapist, Pedophile, Teachers, Churchman, Sexist,  Stepfather, Sexual Harasser, Boss, Child Traffic.</h2>
-            <p style="font-size:18px;margin-top:20px;text-align:justify;">Did you know that in 9 out of 10 cases in which a person is sexually abused, the perpetrator is someone the victim or family knows?<br>
-                Did you know that 95 % of sexual crimes happen because the perpetrator believes that everything will be <span style="color:#B23B2E;font-family: Raleway_SemiBold;">UNKNOWN!</span> 
-                Break the silence! THIS TERRIBLE SITUATION is not your fault and you are not alone anymore! Nobody and no institution can offer you a real solution to avoid or prevent such experience or at least help you with the pain you feel, because there is no <span style="color:#B23B2E;font-family: Raleway_SemiBold;">SOLUTION</span> at all! Until today! By <span style="color:#B23B2E;font-family: Raleway_SemiBold;">ANONYMOUSLY UNMASKING AND EXPOSING </span>  such criminals to the world you will STOP SEXUAL CRIMES!
+            <h2 style="color:#B23B2E;font-size:25px">{{Lang::get('messages.indxBola1Tit')}} </h2>
+            <p style="font-size:18px;margin-top:20px;text-align:justify;">{{Lang::get('messages.indxBola1pbr')}}<br>
+                {{Lang::get('messages.indxBola1p')}} <span style="color:#B23B2E;font-family: Raleway_SemiBold;">{{Lang::get('messages.indxBola1sp')}} </span> {{Lang::get('messages.indxBola1p2')}}
+                <span style="color:#B23B2E;font-family: Raleway_SemiBold;">{{Lang::get('messages.indxBola1sp2')}}</span> {{Lang::get('messages.indxBola1p3')}}  <span style="color:#B23B2E;font-family: Raleway_SemiBold;">{{Lang::get('messages.indxBola1sp3')}} </span>{{Lang::get('messages.indxBola1p4')}}   
               </p>
         </div>
     </div>
@@ -184,9 +200,8 @@
             <!--div class="cycle-pager"style="width:70%;"></div-->
        </div>
         <div id="slider_text" style="top:10%;left:37%;">
-            <h2 style="color:#B23B2E;font-size:25px">Drug Dealer, Killer, Stealer, Thief, Cheater, Kidnapper, Prostitute, Fraudulent.</h2>
-            <p style="font-size:18px;margin-top:20px;text-align:justify;">“Time” does not mean a thing in regards of knowledge about other person. You could spend months and years meeting a person and still do not know anything about him. Also your new neighbor could be a criminal, you could hire a criminal for your company, or he could be your colleague at work or your school friend! Even worse, you could even marry such men and bring him to your home, to your family without knowing anything. Now you can share your terrible past experiences to warn others and prevent yourself to start a relationship with a criminal.
-            </p>
+            <h2 style="color:#B23B2E;font-size:25px">{{Lang::get('messages.indxBola2Tit')}} </h2>
+            <p style="font-size:18px;margin-top:20px;text-align:justify;">{{Lang::get('messages.indxBola2p')}}   </p>
         </div>
     </div>
      <div id="slider_bolas"style="margin-left:10%">
@@ -201,8 +216,8 @@
             <!--div class="cycle-pager"style="width:70%;"></div-->
        </div>
         <div id="slider_text" style="top:8%">
-            <h2 style="color:#B23B2E;font-size:25px">Husband, Wife, Boyfriend, Girlfriend, Lover, Fiancé, Friends, Partners, Colleagues, Family, Relatives.</h2>
-            <p style="font-size:18px;margin-top:20px;text-align:justify;">Sexual Desire, love or passion has faded, loneliness, money, material or very personal interests, whatever the reason is, “relationship” and “loyalty” concepts are practically forgotten on this age. Brothers damage brothers, husbands cheat on their wifes, business partners betray each other, as time goes, intention to be loyal is disappearing. Warn others and protect yourself before start a relationship by exposing the behavior of people who surround you.</p>
+            <h2 style="color:#B23B2E;font-size:25px">{{Lang::get('messages.indxBola3Tit')}}</h2>
+            <p style="font-size:18px;margin-top:20px;text-align:justify;">{{Lang::get('messages.indxBola3p')}} </p>
         </div>
     </div>
 
@@ -224,7 +239,7 @@
 
         <img src="img/face.jpg" >
 
-        <p><span class="title_umk">EVERYBODY USE MASKS</span><span class="subtitle_umk"> IN REAL & VIRTUAL LIFE</span> In Social Networks as Facebook, Twitter, Vkontakte, Instagram, Whats app, Ask fm, Blogger, Reddit, Google+ and in normal Life people don’t show who they really are. Unmask.wiki is the first and only website where you can pull the Mask from anyone who has something to hide and expose their real face to the world without any fear to be punished. Use our innovative and effective technology in an effort for<br> SOCIAL JUSTICE. <span class="quote">“Give him a mask, and he will tell you the truth”</span> <span class="actor">Oscar Wilde</span></p>
+        <p><span class="title_umk">{{Lang::get('messages.indxMovLblDescripcion1')}}</span><span class="subtitle_umk">{{Lang::get('messages.indxMovLblDescripcionLife')}} </span>{{Lang::get('messages.indxMovLblDescripcion')}} <br>{{Lang::get('messages.indxMovLblSJ')}}   <span class="quote">{{Lang::get('messages.indxMovLblFrase')}} </span> <span class="actor">Oscar Wilde</span></p>
 
         <img src="img/man.png" >
 
@@ -285,7 +300,7 @@
     </div>
 
     <div id="all">
-        <p >liars, cheaters and criminals should be forced to show their true faces to the world</p>
+        <p >{{Lang::get('messages.indxtituloM')}}</p>
 
         <a href="#"><img src="img/big_logo.png" width="102"/></a>
     </div>
@@ -293,8 +308,8 @@
     <div id="slider">
         <div class="mask"style="border-bottom:solid 2px black;"></div>
         <div id="slider_text">
-            <h1>REVEALS THE truth ANONYMOUSLY</h1>
-            <p>Create a profile or post about other person you wish to unmask. Upload photo, video and audio evidence - Brake the silence - Share the truth to world and stay anonymous.</p>
+            <h1>{{Lang::get('messages.indxtituloEV')}}</h1>
+            <p>{{Lang::get('messages.indxtextoSl')}}</p>
         </div>
 
         <div class="cycle-slideshow">
@@ -328,12 +343,12 @@
     </div>
 
     <div id="knowledge">
-        <p><span>SOME PERSONS MAY ARGUE A RIGHT OF PRIVACY</span> <br>WE ARGUE A RIGTH OF PREVENTION AND PROTECTION</p>
+        <p><span>{{Lang::get('messages.indxTitSome')}}</span> <br>{{Lang::get('messages.indxTitSome2')}}</p>
     </div>
 
     <div id="click_unmask">
-        <p>On <a href="#">UNMASK.wiki</a> you can share and find the truth about people from all over the world. Whether it's your friend, teacher, staff, boss, lover, fiancé, husband, wife, family, acquaintances, colleagues, partners or anyone else you've met and expose their behavior to help others protect themselves from harm before starting any kind of relationship with another person.</p>
-        <h1>CLICK “<span>unmask</span>”  TO OPEN THE TRUTH</h1>
+        <p>{{Lang::get('messages.indxPonun')}}</p>
+        <h1>{{Lang::get('messages.indxClick')}} “<span>unmask</span>”  {{Lang::get('messages.indxOpen')}}</h1>
 
         <img src="img/border.png" class="border_click">
 
@@ -398,11 +413,11 @@
         <!--</div>-->
         <img src="img/border_inv.png" class="border_click">
 
-        <p class="click_p">or</p>
+        <p class="click_p">{{Lang::get('messages.indxOr')}} </p>
 
-        <a href="#" id="find_some">find someone</a>
+        <a href="#" id="find_some">{{Lang::get('messages.indxFind')}}</a>
 
-        <p class="click_p" style="margin-top: 66px">BY FULL NAME, COUNTRY AND CITY</p>
+        <p class="click_p" style="margin-top: 66px">{{Lang::get('messages.indxBy')}}</p>
 
     </div>
 
@@ -522,12 +537,12 @@
 
             <a href="#" class="start_page_big_logo" ><img src="img/logo_footer.png" width="102"></a>
             <ul class="start_page_navigation"style="margin-right:200px">
-                <li><a href="http://www.unmask.wiki/about.html"target="_blank">About</a></li>
-                <li><a href="http://www.unmask.wiki/why.html"target="_blank">Why Unmask</a></li>
+                <li><a href="http://www.unmask.wiki/about.html"target="_blank">{{Lang::get('messages.indxNavBtnInicio')}}</a></li>
+                <li><a href="http://www.unmask.wiki/why.html"target="_blank">{{Lang::get('messages.indxNavPor')}}</a></li>
 
-                <li><a href="http://www.unmask.wiki/how.html"target="_blank">How It Works</a></li>
+                <li><a href="http://www.unmask.wiki/how.html"target="_blank">{{Lang::get('messages.indxNavUnmask')}}</a></li>
                 <li><a href="http://www.unmask.wiki/virtual.html"target="_blank">Virtual Life</a></li>
-                <li><a href="http://www.unmask.wiki/dis.html"target="_blank">Disclaimer</a></li>
+                <li><a href="http://www.unmask.wiki/dis.html"target="_blank">{{Lang::get('messages.indxNavLblPoliticasAvisos')}}</a></li>
             </ul>
 
                 <a href="#start_page_header" id="arrow_up"><img src="img/arrow_up.png" width="64"/><p>up</p></a>
@@ -574,7 +589,7 @@
             });
 		}
 	</script>
-       <script>
+    <!--   <script>
 $(function(){
  
 var isMobile = {
@@ -597,28 +612,27 @@ var isMobile = {
  
  if (isMobile.Android())
  {
- alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер");
+ window.location.href = "http://www.unmask.wiki/respo.html"
  }
  else if (isMobile.BlackBerry())
  {
- alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер");
+    window.location.href = "http://www.unmask.wiki/respo.html"
  }
  else if (isMobile.iOS())
  {
- alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер");
-
+ window.location.href = "http://www.unmask.wiki/respo.html"
  }
  else if (isMobile.Opera())
  {
- alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер");
- }
+ window.location.href = "http://www.unmask.wiki/respo.html"
+}
  else if (isMobile.Windows())
  {
- alert("Usa una PC/ Use a Desktop Computer / использовать настольный компьютер ");
-  }
+window.location.href = "http://www.unmask.wiki/respo.html"
+}
 
 
-});
+});-->
 
 </script>
  <!--a title="Web Statistics" href="http://clicky.com/100930117"><img alt="Web Statistics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a-->
