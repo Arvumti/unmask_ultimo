@@ -19,9 +19,11 @@
         <script type="text/javascript" src="{{ URL::asset('js/backbone-min.js') }}"></script> 
  
         <style type="text/css">
+            .perfil{
+                border-bottom: 1px solid #AAA;
+            }
             .busqueda-resultado {
                 background-color: #282C30;
-                border: 1px solid blue;
                 position: absolute;
                 top: 30px;
                 right: 220px;
@@ -29,11 +31,10 @@
             }
             .busqueda-resultado a {
                 text-align: left;
-                border-bottom: 1px solid #AAA;
+                min-height: 50px;
                 display: block;
                 width: 100%;
                 padding: 0.5em;
-                text-align: left;
             }
             .busqueda-resultado img {
                 float: left;
@@ -46,6 +47,7 @@
                 float: left;
                 color: #EEE;
                 text-align: left;
+                padding-left: 10px;
             }
         </style>
 </head>
