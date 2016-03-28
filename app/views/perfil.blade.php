@@ -7,6 +7,7 @@
 <script type="text/javascript" src="{{ URL::asset('js/main_app.js') }}"></script> 
 <script type="text/javascript" src="{{ URL::asset('js/lodash.underscore.min.js') }}"></script> 
 <script type="text/javascript" src="{{ URL::asset('js/backbone-min.js') }}"></script> 
+
         
 	   <!--div class="gallery_popup">
             <span class="prev"><</span>
@@ -99,8 +100,8 @@
                                 <a style="color:black;width:387px;font-size:12pt;"href="{{ $red->nombre }}"target="_blank">{{ substr($red->nombre, 0, 25) }}...</a><br>
                             @endforeach
                             <div class=="btn_odio">                         <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
-                                <a href="#" class="haters btn-voto-amor has-tip" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}" data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotarOtraVez')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
-                                <a href="#" class="lovers btn-voto-amor has-tip"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotar')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
+                                <a style="display: inline-block;vertical-align: top; text-align: center"href="#" class="haters btn-voto-amor has-tip" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}" data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotarOtraVez')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
+                                <a style="display: inline-block;vertical-align: top; text-align: center"href="#" class="lovers btn-voto-amor has-tip"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotar')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
                             </div>
                         </div>
                           <div class="box_relaciones">
@@ -328,10 +329,10 @@
 
                 <div class="content_navigation">
                     <ul>
-                        <li id="lapiz"  class="comments has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.')}}"><p>{{Lang::get('messages.perfPostLblConfesion')}}</p></li>
-                        <li id="secre"  class="videos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.')}}"><p>{{Lang::get('messages.perfPostLblVideo')}}</p></li>
-                        <li id="fotosP" class="photos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.')}}"><p>photos</p></li>
-                        <li id="linkear"class="other has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.')}}"><p>{{Lang::get('messages.perfPorLblEnlace')}}</p></li>
+                        <li id="lapiz"  class="comments has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltConfesion')}}"><p>{{Lang::get('messages.perfPostLblConfesion')}}</p></li>
+                        <li id="secre"  class="videos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltConfesionVideo')}}"><p>{{Lang::get('messages.perfPostLblVideo')}}</p></li>
+                        <li id="fotosP" class="photos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltEvidenciaImagen')}}"><p>photos</p></li>
+                        <li id="linkear"class="other has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltConfesionEnlace')}}"><p>{{Lang::get('messages.perfPorLblEnlace')}}</p></li>
                     </ul>
                 </div>
                 <div class="user_main_content">
@@ -453,9 +454,9 @@
                                 </div>
                                 <div class="row">
                                     @if($data['perfil']->idAliasBase == $post->idAlias)
-                                    <a id="fotosAddPost">
-                                        <!--img width="20px;"src="{{ URL::asset('img/add_img.png') }}"-->
-                                    </a>
+                                    <!--a id="fotosAddPost">
+                                        <img width="20px;"src="{{ URL::asset('img/add_img.png') }}">
+                                    </a-->
                                     <div id="campoFotosPost"class="large-12 isHidden">
                                         <form class="postear-post-evi" data-idpost="{{$post->idPost}}" enctype="multipart/form-data" data-abide>
                                             <div id="evi-post-campo">
@@ -565,11 +566,11 @@
                                 </div>
                                 <div class="clear"></div>
                                 <div class="subpost_area" >
-                                    <div class="seccion_sub_com">
+                                    <!--div class="seccion_sub_com">
                                         <div class="sub_coment_titulo">
                                             <h4 >{{Lang::get('messages.perfPorLblConfesion')}}</h4>
                                         </div>
-                                    </div>
+                                    </div-->
                                     <ul class="gv-subcomentarios"  style="margin-top:2em;padding:2em 2em 0.5em 2em;">
                                         @foreach($post->subcomentarios as $subcomentario)
                                         <li class="cien">
@@ -1673,6 +1674,8 @@
                 e.preventDefault();
 				$('.postearEv').submit();			
 			})
+
+
 	            //MOSTRAR CAMPOS DE LLENADO DE SECRET BOX, CONFESION,LAS EVIDENCIAS Y CALIFICACION
 			
 			// ABRIR FORMULARIO DE CONFESION FOTOS VIDEO SECUNDARIO
@@ -1735,9 +1738,7 @@
 			$('.votos_mostrar').on('click', function(e) {
 				$(this).siblings('.votosPost').toggleClass("Hidden");
 			});
-            $('img').error(function(){
-                $(this).attr('src', "'{{ URL::asset('img/mascarita.png') }}'");
-            });
+          
 
 			// (function(d, s, id) {
 			//   var js, fjs = d.getElementsByTagName(s)[0];
@@ -1749,6 +1750,11 @@
 		}
 
 	</script>
+    <script>
+      $('img').error(function(){
+                $(this).attr('src', 'public/img/mascarita.png');
+            });
+    </script>
     
 
 	<!--script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script-->

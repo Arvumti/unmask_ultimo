@@ -7,7 +7,7 @@
         <div class="other_users_container"><h1 class="create_profile_form_marker">{{Lang::get('messages.crePerDivTitTitulo')}} </h1>
             <div class="create_profile_form">
                 <form method="post" action="crear_perfil" class="flex_box" enctype="multipart/form-data" data-abide>
-                    <input type="file" class="hidden_class cpFoto" name="foto" id="foto" accept="image/*">
+                    <input type="file" class="hidden_class cpFoto" name="foto" id="foto" accept="image/*" required>
                     <label for="foto" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltImgFoto')}}">
                     <img id="imgFoto"  data-ref="cpFoto" src="img/add_photo.jpg" class="tmp_img" width="195" />
                     <p>Upload <br> your photo</p></label>

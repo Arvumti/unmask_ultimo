@@ -8,7 +8,7 @@
 .cycle-slideshow, .cycle-slideshow * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 
-.cycle-slideshow { min-width: 200px; max-width: 500px; padding: 0; position: absolute; left: 42.2%; top: 12.5%; width: 37%; height: 37%;
+.cycle-slideshow { width:55% !important;/*min-width: 200px; max-width: 500px;*/ padding: 0; position: absolute; left: 42.2%; top: 12.5%; width: 37%; height: 37%;
     background: url(http://malsup.github.com/images/spinner.gif) 50% 50% no-repeat;
 }
 
@@ -30,7 +30,7 @@
 /* pager */
 .cycle-pager {
    text-align: center;
-    width: 143.5%;
+    width: 100%;
     z-index: 500;
     top: -30px;
     position: absolute;

@@ -21,7 +21,7 @@ body{
 }
 
 #start_page_header{
-    height: 65px;
+    /*height: 65px;*/
     margin: 0 auto;
     width: 100%;
     vertical-align: middle;
@@ -41,10 +41,10 @@ body{
 
 
 .start_page_navigation{
-    width: 53%;
-    /*padding-left: 50px;*/
-    text-align: center;
-        padding-top: 11px;
+    width: 830px;
+    padding-left: 50px;
+    /*text-align: center;*/
+    /*padding-top: 11px;*/
 }
 
 .start_page_navigation li{
@@ -70,12 +70,13 @@ body{
 
 #start_page_sign_up{
     text-transform: uppercase;
-    margin-left: 13%;
+    /*margin-left: 13%;*/
     cursor: pointer;
     padding: 8px 36px;
     margin-top: 11px;
     border: 2px solid #B23B2E;
     border-radius: 20px;
+    margin-bottom: 5px;
 }
 #start_page_sign_up:hover{
     background-color: #B23B2E;
@@ -538,12 +539,13 @@ video{
 }
 
 .cycle-slideshow > img{
-  width: 670px;
-    height: 370px;
+  width: 100%;
+    /*height: 370px;*/
 }
 
  #bolas img{
     width: 380px;
+    height: 370px;
     border-radius: 100%;
     float: left !important;
 }
@@ -1504,6 +1506,7 @@ input[name="captcha_characters"]{
 .teg_photo .mask img{
     width: 100%;
     background: url('../img/mascarita.png');
+    max-height: 100%;
 }
 
 .teg_photo p{
@@ -1517,13 +1520,13 @@ input[name="captcha_characters"]{
     z-index: 2;
 }
 
-.edit_profile_main_info a{
+.edit_profile_main_info .vote-perfil{
     font-size: 14pt;
     font-family: Raleway_Light;
     color: #A54D42;
 }
 
-.edit_profile_main_info a img{
+.edit_profile_main_info .vote-perfil img{
     vertical-align: middle;
 }
 
@@ -1781,7 +1784,7 @@ a[href="#add"]{
 }
 
 .add_comment input[type="file"]{
-    display: none;
+   /* display: none;*/
 }
 
 .add_comment label[for="video"]{
@@ -2402,15 +2405,23 @@ a[href="#add"]{
     width: 130px;
 }
 /* MODALES VIDEOS*/
-#modal{left:50%;
+#modal{
+    left:50%;
     margin:-250px 0 0 -40%;
-    opacity:0;position:absolute;top:50%;
-    visibility:hidden;width:80%;
+    opacity:0;
+    position:absolute;
+    top:50%;
+    visibility:hidden;
+    width:80%;
     box-shadow:0 3px 7px rgba(0,0,0,.25);
     box-sizing:border-box;transition:all 0.4s ease-in-out;-moz-transition:all 0.4s ease-in-out;
     -webkit-transition:all 0.4s ease-in-out
 }
-#modal:target{opacity:1;top:50%;visibility:visible}
+#modal:target{
+    opacity:1;
+    top:50%;
+    visibility:visible;
+}
 #modal .header,#modal
 .footer_modal{border-bottom:1px solid #e7e7e7;
     border-radius:5px 5px 0 0}
@@ -2559,7 +2570,7 @@ height:150px;
 .btn_odio{
     max-width: 100%;
 }
-.btn_odio, a{
+.btn_odio a ,.haters,.lovers{
     display: inline-block !important;
     vertical-align: top !important;
     text-align: center !important;
@@ -2599,12 +2610,12 @@ margin-bottom: 20px
 .box_miniatura a {
     display: inline-block;
     vertical-align: top;
-    width: 25%;
+    width: 20% !important;
   
 
 }
 .box_miniatura a img {
-    width: 90%;
+    width: 20% !important;
     margin: 10px 5px 5px 5px;
     border-radius: 3px;
 

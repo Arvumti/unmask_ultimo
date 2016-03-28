@@ -50,7 +50,7 @@
 
                     <!--li><a href="#">Open Mask</a></li>
                     <li><a href="#">Find Someone</a></li-->
-                    <li style="text-align:center;position:absolute;margin-left:1%">
+                    <li style="text-align:center;position:absolute;">
 
                         <a id="btnEng"href="{{ URL::to('/idioma/en') }}"><img width="30px"src="img/brit.png"></a>
                         <a id="btnRus"href="{{ URL::to('/idioma/rs') }}"><img width="30px"src="img/rusia.png"></a>
@@ -82,7 +82,7 @@
                                     {{ $captchaHtml }}
                                 </div>
 
-                                <input type="text" id="CaptchaCode" class="form-control" placeholder="{{Lang::get('messages.indxModLblCapcha')}}"name="CaptchaCode" type="text" style="text-transform: uppercase;margin-top:45px"name="captcha_characters" class="" size="10" value="Type the characters below">
+                                <input type="text" id="CaptchaCode" class="form-control" placeholder="{{Lang::get('messages.indxModLblCapcha')}}"name="CaptchaCode" type="text" style="text-transform: uppercase;margin-top:15px;"name="captcha_characters" class="" size="10" value="Type the characters below">
 
                             </div>
 
@@ -113,7 +113,7 @@
                                     </div>
                                 </div>
 
-                                <input type="text" id="CaptchaCode" class="form-control" name="CaptchaCode" placeholder="{{Lang::get('messages.nologManLblCapcha')}}"type="text" style="text-transform: uppercase;margin-top:50px">
+                                <input type="text" id="CaptchaCode" class="form-control" name="CaptchaCode" placeholder="{{Lang::get('messages.nologManLblCapcha')}}"type="text" style="text-transform: uppercase;margin-top:20px">
 
                             </div>
 
@@ -267,9 +267,9 @@
                 <h2>Video</h2>
             </div>
             <div class="copy"style="text-align:center">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/pLpl9qGAX-0" frameborder="0" allowfullscreen></iframe>
+                <iframe class="videosYou"width="100%" height="315" src="https://www.youtube.com/embed/pLpl9qGAX-0" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="cf footer_modal"> <a href="#">Close</a></div>
+            <div class="cf footer_modal"> <a href="#"class="btnCerrar">Close</a></div>
         </div>
             <div class="overlay"></div>
     </div>
@@ -279,10 +279,10 @@
                 <h2>Video</h2>
             </div>
             <div class="copy">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/LxtE6-3-UFk" frameborder="0" allowfullscreen></iframe>
+                <iframe class="videosYou"width="100%" height="315" src="https://www.youtube.com/embed/LxtE6-3-UFk" frameborder="0" allowfullscreen></iframe>
                 
             </div>
-            <div class="cf footer_modal"> <a href="#">Close</a></div>
+            <div class="cf footer_modal"> <a href="#"class="btnCerrar">Close</a></div>
         </div>
             <div class="overlay"></div>
     </div>
@@ -292,9 +292,9 @@
                 <h2>Video</h2>
             </div>
             <div class="copy">
-               <iframe width="100%" height="315" src="https://www.youtube.com/embed/Utdd9jodoHg" frameborder="0" allowfullscreen></iframe>
+               <iframe class="videosYou"width="100%" height="315" src="https://www.youtube.com/embed/Utdd9jodoHg" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="cf footer_modal"> <a href="#">Close</a></div>
+            <div class="cf footer_modal"> <a href="#"class="btnCerrar">Close</a></div>
         </div>
             <div class="overlay"></div>
     </div>
@@ -535,17 +535,21 @@
 
     <div id="footer">
 
-            <a href="#" class="start_page_big_logo" ><img src="img/logo_footer.png" width="102"></a>
-            <ul class="start_page_navigation"style="margin-right:200px">
+            <a href="#" class="start_page_big_logo" style="margin: 1% 1.5% 0% 3.07%"><img src="img/logo_footer.png" width="80"></a>
+            <ul class="start_page_navigation"style="">
                 <li><a href="http://www.unmask.wiki/about.html"target="_blank">{{Lang::get('messages.indxNavBtnInicio')}}</a></li>
                 <li><a href="http://www.unmask.wiki/why.html"target="_blank">{{Lang::get('messages.indxNavPor')}}</a></li>
 
                 <li><a href="http://www.unmask.wiki/how.html"target="_blank">{{Lang::get('messages.indxNavUnmask')}}</a></li>
                 <li><a href="http://www.unmask.wiki/virtual.html"target="_blank">Virtual Life</a></li>
                 <li><a href="http://www.unmask.wiki/dis.html"target="_blank">{{Lang::get('messages.indxNavLblPoliticasAvisos')}}</a></li>
+                <li style=""> help@unmask.wiki</li>
+                
             </ul>
 
-                <a href="#start_page_header" id="arrow_up"><img src="img/arrow_up.png" width="64"/><p>up</p></a>
+                <a href="#start_page_header" id="arrow_up"><img src="img/arrow_up.png" width="40"/><!--p>up</p--></a>
+            <div style="text-align:center;width: 600px;margin-left: 365px;">Unmask Brand and Logos are registered in one or more countries <br>Unmask™®</div>
+
 
     </div>
 
@@ -589,7 +593,19 @@
             });
 		}
 	</script>
-    <!--   <script>
+<script>
+
+</script>
+    <!--  
+$(document).on('ready',function(){
+        $('.btnCerrar').on('click',function(){
+            $('.videosYou')= function stopVideo() {
+        player.stopVideo();
+      }
+        });
+    });
+
+     <script>
 $(function(){
  
 var isMobile = {

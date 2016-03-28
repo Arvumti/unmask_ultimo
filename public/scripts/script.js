@@ -28,6 +28,9 @@ $(document).ready(function(){
             'color': '#B23B2E'
         });
     });
+       $('img').error(function(){
+                $(this).attr('src', 'img/mascarita.png');
+            });
 
     // PERFIL
 
