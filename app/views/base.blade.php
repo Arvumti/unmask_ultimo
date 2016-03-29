@@ -47,7 +47,7 @@
                 float: left;
                 color: #EEE;
                 text-align: left;
-                padding-left: 10px;
+                padding: 10px;
             }
         </style>
 </head>
