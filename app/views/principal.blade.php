@@ -4,11 +4,11 @@
   
     <!-- <div class="busqueda-resultado"></div> -->
   	
-	<div class="other_users_container"><h1> wall Latest updates</h1>
+	<div class="other_users_container"><h1> {{Lang::get('messages.prinTith1')}}</h1>
 	  @foreach($perfiles as $perfil)
 	 	<div class="other_user">
             <div class="other_user_photo_area">
-                <img src="{{ URL::asset('img\\db_imgs\\'.$perfil->foto) }}" width="164" height="164" >
+                <img src="{{ URL::asset('\\img\\db_imgs\\'.$perfil->foto) }}" width="164" height="164" >
                 <div class="clear"></div>
                 <div class="other_user_info">
                     <a href="{{ URL::to('perfil').'/'.$perfil->idPerfil }}" style="vertical-align: middle !important;display: table-cell !important;"class="unmask_link click_unmask_link">unmask</a>

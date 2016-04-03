@@ -48,7 +48,7 @@ return array(
 	"indxMovLblEncabezadoUnmask" => "UNMASK",
 	"indxMovLblDescripcion1" => "Все используют маски",
 	"indxMovLblDescripcionLife" => "B реальной и виртуальной жизни.",
-	"indxMovLblDescripcion" => "  В социальных сетях люди скрывают кем они являются. Unmask это первое и единственное место, где вы можете разоблачить кого-либо и показать их истинное лицо миру! Используйте нашу инновационную и эффективную технологию в достижении ",
+	"indxMovLblDescripcion" => "  В социальных сетях Facebook, Twitter, Vkontakte, Instagram, Whats app, Ask fm, Blogger, Reddit, Google+, люди скрывают кем они являются. Unmask это первое и единственное место, где вы можете разоблачить кого-либо и показать их истинное лицо миру! Используйте нашу инновационную и эффективную технологию в достижении ",
 	"indxMovLblSJ" => "социальной справедливости.",
 	"indxMovLblFrase" => "«Дайте человеку маску, и он скажет вам всю правду»",
 	"indxMovLblAutor" => "-Оскар Уайльд.",
@@ -103,8 +103,14 @@ return array(
 	"indxClick" => "Нажми  ",
 	"indxOpen" => "чтобы узнать правду  ",
 	"indxOr" => "или  ",
-	"indxFind" => "найди кого - либо по ФИО , стране и городу",
+	"indxFind" => "найди кого",
 	"indxBy" => "либо по ФИО, стране и городу",
+	"indxbtnCerrar"=>"близко",
+	"indxImgReg1"=>"загрузить аватар",
+	"indxImgReg2"=>"фото",
+	"indxImgRegTlt"=>"Вы не должны загрузить реальные фото, так как ваш профиль является анонимным",
+	
+
 	
 
 
@@ -154,6 +160,7 @@ return array(
 
 	
 
+"prinTith1" => "обновления для стен",
 
 
 
@@ -264,7 +271,7 @@ return array(
 	"nologHedLblEntrar" => "Войти",
 	"nologHedLblSalir" => "Exit",
 	"nologManLblCorreo" => "Email",
-	"nologManLblAlias" => "Псевдоним",
+	"nologManLblAlias" => "прозвище",
 	"nologManLblCorreoErr" => "обязательно",
 	"nologManLblContrasenia" => "Пароль",
 	"nologManLblContraseniaErr" => "обязательно",

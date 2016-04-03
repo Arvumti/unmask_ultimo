@@ -17,7 +17,7 @@ return array(
 	
 	"fotosLblSubir" => "Click to put photo",
 	"indxTitUnmask" => "UNMASK",
-	"indxHerBtnInicioSecion" => "SIGN IN/UP",
+	"indxHerBtnInicioSecion" => "ACCESS",
 	"indxModTitInicioSecion" => "Log in",
 	"indxModLblUsuario" => "Username",
 	"indxModlblContrsenia" => "Password ",
@@ -27,6 +27,7 @@ return array(
 	"indxNavBtnInicio" => "About",
 	"indxNavUnmask" => "How it works",
 	"indxNavPor" => "Why Unmask?",
+	"indxNavVL" => "Virtual Life",
 	"indxNavLblPoliticasAvisos" => "Disclaimer",
 	"indxHelLblCaracteristicas" => "FEATURES",
 	"indxHelLblCaracteristica1" => "SIGN UP AND CREATE YOUR ACCOUNT WITHOUT ANY PERSONAL DATA",
@@ -46,7 +47,7 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	"indxHelLblSubDescripcion2" => "Do you want to date someone you don’t know? Work with a new boss? Have a new associate in the business? Bring to your home an unknown beloved partner? Click and search to save yourself from the potential brutality of such people. Do a quick search and find people by their name, place of residence and mask! Get to know their most intimate secrets with just the click of a button! Publish other secrets that only you know! Add hard evidence (like pictures, videos, audios and documents to prove your posts)! Rank them by their deeds according to the good or bad that they have done, so those profiles can compete in Best and Worst Rankings! You will be surprised when you find out who that person close to you really is… bosses, co-workers, friends, relatives, neighbors and couples.",
 	"indxMovLblEncabezadoUnmask" => "UNMASK",
 	"indxMovLblDescripcion1" => "Everybody use masks",
-	"indxMovLblDescripcionLife" => "In real & virtual life.",
+	"indxMovLblDescripcionLife" => "In real & virtual life",
 	"indxMovLblDescripcion" => "In Social Networks as Facebook, Twitter, Vkontakte, Instagram, Whats app, Ask fm, Blogger, Reddit, Google+ and in normal Life people don’t show who they really are. Unmask.wiki is the first and only website where you can pull the Mask from anyone who has something to hide and expose their real face to the world without any fear to be punished. Use our innovative and effective technology in an effort for",
 	"indxMovLblSJ" => "SOCIAL JUSTICE.",
 	"indxMovLblFrase" => "“Give him a mask, and he will tell you the truth”",
@@ -84,27 +85,36 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	"indxBola2Tit" => "Drug Dealer, Killer, Stealer, Thief, Cheater, Kidnapper, Prostitute, Fraudulent.",
 	"indxBola3Tit" => "Husband, Wife, Boyfriend, Girlfriend, Lover, Fiance, Friends, Partners, Colleagues, Family, Relatives.",
 	"indxBola1pbr" => "Did you know that in 9 out of 10 cases in which a person is sexually abused, the perpetrator is someone the victim or family knows?",
-	"indxBola1p" => "Did you know that 95 % of sexual crimes happen because the perpetrator believes that everything will be",
+	"indxBola1p" => "Did you know that 95 % of sexual crimes happen because THE PERPETRATOR BELIEVES THAT HIS ACTS WILL BE ",
 	"indxBola1sp" => " UNKNOWN!",
 	"indxBola1p2" => " Break the silence! THIS TERRIBLE SITUATION is not your fault and you are not alone anymore! Nobody and no institution can offer you a real solution to avoid or prevent such experience or at least help you with the pain you feel, because there is no",
 	"indxBola1sp2" => "SOLUTION",
 	"indxBola1p3" => "at all! Until today! By",
 	"indxBola1sp3" => "ANONYMOUSLY UNMASKING AND EXPOSING",
 	"indxBola1p4" => "such criminals to the world you will STOP SEXUAL CRIMES!",
-	"indxBola2p" => "Time does not mean a thing in regards of knowledge about other person. You could spend months and years meeting a person and still do not know anything about him. Also your new neighbor could be a criminal, you could hire a criminal for your company, or he could be your colleague at work or your school friend! Even worse, you could even marry such men and bring him to your home, to your family without knowing anything. Now you can share your terrible past experiences to warn others and prevent yourself to start a relationship with a criminal.",
-	"indxBola3p" => "Sexual Desire, love or passion has faded, loneliness, money, material or very personal interests, whatever the reason is, “relationship” and “loyalty” concepts are practically forgotten on this age. Brothers damage brothers, husbands cheat on their wifes, business partners betray each other, as time goes, intention to be loyal is disappearing. Warn others and protect yourself before start a relationship by exposing the behavior of people who surround you.",
+	"indxBola2p" => "Time does not mean a thing in regards of knowledge about other person. You could spend months and years meeting a person and still do not know anything about him; your new neighbor could be a criminal, you could hire a criminal for your company, or he could be your colleague at work or your school friend! Even worse, you could marry such man and bring him to your home, to your family without knowing anything. Now you can share your terrible past experiences to warn others and prevent starting a relationship with a criminal.",
+	"indxBola3p" => "Sexual desire, love, passion, loneliness, money, personal or material interests. Whatever the reason is... “LOVE” and “LOYALTY” concepts are practically forgotten on this age. Brothers damage brothers, husbands cheat on their wifes, business partners betray each other, as time goes, intention to be loyal is disappearing. Warn others and protect yourself before start a relationship by exposing the behavior of people who surround you.",
 	"indxtituloM" => "liars, cheaters and criminals should be forced to show their true faces to the world",
 	"indxtituloEV" => "REVEALS THE truth ANONYMOUSLY",
-	"indxtextoSl" => "Create a profile or post about other person you wish to unmask. Upload photo, video and audio evidence - Brake the silence - Share the truth to world and stay anonymous.",
-	"indxTitSome" => "SOME PERSONS MAY ARGUE A RIGHT OF PRIVACY",
-	"indxTitSome2" => "WE ARGUE A RIGTH OF PREVENTION AND PROTECTION",
-	"indxPonun" => "On UNMASK.wiki you can share and find the truth about people from all over the world. Whether it's your friend, teacher, staff, boss, lover, fiancé, husband, wife, family, acquaintances, colleagues, partners or anyone else you've met and expose their behavior to help others protect themselves from harm before starting any kind of relationship with another person. ",
+	"indxtextoSl" => "CREATE A PROFILE OR POST ABOUT ANY PERSON YOU WISH TO UNMASK. UPLOAD PHOTOS, VIDEOS AND AUDIO EVIDENCES - BRAKE THE SILENCE - TELL YOUR STORY AND REVEAL THE TRUTH WORLD WIDE",
+	"indxTitSome" => "SOME MAY ARGUE A RIGHT TO PRIVACY",
+	"indxTitSome2" => " WE ARGUE A RIGTH TO PREVENTION AND PROTECTION",
+	"indxPonun" => "On UNMASK.wiki you can share and find the truth about people from all over the world. Whether it's your friend, teacher, staff, boss, lover, fiancé, husband, wife, family, acquaintances, colleagues, partners or anyone else you've met. Expose their behavior to help others protect themselves from harm before starting any kind of relationship with another person. ",
 	"indxClick" => "CLICK  ",
 	"indxOpen" => "TO OPEN THE TRUTH  ",
 	"indxOr" => "or ",
 	"indxFind" => "find someone",
 	"indxBy" => "BY FULL NAME, COUNTRY AND CITY",
+	"indxbtnCerrar"=>"Close",
+	"indxImgReg1"=>"UPLOAD AN",
+	"indxImgReg2"=>"AVATAR PHOTO",
+	"indxImgRegTlt"=>"YOU SHOULD NOT UPLOAD YOUR REAL PHOTO SINCE YOUR PROFILE IS ANONYMOUS",
+
+
+
+
 	
+
 
 
 
@@ -208,7 +218,7 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	
 	
 /*--PRINCIPAL--*/
-"prinTith1" => "WALL",
+"prinTith1" => "WALL UPDATES",
 
 
 	/* -- perfiles -- */
@@ -266,7 +276,7 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	"nologHedLblEntrar" => "LOGIN",
 	"nologHedLblSalir" => "Exit",
 	"nologManLblCorreo" => "Email",
-	"nologManLblAlias" => "Alias",
+	"nologManLblAlias" => "Nickname",
 	"nologManLblCorreoErr" => "This field is mandatory",
 	"nologManLblContrasenia" => "Password",
 	"nologManLblContraseniaErr" => "This field is mandatory",

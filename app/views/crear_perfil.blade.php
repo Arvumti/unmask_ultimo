@@ -18,7 +18,7 @@
                         <!--small class="error">{{Lang::get('messages.crePerFrmLblApellidoPatErr')}}</small-->
                         <input type="text" name="amaterno" value="{{Input::old('amaterno')}}"placeholder="{{Lang::get('messages.crePerFrmLblApellidoMat')}} "data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltApellidoMaterno')}}"> 
                       
-                        <input type="text" name="apodo" value="{{Lang::get('messages.crePerTltApodo')}}" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltApodo')}}">
+                        <input type="text" name="apodo" placeholder="{{Lang::get('messages.crePerTltApodo')}}" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.crePerTltApodo')}}">
                     	<div class="gv-apodos">
 							@if(strlen(Input::old('apodos')) > 0)
 								@foreach(explode(",", Input::old('apodos')) as $apodo)

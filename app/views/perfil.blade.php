@@ -28,7 +28,7 @@
                     <div class="edit_profile_photo_block">
                         <div class="teg_photo">
                             <div class="mask">
-                                <img src="{{ URL::asset('img\\db_imgs\\'.$data['perfil']->foto) }}">
+                                <img src="{{ URL::asset('\\img\\db_imgs\\'.$data['perfil']->foto) }}">
                             </div>
                             @foreach($data['mascaras'] as $mascara)
 
@@ -59,7 +59,7 @@
                         
                         @foreach($data['fotos'] as $evidencia)
                             <a href="" data-reveal-id="sliderGaleria" class="open-modal">
-                                <img src="{{ URL::asset('img\\db_imgs\\publicas\\'.$evidencia->foto) }}"/>
+                                <img src="{{ URL::asset('\\img\\db_imgs\\publicas\\'.$evidencia->foto) }}"/>
                             </a>
                         @endforeach
                     </div>
@@ -68,7 +68,7 @@
                     <div class="info_block">
                         <!--a href="#" class="float_right">Follow <img src="{{ URL::asset('img/plus_red.png') }}"></a-->
                         <div class="clear"></div>
-                        <div class="float_left">
+                        <!--div class="float_left"-->
                             <p class="long_name">{{ $data['perfil']->perfil }}</p>
                             @foreach($data['apodos'] as $apodo)
                              @if( strlen($apodo->apodo) > 0 )
@@ -103,13 +103,13 @@
                                 <a style="display: inline-block;vertical-align: top; text-align: center"href="#" class="haters btn-voto-amor has-tip" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}" data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotarOtraVez')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
                                 <a style="display: inline-block;vertical-align: top; text-align: center"href="#" class="lovers btn-voto-amor has-tip"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotar')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
                             </div>
-                        </div>
+                        <!--/div-->
                           <div class="box_relaciones">
-                        <span data-tooltip aria-haspopup="true" class="has-tip titulo_relaciones" title="{{Lang::get('messages.perfPostTltComplices')}} "><h5>{{Lang::get('messages.perfInfLblPerfiles')}} </h5></span>
+                        <h5 data-tooltip aria-haspopup="true" class="has-tip titulo_relaciones" title="{{Lang::get('messages.perfPostTltComplices')}} ">{{Lang::get('messages.perfInfLblPerfiles')}} </h5>
                         @foreach($data['relaciones'] as $relacion)
                             <a href="{{ URL::to('perfil').'/'.$relacion->idPerfil }}">
                                 <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltComplice')}}">
-                                    <img src="{{ URL::asset('img\\db_imgs\\'.$relacion->foto) }}" style="border-radius:5px"/>
+                                    <img src="{{ URL::asset('\\img\\db_imgs\\'.$relacion->foto) }}" style="border-radius:5px"/>
                                 </span>
                             </a>
                         @endforeach
@@ -345,7 +345,7 @@
                                 <div class="add_comment post Hidden">
                                    
                                     <div id="conCampo" data-tipo="1" class="Hidden">
-                                        <h6 style="color:#a7a9ab;text-align:center">{{Lang::get('messages.perfPostLblTitulo')}}</h6>
+                                        <h6 style="color:#a7a9ab;text-align:center;margin-bottom:10px;font-size:15px">{{Lang::get('messages.perfPostLblTitulo')}}</h6>
                                         <input type="text" placeholder="{{Lang::get('messages.perfPorLblSecretBox')}}" name="secret"  maxlength="50" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionSecretBox')}}"required>
                                         <textarea style="min-height:150px;resize: none;"name="comment" maxlength="2550" placeholder="{{Lang::get('messages.perfPostLblConfesion')}}"data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesion1')}}" required></textarea>
                                     </div>
@@ -846,10 +846,10 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="small-12 columns Hidden" id="btn_sub_ev">
+                                                <div class="small-12 columns btn_sub_ev Hidden" id="">
                                                     <label>
                                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltInformacionGuardar')}}">
-                                                            <button type="button" class="btn_upload btn-subcomentar btnSec Hidden"style="background-color: #ae3e34 ;">{{Lang::get('messages.perfPostLblSubir')}}</button>
+                                                            <button type="button" class="btn_upload btn-subcomentar btnSec "style="background-color: #ae3e34 ;">{{Lang::get('messages.perfPostLblSubir')}}</button>
                                                         </span>
                                                     </label>
                                                 </div>
@@ -1752,7 +1752,7 @@
 	</script>
     <script>
       $('img').error(function(){
-                $(this).attr('src', 'public/img/mascarita.png');
+                $(this).attr('src', '../img/mascarita.png');
             });
     </script>
     

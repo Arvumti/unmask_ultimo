@@ -170,7 +170,7 @@
                     <form action="{{ URL::to('update_pass') }}" class="form-change-pass" method="post" enctype="multipart/form-data" data-abide>    
                         <p>{{Lang::get('messages.cuenHedLblUsuario')}}</p>
                         <input type="file" class="hidden_class img-user-photo" name="photo" id="photo" accept="image/jpeg,image/png">
-                        <label for="photo">
+                        <label for="photo"data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.indxImgRegTlt')}}">
                             <img src="{{ URL::asset('img/add_photo.jpg') }}" class="tmp_img" width="155" height="140" />
                             <p>Upload here<br> your new photo</p>
                         </label>

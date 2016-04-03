@@ -180,7 +180,7 @@ $(document).ready(function(){
 
             $('.confSec').on('click',function(e){
                 //e.preventDefault();
-                $('#btn_sub_ev').removeClass("Hidden");
+                $('.btn_sub_ev').removeClass("Hidden");
                 $('.conSec').removeClass("Hidden");
                 $('.btnSec').removeClass("Hidden");
                 $('.viSec').addClass("Hidden");
@@ -189,7 +189,7 @@ $(document).ready(function(){
                 opcion = 1;
             });
             $('.fotoSec').on('click',function(){
-                $('#btn_sub_ev').removeClass("Hidden");
+                $('.btn_sub_ev').removeClass("Hidden");
                 $('.fotSec').removeClass("Hidden");
                 $('.btnSec').removeClass("Hidden");
                 $('.conSec').addClass("Hidden");
@@ -199,7 +199,7 @@ $(document).ready(function(){
                 opcion = 2;
             });
             $('.vidSec').on('click',function(){
-                $('#btn_sub_ev').removeClass("Hidden");
+                $('.btn_sub_ev').removeClass("Hidden");
                 $('.viSec').removeClass("Hidden");
                 $('.conSec' ).addClass("Hidden");
                 $('.fotSec').addClass("Hidden");
@@ -209,7 +209,7 @@ $(document).ready(function(){
                 opcion = 3;
             });
             $('.linkSec').on('click',function(){
-                $('#btn_sub_ev').removeClass("Hidden");
+                $('.btn_sub_ev').removeClass("Hidden");
                 $('.linkerSec').removeClass("Hidden");
                 $('.conSec' ).addClass("Hidden");
                 $('.fotSec').addClass("Hidden");

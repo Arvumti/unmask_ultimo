@@ -16,8 +16,8 @@ return array(
 /* -- INDEX -- */
 	"fotosLblSubir" => "Click para añadir foto",
 	"indxTitUnmask" => "UNMASK",
-	"indxHerBtnInicioSecion" => "LOGIN ",
-	"indxModTitInicioSecion" => "Inicio de sesión",
+	"indxHerBtnInicioSecion" => "ACCESAR",
+	"indxModTitInicioSecion" => "Inicia sesión",
 	"indxModLblUsuario" => "Nombre de usuario (Alias) ",
 	"indxModlblContrsenia" => "Contraseña ",
 	"indxModBtnCrearCuenta" => "Crear cuenta",
@@ -25,7 +25,10 @@ return array(
 	"indxModLblCapcha" => "Teclear caracteres de la imagen",
 	"indxNavBtnInicio" => "Acerca",
 	"indxNavUnmask" => "Cómo funciona",
-	"indxNavPor" => "Por qué Unmask",
+	"indxNavPor" => "Por qué Unmask?",
+	"indxNavVL" => "Vida Virtual",
+
+
 	"indxNavLblPoliticasAvisos" => "Politicas",
 	"indxHelLblCaracteristicas" => "CARACTERISTICAS",
 	"indxHelLblCaracteristica1" => "REGÍSTRATE Y CREA TU CUENTA SIN NECESIDAD DE INFORMACIÓN PERSONAL",
@@ -45,7 +48,7 @@ return array(
 	"indxMovLblDescripcion1" => "Todos usan mascaras",
 	"indxMovLblDescripcionLife" => "En la vida real y virtual",
 
-	"indxMovLblDescripcion" => " En las redes sociales Facebook, Twitter, Vkontakte, Instagram, Whats app, Ask fm, Blogger, Reddit, Google+, las personas muestran lo que no son. Unmask; es el primer y único espacio donde podras desenmascarar a cualquier persona y mostrar la verdad al mundo! Utiliza nuestra tecnología como una nueva y efectiva forma de.",
+	"indxMovLblDescripcion" => " En las redes sociales Facebook, Twitter, Vkontakte, Instagram, Whats app, Ask fm, Blogger, Reddit, Google+, cualquier persona QUE TENGA ALGO QUE ESCONDER Y EXPONER SUS ACTOS AL MUNDO SIN TEMOR ALGUNO. Unmask; es el primer y único espacio donde podras desenmascarar a cualquier persona y mostrar la verdad al mundo! Utiliza nuestra tecnología como una nueva y efectiva forma de.",
 	"indxMovLblSJ" => "JUSTICIA SOCIAL.",
 	"indxMovLblFrase" => "“Dale al hombre una mascara y te dira la verdad”",
 	
@@ -83,30 +86,39 @@ return array(
 	"indxPdpLblSilencio" => "Calladitos nos vemos mas bonitos.",
 	"indxPdpLblCopyright" => "Copyright 2015 -",
 	"indxPdpLblUnmask" => "UNMASK",
-	"indxBola1Tit" => "Violador, Pedófilo, Maestro, Sacerdote, Padrastro, Abusador, Jefe, Tráfico de menores.",
-	"indxBola2Tit" => "Vendedor de drogas, Asesino, Estafador, Ladrón, Infiel, Estafador, Secuestrador, Prostituta, Fraudulento.",
+	"indxBola1Tit" => "Violador, Pedófilo, Maestro, Sacerdote, Padrastro, Abusador Sexual, Jefe, Tráfico de menores.",
+	"indxBola2Tit" => "Vendedor de drogas, Asesino, Estafador, Ladrón, Infiel, Secuestrador, Prostituta, Fraudulento.",
 	"indxBola3Tit" => "Esposo, Esposa, Novio, Novia, Amante, Prometida, Amigos, Socios, Colegas, Familiares",
-	"indxBola1pbr" => "¿Sabías que en 9 de cada 10 casos en los que una persona es víctima de abuso sexual, el agresor es alguien que la víctima o la familia conoce?",
-	"indxBola1p" => "¿Sabías que el 95 % de los delitos sexuales sucede porque el autor cree que todo va a permanecer",
-	"indxBola1sp" => " Desapercibido!",
-	"indxBola1p2" => " Rompe el silencio! Esta terrible situación no es culpa tuya y no estarás solo nunca más! Nadie y ninguna institución puede ofrecer una solución real para evitar o prevenir dicha experiencia o al menos le ayudará con el dolor que siente, por que no hay una",
-	"indxBola1sp2" => "SOLUCIÓN",
+	"indxBola1pbr" => "¿Sabías que en 9 de cada 10 casos en los que una persona es víctima de abuso sexual, el agresor es alguien que la víctima o la familia conocen?",
+	"indxBola1p" => "¿Sabías que el 95 % de los delitos sexuales suceden PORQUE EL AGRESOR CONFIA EN QUE SUS ACTOS PERMANECERAN",
+	"indxBola1sp" => " SIN SABERSE!",
+	"indxBola1p2" => " Rompe el silencio! Esa terrible situación no es culpa tuya y no estarás SOLA nunca más! Nadie y ninguna institución puede OFRECERTE una solución real para evitar o prevenir dicha experiencia NI LE AYUDARA CON EL DOLOR QUE SIENTE YA QUE NO EXISTIA,",
+	"indxBola1sp2" => "NINGUNA SOLUCION",
 	"indxBola1p3" => "del todo! Hasta hoy! ",
 	"indxBola1sp3" => "DESENMASCARANDO Y EXPONIENDO ANONIMAMENTE",
 	"indxBola1p4" => "tales criminales al mundo, DETENDRAS LOS CRIMENES SEXUALES",
-	"indxBola2p" => "El ''tiempo'' no significa nada respecto cuanto conoces otra persona. Podrían pasar meses y años conociendo a una persona y sin conocerla realmente. También su nuevo vecino podría ser un criminal, usted puede contratar a un criminal para su empresa, o podría ser su colega en el trabajo o su amigo de la escuela! Lo que es peor, incluso se podría casarse con tal hombre y llevarlo a su casa, a su familia sin saber nada. Ahora usted puede compartir sus terribles experiencias pasadas para advertir a los demás y evitar que usted inicie una relación con un criminal.",
-	"indxBola3p" => "El deseo sexual, el amor o la pasión se han desvanecido, la soledad, dinero, o los intereses personales, cualquiera que sea la razón, los conceptos de ''relación'' y ''lealtad'' están prácticamente olvidados en esta época. Hermanos dañan hermanos, maridos engañan a sus esposas, socios de negocios se traicionan entre sí, a medida que pasa el tiempo, la intención de ser leal está desapareciendo. Advertir a los demás y protegerse a sí mismo antes de empezar una relación exponiendo el comportamiento de las personas que le rodean.",
-	"indxtituloM" => "mentirosos, infieles y criminales serán forzados a mostrar sus verdaderas caras al mundo",
-	"indxtituloEV" => "REVELA la VERDAD de forma ANONIMA",
+	"indxBola2p" => "El tiempo no significa nada respecto cuanto ''conoces'' otra persona. Podrias pasar meses y años relacionandote con una persona y aun así no conocerla realmente; su nuevo vecino podría ser un criminal, usted podría contratar a un criminal para su empresa, o podría ser su colega en el trabajo o su amigo de la escuela! Lo que es peor, incluso podría casarse con tal hombre y llevarlo a su casa con su familia sin saber nada. Ahora usted puede compartir sus terribles experiencias pasadas para advertir a los demás y evitar que usted inicie una relación con un criminal.",
+	"indxBola3p" => "El deseo sexual, el amor o la pasión se han desvanecido, la soledad, dinero, o los intereses personales, cualquiera que sea la razón, los conceptos de ''AMOR'' y ''LEALTAD'' están prácticamente olvidados en esta época. Hermanos dañan hermanos, maridos engañan a sus esposas, socios de negocios se traicionan entre sí, a medida que pasa el tiempo, la intención de ser leal está desapareciendo. ADVIERTA a los demás y PREVENGA antes de empezar una relación exponiendo el comportamiento de las personas que le rodean.",
+	"indxtituloM" => "mentirosos, infieles y criminales DEBEN ser forzados a MOSTRAR sus verdaderos ACTOS al mundo",
+	"indxtituloEV" => "REVELA la VERDAD ANONIMAMENTE",
 	"indxtextoSl" => "Crea un perfil o postea sobre alguien a quien desees desenmascarar. Sube fotos, video y audio - rompe el silencio - comparte la verdad al mundo y permanece anónimo.",
-	"indxTitSome" => "ALGUNAS PERSONAS PODRÁN REBATIR EL DERECHO DE PRIVACIDAD",
-	"indxTitSome2" => "NOSOTROS EL DERECHO DE PREVENCIÓN Y PROTECCIÓN",
-	"indxPonun" => "En UNMASK.wiki puedes compartir y encontrar la verdad sobre las personas de todo el mundo.Ya se trate de tu amigo, tu maestro, tu personal, jefe, amante, novio, marido, esposa, familia, conocidos, colegas, socios o cualquier otra persona que has conocido y exponer su comportamiento para ayudar a otros a protegerse de cualquier daño antes de comenzar cualquier tipo de relación con otra persona. ",
+	"indxTitSome" => "Algunas personas RECLAMARAN el derecho a la privacidad",
+	"indxTitSome2" => "Nosotros RECLAMAMOS el derecho a la prevención y protección",
+	"indxPonun" => "En UNMASK.wiki puedes compartir y encontrar la verdad sobre las personas de todo el mundo. Ya se trate de tu amigo, tu maestro, tu empleado, jefe, amante, novio, marido, esposa, familia, conocidos, colegas, socios o cualquier otra persona que has conocido. Expon su comportamiento para ayudar a otros a protegerse de algún daño antes de comenzar cualquier tipo de relación con otra persona. ",
 	"indxClick" => "CLICK  ",
 	"indxOpen" => "PARA ABRIR LA VERDAD",
 	"indxOr" => "O",
 	"indxFind" => "encuentra a alguien",
 	"indxBy" => "POR NOMBRE COMPLETO, PAIS Y CIUDAD",
+	"indxbtnCerrar"=>"Cerrar",
+	"indxImgReg1"=>"SUBE UNA",
+	"indxImgReg2"=>"FOTO AVATAR",
+	"indxImgRegTlt"=>"NO DEBES SUBIR TU FOTO REAL YA QUE TU PERFIL ES ANONIMO",
+
+
+	
+
+
 
 
 
@@ -144,6 +156,9 @@ return array(
 	"basePlhBaApo" => "Ejemplo: El cholo",
 	"basePlhBaPa" => "España",
 	"basePlhBaCiu" => "Madrid",
+
+"prinTith1" => "ACTUALIZACIONES DEL MURO",
+	
 
 	/* -- crear_perfil -- */
 	"crePerDivTitTitulo" => "AQUI PODRAS CREAR UN PERFIL NUEVO DE LA PERSONA A LA CUAL QUIERES DESENMASCARAR",
@@ -192,7 +207,7 @@ return array(
 	"cuenHedLblCambiarContra" => "Cambiar Contraseña",
 	"cuenHedLblContrasenia" => "Contraseña actual",
 	"cuenHedLblContraseniaVal" => "Requerido",
-	"cuenHedLblNuevaContrasenia" => "Contraseña",
+	"cuenHedLblNuevaContrasenia" => "Nueva Contraseña",
 	"cuenHedLblNuevaContraseniaVal" => "Requerido",
 	"cuenHedLblNuevaContraseniaConf" => "Repetir contraseña",
 	"cuenHedLblNuevaContraseniaConfVal" => "Las contraseñas no coinciden",

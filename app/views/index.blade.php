@@ -43,14 +43,14 @@
 
                     <li ><a href="http://www.unmask.wiki/why.html"target="_blank">{{Lang::get('messages.indxNavPor')}}</a></li>
                     <li><a href="http://www.unmask.wiki/how.html"target="_blank">{{Lang::get('messages.indxNavUnmask')}}</a></li>
-                    <li ><a href="http://www.unmask.wiki/virtual.html"target="_blank">Virtual Life</a></li>
+                    <li ><a href="http://www.unmask.wiki/virtual.html"target="_blank">{{Lang::get('messages.indxNavVL')}}</a></li>
 
                     <li style="margin-left:0;border:none"><a href="http://www.unmask.wiki/dis.html"target="_blank">{{Lang::get('messages.indxNavLblPoliticasAvisos')}}</a></li>
 
 
                     <!--li><a href="#">Open Mask</a></li>
                     <li><a href="#">Find Someone</a></li-->
-                    <li style="text-align:center;position:absolute;">
+                    <li style="text-align:center;position:relative;top:-9px;">
 
                         <a id="btnEng"href="{{ URL::to('/idioma/en') }}"><img width="30px"src="img/brit.png"></a>
                         <a id="btnRus"href="{{ URL::to('/idioma/rs') }}"><img width="30px"src="img/rusia.png"></a>
@@ -94,6 +94,7 @@
                         {{ Form::close() }}
                     </div>
                 </div>
+                <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
 
                 <div id="create_account" class="create_account flex_box hidden_class">
                     <div class="flex_box">
@@ -102,9 +103,9 @@
                             <div class="flex_popup flex_column_popup">
 
                                 <input type="file" class="hidden_class" name="foto" id="photo" accept="image/jpeg,image/png"> 
-                                <label for="photo">
+                                <label for="photo" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.indxImgRegTlt')}}">
                                 <img src="img/add_photo.jpg" class="tmp_img" width="195" height="195" />
-                                <p>Put here <br> your new photo</p></label>
+                                <p style="text-align:center">{{Lang::get('messages.indxImgReg1')}} <br> {{Lang::get('messages.indxImgReg2')}}</p></label>
                                 <div class="flex_popup flex_captcha_popup"style="margin-left:50px">
                                      {{ $captchaHtml }}
                                     <div class="flex_button">
@@ -199,7 +200,7 @@
 
             <!--div class="cycle-pager"style="width:70%;"></div-->
        </div>
-        <div id="slider_text" style="top:10%;left:37%;">
+        <div id="slider_text" style="top:10%;left:40%;">
             <h2 style="color:#B23B2E;font-size:25px">{{Lang::get('messages.indxBola2Tit')}} </h2>
             <p style="font-size:18px;margin-top:20px;text-align:justify;">{{Lang::get('messages.indxBola2p')}}   </p>
         </div>
@@ -269,7 +270,7 @@
             <div class="copy"style="text-align:center">
                 <iframe class="videosYou"width="100%" height="315" src="https://www.youtube.com/embed/pLpl9qGAX-0" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="cf footer_modal"> <a href="#"class="btnCerrar">Close</a></div>
+            <div class="cf footer_modal"> <a href="#"class="btnCerrar">{{Lang::get('messages.indxbtnCerrar')}}</a></div>
         </div>
             <div class="overlay"></div>
     </div>
@@ -282,7 +283,7 @@
                 <iframe class="videosYou"width="100%" height="315" src="https://www.youtube.com/embed/LxtE6-3-UFk" frameborder="0" allowfullscreen></iframe>
                 
             </div>
-            <div class="cf footer_modal"> <a href="#"class="btnCerrar">Close</a></div>
+            <div class="cf footer_modal"> <a href="#"class="btnCerrar">{{Lang::get('messages.indxbtnCerrar')}}</a></div>
         </div>
             <div class="overlay"></div>
     </div>
@@ -294,7 +295,7 @@
             <div class="copy">
                <iframe class="videosYou"width="100%" height="315" src="https://www.youtube.com/embed/Utdd9jodoHg" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="cf footer_modal"> <a href="#"class="btnCerrar">Close</a></div>
+            <div class="cf footer_modal"> <a href="#"class="btnCerrar">{{Lang::get('messages.indxbtnCerrar')}}</a></div>
         </div>
             <div class="overlay"></div>
     </div>
@@ -555,6 +556,8 @@
 
     <script src="{{ URL::asset('scripts/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
     <script type="text/javascript" src="{{ URL::asset('foundation/js/foundation/foundation.js') }}"></script>
+        <script src="{{ URL::asset('foundation/js/foundation/foundation.tooltip.js') }}"></script>
+
     <script src="{{ URL::asset('scripts/cycle2.js') }}" type="text/javascript"></script>
     <script src="{{ URL::asset('scripts/script.js') }}" type="text/javascript"></script>
     
