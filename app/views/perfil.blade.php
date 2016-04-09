@@ -30,12 +30,21 @@
                             <div class="mask">
                                 <img src="{{ URL::asset('\\img\\db_imgs\\'.$data['perfil']->foto) }}">
                             </div>
+                            <!-- ULTIMA MASCARA PUBLICADA -->
                             @foreach($data['mascaras'] as $mascara)
 
                             @if( strlen($mascara->nombre) > 0 )
                             <p>{{substr( $mascara->nombre, 0, 15) }}  </p>
                             @endif
                             @endforeach
+                        </div>
+                        <div class="box_miniatura">
+                        
+                        @foreach($data['fotos'] as $evidencia)
+                            <a href="" style="width:20%;" data-reveal-id="sliderGaleria" class="open-modal">
+                                <img src="{{ URL::asset('\\img\\db_imgs\\publicas\\'.$evidencia->foto) }}"/>
+                            </a>
+                        @endforeach
                         </div>
 
                         <div class="flex_box">
@@ -55,24 +64,17 @@
                                 </div>
                             </a>
                         </div>
-                         <div class="box_miniatura">
                         
-                        @foreach($data['fotos'] as $evidencia)
-                            <a href="" data-reveal-id="sliderGaleria" class="open-modal">
-                                <img src="{{ URL::asset('\\img\\db_imgs\\publicas\\'.$evidencia->foto) }}"/>
-                            </a>
-                        @endforeach
-                    </div>
                     </div>
 
                     <div class="info_block">
                         <!--a href="#" class="float_right">Follow <img src="{{ URL::asset('img/plus_red.png') }}"></a-->
                         <div class="clear"></div>
                         <!--div class="float_left"-->
-                            <p class="long_name">{{ $data['perfil']->perfil }}</p>
+                            <p class="long_name"style="text-transform: capitalize;">{{ $data['perfil']->perfil }}</p>
                             @foreach($data['apodos'] as $apodo)
                              @if( strlen($apodo->apodo) > 0 )
-                                <p class="short_name">( {{ $apodo->apodo }} )</p>
+                                <p class="short_name"style="text-transform: capitalize;display:inline-block; vertical-align:top;">{{ $apodo->apodo }} </p>
                              @endif
                             @endforeach
                             <div class="place">
@@ -80,40 +82,56 @@
                                 <p>ID: <span>{{ $data['perfil']->idPerfil }}</span></p>
                             </div>
                             @foreach($data['nombres'] as $nombre)
-                                <p class="short_name" style="text-transform: capitalize;">Extras: {{ $nombre->nombre }}</p>
+                                <p class="short_name" style="text-transform: capitalize;display:inline-block; vertical-align:top;"><!--Extras:--> {{ $nombre->nombre }}</p>
                             @endforeach
+                                <!-- PONER TODAS LAS MASCARAS SOBRE EL MISMO RENGLÓN NO UN PARRAFO POR CADA MASCARA-->
+                            <div class="cien">
+                            @if( strlen($mascara->nombre) > 0 )
+                                <p class="short_name "style="display:inline-block; vertical-align:top;font-family: Raleway_bold;">{{Lang::get('messages.perfInfLblMascara')}}</p>
+                            @endif
                             @foreach($data['mascaras'] as $mascara)
+
                                 @if( strlen($mascara->nombre) > 0 )
-                                    <p class="short_name" style="text-transform: capitalize;">{{Lang::get('messages.perfInfLblMascara')}} {{ $mascara->nombre }}</p>
+                                    <p class="short_name mascara_perfil" style="text-transform: capitalize;display:inline-block; vertical-align:top;">{{ $mascara->nombre }}</p>
                                 @endif
                             @endforeach
-                            @if(strlen($data['perfil']->facebook) > 0)
-                                <a style="color:black;width:387px;font-size:12pt;9"href="{{ $data['perfil']->facebook }}"target="_blank">{{ substr($data['perfil']->facebook, 0, 25) }}...</a><br>
-                            @endif
+                            </div>
+                                <img src="{{ URL::asset('img/fb.png') }}"width="30"height="30">
+                                @if(strlen($data['perfil']->facebook) > 0)
+                                    
+                                    <a class="redes_icono"style="width:300px;font-size:12pt;"href="{{ $data['perfil']->facebook }}"target="_blank">{{ substr($data['perfil']->facebook, 0, 25) }}...</a>
+                                @endif
+                            
+                                <img src="{{ URL::asset('img/tw.png') }}"width="30"height="30">
                             @if(strlen($data['perfil']->twitter) > 0)
-                                <a style="color:black;width:387px;font-size:12pt;"href="{{ $data['perfil']->twitter }}"target="_blank">{{ substr($data['perfil']->twitter, 0, 25) }}...</a><br>
+                                <a class="redes_icono" style="color:black;width:300px;font-size:12pt;"href="{{ $data['perfil']->twitter }}"target="_blank">{{ substr($data['perfil']->twitter, 0, 25) }}...</a><br>
                             @endif
+                         
+                                <img src="{{ URL::asset('img/insta.png') }}"width="30"height="30">
                             @if(strlen($data['perfil']->instagram) > 0)
-                                <a style="color:black;width:387px;font-size:12pt;"href="{{ $data['perfil']->instagram }}"target="_blank">{{ substr($data['perfil']->instagram, 0, 25) }}...</a><br>
+                                <a class="redes_icono"style="color:black;width:300px;font-size:12pt;"href="{{ $data['perfil']->instagram }}"target="_blank">{{ substr($data['perfil']->instagram, 0, 25) }}...</a><br>
                             @endif
+                                <img src="{{ URL::asset('img/otra_red.png') }}"width="30"height="30">
                             @foreach($data['redes'] as $red)
-                                <a style="color:black;width:387px;font-size:12pt;"href="{{ $red->nombre }}"target="_blank">{{ substr($red->nombre, 0, 25) }}...</a><br>
+                                <a style="color:black;width:300px;font-size:12pt;"href="{{ $red->nombre }}"target="_blank">{{ substr($red->nombre, 0, 25) }}...</a><br>
                             @endforeach
+
                             <div class=="btn_odio">                         <!-- data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.')}}" -->
                                 <a style="display: inline-block;vertical-align: top; text-align: center"href="#" class="haters btn-voto-amor has-tip" data-tipo="1" data-id="{{ $data['perfil']->idPerfil }}" data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotarOtraVez')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblOdio')}} (<span class="total-lovehate">{{ $data['perfil']->odio }}</span>)</p></a>
                                 <a style="display: inline-block;vertical-align: top; text-align: center"href="#" class="lovers btn-voto-amor has-tip"data-tipo="2" data-id="{{ $data['perfil']->idPerfil }}"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltVotar')}}"><p class="amor-votes">{{Lang::get('messages.perfInfLblAmor')}} (<span class="total-lovehate">{{ $data['perfil']->amor }}</span>)</p></a>
                             </div>
                         <!--/div-->
-                          <div class="box_relaciones">
-                        <h5 data-tooltip aria-haspopup="true" class="has-tip titulo_relaciones" title="{{Lang::get('messages.perfPostTltComplices')}} ">{{Lang::get('messages.perfInfLblPerfiles')}} </h5>
-                        @foreach($data['relaciones'] as $relacion)
-                            <a href="{{ URL::to('perfil').'/'.$relacion->idPerfil }}">
-                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltComplice')}}">
-                                    <img src="{{ URL::asset('\\img\\db_imgs\\'.$relacion->foto) }}" style="border-radius:5px"/>
-                                </span>
-                            </a>
-                        @endforeach
-                    </div>
+                        <div class="box_relaciones">
+                            <h5 data-tooltip aria-haspopup="true" class="has-tip titulo_relaciones" title="{{Lang::get('messages.perfPostTltComplices')}} ">{{Lang::get('messages.perfInfLblPerfiles')}} </h5>
+                            @foreach($data['relaciones'] as $relacion)
+                                <a href="{{ URL::to('perfil').'/'.$relacion->idPerfil }}">
+                                    <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltComplice')}}">
+                                        <img src="{{ URL::asset('\\img\\db_imgs\\'.$relacion->foto) }}" style="border-radius:5px;height:50px"/>
+                                    </span>
+                                </a>
+                            @endforeach
+
+                        </div>
                     </div>
 
                     <div class="clear"></div>
@@ -121,7 +139,9 @@
                   
                 </div>
 <!-- MODAL DE INFORMACION EXTRA -->
-                <div class="add_info_extra"><a href=""data-reveal-id="agregarPublico">{{Lang::get('messages.perfInfLblAgregarInformacion')}}</a></div>
+                <button class="add_btn_info" data-reveal-id="agregarPublico" data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfTAgregaTlt')}}"> <span>{{Lang::get('messages.perfInfLblAgregarInformacion')}}</span> <img src="{{ URL::asset('img/create_plus.png') }}" width="30"></button>
+
+                <!--div class="add_info_extra"><a href=""></a></div-->
                 <div id="agregarPublico" class="reveal-modal" data-reveal>
                     <div class="cien">
                         @if(count($data['nombres']) < 3)
@@ -166,67 +186,57 @@
                                         
                                     </label>
                                 </div>
-                               
                             </div>
                         @endif
                         @if(count($data['fotos']) < 5)
-                            <div class="cien">
-                                <div id="fotosAdd"class="columna_datos  ">
-                                    <form action="{{ URL::to('fotos_publicas').'/'.$data['perfil']->idPerfil }}" method="post" id="frmEvidencia" enctype="multipart/form-data" class="multi-image" data-abide>
-                                        <div class="entrada_datos">
-                                            <label>
-                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltFotosExtras')}}">
-                                                    {{Lang::get('messages.perfInfLblImagenExtra')}}
-                                                </span>
-                                                
-                                                <input style="padding-top:2px;padding-bottom:2px;height:35px;"type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
-                                                <button type="submit" class="button align-top tiny btn- "style="background-color:#ae3e34;">Add</button>
-                                                
-                                            </label>
-                                            <small class="error">{{Lang::get('messages.indxModlblContrsenia')}} - {{Lang::get('messages.indxModlblContrsenia')}}</small>
-                                        </div>
-                                        
-                                    </form>
-                                </div>
-                           
-                        @endif
-                            
-                                @if(count($data['redes']) < 10)
-                                    <div id="social"class="columna_datos  pnl-redes-publicas " data-id="{{ $data['perfil']->idPerfil }}">
-                                        <div class="entrada_datos">
-                                            <label>
-                                                <span data-tooltip  aria-haspopup="true" class="has-tip" title="">{{Lang::get('messages.perfInfLblSocialMedia')}}</span>
-                                                <input type="text" class="mascara-publica" />
-                                                <button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">Add</button>
-                                                
-                                            </label>
-                                        </div>
-                                        <div class="btn_entrada  formulario_alinear">
-                                            <label>
-                                            </label>
-                                        </div>
+                            <!--div class="cien"-->
+                            <div id="fotosAdd"class="columna_datos  ">
+                                <form action="{{ URL::to('fotos_publicas').'/'.$data['perfil']->idPerfil }}" method="post" id="frmEvidencia" enctype="multipart/form-data" class="multi-image" data-abide>
+                                    <div class="entrada_datos">
+                                        <label>
+                                            <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltFotosExtras')}}">
+                                                {{Lang::get('messages.perfInfLblImagenExtra')}}
+                                            </span>
+                                            <input style="padding-top:2px;padding-bottom:2px;height:35px;"type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
+                                            <button type="submit" class="button align-top tiny btn- "style="background-color:#ae3e34;">Add</button>
+                                        </label>
+                                            <!--small class="error">{{Lang::get('messages.indxModlblContrsenia')}} - {{Lang::get('messages.indxModlblContrsenia')}}</small-->
                                     </div>
-                                @endif
-                           
-                                @if(count($data['relaciones']) < 5)
-                                    <div id="rela"class="columna_datos pnl-perfiles-publicos " data-id="{{ $data['perfil']->idPerfil }}">
-                                        <div class="entrada_datos">
-                                            <label>
-                                                <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">{{Lang::get('messages.perfInfLblIdPerfil')}}</span>
-                                                <input type="text" class="perfil-publica" name="mascara" />
-                                                <button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">Add</button>
-                                                  
-                                            </label>
-                                        </div>
-                                        <div class="btn_entrada formulario_alinear">
-                                            <label>
-                                            </label>
-                                        </div>
-                                    </div>
-                                @endif
+                                </form>
                             </div>
+                        @endif
+                        @if(count($data['redes']) < 10)
+                            <div id="social"class="columna_datos  pnl-redes-publicas " data-id="{{ $data['perfil']->idPerfil }}">
+                                <div class="entrada_datos">
+                                    <label>
+                                        <span data-tooltip  aria-haspopup="true" class="has-tip" title="">{{Lang::get('messages.perfInfLblSocialMedia')}}</span>
+                                        <input type="text" class="mascara-publica" />
+                                        <button type="button" class="button align-top tiny btn-red-publica "style="background-color:#ae3e34;">Add</button>
+                                    </label>
+                                </div>
+                                <!--div class="btn_entrada  formulario_alinear">
+                                    <label>
+                                            </label>
+                                        </div-->
+                            </div>
+                        @endif
+                        @if(count($data['relaciones']) < 5)
+                            <div id="rela"class="columna_datos pnl-perfiles-publicos " data-id="{{ $data['perfil']->idPerfil }}">
+                                <div class="entrada_datos">
+                                    <label>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltCompliceExtra')}}">{{Lang::get('messages.perfInfLblIdPerfil')}}</span>
+                                        <input type="text" class="perfil-publica" name="mascara" />
+                                        <button type="button" class="button align-top tiny btn-perfil-publico "style="background-color:#ae3e34;">Add</button>
+                                    </label>
+                                </div>
+                                        <!--div class="btn_entrada formulario_alinear">
+                                            <label>
+                                            </label>
+                                        </div-->
+                            </div>
+                        @endif
+                            <!--/div-->
                     </div>
-                                
                     <a class="close-reveal-modal">&#215;</a>
                 </div>
                 <a class="exit-off-canvas"></a>
@@ -331,7 +341,7 @@
                     <ul>
                         <li id="lapiz"  class="comments has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltConfesion')}}"><p>{{Lang::get('messages.perfPostLblConfesion')}}</p></li>
                         <li id="secre"  class="videos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltConfesionVideo')}}"><p>{{Lang::get('messages.perfPostLblVideo')}}</p></li>
-                        <li id="fotosP" class="photos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltEvidenciaImagen')}}"><p>photos</p></li>
+                        <li id="fotosP" class="photos has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltEvidenciaImagen')}}"><p>{{Lang::get('messages.perfInfLblFotos')}}</p></li>
                         <li id="linkear"class="other has-tip"data-tooltip aria-haspopup="true"title="{{Lang::get('messages.perfPostTltConfesionEnlace')}}"><p>{{Lang::get('messages.perfPorLblEnlace')}}</p></li>
                     </ul>
                 </div>
@@ -370,7 +380,7 @@
                                         </label>
                                     </div>
                                     <div id="botCampo" class="Hidden">  
-                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionEvidencia')}}"><input type="submit" class="button btn-postear"value="{{Lang::get('messages.perfPorLblPostear')}}"><!--button type="button"  style=""> </button--></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionEvidencia')}}"><input type="submit" style="margin-top:12px;" class="button btn-postear"value="{{Lang::get('messages.perfPorLblPostear')}}"><!--button type="button"  style=""> </button--></span>
                                     </div>
                                 </div>
                            </form>
@@ -571,7 +581,7 @@
                                             <h4 >{{Lang::get('messages.perfPorLblConfesion')}}</h4>
                                         </div>
                                     </div-->
-                                    <ul class="gv-subcomentarios"  style="margin-top:2em;padding:2em 2em 0.5em 2em;">
+                                    <ul class="gv-subcomentarios"  style="margin-top:2em;padding:0em 2em 0.8em 2em;">
                                         @foreach($post->subcomentarios as $subcomentario)
                                         <li class="cien">
                                             <div class="noventa">
@@ -592,7 +602,7 @@
                                                 </a>
                                             </div>
                                             @endif
-                                            <div class="noventa">
+                                            <div class="cien">
                                                 @if(strlen($subcomentario->video) > 0)
                                                 <div class="" style="text-align:center; margin-bottom:1.5em;">
                                                     <iframe width="50%" height="330" src="//www.youtube.com/embed/{{$subcomentario->video}}" frameborder="0" allowfullscreen></iframe>
@@ -754,7 +764,7 @@
                                     </ul>
                                     <div class="alto">
                                         <div class="subcomentarios-posts" data-id="{{$post->idPost}}">
-                                            <div class="cuarenta" style="float:right;padding-left:3em;margin-bottom:1em;">
+                                            <div class="cuarenta" style="float:right;padding-left:3em;margin-bottom:8px;">
                                                 <div class="post_foot">
                                                     <a class="confSec">
                                                         <img data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltEvidenciaTexto')}}" src="{{ URL::asset('img\\coment2.png') }}">
@@ -873,7 +883,7 @@
                         <div class="titulo_barra">
                             <h2>{{Lang::get('messages.perfPostModFotoExtra')}}</h2>
                         </div>
-                        <div class="slider_cuadro_fotos_perfil">                   
+                        <div class="small-8 columns"style="margin-left:16%">                   
                             <ul data-orbit style="">
                             @foreach($data['fotos'] as $evidencia)
                                 <li>
@@ -1752,7 +1762,7 @@
 	</script>
     <script>
       $('img').error(function(){
-                $(this).attr('src', '../img/mascarita.png');
+                /*$(this).attr('src', 'img/mascarita.png');*/
             });
     </script>
     

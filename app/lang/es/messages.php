@@ -269,17 +269,17 @@ return array(
 	"perfInfLblAmor" => "AMAN",
 	"perfInfLblClasificar" => "CALIFICA ESTE PERFIL",
 	"perfInfLblPerfiles" => "Perfiles relacionados:",
-	"perfInfLblAgregarInformacion" => "Añade información extra",
+	"perfInfLblAgregarInformacion" => "Añade información",
 	"perfInfLblApodosExtras" => "Nombres y apodos adicionales",
-	"perfInfLblMascara" => "Máscara",
+	"perfInfLblMascara" => "Máscaras:",
 	"perfInfLblLugar" => "Lugar",
 	"perfInfLblSocial" => "Social",
 	"perfInfLblRelacionar" => "Relaciona",
-	"perfInfLblFotos" => "Imágenes",
+	"perfInfLblFotos" => "Fotos",
 	"perfInfLblNombresAdicionales" => "Nombres adicionales:",
 	"perfInfLblAgregar" => "Agregar",
 	"perfInfLblApodo" => "Apodo:",
-	"perfInfLblMascara" => "Máscara:",
+	
 	"perfInfLblImagenExtra" => "Imagen extra de perfil",
 	"perfInfLblObligatorio" => "Campo obligatorio",
 	"perfInfLblSocialMedia" => "Social Media:",
@@ -308,7 +308,7 @@ return array(
 	"perfPostLblTweet" => "Tweet",
 	"perfPostLblConfesionVal" => "Confesión requerida",
 	"perfPostLblSubir" => "Subir",
-	"perfPostModFotoExtra" => "FOTOS EXTRA DEL PERFIL",
+	"perfPostModFotoExtra" => "FOTOS ADICIONALES DEL PERFIL",
 	"perfPostModFotoPrincipal" => "FOTO PRINCIPAL DEL PERFIL",
 	"perfPostModGaleriaEvidencia" => "GALERIA EVIDENCIA",
 	"perfPostModFotoPrincipal" => "GALERIA EVIDENCIA",
@@ -319,6 +319,8 @@ return array(
 	"perfPostModComentarios" => "Comentarios",
 	"perfPostModComentario" => "Comentar",
 	"perfTitlEvidencia"=>"EVIDENCE",
+	"perfTAgregaTlt"=>"AQUI PUEDES AÑADIR NOMBRES, FOTOS DE PERFIL, APODOS, LINKS DE REDES SOCIALES, O MÁSCARAS RELACIONADAS A ESTA PERSONA",
+
 
 
 	

@@ -317,9 +317,9 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	"perfInfLblAmor" => "LOVERS",
 	"perfInfLblClasificar" => "RANK THIS PROFILE",
 	"perfInfLblPerfiles" => "Related Profiles:",
-	"perfInfLblAgregarInformacion" => "Add extra information",
+	"perfInfLblAgregarInformacion" => "Add information",
 	"perfInfLblApodosExtras" => "Additional names and nicknames",
-	"perfInfLblMascara" => "Mask",
+	"perfInfLblMascara" => "Masks:",
 	"perfInfLblLugar" => "Place",
 	"perfInfLblSocial" => "Social",
 	"perfInfLblRelacionar" => "Relate",
@@ -327,7 +327,6 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	"perfInfLblNombresAdicionales" => "Additional names:",
 	"perfInfLblAgregar" => "Add",
 	"perfInfLblApodo" => "Nickname:",
-	"perfInfLblMascara" => "Mask:",
 	"perfInfLblImagenExtra" => "Additional profile photo",
 	"perfInfLblObligatorio" => "This field is mandatory",
 	"perfInfLblSocialMedia" => "Social Media:",
@@ -356,7 +355,7 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	"perfPostLblTweet" => "Tweet",
 	"perfPostLblConfesionVal" => "Confession is required",
 	"perfPostLblSubir" => "Upload",
-	"perfPostModFotoExtra" => "EXTRA PROFILE PHOTOS",
+	"perfPostModFotoExtra" => "ADDITIONAL PROFILE PHOTOS",
 	"perfPostModFotoPrincipal" => "MAIN PROFILE PHOTO",
 	"perfPostModGaleriaEvidencia" => "EVIDENCE GALLERY",
 	"perfPostModFotoPrincipal" => "EVIDENCE GALLERY",
@@ -368,6 +367,8 @@ Rank them by their deeds according to the good or bad that they have done, so th
 	"perfPostModComentario" => "Comment",
 	"perfPosModFotoPrincipal"=>"PROFILE PICTURE",
 	"perfTitlEvidencia"=>"EVIDENCE",
+	"perfTAgregaTlt"=>"HERE YOU CAN ADD NAMES, PROFILE PHOTOS, NICKNAMES, SOCIAL MEDIA LINKS, OR MASKS RELATED TO THIS PERSON",
+
 
 
 	

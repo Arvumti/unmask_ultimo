@@ -21,7 +21,7 @@ body{
 
 #start_page_header{
     /*height: 65px;*/
-    margin: 0 auto;
+   /* margin: 0 auto;*/
     width: 100%;
     vertical-align: middle;
     display: inline-block;
@@ -34,7 +34,7 @@ body{
 }
 
 .start_page_big_logo{
-    margin: 1% 1.5% 0 3.07%!important;
+    margin-left: 15px !important;
     width: 170px;
 }
 
@@ -85,7 +85,7 @@ body{
 #start_page_sign_up a{
     font-family: Raleway_Regular;
     font-weight: bold;
-    font-size: 14pt;
+    font-size: 12pt;
     color: #B23B2E;
 }
 
@@ -223,7 +223,7 @@ video{
     color: #000000;
     text-align: center;
     text-transform: uppercase;
-    margin: 4.53% auto;
+    margin: 2.53% auto;
 }
 
 #find span {
@@ -498,10 +498,11 @@ video{
 /*}*/
 
 #footer{
+    
     height: 104px;
     position: relative;
     bottom: 0;
-    padding-top: 16px;
+    padding-top: 5px;
     color: #ffffff!important;
     background-color: #151e23;
 }
@@ -543,7 +544,7 @@ video{
     /*height: 370px;*/
 }
 
- #bolas img{
+#bolas img{
     width: 380px;
     height: 370px;
     border-radius: 100%;
@@ -661,7 +662,7 @@ video{
 #line_header .content ul{
     width: 362px;
     margin-left: 60px;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 #line_header .content ul li{
@@ -1097,6 +1098,31 @@ video{
     right: 0;
     vertical-align: middle;
 }
+.add_btn_info{
+    cursor: pointer;
+    border: none;
+    font-family: Raleway_SemiBold;
+    font-size: 11pt;
+    text-transform: uppercase;
+    background-color: #B23B2E;
+    position: relative;
+    width: 250px;
+    height: 30px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
+
+.add_btn_info span{
+    color: #ffffff;
+    margin-left: -28px;
+}
+
+.add_btn_info img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    vertical-align: middle;
+}
 
 /* CREATE PROFILE */
 
@@ -1484,7 +1510,8 @@ input[name="captcha_characters"]{
 
 .teg_photo{
     width: 250px;
-    height: 250px;
+    min-height: 200px;
+    max-height: 250px;
     -webkit-filter: grayscale(0%);
     display: flex;
     position: relative;
@@ -1501,7 +1528,8 @@ input[name="captcha_characters"]{
 .teg_photo .mask{
     position: absolute;
     width: 250px;
-    height: 250px;
+    min-height: 200px;
+    max-height: 250px;
 }
 .teg_photo .mask img{
     width: 100%;
@@ -1589,6 +1617,7 @@ input[name="captcha_characters"]{
 .place span{
     font-family: Raleway_Light;
 }
+.place  img,a{display: inline-block; vertical-align: top;}
 
 .content_navigation{
     display: flex;
@@ -1703,7 +1732,7 @@ input[name="captcha_characters"]{
  .confiable {
     float: right;
     
-    margin-bottom: 1em;
+    /*margin-bottom: 1em;*/
     
    }
   .confiable a {
@@ -1796,7 +1825,7 @@ a[href="#add"]{
 }
 
 .gallery{
-    padding-top: 25px;
+    padding-top: 5px;
     width: 700px;
     display: flex;
     flex-wrap: wrap;
@@ -2317,10 +2346,10 @@ a[href="#add"]{
  border-left: solid 1px #a7a9ab;
 }
 .alto{
-    min-height: 80px;
-    width: 90%;
-    margin-top: 1em;
-    padding: 15px;
+    min-height: 30px;
+    width: 100%;
+    margin-top: 5px;
+    padding:10px 0px 1px 35px;
 }
 .cuarenta{
     width: 40%;
@@ -2395,10 +2424,11 @@ a[href="#add"]{
     max-width: 100%;
     background-color: white;
     position: relative;
-    height:490px;
+    min-height:490px;
+    
 }
-.logotipos{
 
+.logotipos{
  margin-top: 10px; /*padding: 5%;*/
  text-align: center;
 }
@@ -2609,7 +2639,7 @@ margin-bottom: 20px
 }
 .box_miniatura{
     width: 100%;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 
 }
 }
@@ -2621,9 +2651,10 @@ margin-bottom: 20px
 
 }
 .box_miniatura a img {
-    width: 20% !important;
+    width: 100% !important;
     margin: 10px 5px 5px 5px;
     border-radius: 3px;
+    height: 46px;
 
 }
 /*.box_relaciones, .box_miniatura{
@@ -2637,9 +2668,10 @@ margin-bottom: 20px
 text-align: left;
 }
 .box_relaciones a {
-   width:  20%;
+   width:  15%;
    display: inline-block;
    vertical-align: top;
+   height: 100%;
    margin: 8px 5px 10px 5px;
 
 }
@@ -2656,4 +2688,14 @@ text-align: left;
         
     }
 }
+.redes_icono{
+    display: inline-block !important;
+    vertical-align: middle !important;
+
+}
+.titulo_barra{
+    text-align: center;
+}
+.mascara_perfil{
+    border:solid 1px #A54D42; padding:2px; border-radius:3px;background:#A54D42;color:white;
 }

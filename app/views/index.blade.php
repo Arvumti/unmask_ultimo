@@ -11,7 +11,7 @@
     <link href="css/typeahead.css" rel="stylesheet" media="screen">
 
     <link rel="shortcut icon" href="img/ico.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
 <!--SCRIPTS-->
     <title>UNMASK</title>
     <style type="text/css">
@@ -169,7 +169,7 @@
 
     </div>
     <div id="slider_bolas"style="margin-left:10%">
-        <div class="cycle-slideshow"id="bolas"style="text-align:center">
+        <div class="cycle-slideshow"id="bolas"style="text-align:center;margin-left:30px;">
             <img src="img/otro/1.jpg">
             <img src="img/otro/2.jpg">
             <img src="img/otro/3.jpg">
@@ -200,13 +200,13 @@
 
             <!--div class="cycle-pager"style="width:70%;"></div-->
        </div>
-        <div id="slider_text" style="top:10%;left:40%;">
+        <div id="slider_text" style="top:10%;left:45%;">
             <h2 style="color:#B23B2E;font-size:25px">{{Lang::get('messages.indxBola2Tit')}} </h2>
             <p style="font-size:18px;margin-top:20px;text-align:justify;">{{Lang::get('messages.indxBola2p')}}   </p>
         </div>
     </div>
-     <div id="slider_bolas"style="margin-left:10%">
-        <div class="cycle-slideshow"id="bolas"style="text-align:center">
+     <div id="slider_bolas"style="margin-left:10%;margin-top:10px">
+        <div class="cycle-slideshow"id="bolas"style="text-align:center;margin-left:30px">
             <img src="img/otro/14.jpg">
             <img src="img/otro/15.jpg">
             <img src="img/otro/16.jpg">
@@ -537,19 +537,19 @@
     <div id="footer">
 
             <a href="#" class="start_page_big_logo" style="margin: 1% 1.5% 0% 3.07%"><img src="img/logo_footer.png" width="80"></a>
-            <ul class="start_page_navigation"style="">
+            <ul class="start_page_navigation"style="padding-top:5px">
                 <li><a href="http://www.unmask.wiki/about.html"target="_blank">{{Lang::get('messages.indxNavBtnInicio')}}</a></li>
                 <li><a href="http://www.unmask.wiki/why.html"target="_blank">{{Lang::get('messages.indxNavPor')}}</a></li>
 
                 <li><a href="http://www.unmask.wiki/how.html"target="_blank">{{Lang::get('messages.indxNavUnmask')}}</a></li>
-                <li><a href="http://www.unmask.wiki/virtual.html"target="_blank">Virtual Life</a></li>
+                <li><a href="http://www.unmask.wiki/virtual.html"target="_blank">{{Lang::get('messages.indxNavVL')}}</a></li>
                 <li><a href="http://www.unmask.wiki/dis.html"target="_blank">{{Lang::get('messages.indxNavLblPoliticasAvisos')}}</a></li>
                 <li style=""> help@unmask.wiki</li>
                 
             </ul>
 
-                <a href="#start_page_header" id="arrow_up"><img src="img/arrow_up.png" width="40"/><!--p>up</p--></a>
-            <div style="text-align:center;width: 600px;margin-left: 365px;">Unmask Brand and Logos are registered in one or more countries <br>Unmask™®</div>
+                <!--a href="#start_page_header" id="arrow_up"><img src="img/arrow_up.png" width="40"/><p>up</p></a-->
+            <div style="text-align:center;width: 100%;"><p>Unmask Brand and Logos are registered in one or more countries <br>Unmask™®</p></div>
 
 
     </div>

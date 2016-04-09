@@ -30,6 +30,8 @@ return array(
 	"indxNavBtnInicio" => "ГЛАВНАЯ",
 	"indxNavUnmask" => "Как это работает",
 	"indxNavPor" => "Почему Unmask?",
+	"indxNavVL" => "v. жизнь",
+
 	"indxNavLblPoliticasAvisos" => "Отказ",
 	"indxHelLblCaracteristicas" => "ОСОБЕННОСТИ",
 	"indxHelLblCaracteristica1" => "ЗАРЕГИСТРИРУЙТЕСЬ И СОЗДАЙТЕ СВОЙ ПРОФИЛЬ БЕЗ КАКОЙ-ЛИБО ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ",
@@ -318,11 +320,10 @@ return array(
 	"perfInfLblLugar" => "Место",
 	"perfInfLblSocial" => "Социальные сети",
 	"perfInfLblRelacionar" => "Взаимосвязь ",
-	"perfInfLblFotos" => "Фотографии ",
+	"perfInfLblFotos" => "фото",
 	"perfInfLblNombresAdicionales" => "Дополнительные имена:",
 	"perfInfLblAgregar" => "Добавить ",
 	"perfInfLblApodo" => "Прозвище :",
-	"perfInfLblMascara" => "Маска :",
 	"perfInfLblImagenExtra" => "Extra profile image",
 	"perfInfLblObligatorio" => "обязательно",
 	"perfInfLblSocialMedia" => "Социальные сети:",
@@ -362,6 +363,8 @@ return array(
 	"perfPostModComentarios" => "Комментарии ",
 	"perfPostModComentario" => "Комментарии",
 	"perfTitlEvidencia"=>"доказательства",
+	"perfTAgregaTlt"=>"HERE YOU CAN ADD NAMES, PROFILE PHOTOS, NICKNAMES, SOCIAL MEDIA LINKS, OR MASKS RELATED TO THIS PERSON",
+
 
 	
 	"perfPostTltVotarOtraVez" => "Нажмите здесь если вы ненавидите этого человека",
