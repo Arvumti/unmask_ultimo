@@ -371,6 +371,8 @@
                                         <label>
                                             {{Lang::get('messages.perfPorLblEvidenciaVideo')}}:
                                             <input  type="text" name="link" placeholder="www.youtube.com/videoname"data-tooltip aria-haspopup="true" class="has-tip"title="{{Lang::get('messages.perfPostTltEvidenciaYoutube')}}"/>
+                                            <input type="file" id="" name="[]"  accept="video/*" data-tooltip aria-haspopup="true" class="has-tip" />
+
                                         </label>
                                     </div>
                                     <div id="eviCampo" data-tipo="3" class="Hidden">
@@ -397,7 +399,15 @@
                                 <div style="text-align:center;margin-bottom:9px;"> <!--VIDEO POST EVIDENCIA PAL-->
                                     <h5 style="text-align:center;">{{Lang::get('messages.perfPostLblVideo')}}</h5>
                                     <iframe style="margin-bottom:15px;"width="50%" height="330" src="//www.youtube.com/embed/{{$post->link}}" frameborder="0" allowfullscreen></iframe>
-                                    <video width="350px" height="330" controls="true"scr="{{ URL::asset('')}}"></video>
+                                    <video width="350px" height="330" controls="true">
+                                        <source src="" type="video/mp4">
+                                        <source src="" type="video/ogg">
+                                        <source src="" type="video/webm">
+
+                                        Tu navegador no soporta este formato.
+                                        Your browser does not support the video tag.
+
+                                    </video>
                                     <div class="confiable isHidden" data-tipo="video_post" data-id="{{ $post->idPost }}">
                                         {{Lang::get('messages.perfPostLblConfiable')}}:
                                         <a href="#" data-conf="1">
