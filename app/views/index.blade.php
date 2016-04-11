@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
 
-                                <input type="text" id="CaptchaCode" class="form-control" name="CaptchaCode" placeholder="{{Lang::get('messages.nologManLblCapcha')}}"type="text" style="text-transform: uppercase;margin-top:20px">
+                                <input type="text" id="CaptchaCode" class="form-control" name="CaptchaCode" placeholder="{{Lang::get('messages.nologManLblCapcha')}}"type="text" style="text-transform: uppercase;margin-top:20px;font-size:10pt;">
 
                             </div>
 

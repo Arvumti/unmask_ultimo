@@ -396,7 +396,8 @@
                                 @if(strlen($post->link) > 0)
                                 <div style="text-align:center;margin-bottom:9px;"> <!--VIDEO POST EVIDENCIA PAL-->
                                     <h5 style="text-align:center;">{{Lang::get('messages.perfPostLblVideo')}}</h5>
-                                    <iframe width="50%" height="330" src="//www.youtube.com/embed/{{$post->link}}" frameborder="0" allowfullscreen></iframe>
+                                    <iframe style="margin-bottom:15px;"width="50%" height="330" src="//www.youtube.com/embed/{{$post->link}}" frameborder="0" allowfullscreen></iframe>
+                                    <video width="350px" height="330" controls="true"scr="{{ URL::asset('')}}"></video>
                                     <div class="confiable isHidden" data-tipo="video_post" data-id="{{ $post->idPost }}">
                                         {{Lang::get('messages.perfPostLblConfiable')}}:
                                         <a href="#" data-conf="1">
@@ -824,7 +825,7 @@
                                             </div>
                                             <form class="sb_coment form-subcomentario " enctype="multipart/form-data" data-abide>
                                                 <div class="small-12 columns">
-                                                    <div  class="small-12 columns conSec Hidden ">
+                                                    <div  class="small-8 columns conSec Hidden ">
                                                         <label>
                                                             <small></small>
                                                             <textarea style="overflow:auto;width:600px; min-height:90px" name="comentario" placeholder="{{Lang::get('messages.perfPorLblConfesion')}} {{Lang::get('messages.perfPorLblRequerido')}}"required></textarea>
@@ -856,7 +857,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="small-12 columns btn_sub_ev Hidden" id="">
+                                                <div class="small-12 columns btn_sub_ev Hidden" style="height:40px;">
                                                     <label>
                                                         <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltInformacionGuardar')}}">
                                                             <button type="button" class="btn_upload btn-subcomentar btnSec "style="background-color: #ae3e34 ;">{{Lang::get('messages.perfPostLblSubir')}}</button>
