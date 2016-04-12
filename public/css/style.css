@@ -2640,6 +2640,8 @@ margin-bottom: 20px
 .box_miniatura{
     width: 100%;
     /*margin-top: 10px;*/
+    max-height: 70px;
+    overflow: hidden;
 
 }
 }
@@ -2663,6 +2665,8 @@ margin-bottom: 20px
 }*/
 .box_relaciones{
     width: 90%;
+    max-height:  100px;
+    overflow: hidden;
 }
 .box_relaciones .titulo_relaciones{
 text-align: left;
