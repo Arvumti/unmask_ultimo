@@ -30,13 +30,15 @@
                             <div class="mask">
                                 <img src="{{ URL::asset('\\img\\db_imgs\\'.$data['perfil']->foto) }}">
                             </div>
-                            <!-- ULTIMA MASCARA PUBLICADA -->
-                            @foreach($data['mascaras'] as $mascara)
+                            <div class="masca_foto">
+                                <!-- ULTIMA MASCARA PUBLICADA -->
+                                @foreach($data['mascaras'] as $mascara)
 
-                            @if( strlen($mascara->nombre) > 0 )
-                            <p>{{substr( $mascara->nombre, 0, 15) }}  </p>
-                            @endif
-                            @endforeach
+                                @if( strlen($mascara->nombre) > 0 )
+                                <p>{{substr( $mascara->nombre, 0, 15) }}  </p>
+                                @endif
+                                @endforeach
+                            </div>
                         </div>
                         <div class="box_miniatura">
                         
@@ -297,7 +299,7 @@
                             <div class="extra_inputs">
                                 <label>
                                     <span>
-                                        {{Lang::get('messages.perfInfLblImagenExtra')}}
+                                        {Lang::get('messages.perfInfLblImagenExtra')}}
                                     </span>
                                     <input type="file" id="fotos" name="fotos[]" multiple="multiple" accept="image/*" required/>
                                 </label>
@@ -456,7 +458,7 @@
                                 @endif
                         <!-- AQUI VA EL NUEVO VIDEO -->
 
-                                 <video width="350px" height="330" controls="true">
+                                 <video width="350px" height="330" poster="{{ URL::asset('') }}"controls="true">
                                     <source src="" type="video/mp4">
                                     <source src="" type="video/ogg">
                                     <source src="" type="video/webm">

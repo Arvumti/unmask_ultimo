@@ -114,9 +114,9 @@ $(document).ready(function(){
     $('#comments').show();
 
     $('.teg_photo').hover(function(){
-        $('.teg_photo p').stop().fadeIn(300);
+        $('.teg_photo .masca_foto p').stop().fadeIn(300);
     },function(){
-        $('.teg_photo p').stop().fadeOut(300);
+        $('.teg_photo .masca_foto p').stop().fadeOut(300);
     });
 
     /* Navegacion para agregar posts

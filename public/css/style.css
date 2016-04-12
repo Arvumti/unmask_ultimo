@@ -2642,6 +2642,7 @@ margin-bottom: 20px
     /*margin-top: 10px;*/
     max-height: 70px;
     overflow: hidden;
+    text-align: center;
 
 }
 }
@@ -2667,6 +2668,8 @@ margin-bottom: 20px
     width: 90%;
     max-height:  100px;
     overflow: hidden;
+    text-align: center;
+
 }
 .box_relaciones .titulo_relaciones{
 text-align: left;
@@ -2702,4 +2705,14 @@ text-align: left;
 }
 .mascara_perfil{
     border:solid 1px #A54D42; padding:2px; border-radius:3px;background:#A54D42;color:white;
+}
+.masca_foto{
+    width: 100%;
+    padding: 8px;
+    max-height: 50px;
+    overflow: hidden;
+    text-align: center;
+}
+.masca_foto p{
+
 }
