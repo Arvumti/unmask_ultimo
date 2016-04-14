@@ -18,6 +18,12 @@ function GetNameImage($prefix) {
 	return $img_noticia;
 }
 
+function GetNameVideo($prefix) {
+	$milliseconds = round(microtime(true) * 1000);
+	$img_noticia = $prefix.date('ymdHis').$milliseconds.'.mp4';
+	return $img_noticia;
+}
+
 Route::get('/idioma/{idioma}', function($idioma){
 	Session::put('locale', $idioma);;
 	return Redirect::to('/');
@@ -1185,6 +1191,71 @@ Route::post('/relaciones/{id}', function($id) {
 		return Redirect::to('/perfiles');
 });
 
+Route::post('/post/{id}', function($id) {
+	$data = Input::all();
+
+	$post = new Post;
+	$post->idAlias = Session::get('usuario')->idAlias;
+	$post->idPerfil = $id;
+	$post->tipo = 5;
+
+	$doSave = true;
+
+	if(strlen($data['secret']) > 0 || strlen($data['confesion']) > 0) {
+		$post->secret = $data['secret'];
+		$post->confesion = Input::get("comment");
+
+		if(strlen($data['secret']) > 0)
+			DB::table('perfiles')
+				->where('idPerfil', $id)
+				->update(array('secret_pub' => $data['secret'], 'updated_at' => DB::raw('NOW()')));
+	}
+	if(strlen(Input::get("link")) > 0) {
+		$video = explode ('v=', $data['link'])[1];
+
+		$post->link = $video;
+	}
+	if(strlen(Input::get("link_evi")) > 0) {
+		$post->link_evi = $data['link_evi'];
+	}
+	// if(count($data['vide_file']) > 0) {
+		
+	// 	$file = $data['vide_file'][0];
+	// 	if($data['vide_file'][0] === null)
+	// 		continue;
+	// 	$image = GetNameVideo('e_');
+
+	// 	$post->video_file = $image;
+
+	// 	$file->move(public_path().'/img/db_videos/posts/', $image);
+	// }
+
+	if(count($data['files']) > 0) {
+		if(count($data['files']) > 0 && $post->save()) {
+			for ($i=0; $i < count($data['files']); $i++) { 
+				$file = $data['files'][$i];
+				if($data['files'][$i] === null)
+					continue;
+				$image = GetNameImage('e_');
+
+				$foto_post = new FotoPost;
+				$foto_post->foto = $image;
+				$foto_post->idPost = $post->id;
+
+				if ($foto_post->save())
+					$file->move(public_path().'/img/db_imgs/posts/', $image);
+			}
+		}
+
+		$doSave = false;
+	}
+	
+	if($doSave)
+		$post->save();
+
+	return Response::json(Array('ok' => $data));
+});
+
 Route::post('/post/{id}/{opcion}', function($id, $opcion) {
 	$data = Input::all();
 
@@ -1457,19 +1528,20 @@ Route::post('/principal/avanzada', function() {
 	return View::make('base_nu')->with('alias', $data);
 });*/
 Route::get('/principal', function() {
-	/*$mail = 'chano';
-	$pass = 'chano';
+	/*$mail = 'ok';
+	$pass = 'ok';
 
 	$usuarios = DB::select(DB::raw("
-								SELECT 1 id, idAlias, password, nombre, correo, pais, estado, foto
+								SELECT 1 id, idAlias, password, nombre, correo, pais, estado, '' foto
 								FROM alias
 								WHERE nombre = '{$mail}'
 								AND password = '{$pass}'
-							"))
+							"));
 
 	$usuario = $usuarios[0];
 	$usuario->front = Array('nombre' => $usuario->nombre, 'correo' => $usuario->correo, 'estado' => $usuario->estado, 'pais' => $usuario->pais);
 	Session::put('usuario', $usuario);*/
+	//==============================================
 
 	$pais = Session::get('usuario')->pais;
 	$estado = Session::get('usuario')->estado;

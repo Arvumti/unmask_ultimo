@@ -353,7 +353,9 @@
                         <div class="user_main_content_wrap">
 
                            <!--a href="#anchor_add">Add comment</a-->
-                           <form class="postearEv " enctype="multipart/form-data" data-abide>
+                           {{ Form::open(array('url'=>'apply/upload','method'=>'POST')) }}
+                           {{ Form::close() }}
+                           <form class="postearEv" enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="post/{{$data['perfil']->idPerfil}}" data-abide>
                                 <div class="add_comment post Hidden">
                                    
                                     <div id="conCampo" data-tipo="1" class="Hidden">
@@ -373,7 +375,7 @@
                                         <label>
                                             {{Lang::get('messages.perfPorLblEvidenciaVideo')}}:
                                             <input  type="text" name="link" placeholder="www.youtube.com/videoname"data-tooltip aria-haspopup="true" class="has-tip"title="{{Lang::get('messages.perfPostTltEvidenciaYoutube')}}"/>
-                                            <input type="file" id="" name="[]"  accept="video/*" data-tooltip aria-haspopup="true" class="has-tip" />
+                                            <input type="file" id="" name="vide_file"  accept="video/*" data-tooltip aria-haspopup="true" class="has-tip" />
 
                                         </label>
                                     </div>
@@ -384,7 +386,9 @@
                                         </label>
                                     </div>
                                     <div id="botCampo" class="Hidden">  
-                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionEvidencia')}}"><input type="submit" style="margin-top:12px;" class="button btn-postear"value="{{Lang::get('messages.perfPorLblPostear')}}"><!--button type="button"  style=""> </button--></span>
+                                        <span data-tooltip aria-haspopup="true" class="has-tip" title="{{Lang::get('messages.perfPostTltConfesionEvidencia')}}">
+                                            <input type="submit" style="margin-top:12px;" class="button btn-postear"value="{{Lang::get('messages.perfPorLblPostear')}}"><!--button type="button"  style=""> </button-->
+                                        </span>
                                     </div>
                                 </div>
                            </form>
@@ -1671,10 +1675,12 @@
 	        
 		        $('.loading').removeClass('isHidden');
 				var xhr = $.ajax({
-		            url: url + 'post/' + idPerfil + '/' + tipo,  //Server script to process data
+                    //url: url + 'post/' + idPerfil + '/' + tipo,  //Server script to process data
+		            url: url + 'post/' + idPerfil,  //Server script to process data
 		            type: 'POST',
 		            success: function (argument) {
-		            	window.location.reload();
+                        debugger
+		            	//window.location.reload();
 		            },
 		            error: function(xhr){debugger},
 		            data: formData,
@@ -1696,9 +1702,9 @@
 			typeahead(jsonMa);
 			
 
-			$('.btn-postear').on('click', function (e) {
+            $('.btn-postear').on('click', function (e) {
                 e.preventDefault();
-				$('.postearEv').submit();			
+                $('.postearEv').submit();
 			})
 
 
