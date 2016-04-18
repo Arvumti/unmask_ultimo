@@ -783,7 +783,7 @@ Route::get('/perfil/{id}', function($id) {
 										ORDER BY a.tipo
 									"));
 	$data['posts'] = DB::select(DB::raw("
-										SELECT 	a.idPost, a.idAlias, a.idPerfil, a.link_evi, a.confesion, a.foto, a.link, a.secret, b.nombre, a.created_at,
+										SELECT 	a.idPost, a.idAlias, a.video_file,a.idPerfil, a.link_evi, a.confesion, a.foto, a.link, a.secret, b.nombre, a.created_at,
 												ROUND(SUM(COALESCE(c.corazon, 0))/5) corazon, ROUND(SUM(COALESCE(c.estrella, 0))/4) estrella, 
 												ROUND(SUM(COALESCE(c.blike, 0))/3) blike, ROUND(SUM(COALESCE(c.carita, 0))/2) carita, ROUND(SUM(COALESCE(c.cake, 0))/1) cake,
 												ROUND(SUM(COALESCE(c.caca, 0))/5) caca, ROUND(SUM(COALESCE(c.craneo, 0))/4) craneo, ROUND(SUM(COALESCE(c.bug, 0))/3) bug, 
@@ -814,6 +814,7 @@ Route::get('/perfil/{id}', function($id) {
 										GROUP BY a.idPost, a.link_evi, a.confesion, a.foto, a.link, b.nombre, a.created_at, a.tipo
 										ORDER BY a.created_at DESC;
 									"));
+// dd($data['posts']);
 	$data['relaciones'] = DB::select(DB::raw("
 										SELECT b.idPerfil, b.foto
 										FROM perfiles_publicos a
@@ -951,7 +952,7 @@ Route::get('/perfil/{id}', function($id) {
 									"));
 		}
 	}
-
+	// dd($data);
 	return View::make('perfil')->with('data', $data);;
 });
 
@@ -1193,7 +1194,7 @@ Route::post('/relaciones/{id}', function($id) {
 
 Route::post('/post/{id}', function($id) {
 	$data = Input::all();
-
+// dd(Input::all());
 	$post = new Post;
 	$post->idAlias = Session::get('usuario')->idAlias;
 	$post->idPerfil = $id;
@@ -1229,6 +1230,22 @@ Route::post('/post/{id}', function($id) {
 
 	// 	$file->move(public_path().'/img/db_videos/posts/', $image);
 	// }
+	// 
+	if(count($data['vide_file']) > 0) {
+		
+		ini_set('post_max_size', '64M');
+		ini_set('upload_max_filesize', '64M');
+		// $file = $data['vide_file'][0];
+		$file = $data['vide_file'];
+		// if($data['vide_file'][0] === null)
+		if($data['vide_file'] === null)
+			continue;
+		$image = GetNameVideo('e_');
+
+		$post->video_file = $image;
+
+		$file->move(public_path().'/img/db_videos/posts/', $image);
+	}
 
 	if(count($data['files']) > 0) {
 		if(count($data['files']) > 0 && $post->save()) {

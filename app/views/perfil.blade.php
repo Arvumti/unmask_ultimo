@@ -355,7 +355,10 @@
                            <!--a href="#anchor_add">Add comment</a-->
                            {{ Form::open(array('url'=>'apply/upload','method'=>'POST')) }}
                            {{ Form::close() }}
-                           <form class="postearEv" enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="post/{{$data['perfil']->idPerfil}}" data-abide>
+                           <!--
+                           <form class="postearEv" enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="post/{{$data['perfil']->idPerfil}}" data-abide>-->
+                           <form class="postearEv" enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="post/{{$data['perfil']->idPerfil}}">
+                                <input name="_token" type="hidden" value="{{csrf_token()}}">
                                 <div class="add_comment post Hidden">
                                    
                                     <div id="conCampo" data-tipo="1" class="Hidden">
@@ -392,6 +395,12 @@
                                     </div>
                                 </div>
                            </form>
+                           <div id="progress-upload-000">
+                                <div>
+                                    <div></div>
+                                </div>
+                           </div>
+                          
                             @foreach($data['posts'] as $post)
                             <div class="post">
                                 <h1>{{$post->secret}}</h1>
@@ -462,7 +471,7 @@
                                 @endif
                         <!-- AQUI VA EL NUEVO VIDEO -->
 
-                                 <video width="350px" height="330" poster="{{ URL::asset('') }}"controls="true">
+                                 <video style="background-color:black;"width="350px" height="330" poster="{{ URL::asset('img/db_videos/posts/'.$post->video_file) }}" src="{{ URL::asset('img/db_videos/posts/'.$post->video_file) }}" controls="true">
                                     <source src="" type="video/mp4">
                                     <source src="" type="video/ogg">
                                     <source src="" type="video/webm">
@@ -1660,9 +1669,9 @@
 
 			$('.postearEv').on('valid', function (e) {
 				e.preventDefault();
+            }).on('submit', function (e) {
+                e.preventDefault();
 				SavePost();
-			}).on('submit', function (e) {
-				e.preventDefault();
 			});
 
 			function SavePost() {
@@ -1672,23 +1681,115 @@
 				var formData = new FormData($('.postearEv')[0]);
 		        //formData.append("fdata", JSON.stringify({opcion:opcion}));
                 var tipo = $('.postearEv > div > div:not(.Hidden):not(#botCampo)').data('tipo');
-	        
-		        $('.loading').removeClass('isHidden');
+
+                // console.log(url,idPerfil);return;
+                // 
+                progress = "ewewwe";
+                   
+                $('.loading').removeClass('isHidden');
+                var xhr = $.ajax({
+                    url: url+'post/'+idPerfil,
+                    type: 'POST',
+                    cache: false,
+                    // data:  sdata,
+                    data:  formData,
+                    //contentType :'multipart/form-data',
+                    // dataType:'script',
+                    dataType: "json",
+                    mimeType:"multipart/form-data",
+                    contentType:false,
+                    processData:false,
+                    success: function (argument) {
+                        debugger
+                        window.location.reload();
+                    },
+                    error: function(xhr){debugger}/*,
+                    xhr: function() {
+                        myXhr = $.ajaxSettings.xhr();                       
+                        if(myXhr.upload && progressFn){
+                            myXhr.upload.addEventListener('progress',function(prog) {
+                                
+                                var value = ~~((prog.loaded / prog.total) * 100);
+
+                                console.log(value);
+                                // Si se pasa una funcion al progresor
+                                /*if(progressFn && typeof progressFn == "function") {
+                                    progressFn(prog,value);
+                                // Si se coloca el elemento progress html5
+                                } else if (progressFn) {
+                                    $(progressFn).val(value);
+                                }
+                                *|/
+                            }, false);
+                        }
+                        return myXhr;
+                    
+                    }*/
+                    ,beforeSend:function(){
+                        $('#progress-upload-000').slideDown('fast');
+                        $('.btn-postear').attr('disabled');
+                    },
+                    complete:function(){
+                        $('#progress-upload-000').slideUp('slow');
+                        $('.btn-postear').removeAttr('disabled');
+                    }
+                    , xhr: function () {
+                        var xhr = new window.XMLHttpRequest();
+                        xhr.upload.addEventListener("progress", function (evt) {
+                            if (evt.lengthComputable) {
+                                var percentComplete = evt.loaded / evt.total;
+                                console.log(percentComplete);
+                                progressBar(percentComplete);
+                                // $('.progress').css({
+                                //     width: percentComplete * 100 + '%'
+                                // });
+                                // if (percentComplete === 1) {
+                                //     $('.progress').addClass('hide');
+                                // }
+                            }
+                        }, false);
+                        xhr.addEventListener("progress", function (evt) {
+                            if (evt.lengthComputable) {
+                                var percentComplete = evt.loaded / evt.total;
+                                console.log(percentComplete);
+                                progressBar(percentComplete);
+                                // $('.progress').css({
+                                //     width: percentComplete * 100 + '%'
+                                // });
+                            }
+                        }, false);
+                        return xhr;
+                    }
+                });
+
+                function progressBar(p){
+                    $('#progress-upload-000 > div > div').css({
+                        width: p*100 + '%'
+                    });
+                    $("#progress-upload-000 > div > div").text((p*100|0) +'%');
+                }
+
+                /*
+                
+                 $('.loading').removeClass('isHidden');
 				var xhr = $.ajax({
                     //url: url + 'post/' + idPerfil + '/' + tipo,  //Server script to process data
 		            url: url + 'post/' + idPerfil,  //Server script to process data
 		            type: 'POST',
 		            success: function (argument) {
                         debugger
-		            	//window.location.reload();
+		            	window.location.reload();
 		            },
 		            error: function(xhr){debugger},
 		            data: formData,
 		            dataType: "json",
 		            cache: false,
 		            contentType: false,
-		            processData: false
+		            processData: false,
+                    mimeType:"multipart/form-data",
+           
 		        });
+                */
 
 		        xhr.always(function() {
 		        	$('.loading').addClass('isHidden');
@@ -1787,7 +1888,36 @@
                 /*$(this).attr('src', 'img/mascarita.png');*/
             });
     </script>
-    
+    <style type="text/css">
+    #progress-upload-000{
+        display:none;
+        padding: 12px;
+        box-sizing: border-box;
+        max-width: 720px;
+    }
+
+    #progress-upload-000 > div{
+        height: 18px;
+        border: 1px solid gray;
+        border-radius: 4px;
+        background: linear-gradient(#E0E0E0,#FAFAFA);
+        
+    }
+    #progress-upload-000 > div >div{
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(#E0F7FA,#4FC3F7);
+        border-right: 1px solid gray;
+        text-align: center;
+    font-size: .8em;
+    text-shadow: 1px 1px 1px #fff;
+    line-height: 1.4;
+    font-weight: bold;
+        
+    }
+    /* background: linear-gradient(#4E342E,#795548); */
+
+    </style>    
 
 	<!--script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script-->
 

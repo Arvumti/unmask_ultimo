@@ -2695,11 +2695,7 @@ text-align: left;
         
     }
 }
-.redes_icono{
-    display: inline-block !important;
-    vertical-align: middle !important;
 
-}
 .titulo_barra{
     text-align: center;
 }
@@ -2714,5 +2710,14 @@ text-align: left;
     text-align: center;
 }
 .masca_foto p{
+
+}
+.red_social{
+ width: 100%;
+}
+.redes_icono{
+    display: inline-block !important;
+    vertical-align: middle !important;
+    float: right;
 
 }
